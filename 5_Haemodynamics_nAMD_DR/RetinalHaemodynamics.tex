@@ -83,6 +83,8 @@ On the inner surface, the displacement of the wall is provoked by the blood flow
 Finally, blood flow within the artery is modelled as a Newtonian, incompressible viscous fluid with negligible radial velocity within a cylinder of varying cross section.\\
 Across the range of normal intraocular pressures, between $15$ and $20$ mmHg, the model predicted a decrease of almost $5\%$ in blood flow rate.
 Variations in the dimension of the sclera and lamina cribrosa can also induce strong reductions of blood flow, particularly in case of elevated IOP. \\
+
+
 Additionally, as for most vascular beds, retinal vasculature possesses an inherent capacity to regulate blood flow to maintain a near constant blood flow.
 This regulation is made possible by the presence of smooth muscle cells on the vessel walls.
 These cells are responsible for contraction or dilatation of the vessels in response to changes in the vessel's environment.
@@ -90,13 +92,36 @@ Such vascular response may be triggered by variations in systemic blood pressure
 By varying the diameter of the lumen, the vasculature is able to increase vascular resistance and reduce or increase blood flow accordingly. 
 Failures to maintain retinal blood flow within a healthy range has been associated with a number of retinal and systemic diseases, such as glaucoma, AMD or diabetes~\textbf{Add references (see in DOI: 10.1167/iovs.13-13611)}.
 Therefore, it is essential to include autoregulation and the signalling pathways that lead to it in haemodynamic models in order to understand how defects can be an onset of retinal pathologies.\\
-Guidoboni et al. built on their model of the central retinal artery by including arterioles, capillaries, venules and central retinal vein as compartments upon which applies different vascular resistance and pressures in an analogy with electrical circuits.
-This 0-dimensional model 
 
-
-
-
-
+In a later paper, Guidoboni et al.\cite{Guidoboni_2014b} built up on this model of the central retinal artery by including arterioles, capillaries, venules and up to the central retinal vein.
+This 0-dimensional model uses the network proposed by Takahashi et al.~\cite{Takahashi_2009}, aggregated into compartments for arterioles, capillary, venules and central retinal vein.
+Following an analogy with electrical circuits, different resistances and capacitors properties apply for each compartment.
+These properties of electrical circuit represent the vascular resistance opposing the flow and the capacity to store blood volumes and deform.
+Applying Ohm's law to the network results in a system of ordinary differential equations involving the time derivatives of transmural pressure in each compartment.
+The time dependence comes from the varying systemic arterial pressure which feeds the central retinal artery.
+Both a passive and active mechanism of blood flow regulation are introduced in this model through variable resistances.
+First, the vascular resistance of a given compartment vary in a passive way through deformation caused by the transmural pressure $\Delta P$ according to:
+\begin{equation}
+  \label{eq:PassiveVariableResistance}
+  R = \frac{8\pi\mu L}{A^2_{ref}}\left(1+\frac{\Delta P}{k_pk_L}\right)^{-4},
+\end{equation}
+where $A_ref$ is the reference cross section area of the vessel when $\Delta P = 0$, $L$ is the length of the vessel and $k_p,~k_L$ are coefficient defining the deformability of the vessel.
+Additionnaly, to account for the possibility of vein collapsing, $\Delta P$ is allowed to take negative values for veins and venules, in which case the resistance is given by:
+\begin{equation}
+  \label{eq:PassiveVariableResistanceCollapse}
+  R = \frac{8\pi\mu L}{A^2_{ref}}\left(1-\frac{\Delta P}{k_p}\right)^{4/3} \text{ for } \Delta P<0.
+\end{equation}
+On the other hand, blood flow autoregulation through smooth muscle cells is accounted for by a phenomenological model of the vascular resistance in arterioles.
+Abscence of autoregulation is assumed to correspond to a constant resistance $R_{ref}$.
+The flow computed for a given ocular perfusion pressure (OPP) at the central retinal artery gives a baseline value $Q_{baseline}(OPP)$ from which the active resistance is computed according to:
+\begin{equation}
+  \label{eq:ActiveResistancePhenomenological}
+  R_{arteriole} = R_{ref}\frac{c_L + c_u\exp\Bigl(K\bigl(Q_{baseline}(OPP)-\bar Q\bigr)-\hat c\Bigr)}{1 + \exp\Bigl(K\bigl(Q_{baseline}(OPP)-\bar Q\bigr)-\hat c\Bigr)}.
+\end{equation}
+With OPP varying throughout a cardiac cycle, the mean model-predicted blood flow across the vascular network matches experimental values for a range of healthy mean arterial pressures.\\
+Using this model, one can predict based on systemic blood flow measurements (mean arterial pressure) what range of intraocular pressure a simulated retinal vasculature can handle while limiting the disruption of vascular functions in the retina.
+Simulations can recreate patients with working or defectuous autoregulation system as well as hyper or hypotensive patients.
+In particular, hypertension is a common risk factor to a number of retinal diseases, though the link with the onset of retinopathies are not well understood~\cite{Klein_2004, Leeman_2019} [DOIs: https://doi.org/10.1161/HYPERTENSIONAHA.118.11507, https://doi.org/10.1161/HYPERTENSIONAHA.118.11507].
 
 
 \subsubsection{Ageing and diseased retina}
