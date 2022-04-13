@@ -51,7 +51,7 @@ Radius of the daugther vessels is determined by Murray's theoretical law:
   \label{eq:MurrayLaw}
   r_p^\gamma = r_{d,1}^\gamma + r_{d,2}^\gamma
 \end{equation}
-with $r_p$ the parent vessel radius and $r_{d,i},~i=1,2$ the radius of the daugther vessel~\cite{Murray_1926}.
+with $r_p$ the parent vessel radius and $r_{d,i},~i=1,2,$ the radius of the daugther vessels~\cite{Murray_1926}.
 The exponent $\gamma$ was determined theoretically by Murray to be equal to $3$, however Takahashi et al. used $\gamma=2.85$ as suggested by more recent work.
 After branching dichotomously fourteen times, each of the terminal arterioles sprout four capillaries of fixed homogeneous calibre. 
 The venous tree symetrically, starting from the central retinal vein to reach the capillary level where both trees are linked together.
@@ -63,7 +63,7 @@ Poiseuille law describes blood flow as proportional to the pressure drop along t
   \label{eq:PoiseuilleLaw}
   Q = \frac{\pi r^4}{8\mu L}\Delta p
 \end{equation}
-where $Q$ is the blood flow, $r$ is the vessels radius, $L$ the vessel length, $\mu$ the blood viscosity and $Delta p$ the pressure drop along the vessel's length.
+where $Q$ is the blood flow, $r$ is the vessels radius, $L$ the vessel length, $\mu$ the blood viscosity and $\Delta p$ the pressure drop along the vessel's length.
 This approximation fails to work in the smallest calibre vessels of diameter equal or smaller than of the diameter of the red blood cells flowing through them.
 As a consequence, vascular resistance is strongly hightened.
 To account for this effect, the viscosity of blood is replaced by a varying effective viscosity $\mu_e = \mu_e(r)$ which accounts for this effect and the so-called F\r{a}hr\ae us-Lindqvist effect.
@@ -129,6 +129,15 @@ The mechanisms tringgering autoregulation included in this work are: pressure, s
 The idea of the model was to investigate the implications of each autoregulation pathways, individually and collectively, in glaucoma.
 Glaucoma is characterised by degenerations of the optic nerve and the retinal ganglion cell layer and is associated with impairments of the vasuclar system, both in the systemic and retinal~\cite{Hulsman_2007, Bonomi_2000}.
 
+\break
+
+In the studies presented before, the vasculature is represented in a simplified way, either as compartments with varying resistance and capacitance or generated following optimality principles.
+However, owed to its intrinsic function, the retina can be easily observed \textit{in vivo}.
+Retinal angiograms have highlighted the differences between individuals\emph{INSERT REF}.
+Therefore, some groups tried to simulate haemodynamics in vascular trees segmented from retinal angiograms~\cite{Aletti_2016, Malek_2015, Liu_2009, Rebhan_2019}.
+However, they are at the moment limited to small segments of the vasculature, therefore ignoring the effect of downstream capillaries and venules in the distribution of haemodynamic parameters.
+Despite the limitations and difficulties, modelling blood perfusion in real, segmented vasculature opens the door to exploring non-perfusion issues characteristic of certain retinal diseases~\cite{Wessel_2012, Sim_2013}.
+
 
 \subsubsection{Ageing and diseased retina}
 \begin{itemize}
@@ -139,7 +148,7 @@ Glaucoma is characterised by degenerations of the optic nerve and the retinal ga
 
 \subsection{Anti-VEGF therapy}
 
-\subsubsection{Laser treatment}
+\subsection{Laser treatment}
 
 % \begin{spacing}{0.0}
 \bibliographystyle{abbrvnat} % {ksfh_nat}
