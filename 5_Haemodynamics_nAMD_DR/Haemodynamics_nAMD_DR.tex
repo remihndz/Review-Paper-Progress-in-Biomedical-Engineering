@@ -9,7 +9,9 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 
+\graphicspath{{img/}}
 \usepackage[numbers, square]{natbib}
+
 
 \begin{document}
 
@@ -125,7 +127,18 @@ The flow computed for a given ocular perfusion pressure (OPP) at the central ret
 With OPP varying throughout a cardiac cycle, the mean model-predicted blood flow across the vascular network matches experimental values for a range of healthy mean arterial pressures.\\
 Using this model, one can predict based on systemic blood flow measurements (mean arterial pressure) what range of intraocular pressure a simulated retinal vasculature can handle while limiting the disruption of vascular functions in the retina.
 Simulations can recreate patients with working or defectuous autoregulation system as well as hyper or hypotensive patients.
-In particular, hypertension is a common risk factor to a number of retinal diseases, though the link with the onset of retinopathies are not well understood~\cite{Klein_2004, Leeman_2019}.
+In particular, hypertension is a common risk factor to a number of retinal diseases, though the link with the onset of retinopathies are not well understood~\cite{Klein_2004, Leeman_2019}.\\
+In an early work on autoregulation mechanisms, Arciero et al. developed a model of blood flow and oxygen extraction from a compartmental representation of the retinal vessels~\cite{Arciero_2008}.
+The model includes different mechanisms triggering autoregulation.
+It predicts that ATP released from red blood cells with low oxygen saturation in the venules can induce vasodilatation and increase oxygen perfusion in response to increases in oxygen consumption rates (e.g., during exercise).
+Furthermore, the model describes the relationships between the different signaling pathways, which can be summarize as in Figure~\ref{fig:Autoregulation-Summary}.
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=.9\textwidth]{SummaryAutoregulationPathways}
+  \caption{Summary of the activation pathways to autoregulation, taken from Arciero et al~\cite{Arciero_2008}. The tone compartment represent the activation of the smooth muscle cells on the vessels walls. (+) and (-) signs represent increase and decrease in tone of those cells, respectively. Metabolic signaling corresponds to ATP release from venules that travels upstream to cause arteriolar vasodilation.}
+  \label{fig:Autoregulation-Summary}
+\end{figure}
 
 While the previous model by Guidoboni et al.~\cite{Guidoboni_2014b} models varaible resistance with a phenomenological approach, Arciero et al.~\cite{Arciero_2013} chose to directly model the vascular response through the various mechanisms acting on it.
 The mechanisms tringgering autoregulation included in this work are: pressure, shear stress on the vessel wall, metabolic response, local tissue concentration of carbon dioxide and neural stimuli.
@@ -158,6 +171,10 @@ The vascular network of an healthy subject, a subject with DR and a subject with
 The inlet flow for each case was scaled accordingly to the subject specifities.
 The experiments showed important differences in wall shear stress between each groups, with diseased cases being subject to higher stress.
 This was true for all vessel diameters.
+Guidoboni et al. used their theoretical vascular network to investigate the range of intraocular pressure that patients suffering from low or high systemic blood pressure or loss of autoregulation function can wisthand with limited variation of retinal blood flow~\cite{Guidoboni_2014b}.
+
+
+
 
 \begin{itemize}
 \item Rebhan 2019: Glaucoma and diabetic retinopathy, haemodynamics and tissue strees
