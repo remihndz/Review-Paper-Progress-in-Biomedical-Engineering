@@ -110,37 +110,38 @@ Absence of auto-regulation is assumed to correspond to a constant resistance $R_
 The flow computed for a given ocular perfusion pressure (OPP) at the central retinal artery gives a baseline value $Q_{baseline}(OPP)$ from which the active resistance is computed according to:
 \begin{equation*}
   \label{eq:ActiveResistancePhenomenological}
-  \mathcal{R}_{arteriole} = \mathcal{R}_{ref}\frac{c_L + c_u\exp\Bigl(K\bigl(Q_{baseline}(OPP)-\bar Q\bigr)-\hat c\Bigr)}{1 + \exp\Bigl(K\bigl(Q_{baseline}(OPP)-\bar Q\bigr)-\hat c\Bigr)}.
+  \mathcal{R}_{arteriole} = \mathcal{R}_{ref}\frac{c_L + c_u\exp\Bigl(K\bigl(Q_{baseline}(OPP)- Q\bigr)-\hat c\Bigr)}{1 + \exp\Bigl(K\bigl(Q_{baseline}(OPP)- Q\bigr)-\hat c\Bigr)}.
 \end{equation*}
 With OPP varying throughout a cardiac cycle, the mean model-predicted blood flow across the vascular network matches experimental values for a range of healthy mean arterial pressures.
 Using this model, one can predict based on systemic blood flow measurements (e.g., mean arterial pressure) what range of intraocular pressure a simulated retinal vasculature can handle while limiting the disruption of vascular functions in the retina.
-Simulations can recreate patients with working or defectuous auto-regulation system as well as hyper or hypotensive patients.
+Simulations can recreate patients with working or defectuous auto-regulation system as well as hyper or hypotensive patients, both aspects being common in age and disease.
 In particular, hypertension is a common risk factor to a number of retinal diseases, though the links with the onset of retinopathies are not well understood~\cite{Klein_2004, Leeman_2019}.\\
-While the previous model by Guidoboni et al.~\cite{Guidoboni_2014b} models varying resistance with a phenomenological approach, Arciero et al.~\cite{Arciero_2013} chose a mechanistic modelling approach of the various signals acting on smooth muscles tone.
+While the previous model by Guidoboni et al.~\cite{Guidoboni_2014b} models varying vascular resistance with a phenomenological approach, Arciero et al.~\cite{Arciero_2013} chose a mechanistic modelling approach of the various signals acting on smooth muscles tone.
 The mechanisms triggering auto-regulation included in this work are: pressure, shear stress on the vessel wall, metabolic response, local tissue concentration of carbon dioxide and neural stimuli.
 The idea of the model was to investigate the implications of each auto-regulation pathways, individually and collectively, in glaucoma.
 Glaucoma is characterized by degenerations of the optic nerve and the retinal ganglion cell layer and is associated with impairments of the vascular system, both in the systemic and retinal~\cite{Hulsman_2007, Bonomi_2000}.
 
 In the studies presented before, the vasculature is represented in a simplified way, either as compartments with varying resistance and capacitance or generated following optimality principles.
-However, retinal angiograms have shed light on a number of vascular biomarkers in diseased retinas.
+However, retinal angiograms have shed light on a number of vascular biomarkers retinal and neurogenerative diseases~\cite{Chalam_2016,Tsokolas_2020}.
 Despite their clinical relevance, the exact relationship between those biomarkers and the development of retinopathy is still unclear.
 Therefore, some groups tried to simulate haemodynamics in vascular trees segmented from retinal angiograms~\cite{Aletti_2016, Malek_2015, Liu_2009, Rebhan_2019}.
-However, they are for most limited to small segments of the arterial network, hence ignoring the effect of downstream capillaries and venules in the distribution of haemodynamic parameters.
-Despite the limitations and difficulties, such work provides a framework to investigate oxygen delivery and stress associated with ageing in vasculature and tissue that may affect visual functions~\cite{Rickett_2010,Sim_2013,Wessel_2012}.
+However, they are for most limited to small segments of the arterial network, hence ignoring the effect of downstream capillaries and venules in the distribution of haemodynamic parameters or include the remaining vessels as compartments, similarly as previously described.\\
+Despite the limitations and difficulties, those works provide a framework to investigate oxygen delivery and stress associated with ageing in vasculature and tissue that may affect visual functions~\cite{Rickett_2010,Sim_2013,Wessel_2012}.
+Notably, Rebhan et al. proposed a framework to investigate tissue stress induced by blood flow, an aspect of research still unexplored~\cite{Rebhan_2019}.
 
 \break
 
 \subsubsection{Ageing and diseased retina}
 
-The effects of age and disease on the vasculature can be readily observed and quantified on retinal angiograms.
-In particular, vessel density and larger capillary-free areas in the inner retina have been related to severity of the disease in glaucoma, diabetic retinopathy (DR) and neovascular age-related macular degeneration (nAMD)~\cite{Al_Sheikh_2016, Rao_2020, Yuan_2020}.
-Furthermore, in those diseases, the retinal cells appear affected by changes in the vasculature.
-One reason is the reduced perfusion that creates ischemia within the retina.
+The effects of age and disease on the vasculature can be readily observed and quantified on retinal angiograms and structural images.
+In particular, vessel density and larger capillary-free areas in the inner retina have been related to severity of the disease in glaucoma, diabetic retinopathy and neovascular age-related macular degeneration~\cite{Al_Sheikh_2016, Rao_2020, Yuan_2020}.
+In those diseases, retinal cell layers appear affected by changes in the vasculature.
+One reason is the reduced perfusion that creates ischemia in the tissue.
 Retinal non-perfusion areas can be visualized on angiograms, however, the exact availability of oxygen in the tissue can hardly be measured \textit{in vivo}.
 Additionally, with age, blood vessels tend to work at full capacity in term of blood flow.
-This leads to first, the loss of auto-regulation capabilities and second, additional stress on the blood vessels and the tissue within which they are embedded.
+This leads to first, the loss of auto-regulation capabilities and second, additional stress on the blood vessels and the tissue within which they are embedded.\\
 Mechanical stress and its relation to diseases can be investigated \textit{in silico}.
-Rehban et al. proposed such a model based on segmented vasculature.
+Rehban et al. proposed such a model based on segmented vasculature~\cite{Rebhan_2019}.
 Their finite element approach uses very fine grid elements to embed vessels directly into a retina with different mechanical properties for cell layer.
 The combination of haemodynamics in a segmented vascular network and the embedding in tissue provide direct insight in the stress acting on the tissue and vessel walls for different subjects.
 The vascular network of an healthy subject, a subject with DR and a subject with glaucoma were used for comparison.
@@ -148,8 +149,8 @@ The inlet flow for each case was scaled accordingly to the subject specifities.
 The experiments showed important differences in wall shear stress between each groups, with diseased cases being subject to higher stress.
 This was true for all vessel diameters.\\
 Guidoboni et al. used their theoretical vascular network to investigate the range of intraocular pressure that patients suffering from low or high systemic blood pressure or loss of auto-regulation function can withstand with limited variation of retinal blood flow~\cite{Guidoboni_2014b}.
-Their model suggest that the extend of the effect of IOP on haemodynamics is influenced by both an individual's arterial blood pressure and capacity to auto-regulate blood flow.
-They concluded that the complex relationship highlighted by the model may explain the difficulty to obtain consistent results in \textit{in vivo} experiments.
+Their model suggest that the extend of the effect of IOP on haemodynamics is influenced by both, an individual's arterial blood pressure and capacity to auto-regulate blood flow.
+They concluded that the complex relationship highlighted by the model may explain the difficulty to obtain consistent results from \textit{in vivo} experiments.
 
 
 %%%% Part on the choroid
@@ -165,17 +166,11 @@ Zouache and colleagues attempted to close this gap by modelling the choriocapill
 By simulating the lobular structure of the CC, they investigated the effects of the geometry of an individual lobule on the blood flow.
 Their work suggested that the distribution of flow separators in the CC and the location of inlet and outlets in individual lobules may explain the localization of edema or neovasculature in diseased eyes.
 Other than the work of Zouache et al., Flower and colleagues theoretically determined the amount of photocoagulation therapy necessary to treat choroidal neovascularization in~\cite{Flower_2001}.
-This therapeutic approach has now been mostly replaced by intravitreal injections of antiVEGF agents.
-
-\begin{itemize}
-\item Rebhan 2019: Glaucoma and diabetic retinopathy, haemodynamics and tissue stress
-\item Flower 2001: choroidal blood flow and treatment of subfoveal neovsacularization (Might not be the best place to put it?)
-\item A word on Harris 2013 and mathematical models of glaucoma (review).
-\end{itemize}
+This therapeutic approach has however now been mostly replaced by intravitreal injections of antiVEGF agents.
 
 
 \subsection{Anti-VEGF therapy}
-
+Coming soon.
 \subsection{Laser treatment}
 
 % \begin{spacing}{0.0}
