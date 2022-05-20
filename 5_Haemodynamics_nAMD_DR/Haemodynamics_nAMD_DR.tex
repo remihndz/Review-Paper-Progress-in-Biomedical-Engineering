@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper]{article}
+\documentclass[12pt,a4paper]{journal}
 \usepackage[margin=1in]{geometry}
 
 \usepackage[utf8]{inputenc}
@@ -8,6 +8,7 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{siunitx}
+\sisetup{range-phrase=--, range-units=single}
 
 \graphicspath{{img/}}
 \usepackage[numbers, square]{natbib}
@@ -19,12 +20,33 @@
 
 \subsection{Retinal haemodynamics}
 
-Retinal haemodynamic models are concerned with describing blood flow within the retinal circulation.
-Adequate blood flow is essential to ensure delivery of nutrients and oxygen to the retinal cells as well as removing the waste products of those same cells.
-In the retina and choroid alike, blood vessels possess the ability to regulate their diameter to accommodate for changes in metabolic demand or in the vascular environment, such as changes in intraocular pressure (IOP), systemic arterial pressure or blood gases.
+Haemodynamic models are concerned with describing blood flow within a vascular network.
+In the case of the retina, two separate circulatory systems, namely the inner retinal vasculature and the choroid, are charged with bringing oxygen to the cells.
+While the former circulation is embedded inside the retinal tissue, the later lies behind the retina, to which it is linked trhrough Bruch's membrane.
+Bruch's membrane is a thin (\SIrange{2}{4}{\micro\meter}) structure mediating exchanges of gases and biological by-products between the retina and the choroidal circulation.
+The retinal vasculature typically feeds the inner \SIrange{60}{80}{\percent} of the retina, while the choroid supplies the remaining, more metabolically active, outer layers around the photoreceptors.
+
+Adequate blood flow is essential to ensure delivery of nutrients and oxygen to the retinal cells.
+Haemodynamic models are concerned with describing the properties of blood within a vascular network.
+In the case of the retina, this vascular network can be either the inner retinal vasculature or the choroid.
+Blood flow across a vessel is determined by the difference in blood pressure on each end of the vessel, its length, the size of the cross section of its lumen, the region between the vessel walls where blood flows.
+These properties of a vessel define the vascular resistance that is opposing the flow of blood.
+In addition, external pressures exert forces against the vessel walls, increasing vascular resistance.
+
+Constant blood flow can be maintened by the vessels by varying the vascular resistance in response to changes in the environment, e.g., changes in incoming flow during physical exercise or external pressures.
+This ability of the vasculature is called autoregulation.
+Both the retinal and choroidal circulation are able to autoregulate blood flow.
+In the inner retinal vasculature, arteries close to the central retinal artery are surrounded by 5 to 7 layers of smooth muscle cells~\cite{An2020, Kur_2012}.
+Those cells can act on an artery's radius to increase vascular resistance and maintain constant blood flow.
+As the arteries branch, the amount of smooth muscle cells diminishes.
+In arterioles of diameter \SIrange{8}{15}{\micro\meter}, only a single layer of smooth muscle cells is found while the walls of capillaries and venules are devoid of such cells. 
+Only a sparse number of smooth muscle cells is found on the walls of veins of diameter larger than \SI{10}{\micro\meter}.
+This organisation suggests that blood flow in the retina is regulated mainly by arteries and arterioles.
+Evidence suggests that the choroid is also able, maybe to a lesser degree, to autoregulate blood flow~\cite{Polska2007}.
+
 A number of mechanisms act on the tone of smooth muscle cells lining the vessel walls, effectively contracting or dilatating the vessel.
 For a review of those mechanisms observed \textit{in vivo}, see~\cite{Kur_2012}.
-In a number of retinal diseases such as neovascular age-related macular degeneration (nAMD) and diabetic retinopathy (DR), ocular blood flow and blood flow regulation have been observed to be impaired, see~\cite{Kur_2012} and reference therein.\\
+In a number of retinal diseases such as neovascular age-related macular degeneration (nAMD) and diabetic retinopathy (DR), ocular blood flow and blood flow regulation have been observed to be impaired, see~\cite{Kur_2012} and references therein.\\
 While direct \textit{in vivo} measurements of blood flow are possible, they are difficult to achieve and accurate data remains limited, especially in the choroid.
 In addition, current imaging and measurement modalities do not provide insights on the regulation pathways leading to changes in ocular blood flow.
 Mathematical models of the haemodynamics of ocular blood flow can help understand the relationships between IOP, systemic blood pressure, blood gases and oxygen availability in the retina.
