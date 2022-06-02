@@ -53,15 +53,42 @@ Mathematical models of the haemodynamics of ocular blood flow can help understan
 
 \textit{In silico}, blood can be modeled as an incompressible Newtonian fluid using Navier-Stokes equations.
 It is common to also assume that the vasculature is a series of interconnected cylindrical segments with constant cross section within which flow is laminar.
-With these assumptions, the Navier-Stokes equations can be simplified to the Poiseuille equation which gives the flow across a vessel segment.
-In Poiseuille flow, the pressure drop $\Delta p$ across the segment is proportional to the flow rate $Q$ and the vascular resistance opposing the flow $\mathcal{R}$ according to:
+
+\begin{center}\fbox{\begin{minipage}{0.95\textwidth}
+      \begin{itemize}
+      \item Viscous fluids are modelled by a set of differential equations relating acceleration, velocity, convection and pressure of a fluid.
+      \item The solution of those equations is simplified by assuming that the fluid is Newtonian and the flow incompressible and laminar.
+      \item An incompressible flow has a constant density regardless of the pressure and the fluid's properties are the same in all directions, namely, it is an isotropic fluid.
+      \item A Newtonian fluid is a fluid which has a constant viscosity for given pressure and temperature, regardless of the amount of shear it is subject to.
+      \item A Newtonian fluid flowing within a pipe is called laminar when fluid particules (e.g., red blood cells, blood plasma) move along smooth path with no mixing between each path.
+      This kind of flow is opposed to turbulent flow, which appears when the velocity of the flow goes over a threshold determined by a combination of the fluid's viscosity and density and the pipe's dimensions.
+      \item The propention of a fluid to flow in either fashion is summarized by the dimensionless Reynolds number.
+      \item Laminar flows show a parabolic velocity profile across the pipe, or vessel, cross section, with peak velocity at the center and null velocity at the walls.
+      \end{itemize}
+\end{minipage}}\end{center}
+
+With these assumptions, the Navier-Stokes equations can be simplified to the Poiseuille equation which gives the flow across a vessel segment, assumed straight and of constant cross section.
+In Poiseuille equation, the pressure drop $\Delta p$ across the segment is proportional to the flow rate $Q$ and the vascular resistance opposing the flow $\mathcal{R}$ according to:
 \begin{equation}
   \label{eq:PoiseuilleLaw}
   \Delta p = \frac{Q}{\mathcal{R}}, \qquad \mathcal{R} = \frac{8\mu L}{\pi r^4} 
 \end{equation}
-where $\mu$ is the viscosity of the blood and $l, r$ the length and radius of the segment, respectively.\\
+where $\mu$ is the viscosity of the blood and $l, r$ the length and radius of the segment, respectively.
+Poiseuille equation effectively neglects the curvature of blood vessels and the complex fluid behaviors that it may create, in particular in the case of turbulent flows.
+Note that the equation is one-dimensional and is therefore easier to solve for large and complex vascular networks.
+
+Some of the properties of blood flow seen in Equation~\ref{eq:PoiseuilleLaw} and the stress generated on the vessel walls are difficult to measure \textit{in vivo}.
+Vessel radius can be estimated straightforwardly from images of the retina~\cite{DoblhoffDier2014}.
+Fundus photography is one of those imaging modalities, displaying the whole retina but with limited resolution of smaller vessels.
+Injection of dye prior to the photography is possible to better highlights blood vessels and leakage of blood.
+Optical coherence tomography (OCT) angiography (OCTA) is another modality.
+It uses a decorelation algorithm on two OCT scans to highlight movement of particles.
+In the case of the retina, the only movement comes from red blood cells in suspension in the blood stream.
+OCTA provides high resolution scans of the vasculature within the desired field of view, which is not limited to the whole retina.
+However, leakages are not shown on OCTA as they are static structures.
+
 In narrow vessels, the F\r{a}hr\ae us-Lindqvist effect describes the decrease in viscosity of blood with decreasing vessel diameter, as the red blood cells move to the centre of the vessel, while a layer of plasma forms on the walls of the vessels~\cite{F_hr_us_1931}.
-However, in smaller capillaries, say under \SI{10}{\mu\meter}, this assumption is questionable given that the diameter of red blood cells in suspension in the blood is similar to the vessels caliber.
+However, in smaller capillaries, say under \SI{10}{\mu\meter}, this assumption is questionable given, that the diameter of red blood cells in suspension in the blood is similar to the vessels caliber.
 Therefore, empirical models of effective viscosity are often employed in microvasculature rather than constant viscosity to account for increases in vascular resistance in small capillaries~\cite{Pries_1990, Haynes_1960}.
 More detail on effective viscosity and other mathematical modelling techniques of blood flow in microvasculature, including modelling of gas transport, can be found in the review by Arciero et al.~\cite{C_Arciero_2017}.
 
