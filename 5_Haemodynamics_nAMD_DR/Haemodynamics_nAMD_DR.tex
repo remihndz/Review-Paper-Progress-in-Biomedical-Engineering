@@ -78,18 +78,31 @@ Poiseuille equation effectively neglects the curvature of blood vessels and the 
 Note that the equation is one-dimensional and is therefore easier to solve for large and complex vascular networks.
 
 Some of the properties of blood flow seen in Equation~\ref{eq:PoiseuilleLaw} and the stress generated on the vessel walls are difficult to measure \textit{in vivo}.
-Vessel radius can be estimated straightforwardly from images of the retina~\cite{DoblhoffDier2014}.
+Vessel radius and length can be estimated straightforwardly from images of the retina~\cite{DoblhoffDier2014}.
 Fundus photography is one of those imaging modalities, displaying the whole retina but with limited resolution of smaller vessels.
 Injection of dye prior to the photography is possible to better highlights blood vessels and leakage of blood.
 Optical coherence tomography (OCT) angiography (OCTA) is another modality.
 It uses a decorelation algorithm on two OCT scans to highlight movement of particles.
-In the case of the retina, the only movement comes from red blood cells in suspension in the blood stream.
+In the case of the retina, the only movement comes from red blood cells in suspension in the bloodstream.
 OCTA provides high resolution scans of the vasculature within the desired field of view, which is not limited to the whole retina.
 However, leakages are not shown on OCTA as they are static structures.
 
-In narrow vessels, the F\r{a}hr\ae us-Lindqvist effect describes the decrease in viscosity of blood with decreasing vessel diameter, as the red blood cells move to the centre of the vessel, while a layer of plasma forms on the walls of the vessels~\cite{F_hr_us_1931}.
+Viscosity of blood is an important determinant of blood flow and might be altered in certain clinical conditions \textbf{some ref on rbc being less elastic and increasing the effective viscosity for example}.
+Blood flow generates a force acting on the vessel walls, the shear stress.
+The shear stress is proportional to the viscosity of the blood and \textbf{higher shears may relate to degeneration of the vasculature/changes in gas exchanges... find the right refs}.
+However, blood viscosity can only be estimated \textit{ex vivo}.
+Those measurements provide a single parameter for the whole circulatory system, despite differences between vascular beds or variations depending on vessel caliber.
+Indeed, in narrow vessels, the F\r{a}hr\ae us-Lindqvist effect describes the decrease in viscosity of blood with decreasing vessel diameter, as the red blood cells move to the centre of the vessel, while a layer of plasma forms on the walls of the vessels~\cite{F_hr_us_1931}.
 However, in smaller capillaries, say under \SI{10}{\mu\meter}, this assumption is questionable given, that the diameter of red blood cells in suspension in the blood is similar to the vessels caliber.
-Therefore, empirical models of effective viscosity are often employed in microvasculature rather than constant viscosity to account for increases in vascular resistance in small capillaries~\cite{Pries_1990, Haynes_1960}.
+Therefore, empirical models of effective viscosity are often employed in haemodynamic models of the microvasculature rather than constant viscosity to account for increases in vascular resistance in small capillaries~\cite{Pries_1990, Haynes_1960}.
+Introducing an effective viscosity parameter rather than a constant viscosity in Equation~\ref{eq:PoiseuilleLaw} allows modellers to account for increases in vascular resistance in small capillaries.
+An example of a typical empirical law is shown in Figure~\ref{fig:effectiveViscosity}.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.45\linewidth]{EffectiveViscosity-Secomb.eps}
+  \caption{Example of empirical effective viscosity law accounting for the F\r{a}hr\ae us-Lindqvist effect and increased vascular resistance in smaller capillaries from the work of Secomb and Pries~\cite{Secomb_2013}.}
+  \label{fig:effectiveViscosity}
+\end{figure}
 More detail on effective viscosity and other mathematical modelling techniques of blood flow in microvasculature, including modelling of gas transport, can be found in the review by Arciero et al.~\cite{C_Arciero_2017}.
 
 \textbf{==========>}

@@ -435,16 +435,4 @@
   publisher = {Knowledge E},
 }
 
-@Article{Tsokolas_2020,
-  author    = {Georgios Tsokolas and Konstantinos T Tsaousis and Vasilios F Diakonis and Artemis Matsou and Straton TyradOCellis},
-  journal   = {Eye and Brain},
-  title     = {ptical Coherence Tomography Angiography in Neurodegenerative Diseases: A Review},
-  year      = {2020},
-  month     = {jul},
-  pages     = {73--87},
-  volume    = {Volume 12},
-  doi       = {10.2147/eb.s193026},
-  publisher = {Informa {UK} Limited},
-}
-
-@Art
+@Article{Tsokolas_202
