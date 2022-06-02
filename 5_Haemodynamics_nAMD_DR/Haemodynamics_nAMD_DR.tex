@@ -63,11 +63,37 @@ where $\mu$ is the viscosity of the blood and $l, r$ the length and radius of th
 In narrow vessels, the F\r{a}hr\ae us-Lindqvist effect describes the decrease in viscosity of blood with decreasing vessel diameter, as the red blood cells move to the centre of the vessel, while a layer of plasma forms on the walls of the vessels~\cite{F_hr_us_1931}.
 However, in smaller capillaries, say under \SI{10}{\mu\meter}, this assumption is questionable given that the diameter of red blood cells in suspension in the blood is similar to the vessels caliber.
 Therefore, empirical models of effective viscosity are often employed in microvasculature rather than constant viscosity to account for increases in vascular resistance in small capillaries~\cite{Pries_1990, Haynes_1960}.
-More detail on effective viscosity and other mathematical modelling techniques of blood flow in microvasculature, including modelling of gas transport, can be found in the review by Arciero et al.~\cite{C_Arciero_2017}. \\
-This framework to model blood flow allows researchers to estimate healthy retinal haemodynamics parameters across the vascular network.
-By varying the parameters of each models, it is then possible to simulate diseased conditions for the retinal perfusion.
-Investigating the effect of a disease on the perfusion of the retina helps linking clinical observations with cellular scale degenerations.
+More detail on effective viscosity and other mathematical modelling techniques of blood flow in microvasculature, including modelling of gas transport, can be found in the review by Arciero et al.~\cite{C_Arciero_2017}.
 
+\textbf{==========>}
+How those models can be used to estimate parameters to complement in vitro/in vivo measurements.
+\begin{itemize}
+\item lists the parameters of the system
+\item lists the parameters that can be measured somehow (and how)
+\item explain we can fit the model to measurements
+\item we can deduct other parameters of interest: pressure, shear rate and stress
+\item determining baseline parameters (in health) provides a framework on which to add dynamics of a given disease
+\item maybe move this paragraph before talking of the equations
+\end{itemize}
+
+Blood flow across a section of the vasculature is driven by a pressure drop between both ends of the section.
+A section can range from a single vessel to a whole vascular bed.
+This relationship between the blood flow $Q$ and the pressure drop $\Delta p$ is linear, namely $\Delta p\propto Q$.
+However, the proportionality constant in this relationship is given by a vessel's or a group of vessels' resistance to the flow.
+This vascular resistance $\mathcal{R}$ is nonlinearly dependent on blood and vessel characteristics.
+In particular, the fourth power of the radius, $r^4$, appears in this relationship, meaning that even small variations in vessel radius have a strong influence on the flow of blood.
+Another important parameter affecting blood flow is the blood's viscosity, noted $\mu$.
+Among those parameters, and in the case of the retina, radius and length of vessels can be measured \textit{in vivo} with angiographic devices such as OCTA.
+However, this task is more complicated in the choroid.
+Blood pressure at the entrance of the retina and the choroid can be estimated from systemic blood pressure and intraocular pressure \textbf{References here. Also, is this estimate taken from haemodynamics models results?9}. 
+On the other hand, blood viscosity cannot be measured \textit{in vivo}.
+
+
+
+\textit{This framework to model blood flow allows researchers to estimate healthy retinal haemodynamics parameters across the vascular network.
+By varying the parameters of each models, it is then possible to simulate diseased conditions for the retinal perfusion.
+Investigating the effect of a disease on the perfusion of the retina helps linking clinical observations with cellular scale degenerations.}
+\textbf{\\<===========}
 
 \subsubsection{Healthy retina}
 
