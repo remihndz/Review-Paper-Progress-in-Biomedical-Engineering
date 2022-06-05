@@ -6,6 +6,8 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{caption}
+\usepackage{subcaption}
 \usepackage{graphicx}
 \usepackage{siunitx}
 \sisetup{range-phrase=--, range-units=single}
@@ -20,12 +22,16 @@
 
 \subsection{Retinal haemodynamics}
 
-Haemodynamic models are concerned with describing blood flow within a vascular network.
-In the case of the retina, two separate circulatory systems, namely the inner retinal vasculature and the choroid, are charged with bringing oxygen to the cells.
-While the former circulation is embedded inside the retinal tissue, the later lies behind the retina, to which it is linked trhrough Bruch's membrane.
+In the retina, two separate circulatory systems, namely the inner retinal vasculature and the choroid, are charged with bringing oxygen to the cells.
+The inner retinal vasculature is composed of one to four separate vascular complexes, depending on the location, and is absent in a \SI{0.5}{\mm} wide circular region at the centre of the retina called the fovea.
+The choroid is composed of three vascular layers.
+The caliber of the vessels in each layer decreases as it gets closer to the retina.
+The inner most layer is called the choriocapillaris and is made of capillaries aranged within a single plane, parallel to the retinal plane.
+While the inner retinal vasculature is embedded inside the retinal tissue, the choroid lies behind the retina, to which it is linked through Bruch's membrane.
 Bruch's membrane is a thin (\SIrange{2}{4}{\micro\meter}) structure mediating exchanges of gases and biological by-products between the retina and the choroidal circulation.
-The retinal vasculature typically feeds the inner \SIrange{60}{80}{\percent} of the retina, while the choroid supplies the remaining, more metabolically active, outer layers around the photoreceptors.
+The retinal vasculature typically feeds the inner \SIrange{60}{80}{\percent} of the retina, while the choroid supplies the remaining, more metabolically active, outer layers around the photoreceptors~\cite{Birol_2007}.
 
+Retinal haemodynamic models are concerned with simulating blood flow within the choroid and the inner vasculature of the retina.
 Adequate blood flow is essential to ensure delivery of nutrients and oxygen to the retinal cells.
 Haemodynamic models are concerned with describing the properties of blood within a vascular network.
 In the case of the retina, this vascular network can be either the inner retinal vasculature or the choroid.
@@ -36,23 +42,40 @@ In addition, external pressures exert forces against the vessel walls, increasin
 Constant blood flow can be maintened by the vessels by varying the vascular resistance in response to changes in the environment, e.g., changes in incoming flow during physical exercise or external pressures.
 This ability of the vasculature is called autoregulation.
 Both the retinal and choroidal circulation are able to autoregulate blood flow.
-In the inner retinal vasculature, arteries close to the central retinal artery are surrounded by 5 to 7 layers of smooth muscle cells~\cite{An2020, Kur_2012}.
+In the inner retinal vasculature, arteries close to the central retinal artery are surrounded by 5 to 7 layers of smooth muscle cells.
 Those cells can act on an artery's radius to increase vascular resistance and maintain constant blood flow.
-As the arteries branch, the amount of smooth muscle cells diminishes.
-In arterioles of diameter \SIrange{8}{15}{\micro\meter}, only a single layer of smooth muscle cells is found while the walls of capillaries and venules are devoid of such cells. 
-Only a sparse number of smooth muscle cells is found on the walls of veins of diameter larger than \SI{10}{\micro\meter}.
+The number of smooth muscle cells decreases as the arterioles branch into capillaries and venules, with only a sparse number of those cells on venules larger than \SI{10}{\micro\meter}~\cite{An2020, Kur_2012}.
+% As the arteries branch, the amount of smooth muscle cells diminishes.
+% In arterioles of diameter \SIrange{8}{15}{\micro\meter}, only a single layer of smooth muscle cells is found while the walls of capillaries and venules are devoid of such cells. 
+% Only a sparse number of smooth muscle cells is found on the walls of veins of diameter larger than \SI{10}{\micro\meter}.
 This organisation suggests that blood flow in the retina is regulated mainly by arteries and arterioles.
-Evidence suggests that the choroid is also able, maybe to a lesser degree, to autoregulate blood flow~\cite{Polska2007}.
+Evidence suggests that the choroid is also able, maybe to a lesser degree, to autoregulate blood flow~\cite{CERiva1997, Polska2007}.
 
 A number of mechanisms act on the tone of smooth muscle cells lining the vessel walls, effectively contracting or dilatating the vessel.
 For a review of those mechanisms observed \textit{in vivo}, see~\cite{Kur_2012}.
-In a number of retinal diseases such as neovascular age-related macular degeneration (nAMD) and diabetic retinopathy (DR), ocular blood flow and blood flow regulation have been observed to be impaired, see~\cite{Kur_2012} and references therein.\\
+In a number of retinal diseases such as neovascular age-related macular degeneration (nAMD) and diabetic retinopathy (DR), ocular blood flow and blood flow regulation have been observed to be impaired, see~\cite{Kur_2012} and references therein.
+
 While direct \textit{in vivo} measurements of blood flow are possible, they are difficult to achieve and accurate data remains limited, especially in the choroid.
 In addition, current imaging and measurement modalities do not provide insights on the regulation pathways leading to changes in ocular blood flow.
 Mathematical models of the haemodynamics of ocular blood flow can help understand the relationships between IOP, systemic blood pressure, blood gases and oxygen availability in the retina.
+Some of the properties of blood flow seen in Equation~\ref{eq:PoiseuilleLaw} and the stress generated on the vessel walls are difficult to measure \textit{in vivo}.
+Vessel radius and length can be estimated straightforwardly from images of the retina~\cite{DoblhoffDier2014}.\\
+Fundus photography is one of those imaging modalities, displaying the whole retina but with limited resolution of smaller vessels.
+Injection of dye prior to the photography is possible to better highlights blood vessels and leakage of blood.\\
+Optical coherence tomography (OCT) is another modality.
+During OCT scans, a light beam with long wavelength is sent to the retina and resulting backscattered light is compared to a control beam.
+Comparison of the signals provides a three-dimensional view of the retinal tissue.
+The scans can be used to infer the presence of blood flow, that is blood vessels, and is termed OCT angiography (OCTA).
+The OCTA technique uses a decorelation algorithm on two OCT scans to highlight movement of particles.
+In the case of the retina, the only movement comes from red blood cells in suspension in the bloodstream.
+OCTA provides high resolution scans of the vasculature within the desired field of view, which is not limited to the whole retina.
+However, leakages are not shown on OCTA as they are static structures.\\
+The choroid lies behind the retina and therefore, is hidden on photographs of the retina.
+While OCTA is able to image the choroid, accuracy is limited by artefacts caused by the presence of blood vessels in the retina.
+Therefore, \textit{in vivo} quantification of the choroidal circulation is more complicated than the retinal circulation.
 
-\textit{In silico}, blood can be modeled as an incompressible Newtonian fluid using Navier-Stokes equations.
-It is common to also assume that the vasculature is a series of interconnected cylindrical segments with constant cross section within which flow is laminar.
+\textit{In silico}, blood can be modeled as an incompressible Newtonian fluid satisfying the Navier-Stokes equations.
+For the sake of simplicity, it is common to assume that the vasculature is a series of interconnected cylindrical segments with constant cross section within which flow is laminar.
 
 \begin{center}\fbox{\begin{minipage}{0.95\textwidth}
       \begin{itemize}
@@ -61,49 +84,65 @@ It is common to also assume that the vasculature is a series of interconnected c
       \item An incompressible flow has a constant density regardless of the pressure and the fluid's properties are the same in all directions, namely, it is an isotropic fluid.
       \item A Newtonian fluid is a fluid which has a constant viscosity for given pressure and temperature, regardless of the amount of shear it is subject to.
       \item A Newtonian fluid flowing within a pipe is called laminar when fluid particules (e.g., red blood cells, blood plasma) move along smooth path with no mixing between each path.
-      This kind of flow is opposed to turbulent flow, which appears when the velocity of the flow goes over a threshold determined by a combination of the fluid's viscosity and density and the pipe's dimensions.
+      This kind of flow is opposed to turbulent flow, which appears when the velocity of the flow goes over a threshold determined by a combination of the fluid's viscosity and density and the pipe's dimensions.\\ \textbf{A drawing may help but it does not seem essential to me.}
       \item The propention of a fluid to flow in either fashion is summarized by the dimensionless Reynolds number.
       \item Laminar flows show a parabolic velocity profile across the pipe, or vessel, cross section, with peak velocity at the center and null velocity at the walls.
       \end{itemize}
 \end{minipage}}\end{center}
 
-With these assumptions, the Navier-Stokes equations can be simplified to the Poiseuille equation which gives the flow across a vessel segment, assumed straight and of constant cross section.
-In Poiseuille equation, the pressure drop $\Delta p$ across the segment is proportional to the flow rate $Q$ and the vascular resistance opposing the flow $\mathcal{R}$ according to:
+With these assumptions, the Navier-Stokes equations can be simplified to Poiseuille's equation which gives the flow across a vessel segment, assumed straight and of constant cross section.
+In Poiseuille's equation, the pressure drop $\Delta p$ across the segment is proportional to the flow rate $Q$ and the vascular resistance opposing the flow $\mathcal{R}$ according to:
 \begin{equation}
   \label{eq:PoiseuilleLaw}
   \Delta p = \frac{Q}{\mathcal{R}}, \qquad \mathcal{R} = \frac{8\mu L}{\pi r^4} 
 \end{equation}
 where $\mu$ is the viscosity of the blood and $l, r$ the length and radius of the segment, respectively.
-Poiseuille equation effectively neglects the curvature of blood vessels and the complex fluid behaviors that it may create, in particular in the case of turbulent flows.
+This equation effectively neglects the curvature of blood vessels and the complex fluid behaviors that it may create, in particular in the case of turbulent flows.
 Note that the equation is one-dimensional and is therefore easier to solve for large and complex vascular networks.
 
-Some of the properties of blood flow seen in Equation~\ref{eq:PoiseuilleLaw} and the stress generated on the vessel walls are difficult to measure \textit{in vivo}.
-Vessel radius and length can be estimated straightforwardly from images of the retina~\cite{DoblhoffDier2014}.
-Fundus photography is one of those imaging modalities, displaying the whole retina but with limited resolution of smaller vessels.
-Injection of dye prior to the photography is possible to better highlights blood vessels and leakage of blood.
-Optical coherence tomography (OCT) angiography (OCTA) is another modality.
-It uses a decorelation algorithm on two OCT scans to highlight movement of particles.
-In the case of the retina, the only movement comes from red blood cells in suspension in the bloodstream.
-OCTA provides high resolution scans of the vasculature within the desired field of view, which is not limited to the whole retina.
-However, leakages are not shown on OCTA as they are static structures.
+% Some of the properties of blood flow seen in Equation~\ref{eq:PoiseuilleLaw} and the stress generated on the vessel walls are difficult to measure \textit{in vivo}.
+% Vessel radius and length can be estimated straightforwardly from images of the retina~\cite{DoblhoffDier2014}.
+% Fundus photography is one of those imaging modalities, displaying the whole retina but with limited resolution of smaller vessels.
+% Injection of dye prior to the photography is possible to better highlights blood vessels and leakage of blood.
+% Optical coherence tomography (OCT) angiography (OCTA) is another modality.
+% It uses a decorelation algorithm on two OCT scans to highlight movement of particles.
+% In the case of the retina, the only movement comes from red blood cells in suspension in the bloodstream.
+% OCTA provides high resolution scans of the vasculature within the desired field of view, which is not limited to the whole retina.
+% However, leakages are not shown on OCTA as they are static structures.
 
 Viscosity of blood is an important determinant of blood flow and might be altered in certain clinical conditions \textbf{some ref on rbc being less elastic and increasing the effective viscosity for example}.
 Blood flow generates a force acting on the vessel walls, the shear stress.
-The shear stress is proportional to the viscosity of the blood and \textbf{higher shears may relate to degeneration of the vasculature/changes in gas exchanges... find the right refs}.
-However, blood viscosity can only be estimated \textit{ex vivo}.
-Those measurements provide a single parameter for the whole circulatory system, despite differences between vascular beds or variations depending on vessel caliber.
-Indeed, in narrow vessels, the F\r{a}hr\ae us-Lindqvist effect describes the decrease in viscosity of blood with decreasing vessel diameter, as the red blood cells move to the centre of the vessel, while a layer of plasma forms on the walls of the vessels~\cite{F_hr_us_1931}.
-However, in smaller capillaries, say under \SI{10}{\mu\meter}, this assumption is questionable given, that the diameter of red blood cells in suspension in the blood is similar to the vessels caliber.
+The shear stress is proportional to the viscosity of the blood and \textbf{higher shear rates may relate to degeneration of the vasculature/changes in gas exchanges... find the right refs}.
+However, blood viscosity and red blood cell stiffnesse can only be estimated \textit{ex vivo}.
+Measurements of blood viscosity provide a single parameter for the whole circulatory system, despite differences between vascular beds or variations depending on vessel caliber.
+Indeed, in narrow vessels, the F\r{a}hr\ae us-Lindqvist effect describes the decrease in viscosity of blood with decreasing vessel diameter, as the red blood cells move to the centre of the vessel, while a layer of plasma forms on the walls of the vessels, as illustrated in Figure~\ref{fig:rbc-in-tubes}~\cite{F_hr_us_1931}.
+However, in smaller capillaries, say under \SI{8}{\mu\meter} in diameter, this assumption is questionable given, that the diameter of red blood cells in suspension in the blood is similar to the vessels caliber.
 Therefore, empirical models of effective viscosity are often employed in haemodynamic models of the microvasculature rather than constant viscosity to account for increases in vascular resistance in small capillaries~\cite{Pries_1990, Haynes_1960}.
 Introducing an effective viscosity parameter rather than a constant viscosity in Equation~\ref{eq:PoiseuilleLaw} allows modellers to account for increases in vascular resistance in small capillaries.
-An example of a typical empirical law is shown in Figure~\ref{fig:effectiveViscosity}.
-\begin{figure}
+An example of a commonly used law of effective viscosity can be seen in Figure~\ref{fig:effectiveViscosity}.\\
+Similarly, hematocrit and hemoglobin are important factors of retinal health, as they relate to the availability of oxygen in the tissue, that can be measured from systemic blood samples.
+However, information on local hematocrit and hemoglobin levels in the retina and choroid is difficult to obtain.\\
+When properties of blood flow and the vasculature cannot be measured, mathematical models of the haemodynamics in the retina can be used to estimate them.
+This can be done using the available human or animal \textit{in vivo} data or \textit{in vitro} data.
+Rigorous curve fitting techniques optimize the unknown parameters to best reproduce the experimental data, e.g., fitting the variations of vessel diameter in response to increased blood pressure~\cite{Arciero_2013}.
+Note that those parameters are specific to each model and may differ from the true \textit{in vivo} value.
+More detail on effective viscosity and other mathematical modelling techniques of blood flow in microvasculature, including modelling of gas transport, can be found in the review by Arciero et al.~\cite{C_Arciero_2017}.
+
+\begin{figure}[t]
   \centering
-  \includegraphics[width=0.45\linewidth]{EffectiveViscosity-Secomb.eps}
-  \caption{Example of empirical effective viscosity law accounting for the F\r{a}hr\ae us-Lindqvist effect and increased vascular resistance in smaller capillaries from the work of Secomb and Pries~\cite{Secomb_2013}.}
+  \begin{subfigure}[b]{.45\textwidth}
+    \includegraphics[width=\textwidth, height=5.3cm]{cropped-RBC-in-capillaries.jpg}
+    \caption{}
+    \label{fig:rbc-in-tubes}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{.45\textwidth}
+    \includegraphics[width=\textwidth]{EffectiveViscosity-Secomb.jpeg}
+    \caption{}
+  \end{subfigure}
+  \caption{Example of the effect of capillary calibre on the flow of blood. (a): Red blood cells in suspension in blood flowing within tubes of different diameter: \SI{4.5}{\micro\meter} (top), \SI{7}{\micro\meter} (middle) and \SI{15}{\micro\meter} (bottom). One can observe the flow of cells converging into a single file, surrounded by a layer of plasma as the diameter moves from \SI{15}{\micro\meter} to \SI{7}{\micro\meter}. The cell's shape adapt to fit into the tube as the diameter reaches the cell's size (top row). Image taken from~\cite{Secomb_2013} \textbf{(not the right reference)}. (b): Example of an empirical law for the effective viscosity of blood accounting for the F\r{a}hr\ae us-Lindqvist effect and increased vascular resistance in smaller capillaries from the work of Secomb and Pries~\cite{Secomb_2013}.}
   \label{fig:effectiveViscosity}
 \end{figure}
-More detail on effective viscosity and other mathematical modelling techniques of blood flow in microvasculature, including modelling of gas transport, can be found in the review by Arciero et al.~\cite{C_Arciero_2017}.
 
 \textbf{==========>}
 How those models can be used to estimate parameters to complement in vitro/in vivo measurements.
