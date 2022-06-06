@@ -3,6 +3,7 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{indentfirst}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -189,17 +190,18 @@ The exponent $\gamma$ was determined theoretically by Murray to be equal to $3$,
 After branching dichotomously fourteen times, each of the terminal arterioles sprout four capillaries of fixed homogeneous caliber. 
 The venous tree is created symmetrically, starting from the central retinal vein to reach the capillary level where both trees are linked together, for a total of almost $10,000$ vessels in the network.\\
 Since the vessels are assumed cylindrical and long with a constant cross section for each generation, the Poiseuille law can be used to describe the pressure drop along each vessel.
-The viscosity model used in this paper does not account for increased vascular resistance in capillaries~\cite{Haynes_1960}. 
-This work provides an initial estimate of the distribution of haemodynamic parameters in the arterio-venous network in the retina. \\
+The viscosity model used in this paper does not account for increased vascular resistance in capillaries~\cite{Haynes_1960}. \\
+% This work provides an initial estimate of the distribution of haemodynamic parameters in the arterio-venous network in the retina. \\
+This work provides an simple estimate of how haemodynamic parameters vary with position across arterioles, capillaries and venules.  
 It was validated geometrically by comparing the aspect ratio at branches of the arteriolar tree to data from fluorescein photographs of the retina. 
 However, it is likely that its efficiency is higher than actual networks since it is generated based on optimality principles and does not include the influence of varying external and internal pressures on the blood flow.
-Indeed, several experimental and \textit{in silico} studies have shown that variations in intraocular pressure (IOP) and ocular structure cause strong variations of the haemodynamic of the central retinal artery and, consequently, the downstream vasculature~\cite{Guidoboni_2014, Harris_1996}.
+Indeed, several experimental and \textit{in silico} studies have shown that variations in intraocular pressure (IOP) and ocular structure cause strong variations of the haemodynamics of the central retinal artery and, consequently, the downstream vasculature~\cite{Guidoboni_2014, Harris_1996}.
 
 Guidoboni et al. proposed a model that accounts for such variations through a coupling of haemodynamic and mechanistic models of the insertion of the central retinal artery into the retina~\cite{Guidoboni_2014}.
 The central retinal artery travels in the optic nerve canal to enter the retina and is subject to two opposing forces: the cerebrospinal fluid pressure and the intraocular pressure.
 Harmful effects on blood flow in the artery caused by the pressure difference are prevented by the lamina cribrosa that surrounds the vessel when crossing the sclera.
 By modelling the pressure induced on the vessel, they were able to estimate displacement of the vessel wall along the optic nerve length and the impact on blood flow in the artery in both baseline and elevated IOP conditions.\\
-The lamina cribrosa is model as a circular plate.
+The lamina cribrosa is modelled as a circular plate.
 The plate is subject on its boundaries to stress from the IOP, cerebrospinal fluid and the sclera and is assumed to behave as a nonlinear, homogeneous, isotropic and elastic material.
 The resulting stress tensor acts linearly on the outer part of the vessel wall, with the vessel assumed to be a hollow cylinder passing through the center of the lamina cribrosa.
 On the inner surface, the displacement of the wall is provoked by the blood flow within the artery.
@@ -213,15 +215,19 @@ Due to the changes in structure and function of the blood vessels and the tissue
 These conditions are ideal for the onset of neovascularisation and edema.
 For a detailed review of blood flow in the retina and its regulation in health and disease, see~\cite{Pournaras_2008} and references therein.
 While experiments show the importance of blood flow regulation in the retina, the effects of individual regulatory pathways are difficult to investigate \textit{in vivo}. 
-Therefore, it is essential to include auto-regulation and the signaling pathways that lead to it in haemodynamic models in order to understand how alterations of those pathways can be an onset of retinal pathologies.\\
+Therefore, including auto-regulation and the signaling pathways that lead to the contraction or dilation of vessels in haemodynamic models is essential to understand the mechanisms of auto-regulation and their implication in diseases.
+Such models provide an insight into the mechanisms leading to clinical observations and should be accounted for in updated theories of the pathogenesis of certain diseases~\cite{Petersen_2019, Wang_2014}.
+
 Following their previous work, Guidoboni et al.~\cite{Guidoboni_2014b} built up on this model of the central retinal artery by including arterioles, capillaries and venules up to the central retinal vein.
 This 0-dimensional model uses the network proposed by Takahashi et al.~\cite{Takahashi_2009}, aggregated into compartments for arterioles, capillary, venules and central retinal vein.
 Following an analogy with electrical circuits, different resistance and capacitance properties apply for each compartment.
 These characteristics of an electrical circuit's components represent the vascular resistance opposing the flow and the capacity to store blood volumes and deform.
-Applying Ohm's law to the network results in a system of ordinary differential equations involving the time derivatives of transmural pressure in each compartment.
-Time dependence emerges from inlet at the central retinal artery which follows a typical cardiac cycle.
+Applying Ohm's law to the network results in a system of ordinary differential equations involving the time derivatives of transmural pressure (the difference in pressure between either side of a vessel wall) in each compartment.
+Time dependence emerges from inlet at the central retinal artery which follows a typical cardiac cycle.\\
 Both a passive and active mechanism of blood flow regulation are introduced in this model through variable resistances.
-First, the vascular resistance of a given compartment vary in a passive way through deformation caused by the transmural pressure $\Delta P$ according to:
+
+
+First, the vascular resistance of a given compartment varies in a passive way through deformation caused by the transmural pressure $\Delta P$ according to:
 \begin{equation*}
   \label{eq:PassiveVariableResistance}
   \mathcal{R} = \frac{8\pi\mu L}{A^2_{ref}}\left(1+\frac{\Delta P}{k_pk_L}\right)^{-4},
@@ -232,7 +238,7 @@ Additionally, to account for the possibility of vein collapsing, $\Delta P$ is a
   \label{eq:PassiveVariableResistanceCollapse}
   \mathcal{R} = \frac{8\pi\mu L}{A^2_{ref}}\left(1-\frac{\Delta P}{k_p}\right)^{4/3},\qquad \text{for } \Delta P<0.
 \end{equation*}
-On the other hand, blood flow auto-regulation through smooth muscle cells is accounted for by a phenomenological model of the vascular resistance in arterioles.
+By contrast, blood flow auto-regulation through smooth muscle cells is accounted for by a phenomenological model of the vascular resistance in arterioles.
 Absence of auto-regulation is assumed to correspond to a constant resistance $R_{ref}$.
 The flow computed for a given ocular perfusion pressure (OPP) at the central retinal artery gives a baseline value $Q_{baseline}(OPP)$ from which the active resistance is computed according to:
 \begin{equation*}
@@ -241,24 +247,27 @@ The flow computed for a given ocular perfusion pressure (OPP) at the central ret
 \end{equation*}
 With OPP varying throughout a cardiac cycle, the mean model-predicted blood flow across the vascular network matches experimental values for a range of healthy mean arterial pressures.
 Using this model, one can predict based on systemic blood flow measurements (e.g., mean arterial pressure) what range of intraocular pressure a simulated retinal vasculature can handle while limiting the disruption of vascular functions in the retina.
-Simulations can recreate patients with working or defectuous auto-regulation system as well as hyper or hypotensive patients, both aspects being common in age and disease.
-In particular, hypertension is a common risk factor to a number of retinal diseases, though the links with the onset of retinopathies are not well understood~\cite{Klein_2004, Leeman_2019}.\\
+Simulations can recreate patients with working or defective auto-regulation system as well as hypertensive (blood pressure anormaly high) or hypotensive (blood pressure anormaly low) patients, both aspects being common in age and disease.
+In particular, hypertension is a common risk factor to a number of retinal diseases, e.g., as AMD and glaucoma, though the links with the onset of retinopathies are not well understood~\cite{Klein_2004, Leeman_2019}.
+
 While the previous model by Guidoboni et al.~\cite{Guidoboni_2014b} models varying vascular resistance with a phenomenological approach, Arciero et al.~\cite{Arciero_2013} chose a mechanistic modelling approach of the various signals acting on smooth muscles tone.
 The mechanisms triggering auto-regulation included in this work are: pressure, shear stress on the vessel wall, metabolic response, local tissue concentration of carbon dioxide and neural stimuli.
 The idea of the model was to investigate the implications of each auto-regulation pathways, individually and collectively, in glaucoma.
-Glaucoma is characterized by degenerations of the optic nerve and the retinal ganglion cell layer and is associated with impairments of the vascular system, both in the systemic and retinal~\cite{Hulsman_2007, Bonomi_2000}.
+Glaucoma is characterized by degenerations of the optic nerve and the retinal ganglion cell layer and is associated with impairments of the vascular system, both in the systemic and retinal circulation, and with elevated intraocular pressure~\cite{Bonomi_2000, Hulsman_2007}.
 
 In the studies presented before, the vasculature is represented in a simplified way, either as compartments with varying resistance and capacitance or generated following optimality principles.
 However, retinal angiograms have shed light on a number of vascular biomarkers retinal and neurogenerative diseases~\cite{Chalam_2016,Tsokolas_2020}.
-Despite their clinical relevance, the exact relationship between those biomarkers and the development of retinopathy is still unclear.
-Therefore, some groups tried to simulate haemodynamics in vascular trees segmented from retinal angiograms~\cite{Aletti_2016, Malek_2015, Liu_2009, Rebhan_2019}.
-However, they are for most limited to small segments of the arterial network, hence ignoring the effect of downstream capillaries and venules in the distribution of haemodynamic parameters or include the remaining vessels as compartments, similarly as previously described.\\
-Despite the limitations and difficulties, those works provide a framework to investigate oxygen delivery and stress associated with ageing in vasculature and tissue that may affect visual functions~\cite{Rickett_2010,Sim_2013,Wessel_2012}.
+Despite their clinical relevance, the exact relationship between those biomarkers and the development of retinal pathologies is still unclear.
+Therefore, some groups tried to simulate haemodynamics in vascular trees segmented from retinal angiograms~\cite{Aletti_2016, Liu_2009, Malek_2015, Rebhan_2019}.
+However, they are for most limited to small segments of the arterial network, hence ignoring the effect of downstream capillaries and venules in the distribution of haemodynamic parameters or including the remaining vessels as compartments, as previously described.
+
+Despite the limitations and difficulties, these works provide a framework to investigate oxygen delivery and stress associated with ageing in vasculature and tissue that may affect visual function~\cite{Rickett_2010,Sim_2013,Wessel_2012}.
 Notably, Rebhan et al. proposed a framework to investigate tissue stress induced by blood flow, an aspect of research still unexplored~\cite{Rebhan_2019}.
 
 \break
 
 \subsubsection{Ageing and diseased retina}
+
 
 The effects of age and disease on the vasculature can be readily observed and quantified on retinal angiograms and structural images.
 In particular, vessel density and larger capillary-free areas in the inner retina have been related to severity of the disease in glaucoma, diabetic retinopathy and neovascular age-related macular degeneration~\cite{Al_Sheikh_2016, Rao_2020, Yuan_2020}.
