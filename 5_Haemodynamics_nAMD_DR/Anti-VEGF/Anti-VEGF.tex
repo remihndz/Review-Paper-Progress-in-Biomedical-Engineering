@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper]{article}
+\documentclass[11pt,a4paper]{article}
 \usepackage[margin=1in]{geometry}
 
 \usepackage[utf8]{inputenc}
@@ -17,23 +17,52 @@
 
 \begin{document}
 
-In proliferative DR and nAMD, loss of sight is linked to accumulation of fluids in the retina~\cite{Waldstein_2016, Roberts_2020}.
-Those fluids are secondary to growth of leaky neovasculature in the neuronal retina and in particular in the macula.
-The angiogenesis of macular neovasculature (MNV) is lead by gradients of vascular endothelial growth factors (VEGF) which are upregulated by the hypoxic conditions in the diseased retina.
-The treatment of MNV is predominantly done via frequent injections of anti-VEGF agents that bind to the free VEGF present in the retina.
+\subsection{Anti-vascular endothelial growth factor inhibitors therapy}
 
-Though not impossible, topical delivery or direct injections of drug into the retina remains challenging.
-The currently prefered method consist in injection into the vitreous humour of the eye, then diffusing to the retina.
-However, molecules in the vitreous are naturally eliminated through the aqueous humour flow, in the anterior section of the eye.
+In proliferative DR and nAMD, loss of sight is linked to accumulation of fluids in the retina~\cite{Roberts_2020, Waldstein_2016}.
+Those fluids are secondary to growth of leaky vessels, refered to as neovasculature, in the neuronal retina and in particular in the macula.
+The angiogenesis of macular neovasculature (MNV) is driven by gradients of vascular endothelial growth factors (VEGF) which are upregulated by hypoxia (lack of oxygen) in the diseased retina.
+Binding of free VEGF molecules to their receptors present on existing blood vessels triggers the migration of the endothelial cells constituing vessel walls.
+The treatment of MNV is predominantly done via frequent injections of VEGF-inhibiting molecules that bind to the free VEGF present in the retina, ultimately inhibitig the angiogenesis process.
+These injections are done directly in the vitreous humor of the eye.
+
+Molecules present in the vitreous are naturally eliminated through the aqueous humour flow, in the anterior section of the eye.
 In addition, the inner limiting membrane (ILM) and retinal pigment epithelium (RPE), respectively on the inner and outer retina, act as barriers to the molecules~\cite{park_intraocular_2015}.
-Therefore, the drug availability in the retina is limited to a fraction of the injected dose.
-Understanding the determinants of the pharmacokinetics of the large anti-VEGF molecules in the eye is essential to develop more efficient treatments.
-% The drugs are normally injected inside the vitreous humour, in which they diffuse to reach the retina.
-Not only is drug administration challenging, but VEGF induced angiogenesis is a natural process meant to maintain the vasculature and remodel it to adapt to its environment, both in the eye and the rest of the body.
-Therefore, while effective for keeping visual acuity, the injections pose a number of problems.
-Firstly, the intravitreal injections (IVI) can cause further inflammations within the retina, triggering additional VEGF upregulation \textbf{[REF here]}.
+Therefore, the presence of the drug in the retina is limited to a fraction of the injected dose.
+
+Despite its general efficacy, current treatment strategies are sub-optimal for some patients in terms of dosage and interval between injections.
+Furthermore, VEGF induced angiogenesis is a natural response to inflammation and hypoxia, in the eye and the rest of the body. 
+Therefore, repeated injections pose a number of problems.
+Firstly, the intravitreal injections (IVI) can cause further inflammations within the retina, triggering additional VEGF upregulation~\cite{Iyer2022}.
 Secondly, with the current doses, the unbound anti-VEGF molecules that are cleared from the eye are found in significant levels in the systemic circulation, raising concerns about the safety of IVI.
-Indeed, while it is still matter of debate, it has been suggested that IVI of anti-angiogenic molecules could be linked with serious advert systemic effects including hemorrhages and strokes\textbf{[REF here]}. \\
+Indeed, while it is still matter of debate, it has been suggested that IVI of anti-angiogenic molecules could be linked with serious advert effects including hemorrhages and strokes~\cite{Avery2016, Maloney2021}.
+
+Much work is being done on developing molecules with longer life span within the retina or alternative administration techniques.
+However, concentrations in the region of interest (the retina) are not measurable \textit{in vivo}.
+Therefore, estimates of the retinal kinetics of molecules are often based on either animal experiments or on samples of the aqueous humor, the vitreous humors and systemic plasma.
+
+Much care must be taken when interpreting such experimental studies.
+Indeed, in addition to structural differences that may influence the pharmacokinetics of drugs, \textit{in vivo} properties of molecules may also differ between species~\cite{garcia-quintanilla_pharmacokinetics_2019}.
+The analysis of ocular or systemic fluids, on the other hand, often relies on strong assumptions on the clearance route of ocular molecules and the effect of interaction between molecular species, e.g., VEGF and its inhibitors~\cite{Missel_2012}.
+Understanding the determinants of the pharmacokinetics of the large anti-VEGF molecules in the eye is essential to develop more efficient molecules.
+
+Mechanistic models can help overcome the issue of the lack of \textit{in vivo} data in the retina and provide insight into the complex true relationships between drug characteristic and physiological parameters.
+This section is dedicated to computational models of VEGF and its inhibitor, whether individually (pharmacokinetic models, VEGF production models) or in combination (pharmacodynamic models).
+
+
+
+
+The previous PKPD models assume a constant with time and homogeneous production rate of VEGF.
+However, an \textit{in silico} model of an \textit{in vitro} experiment on the RPE suggests that spatial configuration of RPE cells and patches of atrophied tissue play an important role on the production of VEGF that may explain the progression of AMD into its neovascular form~\cite{Baker_2017}.  
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Previous version--unfinished}
+
 Therefore, in the absence of other injection techniques, optimising the bioavailability of anti-VEGF in the retina is essential.
 While \textit{in vitro} and \textit{in vivo} investigations of the pharmoacokinetics and pharmacodynamics of intravitreally injected anti-VEGF have been done, data on human is scarse and does not give insight on drug availability in the retina.
 Mathematical model can close the gap in determining the actual concentration of drugs in the retina based on serum or vitreous concentrations.
