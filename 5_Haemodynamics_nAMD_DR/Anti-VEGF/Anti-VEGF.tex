@@ -24,10 +24,10 @@ Those fluids are secondary to growth of leaky vessels, refered to as neovasculat
 The angiogenesis of macular neovasculature (MNV) is driven by gradients of vascular endothelial growth factors (VEGF) which are upregulated by hypoxia (lack of oxygen) in the diseased retina.
 Binding of free VEGF molecules to their receptors present on existing blood vessels triggers the migration of the endothelial cells constituing vessel walls.
 The treatment of MNV is predominantly done via frequent injections of VEGF-inhibiting molecules that bind to the free VEGF present in the retina, ultimately inhibitig the angiogenesis process.
-These injections are done directly in the vitreous humor of the eye.
+These injections are commonly done directly in the vitreous humor of the eye, though alternative delivery techniques are investigated.
 
 Molecules present in the vitreous are naturally eliminated through the aqueous humour flow, in the anterior section of the eye.
-In addition, the inner limiting membrane (ILM) and retinal pigment epithelium (RPE), respectively on the inner and outer retina, act as barriers to the molecules~\cite{park_intraocular_2015}.
+In addition, the inner limiting membrane (ILM) and retinal pigment epithelium (RPE), respectively on the inner and outer retina, act as barriers to the molecules~\cite{Park_2015}.
 Therefore, the presence of the drug in the retina is limited to a fraction of the injected dose.
 
 Despite its general efficacy, current treatment strategies are sub-optimal for some patients in terms of dosage and interval between injections.
@@ -37,17 +37,24 @@ Firstly, the intravitreal injections (IVI) can cause further inflammations withi
 Secondly, with the current doses, the unbound anti-VEGF molecules that are cleared from the eye are found in significant levels in the systemic circulation, raising concerns about the safety of IVI.
 Indeed, while it is still matter of debate, it has been suggested that IVI of anti-angiogenic molecules could be linked with serious advert effects including hemorrhages and strokes~\cite{Avery2016, Maloney2021}.
 
-Much work is being done on developing molecules with longer life span within the retina or alternative administration techniques.
-However, concentrations in the region of interest (the retina) are not measurable \textit{in vivo}.
+Knowledge of the determinant of the total exposure of the retina and the choriocapillaris to the drug is important to develop better therapeutics molecules and administration strategies and reduce risk and burden on the patient.
+However, while aqueous and vitreous humors can be sampled \textit{in vivo}, the concentrations in the retina and choroid remain unknown. 
 Therefore, estimates of the retinal kinetics of molecules are often based on either animal experiments or on samples of the aqueous humor, the vitreous humors and systemic plasma.
-
-Much care must be taken when interpreting such experimental studies.
-Indeed, in addition to structural differences that may influence the pharmacokinetics of drugs, \textit{in vivo} properties of molecules may also differ between species~\cite{garcia-quintanilla_pharmacokinetics_2019}.
-The analysis of ocular or systemic fluids, on the other hand, often relies on strong assumptions on the clearance route of ocular molecules and the effect of interaction between molecular species, e.g., VEGF and its inhibitors~\cite{Missel_2012}.
-Understanding the determinants of the pharmacokinetics of the large anti-VEGF molecules in the eye is essential to develop more efficient molecules.
-
 Mechanistic models can help overcome the issue of the lack of \textit{in vivo} data in the retina and provide insight into the complex true relationships between drug characteristic and physiological parameters.
 This section is dedicated to computational models of VEGF and its inhibitor, whether individually (pharmacokinetic models, VEGF production models) or in combination (pharmacodynamic models).
+
+
+% Indeed, in addition to structural differences that may influence the pharmacokinetics of drugs, \textit{in vivo} properties of molecules may also differ between species~\cite{garcia-quintanilla_pharmacokinetics_2019}.
+The analysis of ocular or systemic fluids concentration, on the other hand, often relies on strong assumptions on the clearance route of ocular molecules and the effect of interaction between molecular species, e.g., VEGF and its inhibitors.
+Traditionally, the half-life of a molecule is estimated by fitting exponentially decaying curves to the data~\cite{Bakri_2007, Park_2015, Park_2016, Xu_2013}.
+This assume that the clearance rate of molecules in the eye is proportional to the concentration of said molecule at all times and ignores potential effects of interactions with the tissue or the presence of multiple clearing pathways (e.g., the aqueous humor outflow and the choroid circulation).
+Furthermore, ~\cite{Lamminsalo_2018, Missel_2012}.
+Understanding the determinants of the pharmacokinetics of the large anti-VEGF molecules in the eye is essential to develop more efficient molecules.
+
+The limiting rate to the clearance of intravitreally injected molecules is the rate of clearance from the vitreous into the aqueous.
+Hutton-Smith showed that this rate is dependent on the diffusion of the molecule in the vitreous humor, which varies strongly with age (see Zhang 2018 for ref for that) (make sure H-S showed that) (insert refs that support Hutton-Smith theory, e.g. Zhang 2018?).
+
+
 
 
 
