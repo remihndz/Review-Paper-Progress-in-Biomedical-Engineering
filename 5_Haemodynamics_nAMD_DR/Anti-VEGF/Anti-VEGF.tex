@@ -1,4 +1,4 @@
-\documentclass[11pt,a4paper, twocolumn]{article}
+\documentclass[12pt,a4paper, twocolumn]{article}
 \usepackage[margin=1in]{geometry}
 
 \usepackage{times}
@@ -12,27 +12,31 @@
 \usepackage{siunitx}
 
 \graphicspath{{img/}}
-\usepackage[numbers, super]{natbib}
+\usepackage[numbers, super, sort&compress]{natbib}
 
 \usepackage{tcolorbox}
 
 
 \begin{document}
 
-\subsection{Anti-vascular endothelial growth factor inhibitors therapy}
+\subsection*{Anti-vascular endothelial growth factor inhibitors therapy}
 
-In proliferative DR and nAMD, loss of sight is linked to accumulation of fluids in the retina~\cite{Roberts_2020, Waldstein_2016}.
-Those fluids are secondary to growth of leaky vessels, refered to as neovasculature, in the neuronal retina and in particular in the macula.
-The angiogenesis of macular neovasculature (MNV) is driven by gradients of vascular endothelial growth factors (VEGF) which are upregulated by hypoxia (lack of oxygen) in the diseased retina.
-Binding of free VEGF molecules to their receptors present on existing blood vessels triggers the migration of the endothelial cells constituing vessel walls.
-The treatment of MNV is predominantly done via frequent injections of VEGF-inhibiting molecules that bind to the free VEGF present in the retina, ultimately inhibitig the angiogenesis process.
-These injections are commonly done directly in the vitreous humor of the eye, though alternative delivery techniques are investigated.
+In proliferative DR and nAMD, loss of sight is linked to detachment of the retina and accumulation of fluids~\cite{Roberts_2020, Waldstein_2016}.
+Those are consequences of the growth of leaky blood vessels, referred to as neovasculature, in the neuronal retina and in particular in the macula.
+The angiogenesis of macular neovasculature (MNV) is driven by gradients of vascular endothelial growth factors (VEGF) which are upregulated by hypoxia (a lack of oxygen) in the diseased retina.
+Binding of free VEGF molecules to their receptors on the walls of existing blood vessels triggers the migration of the endothelial cells constituting said vessel walls.
 
-Molecules present in the vitreous are naturally eliminated through the aqueous humour flow, in the anterior section of the eye.
+The treatment of MNV is predominantly done via frequent injections of VEGF-inhibiting molecules that bind to the free VEGF present in the retina, ultimately inhibiting the angiogenic process.
+These injections are typically done directly in the vitreous humor of the eye with a needle, though alternative delivery techniques are investigated~\cite{Kim2021}.
+
+Molecules present in the vitreous are naturally eliminated through the aqueous humour flow, referred to as the anterior clearance route.
+The posterior clearance route refers to clearance through the choroidal circulation.
 In addition, the inner limiting membrane (ILM) and retinal pigment epithelium (RPE), respectively on the inner and outer retina, act as barriers to the molecules~\cite{Park_2015}.
-Therefore, the presence of the drug in the retina is limited to a fraction of the injected dose.
+Therefore, the presence of the drug in the retina and the choroid is limited to a fraction of the injected dose. 
 
 Despite its general efficacy, current treatment strategies are sub-optimal for some patients in terms of dosage and interval between injections.
+Eyes showing little to no improvement to their condition are referred to as non-responsive and present a real challenge for clinicians.
+
 Furthermore, VEGF induced angiogenesis is a natural response to inflammation and hypoxia, in the eye and the rest of the body. 
 Therefore, repeated injections pose a number of problems.
 Firstly, the intravitreal injections (IVI) can cause further inflammations within the retina, triggering additional VEGF upregulation~\cite{Iyer2022}.
@@ -40,117 +44,74 @@ Secondly, with the current doses, the unbound anti-VEGF molecules that are clear
 Indeed, while it is still matter of debate, it has been suggested that IVI of anti-angiogenic molecules could be linked with serious advert effects including hemorrhages and strokes~\cite{Avery2016, Kaiser_2019, Maloney2021}.
 
 Knowledge of the determinant of the total exposure of the retina and the choriocapillaris to the drug is important to develop better therapeutics molecules and administration strategies and reduce risk and burden on the patient.
+
 However, while aqueous and vitreous humors can be sampled \textit{in vivo}, the concentrations in the retina and choroid remain unknown. 
-Therefore, estimates of the retinal kinetics of molecules are often based on either animal experiments or on samples of the aqueous humor, the vitreous humors and systemic plasma.
-Mechanistic models can help overcome the issue of the lack of \textit{in vivo} data in the retina and provide insight into the complex true relationships between drug characteristic and physiological parameters.
-This section is dedicated to computational models of VEGF and its inhibitor, whether individually (pharmacokinetic models, VEGF production models) or in combination (pharmacodynamic models).
+Therefore, estimates of the retinal kinetics of molecules are often based on either animal experiments or on samples of the aqueous humor, the vitreous humor and systemic plasma.
+Mechanistic pharmacokinetic (PK) and pharmacodynamic (PD) models can help overcome the issue of the lack of \textit{in vivo} data in the retina and provide insight into the complex true relationships between drug characteristic and physiological parameters.
+This section is dedicated to computational models of VEGF and its inhibitor, whether individually (PK models, VEGF production models) or interacting together (PD models).
 
-
-% Indeed, in addition to structural differences that may influence the pharmacokinetics of drugs, \textit{in vivo} properties of molecules may also differ between species~\cite{garcia-quintanilla_pharmacokinetics_2019}.
-The analysis of ocular or systemic fluids concentration, on the other hand, often relies on strong assumptions on the clearance route of ocular molecules and the effect of interaction between molecular species, e.g., VEGF and its inhibitors.
-Often, the half-life of a molecule is estimated by fitting exponentially decaying curves to the data in order to compute the total exposure to the drug (area under the concentration-time curve) and maximal concentration~\cite{Bakri_2007, Kaiser_2019, Park_2015, Park_2016, Xu_2013}.
+Often in PK analysis of ocular or systemic fluids samples, the half-life of a molecule is estimated by fitting exponentially decaying curves to the data in order to compute the total exposure to the drug (area under the concentration-time curve) and maximal concentration~\cite{Bakri_2007, Kaiser_2019, Park_2015, Park_2016, Xu_2013}.
 This assumes that the clearance rate of molecules in the eye is proportional to the concentration of said molecule at all times and ignores potential effects of interactions with the tissue or the presence of multiple clearing pathways (e.g., the aqueous humor outflow and the choroid circulation).
-Understanding the determinants of the pharmacokinetics of the large anti-VEGF molecules in the eye is essential to develop more efficient molecules and such simple models do not provide this kind of insight.
+Understanding the determinants of the PK of the large anti-VEGF molecules in the eye is essential to develop more efficient molecules and such simple models do not provide this kind of insight.
+
 Mechanical models can be used to determine the relationship between physiological and drug parameters and estimate their \textit{in vivo} value, which may differ from the theoretical or \textit{in vitro} values.
 Analytical relationships between a molecule's characteristics and its ocular half-life can be derived from those models and help for design of longer lasting therapeutics.
 
-In a series of papers, Hutton-Smith et al. used both compartment models to estimate the true, \textit{in vivo} parameters of intravitreally injected anti-VEGF~\cite{hutton-smith_mechanistic_2016,hutton-smith_ocular_2017,hutton-smith_theoretical_2018}.
+In a series of papers, Hutton-Smith et al. used two (vitreous and aqueous humors) and three (including the retina) compartments models to estimate the true, \textit{in vivo} parameters of intravitreally injected anti-VEGF~\cite{hutton-smith_mechanistic_2016,hutton-smith_ocular_2017,hutton-smith_theoretical_2018}.
 Using data on rabbit eyes, they demonstrated that the half-life of those molecules in the eye is proportional to the cubic root of their hydrodynamic radius, namely,
 \begin{equation}
   \label{eq:t12_Hutton-Smith}
   t_{1/2} = \alpha\sqrt[3]{R_h},
 \end{equation}
-which matches with reported experimental values~\cite{hutton-smith_mechanistic_2016}.
-This work also highlighted the differences between \textit{in vitro} and \textit{in vivo} binding rates of anti-VEGF to VEGF, which could be of multiple order of magnitudes compared to values used in previous similar pharmacodynamic models~\cite{saunders_model_2015}.
+which agrees with reported experimental values~\cite{hutton-smith_mechanistic_2016}.
+This work also highlighted the difference between \textit{in vitro} and \textit{in vivo} binding rates of anti-VEGF to VEGF, which could be of multiple order of magnitudes compared to values used in previous similar PD models~\cite{saunders_model_2015}.
 
-Using the two-compartment pharmacokinetic model by Hutton-Smith et al., with values of the hydrodynamic radius, ocular half-life and vitreous radius collected for this meta-analysis, Caruso et al. found a slope $\alpha=2.1$ in Equation~(\ref{eq:t12_Hutton-Smith})~\cite{Caruso_2020}.
-The difference with the theoretical value $\alpha=4.4$, computed based on reported $t_{1/2}$ times, may be explained by the abscence of choroidal clearance in the model by Hutton-Smith et al. and the pharmacokinetic analysis reporting half-life values~\cite{hutton-smith_mechanistic_2016}.
+Using the two-compartment PK model by Hutton-Smith et al., with values of the hydrodynamic radius, ocular half-life and vitreous radius collected for this meta-analysis, Caruso et al. found a slope $\alpha=2.1$ in Equation~\ref{eq:t12_Hutton-Smith}~\cite{Caruso_2020}.
+The difference with the theoretical value $\alpha=4.4$, computed based on reported $t_{1/2}$ times, may be explained by the absence of choroidal clearance in the model by Hutton-Smith et al. and the PK analysis reporting half-life values, suggesting that posterior clearance should be included in PK models~\cite{hutton-smith_mechanistic_2016}.
 
 Bussing et al. proposed to extent a compartmental model of the whole rabbit body, connected through blood flow and lymphatic circulation~\cite{Bussing_2020}.
 The comprehensive model comprises over a hundred compartments, with all exchange rates and reaction rates determined using values reported in the literature.
 The results showed quantitative and qualitative agreement with experiments without necessitating determination of unknown parameters. 
 
-The limiting rate to the clearance of intravitreally injected molecules is the rate of clearance from the vitreous into the aqueous.
-Hutton-Smith showed that this rate is dependent on the diffusion of the molecule in the vitreous humor, which varies strongly with age (see Zhang 2018 for ref for that) (make sure H-S showed that) (insert refs that support Hutton-Smith theory, e.g. Zhang 2018?).
-
 The previous PKPD models assume a constant with time and homogeneous production rate of VEGF.
-However, an \textit{in silico} model of an \textit{in vitro} experiment on the RPE suggests that spatial configuration of RPE cells and patches of atrophied tissue play an important role on the production of VEGF that may explain the progression of AMD into its neovascular form~\cite{Baker_2017}.  
+However, an \textit{in silico} model of an \textit{in vitro} setup on the RPE suggests that spatial arrangement of RPE cells and atrophied tissue play an important role on the production of VEGF that may explain the progression of AMD into its neovascular form~\cite{Baker_2017}.  
 
-While insightful on the relationship between ocular availability and molecular characterstics, compartemental models assume that VEGF, anti-VEGF and their bindings are well-mixed within each compartment.
+While insightful on the relationship between ocular availability and molecular characteristics, compartmental models assume that VEGF, anti-VEGF and their bindings are well-mixed within each compartment.
 However, ocular fluid flow can impact the delivery of drug to the retina.
 Flows may be influenced by the structure of the eye and may differ strongly between species.
-A number of groups have developed finite element models of the eye, adding the contributions of ocular fluids, structure, heat and gravity to the pharmacokinetics analysis~\cite{Lamminsalo_2018, Missel_2012, Zhang_2018}.
-Some of these models are reviewd here and a comprehensive review of findings from such model can be found in the work of Missel and Sarangapani~\cite{Missel_2019}.
+A number of groups have developed finite element models of the eye, adding the contributions of ocular fluids, structure, heat and gravity to the PK analysis~\cite{Lamminsalo_2018, Missel_2012, Zhang_2018}.
+Such models can help make better use of experiments on animal eyes by providing a framework to translate data from one species to another.
+Some of these models are reviewed here and a comprehensive review of those models and associated findings can be found in the review by Missel and Sarangapani~\cite{Missel_2019}.
 
 Zhang et al. used a simplified three-dimensional representation of the vitreous and the retina to investigate the distribution of molecules injected in the vitreous or under the choroid~\cite{Zhang_2018}.
 Their results support the well-mixed hypothesis of intravitreally injected molecules by showing the small effect the initial mixing has on the concentration-time profile.
-Furthermore, the model showed that suprachoroidal injection were not suited for delivery of the large molecules.
+Furthermore, the model showed that suprachoroidal injection were not suited for delivery of large molecules.
 
-Missel et al. created physiologically accurate three-dimensional geometries of the rabbit, monkey and human eye to investigate the effect of inter-species strutural differences on drug clearance~\cite{Missel_2012}.  
-They demonstrated the importance of the canal of Petit in the clearance of substances from the aqueous humor, particularly for molecules of slow diffusivity. 
-Furthermore, they showed that an increase in intraocullar pressure, within a normal range of \SIrange{10}{20}{\mmHg}, significantly decreases the passage rate of the larger molecules from the vitreous to the aqueous.
-By accurately modelling the eye of different species, including humans, they offer a framework to translate experimental data from one species to another~\cite{Missel_2012}.
+Missel et al. created physiologically accurate three-dimensional geometries of the rabbit, monkey and human eyes to investigate the effect of inter-species structural differences on drug clearance~\cite{Missel_2012}.  
+They demonstrated the importance of the canal of Petit in the clearance of substances from the aqueous humor, particularly for molecules with slow diffusivity. 
+Furthermore, they showed that an increase in intraocular pressure, within a normal range of \SIrange[range-units = single]{10}{20}{\mmHg}, significantly decreases the passage rate of the larger molecules from the vitreous to the aqueous.
+By accurately modelling the eye of different species, including humans, they aim to offer a framework to translate experimental data from one species to another~\cite{Missel_2012}.
 
 Lamminsalo et al. used the geometry of the rabbit eye designed by Missel et al. to investigate the contributions of anterior (through the aqueous humor outflow) and posterior (through the choroidal circulation) routes in the clearance of intravitreally injected macromolecules similar to anti-VEGF molecules~\cite{Lamminsalo_2018}.
-Their model suggested that only \SIrange{5}{24}{\percent} of the injected drugs is eliminated through the retina, in accordance with previous modelling work~\cite{hutton-smith_ocular_2017}.
+Their model suggested that only \SIrange[range-units = single]{5}{24}{\percent} of the injected drugs is eliminated through the retina, in accordance with previous modelling work~\cite{hutton-smith_ocular_2017}.
 However, this percentage increases with intraocular pressures, which might elevate with age and other systemic variables~\cite{Armaly1967,Hashemi2005}.
+Furthermore, diffusion of the injected molecules through the retina, the RPE and the Bruch's membrane is not yet clear and may influence the posterior clearance rates.
+In later work, the group extended the previous model to estimate the diffusion coefficients in those tissues using \textit{in vivo} PK data and found a RPE permeability similar to the one found by Hutton-Smith et al.~\cite{Lamminsalo2020,hutton-smith_ocular_2017}.
 
+Other models have simulated the effect of anti-VEGF therapy on clinically relevant features of neovascular AMD, e.g., visual acuity and macular edema~\cite{Edwards_2020, Hoyle_2017, Mulyukov_2018}.
+These models can be compared directly with clinical trials and, potentially, can be used to run \textit{in silico} trials, as discussed in Section~8. %~\ref{sec:InSilicoTrials}.
+Using a compartmental modelling approach, Hoyle and Aslam showed that their model could reproduce the results from landmark studies of anti-VEGF therapy in neovascular AMD~\cite{Hoyle_2017}.
 
+Mulyukov et al. attempted to model the response to therapy in terms of visual acuity with a mixed effect model~\cite{Mulyukov_2018}.
+The model was calibrated on a large dataset compiled from various clinical trials and captures the average trends of treatment response without using any patient specific information other than visual scores and treatment strategy~\cite{Mulyukov_2018}.
 
-
-
+Building on this, Edwards et al. added the buildup of tolerance to the drugs and its effect on visual outcome, using spatial and non-spatial model~\cite{Edwards_2020}.
+After fitting the model-specific parameters, both models show good agreement with the observations from the clinical studies.
+However, the spatial model showed better performance at predicting treatment outcome of a patient non-responsive to treatment.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Previous version--unfinished}
-
-Therefore, in the absence of other injection techniques, optimising the bioavailability of anti-VEGF in the retina is essential.
-While \textit{in vitro} and \textit{in vivo} investigations of the pharmoacokinetics and pharmacodynamics of intravitreally injected anti-VEGF have been done, data on human is scarse and does not give insight on drug availability in the retina.
-Mathematical model can close the gap in determining the actual concentration of drugs in the retina based on serum or vitreous concentrations.
-In addition, they can model the action of the drug on the target site and on the pathological neovaculature.
-Since anti-VEGF therapy is used to treat proliferative retinopathy, we identify three modelling aspects: the pharmacokinetics models simulating the drug availability in the target site, the pharmacodynamics models simulating the effects of the drug on the organism and models of angiogenesis simulating the invasion of the tissue by vasculature.
-
-Pharmacokinetics modelling is often part of the development process of a new therapeutic molecules, as a mean to analyse data.
-In its simplest form, it consists in non-compartmental analysis (NCA) of drug concentration along time~\textbf{[REFS here of NCA models]}.
-By fitting a simple exponential decay rate to data collected from vitreal samples, one can estimate the ocular life course of the molecule.
-Similarly, given the potential advert effects of anti-VEGF compounds, systemic life course can be estimated from serum samples.
-Many researchers also chose a bi-exponential model of drug concentration, to account for a brief and quick distribution of the drug following intravitreal injections~\textbf{[REFS of bi-exponential fits to data]}.
-Mainly, drug efficiency is estimated from its ocular half-life, $t_{1/2}$, and its binding affinity to the various target molecules, reported as the dissociation constant, $K_D$, estimated \textit{in vitro}.
-For a review of reported values for the major ocular anti-VEGF molecules, see the review by Stewart~\cite{stewart_pharmacokinetics_2014}.\\
-Those simple modelling approaches show a number of limitations.
-They ignore the clearance of drug throuh the posterior route, namely from the choroid.
-The \textit{in vitro} determination of the constant $K_D$ strongly depends on the assay used and may differ from the dissociation rates in the eye.
-Similarly, drug concentrations are taken from the aqueous humour, sometimes the vitreous humour, which may show very different time courses as retinal concentrations, given the presence of the inner limiting membrane (ILM) acting as a barrier between the retina and the vitreous.
-For these reasons, such simple models may fail to inform us on the actual availability of the drug within the retina.
-Therefore, more complex models, potentially with non-linear mechanics, may be necessary to inform drug development and treatment protocols.
-Hutton-Smith et al.~\cite{hutton-smith_ocular_2017} proposed one such PK model to re-analyse data from Saunders et al.~\cite{saunders_model_2015}, previously analysed with a 2-compartments model.
-[.......\\
-........
-add notes on the paper
-........
-........]
-
-Anti-VEGF molecules possess binding site upon which free VEGF molecules bind, essentially rendering them unable to induce angiogenesis.
-However, this binding is bilateral, meaning the bound molecules can separate.
-In addition, the bound molecule has different properties than the original one.
-In particular, the hydrodynamic radius is affected by this binding and as a consequence, the molecule's ability to cross physiological barriers and to be cleared out of the system.
-Therefore, incorporating pharmacodynamics of the drug with its target molecule may be important for determining accurate pharmacokinetic parameters.
-
-\newpage
-
-\begin{itemize}
-\item Modelling anti-VEGF therapy includes: modelling angiogenesis, modelling drug kinetics (how it reaches the target site), modelling drug dynamics (how it interacts with the disease in the target site), coupling of all models
-\item The review by Scianna et al. (2013) on angiogenesis models: models of angiogenesis in development, wound healing, driven by hypoxia...; continuum and agent-based (Cellular Potts) models
-\item The few models of retinal angiogenesis past 2013 + maybe important models from the review. In particular, focus on models of choroidal pathological angiogenesis 
-\item PK models (NCA, compartmental ...) and what they say about drug availability
-\item PD models: only found Hutton-Smith 2016 and Hutton-Smith 2018
-\item Conclusion
-\end{itemize}
-
-
-% \begin{spacing}{0.0}
 \bibliographystyle{abbrvnat} % {ksfh_nat}
 {\normalsize \bibliography{Anti-VEGF}}
-% \end{spacing}
 
 \end{document}
