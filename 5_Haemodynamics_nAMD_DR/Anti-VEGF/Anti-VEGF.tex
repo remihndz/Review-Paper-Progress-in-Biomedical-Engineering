@@ -1,5 +1,7 @@
-\documentclass[11pt,a4paper]{article}
+\documentclass[11pt,a4paper, twocolumn]{article}
 \usepackage[margin=1in]{geometry}
+
+\usepackage{times}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -10,7 +12,7 @@
 \usepackage{siunitx}
 
 \graphicspath{{img/}}
-\usepackage[numbers, square]{natbib}
+\usepackage[numbers, super]{natbib}
 
 \usepackage{tcolorbox}
 
@@ -47,15 +49,26 @@ This section is dedicated to computational models of VEGF and its inhibitor, whe
 % Indeed, in addition to structural differences that may influence the pharmacokinetics of drugs, \textit{in vivo} properties of molecules may also differ between species~\cite{garcia-quintanilla_pharmacokinetics_2019}.
 The analysis of ocular or systemic fluids concentration, on the other hand, often relies on strong assumptions on the clearance route of ocular molecules and the effect of interaction between molecular species, e.g., VEGF and its inhibitors.
 Often, the half-life of a molecule is estimated by fitting exponentially decaying curves to the data in order to compute the total exposure to the drug (area under the concentration-time curve) and maximal concentration~\cite{Bakri_2007, Kaiser_2019, Park_2015, Park_2016, Xu_2013}.
-This assume that the clearance rate of molecules in the eye is proportional to the concentration of said molecule at all times and ignores potential effects of interactions with the tissue or the presence of multiple clearing pathways (e.g., the aqueous humor outflow and the choroid circulation).
+This assumes that the clearance rate of molecules in the eye is proportional to the concentration of said molecule at all times and ignores potential effects of interactions with the tissue or the presence of multiple clearing pathways (e.g., the aqueous humor outflow and the choroid circulation).
 Understanding the determinants of the pharmacokinetics of the large anti-VEGF molecules in the eye is essential to develop more efficient molecules and such simple models do not provide this kind of insight.
 Mechanical models can be used to determine the relationship between physiological and drug parameters and estimate their \textit{in vivo} value, which may differ from the theoretical or \textit{in vitro} values.
+Analytical relationships between a molecule's characteristics and its ocular half-life can be derived from those models and help for design of longer lasting therapeutics.
 
 In a series of papers, Hutton-Smith et al. used both compartment models to estimate the true, \textit{in vivo} parameters of intravitreally injected anti-VEGF~\cite{hutton-smith_mechanistic_2016,hutton-smith_ocular_2017,hutton-smith_theoretical_2018}.
-Using data on rabbit eyes, they demonstrated that the half-life of those molecules in the eye is proportional to the cubic root of their hydrodynamic radius (namely, $t_{1/2}\propto R_h^{\frac 1 3}$), which matches with reported experimental values~\cite{hutton-smith_mechanistic_2016}.
+Using data on rabbit eyes, they demonstrated that the half-life of those molecules in the eye is proportional to the cubic root of their hydrodynamic radius, namely,
+\begin{equation}
+  \label{eq:t12_Hutton-Smith}
+  t_{1/2} = \alpha\sqrt[3]{R_h},
+\end{equation}
+which matches with reported experimental values~\cite{hutton-smith_mechanistic_2016}.
 This work also highlighted the differences between \textit{in vitro} and \textit{in vivo} binding rates of anti-VEGF to VEGF, which could be of multiple order of magnitudes compared to values used in previous similar pharmacodynamic models~\cite{saunders_model_2015}.
 
+Using the two-compartment pharmacokinetic model by Hutton-Smith et al., with values of the hydrodynamic radius, ocular half-life and vitreous radius collected for this meta-analysis, Caruso et al. found a slope $\alpha=2.1$ in Equation~(\ref{eq:t12_Hutton-Smith})~\cite{Caruso_2020}.
+The difference with the theoretical value $\alpha=4.4$, computed based on reported $t_{1/2}$ times, may be explained by the abscence of choroidal clearance in the model by Hutton-Smith et al. and the pharmacokinetic analysis reporting half-life values~\cite{hutton-smith_mechanistic_2016}.
 
+Bussing et al. proposed to extent a compartmental model of the whole rabbit body, connected through blood flow and lymphatic circulation~\cite{Bussing_2020}.
+The comprehensive model comprises over a hundred compartments, with all exchange rates and reaction rates determined using values reported in the literature.
+The results showed quantitative and qualitative agreement with experiments without necessitating determination of unknown parameters. 
 
 The limiting rate to the clearance of intravitreally injected molecules is the rate of clearance from the vitreous into the aqueous.
 Hutton-Smith showed that this rate is dependent on the diffusion of the molecule in the vitreous humor, which varies strongly with age (see Zhang 2018 for ref for that) (make sure H-S showed that) (insert refs that support Hutton-Smith theory, e.g. Zhang 2018?).
