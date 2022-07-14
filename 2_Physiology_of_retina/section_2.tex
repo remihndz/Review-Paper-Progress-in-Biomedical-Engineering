@@ -1,5 +1,7 @@
-\documentclass[12pt,a4paper]{journal}
+\documentclass[12pt,a4paper, twocolumn]{journal}
 \usepackage[margin=1in]{geometry}
+
+\usepackage{times}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -16,19 +18,13 @@
 \graphicspath{{img/}}
 \usepackage[numbers, super]{natbib}
 
-
 \begin{document}
 
-\subsection{Physiology of the retina}
+\section*{Retinal physiology and therapeutic approaches}
 
-Images to include:
-\begin{itemize}
-\item diagram of the organization of the eye (overall structure)
-\item diagram/picture of the organization of the retinal layers
-\item images of healthy retinal scans (structural/angiogram)
-\end{itemize}
+\subsection*{Physiology}
 
-\subsubsection{In health}
+\subsubsection*{In health}
 
 \begin{itemize}
 \item organization of the eye: iris/lens..., vitreous, retina, choroid, sclera
@@ -36,24 +32,40 @@ Images to include:
 \item how each layer is attached to each other
 \item how incoming light is processed: travels through the retina, captured by photoreceptors, transformed in biochemical signal, transform in elecrtical signal, sent through the optic nerve to the brain
 \item the vasculature in the retina and the choroid (add where it comes from, i.e., ophthalmic artery?)
-\item ajouter des images de healthy/diseased retinae OCTA/FA and OCT
-\item role du RPE
+\item ajouter des images de healthy/diseased retinae OCTA/FA and OCT?
+\item \textbf{role of RPE in maintening an healthy retina}
 \end{itemize}
-
-\large\textbf{organization of the eye: iris/lens..., vitreous, retina, choroid, sclera}
 
 The retina is a layer of tissue, aproximately \SI{0.5}{\mm} thick, that lines the back of the eye.
 The retinal inner surface is attached to the vitreous body, the clear gel that separates the lens and the retina, while its outer surface is attached to Bruch's membrane, see Figure~\ref{fig:architecture-eye}.
 When looking at a cross section of the retina as shown in Figure~\ref{fig:architecture-eye}, eight layers can be identified, the innermost (closest to the vitreous) being the nerve fiber layer and the outermost the retinal pigmented epithelium (RPE).
 In the centre of the retina is a oval-shaped pigmented area called the macula.
 
-The macula is about \SI{5}{\mm} wide and is responsible for the highly detailed, central vision thanks to its high concentration of photoreceptor cells, namely rods and cones.
+\begin{figure*}
+  \centering
+  \includegraphics[width=0.45\textwidth, height=7cm]{ArchitectureEye} % From Wikipedia retina
+  \hfill
+  \includegraphics[width=0.50\textwidth, height=7cm]{RetinalLayers}
+  \caption{Anatomy of the eye and the retina. \textbf{(Left)} Anatomy of the eye. Image credits: Rhcastilhos and Jmarchn, CC BY-SA 3.0, via Wikimedia Commons. \textbf{(Right)} The retina and its subdivision in layers. From inner retina to outer retina: inner limiting membrane (ILM), nerve fiber layer (NFL), ganglion cell layer (GCL), inner plexiform layer (IPL), inner nuclear layer (INL), outer plexiform layer (OPL), outer nuclear layer (ONL), photoreceptors (PHR), retinal pigmented epithelium (RPE), Bruch's membrane (BrM), choriocapillaris (CC), Sattler's layer (SL), Haler's layer (HL). Modified from the work of Trivi\~no et al., published under CC BY 3.0 license~\cite{Trivino_2012}.}
+  \label{fig:architecture-eye}
+\end{figure*}
+
+The macula is about \SI{5}{\mm} wide and is responsible for the highly detailed, central vision, owed to its high concentration of photoreceptor cells, namely rods and cones.
 In particular, cones are highly concentrated in the centre of the macula, in a pit approximately \SI{1.5}{\mm} wide named the fovea.
 The fovea is a critical area of the retina, with a number of conditions appearing at or around it.
-\\
+
 Another important structure of the retina in disease is the optic disc.
-The optic disc appears as a round spot on \textit{en-face} views of the retina and is around \SI{1.8}{\mm} wide.
+The optic disc appears as a round spot on fundus photographs of the retina (Figure~\ref{fig:Scans}) and is around \SI{1.8}{\mm} wide.
 Through the optic disc passes the optic nerve, the fibers of which extend to form the nerve fiber layer, which transmits visual information to the brain.
+The optic nerve is composed of the axons of the retinal ganglion cells, amounting to between $500,000$ and $1.2$ millions, and is surrounded by connective tissue~\cite{Salazar_2019}.
+
+\begin{figure*}
+  \centering
+  \includegraphics[width=0.45\textwidth]{FA}
+  \caption{Images of healthy retinae. \textbf{(Left)} Anatomical features of the retina on a fundus photograph. By Mikael H\"aggstr\"om, used with permission.}
+  \label{fig:Scans}
+\end{figure*}
+
 
 %% 
 % Light hitting the retina travels through the retinal thickness to reach the photoreceptor layer, located just above the RPE.
@@ -70,6 +82,11 @@ To fulfill this purpose, the RPE acts as the blood-retinal barrier, hence regula
 The photoreceptors are attached to the RPE cells plasma membrane.
 Through this close interaction, the RPE collects by-products of the photoreceptors, an essential action to maintain visual function.
 Those by-products are released into the systemic circulation via the choroid, one of the two circulations of the retina~\cite{Boulton_2001}.
+\begin{itemize}
+\item The role of the RPE in maintaining the vasculature.
+\item A regulatory role in immune response
+\end{itemize}
+
 
 Visual functions require high metabolic activity from the retinal cells, which makes the retinal tissue very demanding in oxygen.
 In fact, the rates of oxygen consumption per unit volume of tissue are comparable for the brain and the retina~\cite{Medrano_1995}.
@@ -77,18 +94,13 @@ To sustain the demand in oxygen, the retina is equiped with a dense network of c
 The CRA is a branch of the ophthalmic artery and the CRV drains into the superior ophthalmic vein.
 Both the CRA and CRV enter and exit the retina along the optic nerve.
 The CRA's branches spread across four plexi within the inner half of the retinal depth, namely, the superficial (SCP), intermediate (ICP), deep (DCP) and the radial peripapillary capillary plexus (RPCP).
-%%
-%The aggregation of adjacent plexi leads to the use of the terms superficial vascular complex (SVC) and deep vascular complex (DVC).
-%%
 The terms superficial vascular complex (SVC) and deep vascular complex (DVC) are sometimes used to designate the RPCP-SCP complex and the ICP-DCP complex, respectively.
 
 The inner retinal circulation provides oxygen for the inner \SIrange{60}{80}{\percent} of the tissue.
 The perfusion of the remaining outer \SIrange{20}{40}{\percent} is covered by the choroid.
-The choroid is a vascular tissue of the eye that lies beinhd the RPE, from which it is separated by Bruch's membrane, a thin (\SIrange{2}{4}{\micro\meter}), permeable barrier that provides structural support to the RPE and regulates gas and mass exchanges with the choroid~\cite{Curcio_2013}.
+The choroid is a vascular tissue of the eye that lies beinhd the RPE, from which it is separated by Bruch's membrane.
+Bruch's membrane is a thin (\SIrange{2}{4}{\micro\meter}), permeable barrier that provides structural support to the RPE and regulates gas and mass exchanges with the choroid~\cite{Curcio_2013}.
 
-%%
-%Bruch's membrane is a thin (\SIrange{2}{4}{\micro\meter}), permeable barrier that controls exchanges of gas, nutrients and byproducts of metabolic activity between the RPE and the choroid~\cite{Curcio2013}. 
-%
 The choroid is structured in three vascular layers.
 From the outermost to the innermost: Haller's layer, Sattler's layer and the choriocapillaris (CC).
 The diameter of the vessels in each layer decreases as it approaches the retina, with the CC only composed of capillaries.
@@ -110,20 +122,10 @@ While appropriate blood supply is necessary to maintain vision, blood vessels ca
 The distribution of photoreceptor in the retina is heterogeneous, with a higher concentration in the parafovea, for rods, and fovea, for cones~\cite{Zouache_2022}.
 For this reason, the centre of the fovea is an avascular zone around \SI{500}{\micro\meter} wide, often refered to as the foveolar avascular zone (FAZ).
 
-The close relationship between layers of the retina, e.g., the RPE and photoreceptors, is essential for visual functions.
+The interactions between layers of the retina, e.g., the RPE and photoreceptors, is essential to visual functions.
 Disruption of the delicate structure of the retina leads to degeneration of sight.
 
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=0.45\textwidth, height=7cm]{ArchitectureEye} % From Wikipedia retina
-  \hfill
-  \includegraphics[width=0.50\textwidth, height=7cm]{RetinalLayers}
-  \caption{Anatomy of the eye and the retina. \textbf{(Left)} Anatomy of the eye. Image credits: Rhcastilhos. And Jmarchn., CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0), via Wikimedia Commons. \textbf{(Right)} The retina and its subdivision in layers. From inner retina to outer retina: inner limiting membrane (ILM), nerve fiber layer (NFL), ganglion cell layer (GCL), inner plexiform layer (IPL), inner nuclear layer (INL), outer plexiform layer (OPL), outer nuclear layer (ONL), photoreceptors (PHR), retinal pigmented epithelium (RPE), Bruch's membrane (BrM), choriocapillaris (CC), Sattler's layer (SL), Haler's layer (HL). Modified from the work of Trivi\~no et al., published under CC BY 3.0 license~\cite{Trivino_2012}.}
-  \label{fig:architecture-eye}
-\end{figure}
-
-
-\subsubsection{In disease}
+\subsubsection*{In disease}
 
 \begin{itemize}
 \item degradation of the blood supply chain (rarefaction des vaisseaux sanguins dans la retine (e.g. en cas de diabete) et le choriocapillaris (e.g. AMD)
@@ -131,6 +133,18 @@ Disruption of the delicate structure of the retina leads to degeneration of sigh
 \item epaississement de la membrane de Bruch avec l'age et peut-etre AMD?
 \item formation de drusen in AMD et avec l'age et le risque de detachement de la retine ou du RPE
 \item neovascularisation et leakages
+\item (Optional) Posterior vitreous detachment 
+\item Retinal tears and breaks
+\item Retinal detachment (Rhegmatogeneous, tractional)
+\item Macular hole
+\item (Optional) Choroidal detachment
+\item Sickle cell retinopathy
+\item nAMD
+\item Non-proliferative diabetic retinopathy
+\item Proliferative diabetic retinopathy
+\item Macular edema
+\item Retinitis pigmentosa
+\item Glaucoma
 \end{itemize}
 
 A number of different retinal pathologies can lead to loss of sight.
