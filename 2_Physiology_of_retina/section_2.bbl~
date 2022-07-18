@@ -1,89 +1,252 @@
-\begin{thebibliography}{11}
+\begin{thebibliography}{32}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem[Arslan(2018)]{Arslan2018}
+\bibitem[Arslan(2018)]{Arslan_2018}
 O.~E. Arslan.
 \newblock Anatomy and physiology of retina and posterior segment of the eye.
 \newblock In \emph{Drug Delivery for the Retina and Posterior Segment Disease},
   pages 3--33. Springer International Publishing, 2018.
 \newblock \doi{10.1007/978-3-319-95807-1\_1}.
 
-\bibitem[Boulton and Dayhaw-Barker(2001)]{Boulton2001}
+\bibitem[Band et~al.(2009)Band, Hall, Richardson, Jensen, Siggers, and
+  Foss]{Band_2009}
+L.~R. Band, C.~L. Hall, G.~Richardson, O.~E. Jensen, J.~H. Siggers, and
+  A.~J.~E. Foss.
+\newblock Intracellular flow in optic nerve axons: A mechanism for cell death
+  in glaucoma.
+\newblock \emph{Investigative Opthalmology {\&} Visual Science}, 50\penalty0
+  (8):\penalty0 3750, aug 2009.
+\newblock \doi{10.1167/iovs.08-2396}.
+
+\bibitem[Bill et~al.(1983)Bill, Sperber, and Ujiie]{Bill_1983}
+A.~Bill, G.~Sperber, and K.~Ujiie.
+\newblock Physiology of the choroidal vascular bed.
+\newblock \emph{International Ophthalmology}, 6\penalty0 (2):\penalty0
+  101--107, Feb. 1983.
+\newblock \doi{10.1007/bf00127638}.
+
+\bibitem[Bott\'os et~al.(2012)Bott\'os, Elizalde, Rodrigues, and
+  Maia]{Bottos_2012}
+J.~Bott\'os, J.~Elizalde, E.~Rodrigues, and M.~Maia.
+\newblock Current concepts in vitreomacular traction syndrome.
+\newblock \emph{Current Opinion in Ophthalmology}, 23\penalty0 (3):\penalty0
+  195--201, Apr. 2012.
+\newblock \doi{10.1097/icu.0b013e328352404c}.
+
+\bibitem[Boulton and Dayhaw-Barker(2001)]{Boulton_2001}
 M.~Boulton and P.~Dayhaw-Barker.
 \newblock The role of the retinal pigment epithelium: Topographical variation
   and ageing changes.
-\newblock \emph{Eye}, 15\penalty0 (3):\penalty0 384--389, may 2001.
+\newblock \emph{Eye}, 15\penalty0 (3):\penalty0 384--389, May 2001.
 \newblock \doi{10.1038/eye.2001.141}.
 
 \bibitem[Chan-Ling et~al.(2011)Chan-Ling, Koina, McColm, Dahlstrom, Bean,
-  Adamson, Yun, and Baxter]{ChanLing2011}
+  Adamson, Yun, and Baxter]{ChanLing_2011}
 T.~Chan-Ling, M.~E. Koina, J.~R. McColm, J.~E. Dahlstrom, E.~Bean, S.~Adamson,
   S.~Yun, and L.~Baxter.
-\newblock Role of cd^{44} stem cells in mural cell formation in the human
+\newblock Role of {CD}44$^+$ stem cells in mural cell formation in the human
   choroid: Evidence of vascular instability due to limited pericyte
   ensheathment.
-\newblock \emph{Investigative Opthalmology \& Visual Science}, 52\penalty0
-  (1):\penalty0 399, jan 2011.
+\newblock \emph{Investigative Opthalmology {\&} Visual Science}, 52\penalty0
+  (1):\penalty0 399, Jan. 2011.
 \newblock \doi{10.1167/iovs.10-5403}.
 
-\bibitem[Curcio and Johnson(2013)]{Curcio2013}
+\bibitem[Curcio and Johnson(2013)]{Curcio_2013}
 C.~A. Curcio and M.~Johnson.
 \newblock Structure, function, and pathology of bruch's membrane.
 \newblock In \emph{Retina}, pages 465--481. Elsevier, 2013.
 \newblock \doi{10.1016/b978-1-4557-0737-9.00020-5}.
 
-\bibitem[Hurley(2009)]{Hurley2009}
-J.~Hurley.
+\bibitem[Detrick and Hooks(2020)]{Detrick_2020}
+B.~Detrick and J.~J. Hooks.
+\newblock The {RPE} cell and the immune system.
+\newblock In \emph{Retinal Pigment Epithelium in Health and Disease}, pages
+  101--114. Springer International Publishing, 2020.
+\newblock \doi{10.1007/978-3-030-28384-1_6}.
+
+\bibitem[Friedlander(2007)]{Friedlander_2007}
+M.~Friedlander.
+\newblock Fibrosis and diseases of the eye.
+\newblock \emph{Journal of Clinical Investigation}, 117\penalty0 (3):\penalty0
+  576--586, mar 2007.
+\newblock \doi{10.1172/jci31030}.
+
+\bibitem[Fryczkowski(1994)]{Fryczkowski_1994}
+A.~W. Fryczkowski.
+\newblock Anatomical and functional choroidal lobuli.
+\newblock \emph{International Ophthalmology}, 18\penalty0 (3):\penalty0
+  131--141, 1994.
+\newblock \doi{10.1007/bf00915961}.
+
+\bibitem[Gupta et~al.(2015)Gupta, Herzlich, Sauer, and Chan]{Gupta_2015}
+M.~P. Gupta, A.~A. Herzlich, T.~Sauer, and C.-C. Chan.
+\newblock Retinal anatomy and pathology.
+\newblock In \emph{Developments in Ophthalmology}, pages 7--17. S. Karger {AG},
+  Oct. 2015.
+\newblock \doi{10.1159/000431128}.
+
+\bibitem[Hayreh et~al.(2004)Hayreh, Zimmerman, Beri, and
+  Podhajsky]{Hayreh_2004}
+S.~S. Hayreh, M.~Zimmerman, M.~Beri, and P.~Podhajsky.
+\newblock Intraocular pressure abnormalities associated with central and
+  hemicentral retinal vein occlusion.
+\newblock \emph{Ophthalmology}, 111\penalty0 (1):\penalty0 133--141, jan 2004.
+\newblock \doi{10.1016/j.ophtha.2003.03.002}.
+
+\bibitem[Hurley(2009)]{Hurley_2009}
+J.~B. Hurley.
 \newblock Phototransduction.
 \newblock In \emph{Encyclopedia of Neuroscience}, pages 687--692. Elsevier,
   2009.
 \newblock \doi{10.1016/b978-008045046-9.00914-1}.
 
-\bibitem[Kiel(2010)]{Kiel2010}
+\bibitem[Jager et~al.(2008)Jager, Mieler, and Miller]{Jager_2008}
+R.~D. Jager, W.~F. Mieler, and J.~W. Miller.
+\newblock Age-related macular degeneration.
+\newblock \emph{New England Journal of Medicine}, 358\penalty0 (24):\penalty0
+  2606--2617, jun 2008.
+\newblock \doi{10.1056/nejmra0801537}.
+
+\bibitem[Khayat et~al.(2018)Khayat, Williams, and Lois]{Khayat_2018}
+M.~Khayat, M.~Williams, and N.~Lois.
+\newblock Ischemic retinal vein occlusion: characterizing the more severe
+  spectrum of retinal vein occlusion.
+\newblock \emph{Survey of Ophthalmology}, 63\penalty0 (6):\penalty0 816--850,
+  nov 2018.
+\newblock \doi{10.1016/j.survophthal.2018.04.005}.
+
+\bibitem[Kiel(2010)]{Kiel_2010}
 J.~Kiel.
 \newblock The ocular circulation.
 \newblock \emph{Colloquium Series on Integrated Systems Physiology: From
   Molecule to Function}, 3\penalty0 (1):\penalty0 1--81, 2010.
 \newblock \doi{10.4199/c00024ed1v01y201012isp012}.
 
-\bibitem[Medrano and Fox(1995)]{Medrano1995}
+\bibitem[Medina et~al.(2016)Medina, Townsend, and Singh]{Medina_2016}
+C.~A. Medina, J.~H. Townsend, and A.~D. Singh, editors.
+\newblock \emph{Manual of Retinal Diseases}.
+\newblock Springer International Publishing, 2016.
+\newblock \doi{10.1007/978-3-319-20460-4}.
+
+\bibitem[Medrano and Fox(1995)]{Medrano_1995}
 C.~J. Medrano and D.~A. Fox.
 \newblock Oxygen consumption in the rat outer and inner retina: Light- and
   pharmacologically-induced inhibition.
 \newblock \emph{Experimental Eye Research}, 61\penalty0 (3):\penalty0 273--284,
-  sep 1995.
+  Sept. 1995.
 \newblock \doi{10.1016/s0014-4835(05)80122-8}.
 
-\bibitem[Nickla and Wallman(2010)]{Nickla2010}
+\bibitem[Newsom and Simon(2008)]{Newsom_2008}
+R.~Newsom and C.~Simon.
+\newblock Age-related macular degeneration.
+\newblock \emph{{InnovAiT}: Education and inspiration for general practice},
+  1\penalty0 (10):\penalty0 710--713, oct 2008.
+\newblock \doi{10.1093/innovait/inn130}.
+
+\bibitem[Nickells et~al.(2012)Nickells, Howell, Soto, and John]{Nickells_2012}
+R.~W. Nickells, G.~R. Howell, I.~Soto, and S.~W.~M. John.
+\newblock Under pressure: Cellular and molecular responses during glaucoma, a
+  common neurodegeneration with axonopathy.
+\newblock \emph{Annual Review of Neuroscience}, 35\penalty0 (1):\penalty0
+  153--179, July 2012.
+\newblock \doi{10.1146/annurev.neuro.051508.135728}.
+
+\bibitem[Nickla and Wallman(2010)]{Nickla_2010}
 D.~L. Nickla and J.~Wallman.
 \newblock The multifunctional choroid.
 \newblock \emph{Progress in Retinal and Eye Research}, 29\penalty0
-  (2):\penalty0 144--168, mar 2010.
+  (2):\penalty0 144--168, Mar. 2010.
 \newblock \doi{10.1016/j.preteyeres.2009.12.002}.
 
-\bibitem[Parver(1991)]{Parver1991}
+\bibitem[Parver(1991)]{Parver_1991}
 L.~M. Parver.
 \newblock Temperature modulating action of choroidal blood flow.
-\newblock \emph{Eye}, 5\penalty0 (2):\penalty0 181--185, mar 1991.
+\newblock \emph{Eye}, 5\penalty0 (2):\penalty0 181--185, Mar. 1991.
 \newblock \doi{10.1038/eye.1991.32}.
 
-\bibitem[Torczynski and Tso(1976)]{Torczynski1976}
-E.~Torczynski and M.~O. Tso.
-\newblock The architecture of the choriocapillaris at the posterior pole.
-\newblock \emph{American Journal of Ophthalmology}, 81\penalty0 (4):\penalty0
-  428--440, apr 1976.
-\newblock \doi{10.1016/0002-9394(76)90298-1}.
+\bibitem[Quigley(2011)]{Quigley_2011}
+H.~A. Quigley.
+\newblock Glaucoma.
+\newblock \emph{The Lancet}, 377\penalty0 (9774):\penalty0 1367--1377, Apr.
+  2011.
+\newblock \doi{10.1016/s0140-6736(10)61423-7}.
+
+\bibitem[Roberts(2022)]{Roberts_2022}
+P.~A. Roberts.
+\newblock Mathematical models of retinitis pigmentosa: The trophic factor
+  hypothesis.
+\newblock \emph{Journal of Theoretical Biology}, 534:\penalty0 110938, Feb.
+  2022.
+\newblock \doi{10.1016/j.jtbi.2021.110938}.
+
+\bibitem[Roberts et~al.(2018)Roberts, Gaffney, Whiteley, Luthert, Foss, and
+  Byrne]{Roberts_2018}
+P.~A. Roberts, E.~A. Gaffney, J.~P. Whiteley, P.~J. Luthert, A.~J.~E. Foss, and
+  H.~M. Byrne.
+\newblock Predictive mathematical models for the spread and treatment of
+  hyperoxia-induced photoreceptor degeneration in retinitis pigmentosa.
+\newblock \emph{Investigative Opthalmology {\&} Visual Science}, 59\penalty0
+  (3):\penalty0 1238, Mar. 2018.
+\newblock \doi{10.1167/iovs.17-23177}.
+
+\bibitem[Salazar et~al.(2019)Salazar, Ram{\'i}rez, Hoz, Salobrar-Garcia, Rojas,
+  Fern{\'{a}}ndez-Albarral, L{\'{o}}pez-Cuenca, Rojas, Trivi{\~{n}}o, and
+  Ram{\'{i}}rez]{Salazar_2019}
+J.~J. Salazar, A.~I. Ram{\'i}rez, R.~D. Hoz, E.~Salobrar-Garcia, P.~Rojas,
+  J.~A. Fern{\'{a}}ndez-Albarral, I.~L{\'{o}}pez-Cuenca, B.~Rojas,
+  A.~Trivi{\~{n}}o, and J.~M. Ram{\'{i}}rez.
+\newblock Anatomy of the human optic nerve: Structure and function.
+\newblock In \emph{Optic Nerve}. {IntechOpen}, feb 2019.
+\newblock \doi{10.5772/intechopen.79827}.
+
+\bibitem[Shechtman and Dunbar(2009)]{Shechtman_2009}
+D.~L. Shechtman and M.~T. Dunbar.
+\newblock The expanding spectrum of vitreomacular traction.
+\newblock \emph{Optometry - Journal of the American Optometric Association},
+  80\penalty0 (12):\penalty0 681--687, dec 2009.
+\newblock \doi{10.1016/j.optm.2009.07.014}.
+
+\bibitem[Stone(1999)]{Stone_1999}
+J.~Stone.
+\newblock Mechanisms of photoreceptor death and survival in mammalian retina.
+\newblock \emph{Progress in Retinal and Eye Research}, 18\penalty0
+  (6):\penalty0 689--735, Nov. 1999.
+\newblock \doi{10.1016/s1350-9462(98)00032-9}.
+
+\bibitem[Trivi{\~n}o et~al.(2012)Trivi{\~n}o, {de Hoz}, Rojas, Gallego, Ramrez,
+  Salazar, and Ramrez]{Trivino_2012}
+A.~Trivi{\~n}o, R.~{de Hoz}, B.~Rojas, B.~Gallego, A.~Ramrez, J.~Salazar, and
+  J.~Ramrez.
+\newblock Effects of hypercholesterolaemia in the retina.
+\newblock In \emph{Ocular Diseases}. {InTech}, Sept. 2012.
+\newblock \doi{10.5772/48359}.
+
+\bibitem[Zacks et~al.(2022)Zacks, Kocab, Choi, Gregory-Ksander, Cano, and
+  Handa]{Zacks_2022}
+D.~N. Zacks, A.~J. Kocab, J.~J. Choi, M.~S. Gregory-Ksander, M.~Cano, and J.~T.
+  Handa.
+\newblock Cell death in {AMD}: The rationale for targeting fas.
+\newblock \emph{Journal of Clinical Medicine}, 11\penalty0 (3):\penalty0 592,
+  jan 2022.
+\newblock \doi{10.3390/jcm11030592}.
+
+\bibitem[Zouache(2022)]{Zouache_2022}
+M.~A. Zouache.
+\newblock Variability in retinal neuron populations and associated variations
+  in mass transport systems of the retina in health and aging.
+\newblock \emph{Frontiers in Aging Neuroscience}, 14, Feb. 2022.
+\newblock \doi{10.3389/fnagi.2022.778404}.
 
 \bibitem[Zouache et~al.(2016)Zouache, Eames, Klettner, and
-  Luthert]{Zouache2016}
+  Luthert]{Zouache_2016}
 M.~A. Zouache, I.~Eames, C.~A. Klettner, and P.~J. Luthert.
 \newblock Form, shape and function: segmented blood flow in the
   choriocapillaris.
-\newblock \emph{Scientific Reports}, 6\penalty0 (1), oct 2016.
+\newblock \emph{Scientific Reports}, 6\penalty0 (1), Oct. 2016.
 \newblock \doi{10.1038/srep35754}.
 
 \end{thebibliography}
