@@ -13,8 +13,14 @@
 
 \usepackage[super,numbers]{natbib}
 
+\usepackage{siunitx}
+\sisetup{range-phrase=--, range-units=single}
 
-\title{Advancing Treatment of Retinal Disease throuh \it{in silico} Trials}
+\graphicspath{{2_Physiology_of_retina/img/}, {5_Haemodynamics_nAMD_DR/img/}}
+
+
+
+\title{Advancing Treatment of Retinal Disease throuh \textit{in silico} Trials}
 \author[1,2]{R\'emi Hernandez}
 \author[3]{Paul A. Roberts}
 \author[1,2]{Wahbi K. El-Bouri}
@@ -27,13 +33,13 @@
 \maketitle
 
 %%%% To add a section do: \import{folder/}{.tex name}
-\import{1_Introduction/}{section_1}
+% \import{1_Introduction/}{section_1}
 \import{2_Physiology_of_retina/}{section_2}
-\import{3_Mathematical_modelling/}{section_3}
-\import{4_Retinal_tear_detachement/}{section_4}
+% \import{3_Mathematical_modelling/}{section_3}
+% \import{4_Retinal_tear_detachement/}{section_4}
 \import{5_Haemodynamics_nAMD_DR/}{Haemodynamics_nAMD_DR.tex}
 
 \bibliographystyle{abbrvnat} % {ksfh_nat}
-{\normalsize \bibliography{bibliography}}
+\bibliography{bibliography}
 
 \end{document}
