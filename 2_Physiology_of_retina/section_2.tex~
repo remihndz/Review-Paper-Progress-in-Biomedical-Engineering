@@ -1,0 +1,30 @@
+\documentclass[12pt,a4paper]{journal}
+\usepackage[margin=1in]{geometry}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{siunitx}
+\sisetup{range-phrase=--, range-units=single}
+
+\graphicspath{{img/}}
+\usepackage[numbers, square]{natbib}
+
+
+\begin{document}
+
+
+A test with reference from An~\cite{An2020}.
+
+% \begin{spacing}{0.0}
+\bibliographystyle{abbrvnat} % {ksfh_nat}
+{\normalsize \bibliography{section_2}}
+% \end{spacing}
+
+\end{document}

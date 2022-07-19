@@ -1,0 +1,84 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{siunitx}
+
+\graphicspath{{img/}}
+\usepackage[numbers, square]{natbib}
+
+
+\begin{document}
+
+In proliferative DR and nAMD, loss of sight is linked to accumulation of fluids in the retina~\cite{Waldstein_2016, Roberts_2020}.
+Those fluids are secondary to growth of leaky neovasculature in the neuronal retina and in particular in the macula.
+The angiogenesis of macular neovasculature (MNV) is lead by gradients of vascular endothelial growth factors (VEGF) which are upregulated by the hypoxic conditions in the diseased retina.
+The treatment of MNV is predominantly done via frequent injections of anti-VEGF agents that bind to the free VEGF present in the retina.
+
+Though not impossible, topical delivery or direct injections of drug into the retina remains challenging.
+The currently prefered method consist in injection into the vitreous humour of the eye, then diffusing to the retina.
+However, molecules in the vitreous are naturally eliminated through the aqueous humour flow, in the anterior section of the eye.
+In addition, the inner limiting membrane (ILM) and retinal pigment epithelium (RPE), respectively on the inner and outer retina, act as barriers to the molecules~\cite{park_intraocular_2015}.
+Therefore, the drug availability in the retina is limited to a fraction of the injected dose.
+Understanding the determinants of the pharmacokinetics of the large anti-VEGF molecules in the eye is essential to develop more efficient treatments.
+% The drugs are normally injected inside the vitreous humour, in which they diffuse to reach the retina.
+Not only is drug administration challenging, but VEGF induced angiogenesis is a natural process meant to maintain the vasculature and remodel it to adapt to its environment, both in the eye and the rest of the body.
+Therefore, while effective for keeping visual acuity, the injections pose a number of problems.
+Firstly, the intravitreal injections (IVI) can cause further inflammations within the retina, triggering additional VEGF upregulation \textbf{[REF here]}.
+Secondly, with the current doses, the unbound anti-VEGF molecules that are cleared from the eye are found in significant levels in the systemic circulation, raising concerns about the safety of IVI.
+Indeed, while it is still matter of debate, it has been suggested that IVI of anti-angiogenic molecules could be linked with serious advert systemic effects including hemorrhages and strokes\textbf{[REF here]}. \\
+Therefore, in the absence of other injection techniques, optimising the bioavailability of anti-VEGF in the retina is essential.
+While \textit{in vitro} and \textit{in vivo} investigations of the pharmoacokinetics and pharmacodynamics of intravitreally injected anti-VEGF have been done, data on human is scarse and does not give insight on drug availability in the retina.
+Mathematical model can close the gap in determining the actual concentration of drugs in the retina based on serum or vitreous concentrations.
+In addition, they can model the action of the drug on the target site and on the pathological neovaculature.
+Since anti-VEGF therapy is used to treat proliferative retinopathy, we identify three modelling aspects: the pharmacokinetics models simulating the drug availability in the target site, the pharmacodynamics models simulating the effects of the drug on the organism and models of angiogenesis simulating the invasion of the tissue by vasculature.
+
+Pharmacokinetics modelling is often part of the development process of a new therapeutic molecules, as a mean to analyse data.
+In its simplest form, it consists in non-compartmental analysis (NCA) of drug concentration along time~\textbf{[REFS here of NCA models]}.
+By fitting a simple exponential decay rate to data collected from vitreal samples, one can estimate the ocular life course of the molecule.
+Similarly, given the potential advert effects of anti-VEGF compounds, systemic life course can be estimated from serum samples.
+Many researchers also chose a bi-exponential model of drug concentration, to account for a brief and quick distribution of the drug following intravitreal injections~\textbf{[REFS of bi-exponential fits to data]}.
+Mainly, drug efficiency is estimated from its ocular half-life, $t_{1/2}$, and its binding affinity to the various target molecules, reported as the dissociation constant, $K_D$, estimated \textit{in vitro}.
+For a review of reported values for the major ocular anti-VEGF molecules, see the review by Stewart~\cite{stewart_pharmacokinetics_2014}.\\
+Those simple modelling approaches show a number of limitations.
+They ignore the clearance of drug throuh the posterior route, namely from the choroid.
+The \textit{in vitro} determination of the constant $K_D$ strongly depends on the assay used and may differ from the dissociation rates in the eye.
+Similarly, drug concentrations are taken from the aqueous humour, sometimes the vitreous humour, which may show very different time courses as retinal concentrations, given the presence of the inner limiting membrane (ILM) acting as a barrier between the retina and the vitreous.
+For these reasons, such simple models may fail to inform us on the actual availability of the drug within the retina.
+Therefore, more complex models, potentially with non-linear mechanics, may be necessary to inform drug development and treatment protocols.
+Hutton-Smith et al.~\cite{hutton-smith_ocular_2017} proposed one such PK model to re-analyse data from Saunders et al.~\cite{saunders_model_2015}, previously analysed with a 2-compartments model.
+[.......\\
+........
+add notes on the paper
+........
+........]
+
+Anti-VEGF molecules possess binding site upon which free VEGF molecules bind, essentially rendering them unable to induce angiogenesis.
+However, this binding is bilateral, meaning the bound molecules can separate.
+In addition, the bound molecule has different properties than the original one.
+In particular, the hydrodynamic radius is affected by this binding and as a consequence, the molecule's ability to cross physiological barriers and to be cleared out of the system.
+Therefore, incorporating pharmacodynamics of the drug with its target molecule may be important for determining accurate pharmacokinetic parameters.
+
+\newpage
+
+\begin{itemize}
+\item Modelling anti-VEGF therapy includes: modelling angiogenesis, modelling drug kinetics (how it reaches the target site), modelling drug dynamics (how it interacts with the disease in the target site), coupling of all models
+\item The review by Scianna et al. (2013) on angiogenesis models: models of angiogenesis in development, wound healing, driven by hypoxia...; continuum and agent-based (Cellular Potts) models
+\item The few models of retinal angiogenesis past 2013 + maybe important models from the review. In particular, focus on models of choroidal pathological angiogenesis 
+\item PK models (NCA, compartmental ...) and what they say about drug availability
+\item PD models: only found Hutton-Smith 2016 and Hutton-Smith 2018
+\item Conclusion
+\end{itemize}
+
+
+% \begin{spacing}{0.0}
+\bibliographystyle{abbrvnat} % {ksfh_nat}
+{\normalsize \bibliography{Anti-VEGF}}
+% \end{spacing}
+
+\end{document}
