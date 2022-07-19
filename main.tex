@@ -1,4 +1,8 @@
 \documentclass[12pt,a4paper]{article}
+
+\usepackage[subpreambles=false]{standalone}
+\usepackage{import}
+
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{amsmath}
@@ -6,8 +10,6 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{authblk}
-
-\usepackage{subfiles}
 
 \title{Advancing Treatment of Retinal Disease throuh \it{in silico} Trials}
 \author[1,2]{R\'emi Hernandez}
@@ -20,11 +22,13 @@
 
 \begin{document}
 \maketitle
-%\tableofcontents
 
+%%%% \import{folder/}{.tex name}
+% \import{1_Introduction/}{section_1}
+% \import{2_Physiology_of_retina/}{section_2}
+% \import{3_Mathematical_modelling/}{section_3}
+% \import{4_Retinal_tear_detachement/}{section_4}
+\import{5_Haemodynamics_nAMD_DR/}{Haemodynamics_nAMD_DR.tex}
 
-% \subfile{1/1.tex}
-% \subfile{2/2.tex}
-\subfile{5_Haemodynamics_nAMD_DR/Haemodynamics_nAMD_DR.tex}
 
 \end{document}
