@@ -11,6 +11,9 @@
 \usepackage{graphicx}
 \usepackage{authblk}
 
+\usepackage[super,numbers]{natbib}
+
+
 \title{Advancing Treatment of Retinal Disease throuh \it{in silico} Trials}
 \author[1,2]{R\'emi Hernandez}
 \author[3]{Paul A. Roberts}
@@ -23,12 +26,14 @@
 \begin{document}
 \maketitle
 
-%%%% \import{folder/}{.tex name}
-% \import{1_Introduction/}{section_1}
-% \import{2_Physiology_of_retina/}{section_2}
-% \import{3_Mathematical_modelling/}{section_3}
-% \import{4_Retinal_tear_detachement/}{section_4}
+%%%% To add a section do: \import{folder/}{.tex name}
+\import{1_Introduction/}{section_1}
+\import{2_Physiology_of_retina/}{section_2}
+\import{3_Mathematical_modelling/}{section_3}
+\import{4_Retinal_tear_detachement/}{section_4}
 \import{5_Haemodynamics_nAMD_DR/}{Haemodynamics_nAMD_DR.tex}
 
+\bibliographystyle{abbrvnat} % {ksfh_nat}
+{\normalsize \bibliography{bibliography}}
 
 \end{document}
