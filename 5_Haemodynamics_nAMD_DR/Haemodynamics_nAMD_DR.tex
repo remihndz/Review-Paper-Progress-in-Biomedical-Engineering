@@ -45,12 +45,12 @@ This ability of the vasculature is called autoregulation.
 Both the retinal and choroidal circulation are able to autoregulate blood flow.
 In the inner retinal vasculature, arteries close to the central retinal artery are surrounded by 5 to 7 layers of smooth muscle cells.
 Those cells can act on an artery's radius to increase vascular resistance and maintain constant blood flow.
-The number of smooth muscle cells decreases as the arterioles branch into capillaries and venules, with only a sparse number of those cells on venules larger than \SI{10}{\micro\meter}~\cite{An2020, Kur_2012}.
+The number of smooth muscle cells decreases as the arterioles branch into capillaries and venules, with only a sparse number of those cells on venules larger than \SI{10}{\micro\meter}~\cite{An_2020, Kur_2012}.
 % As the arteries branch, the amount of smooth muscle cells diminishes.
 % In arterioles of diameter \SIrange{8}{15}{\micro\meter}, only a single layer of smooth muscle cells is found while the walls of capillaries and venules are devoid of such cells. 
 % Only a sparse number of smooth muscle cells is found on the walls of veins of diameter larger than \SI{10}{\micro\meter}.
 This organisation suggests that blood flow in the retina is regulated mainly by arteries and arterioles.
-Evidence suggests that the choroid is also able, maybe to a lesser degree, to autoregulate blood flow~\cite{CERiva1997, Polska2007}.
+Evidence suggests that the choroid is also able, maybe to a lesser degree, to autoregulate blood flow~\cite{CERiva_1997, Polska_2007}.
 
 A number of mechanisms act on the tone of smooth muscle cells lining the vessel walls, effectively contracting or dilatating the vessel.
 For a review of those mechanisms observed \textit{in vivo}, see~\cite{Kur_2012}.
@@ -60,7 +60,7 @@ While direct \textit{in vivo} measurements of blood flow are possible, they are 
 In addition, current imaging and measurement modalities do not provide insights on the regulation pathways leading to changes in ocular blood flow.
 Mathematical models of the haemodynamics of ocular blood flow can help understand the relationships between IOP, systemic blood pressure, blood gases and oxygen availability in the retina.
 Some of the properties of blood flow seen in Equation~\ref{eq:PoiseuilleLaw} and the stress generated on the vessel walls are difficult to measure \textit{in vivo}.
-Vessel radius and length can be estimated straightforwardly from images of the retina~\cite{DoblhoffDier2014}.\\
+Vessel radius and length can be estimated straightforwardly from images of the retina~\cite{DoblhoffDier_2014}.\\
 Fundus photography is one of those imaging modalities, displaying the whole retina but with limited resolution of smaller vessels.
 Injection of dye prior to the photography is possible to better highlights blood vessels and leakage of blood.\\
 Optical coherence tomography (OCT) is another modality.
@@ -116,7 +116,7 @@ Blood flow generates a force acting on the vessel walls, the shear stress.
 The shear stress is proportional to the viscosity of the blood and \textbf{higher shear rates may relate to degeneration of the vasculature/changes in gas exchanges... find the right refs}.
 However, blood viscosity and red blood cell stiffnesse can only be estimated \textit{ex vivo}.
 Measurements of blood viscosity provide a single parameter for the whole circulatory system, despite differences between vascular beds or variations depending on vessel caliber.
-Indeed, in narrow vessels, the F\r{a}hr\ae us-Lindqvist effect describes the decrease in viscosity of blood with decreasing vessel diameter, as the red blood cells move to the centre of the vessel, while a layer of plasma forms on the walls of the vessels, as illustrated in Figure~\ref{fig:rbc-in-tubes}~\cite{F_hr_us_1931}.
+Indeed, in narrow vessels, the F\r{a}hr\ae us-Lindqvist effect describes the decrease in viscosity of blood with decreasing vessel diameter, as the red blood cells move to the centre of the vessel, while a layer of plasma forms on the walls of the vessels, as illustrated in Figure~\ref{fig:effectiveViscosity}~\cite{Faahraeus_1931}.
 However, in smaller capillaries, say under \SI{8}{\mu\meter} in diameter, this assumption is questionable given, that the diameter of red blood cells in suspension in the blood is similar to the vessels caliber.
 Therefore, empirical models of effective viscosity are often employed in haemodynamic models of the microvasculature rather than constant viscosity to account for increases in vascular resistance in small capillaries~\cite{Pries_1990, Haynes_1960}.
 Introducing an effective viscosity parameter rather than a constant viscosity in Equation~\ref{eq:PoiseuilleLaw} allows modellers to account for increases in vascular resistance in small capillaries.
@@ -127,20 +127,20 @@ When properties of blood flow and the vasculature cannot be measured, mathematic
 This can be done using the available human or animal \textit{in vivo} data or \textit{in vitro} data.
 Rigorous curve fitting techniques optimize the unknown parameters to best reproduce the experimental data, e.g., fitting the variations of vessel diameter in response to increased blood pressure~\cite{Arciero_2013}.
 Note that those parameters are specific to each model and may differ from the true \textit{in vivo} value.
-More detail on effective viscosity and other mathematical modelling techniques of blood flow in microvasculature, including modelling of gas transport, can be found in the review by Arciero et al.~\cite{C_Arciero_2017}.
+More detail on effective viscosity and other mathematical modelling techniques of blood flow in microvasculature, including modelling of gas transport, can be found in the review by Arciero et al.~\cite{Arciero_2017}.
 
 \begin{figure}[t]
   \centering
-  \begin{subfigure}[b]{.45\textwidth}
-    \includegraphics[width=\textwidth, height=5.3cm]{cropped-RBC-in-capillaries.jpg}
-    \caption{}
-    \label{fig:rbc-in-tubes}
-  \end{subfigure}
+%  \begin{subfigure}[b]{.45\textwidth}
+    \includegraphics[width=.45\textwidth, height=5.3cm]{cropped-RBC-in-capillaries.jpg}
+    % \caption{}
+    % \label{fig:rbc-in-tubes}
+%  \end{subfigure}
   \hfill
-  \begin{subfigure}[b]{.45\textwidth}
-    \includegraphics[width=\textwidth]{EffectiveViscosity-Secomb.jpeg}
-    \caption{}
-  \end{subfigure}
+%  \begin{subfigure}[b]{.45\textwidth}
+    \includegraphics[width=.45\textwidth]{EffectiveViscosity-Secomb.jpeg}
+%    \caption{}
+%  \end{subfigure}
   \caption{Example of the effect of capillary calibre on the flow of blood. (a): Red blood cells in suspension in blood flowing within tubes of different diameter: \SI{4.5}{\micro\meter} (top), \SI{7}{\micro\meter} (middle) and \SI{15}{\micro\meter} (bottom). One can observe the flow of cells converging into a single file, surrounded by a layer of plasma as the diameter moves from \SI{15}{\micro\meter} to \SI{7}{\micro\meter}. The cell's shape adapt to fit into the tube as the diameter reaches the cell's size (top row). Image taken from~\cite{Secomb_2013} \textbf{(not the right reference)}. (b): Example of an empirical law for the effective viscosity of blood accounting for the F\r{a}hr\ae us-Lindqvist effect and increased vascular resistance in smaller capillaries from the work of Secomb and Pries~\cite{Secomb_2013}.}
   \label{fig:effectiveViscosity}
 \end{figure}
@@ -218,7 +218,7 @@ While experiments show the importance of blood flow regulation in the retina, th
 Therefore, including auto-regulation and the signaling pathways that lead to the contraction or dilation of vessels in haemodynamic models is essential to understand the mechanisms of auto-regulation and their implication in diseases.
 Such models provide an insight into the mechanisms leading to clinical observations and should be accounted for in updated theories of the pathogenesis of certain diseases~\cite{Petersen_2019, Wang_2014}.
 
-Following their previous work, Guidoboni et al.~\cite{Guidoboni_2014b} built up on this model of the central retinal artery by including arterioles, capillaries and venules up to the central retinal vein.
+Following their previous work, Guidoboni et al.~\cite{Guidoboni_2014a} built up on this model of the central retinal artery by including arterioles, capillaries and venules up to the central retinal vein.
 This 0-dimensional model uses the network proposed by Takahashi et al.~\cite{Takahashi_2009}, aggregated into compartments for arterioles, capillary, venules and central retinal vein.
 Following an analogy with electrical circuits, different resistance and capacitance properties apply for each compartment.
 These characteristics of an electrical circuit's components represent the vascular resistance opposing the flow and the capacity to store blood volumes and deform.
@@ -250,7 +250,7 @@ Using this model, one can predict based on systemic blood flow measurements (e.g
 Simulations can recreate patients with working or defective auto-regulation system as well as hypertensive (blood pressure anormaly high) or hypotensive (blood pressure anormaly low) patients, both aspects being common in age and disease.
 In particular, hypertension is a common risk factor to a number of retinal diseases, e.g., as AMD and glaucoma, though the links with the onset of retinopathies are not well understood~\cite{Klein_2004, Leeman_2019}.
 
-While the previous model by Guidoboni et al.~\cite{Guidoboni_2014b} models varying vascular resistance with a phenomenological approach, Arciero et al.~\cite{Arciero_2013} chose a mechanistic modelling approach of the various signals acting on smooth muscles tone.
+While the previous model by Guidoboni et al.~\cite{Guidoboni_2014} models varying vascular resistance with a phenomenological approach, Arciero et al.~\cite{Arciero_2013} chose a mechanistic modelling approach of the various signals acting on smooth muscles tone.
 The mechanisms triggering auto-regulation included in this work are: pressure, shear stress on the vessel wall, metabolic response, local tissue concentration of carbon dioxide and neural stimuli.
 The idea of the model was to investigate the implications of each auto-regulation pathways, individually and collectively, in glaucoma.
 Glaucoma is characterized by degenerations of the optic nerve and the retinal ganglion cell layer and is associated with impairments of the vascular system, both in the systemic and retinal circulation, and with elevated intraocular pressure~\cite{Bonomi_2000, Hulsman_2007}.
@@ -270,7 +270,7 @@ Notably, Rebhan et al. proposed a framework to investigate tissue stress induced
 
 
 The effects of age and disease on the vasculature can be readily observed and quantified on retinal angiograms and structural images.
-In particular, vessel density and larger capillary-free areas in the inner retina have been related to severity of the disease in glaucoma, diabetic retinopathy and neovascular age-related macular degeneration~\cite{Al_Sheikh_2016, Rao_2020, Yuan_2020}.
+In particular, vessel density and larger capillary-free areas in the inner retina have been related to severity of the disease in glaucoma, diabetic retinopathy and neovascular age-related macular degeneration~\cite{AlSheikh_2016, Rao_2020, Yuan_2020}.
 In those diseases, retinal cell layers appear affected by changes in the vasculature.
 One reason is the reduced perfusion that creates ischemia in the tissue.
 Retinal non-perfusion areas can be visualized on angiograms, however, the exact availability of oxygen in the tissue can hardly be measured \textit{in vivo}.
@@ -284,7 +284,7 @@ The vascular network of an healthy subject, a subject with DR and a subject with
 The inlet flow for each case was scaled accordingly to the subject specifities.
 The experiments showed important differences in wall shear stress between each groups, with diseased cases being subject to higher stress.
 This was true for all vessel diameters.\\
-Guidoboni et al. used their theoretical vascular network to investigate the range of intraocular pressure that patients suffering from low or high systemic blood pressure or loss of auto-regulation function can withstand with limited variation of retinal blood flow~\cite{Guidoboni_2014b}.
+Guidoboni et al. used their theoretical vascular network to investigate the range of intraocular pressure that patients suffering from low or high systemic blood pressure or loss of auto-regulation function can withstand with limited variation of retinal blood flow~\cite{Guidoboni_2014a}.
 Their model suggest that the extend of the effect of IOP on haemodynamics is influenced by both, an individual's arterial blood pressure and capacity to auto-regulate blood flow.
 They concluded that the complex relationship highlighted by the model may explain the difficulty to obtain consistent results from \textit{in vivo} experiments.
 
@@ -305,13 +305,13 @@ Other than the work of Zouache et al., Flower and colleagues theoretically deter
 This therapeutic approach has however now been mostly replaced by intravitreal injections of antiVEGF agents.
 
 
-\subsection{Anti-VEGF therapy}
-Coming soon.
-\subsection{Laser treatment}
+% \subsection{Anti-VEGF therapy}
+% Coming soon.
+% \subsection{Laser treatment}
 
-% \begin{spacing}{0.0}
-\bibliographystyle{abbrvnat} % {ksfh_nat}
-{\normalsize \bibliography{Haemodynamics_nAMD_DR}}
-% \end{spacing}
+% % \begin{spacing}{0.0}
+% \bibliographystyle{abbrvnat} % {ksfh_nat}
+% {\normalsize \bibliography{Haemodynamics_nAMD_DR}}
+% % \end{spacing}
 
 \end{document}
