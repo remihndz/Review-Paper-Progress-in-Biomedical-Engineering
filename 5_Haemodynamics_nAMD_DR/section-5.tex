@@ -1,6 +1,8 @@
 \documentclass[12pt,a4paper]{journal}
 \usepackage[margin=1in]{geometry}
 
+\usepackage{times}
+
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{indentfirst}
@@ -18,29 +20,43 @@
 
 \begin{document}
 
-\section{Retinal haemodynamics, vascular diseases, neovascular age-related macular degeneration and diabetic retinopathy}
+\section*{Retinal haemodynamics, vascular diseases, neovascular age-related macular degeneration and diabetic retinopathy}
 
-\subsection{Retinal haemodynamics}
+\subsection*{Retinal haemodynamics}
+
+\subsubsection*{In health}
 
 \begin{itemize}
+\item Measurement of blood flow: DoblhoffDier 2014 (Fourrier-domain Doppler OCT)
+\item Measurement of oxygen in vessels: Geirsdottir 2013 (oxymeter: two fundus images with different wavelength, one sensitive to saturation)
 \item Mathematical models of retinal blood flow are useful to understand the physiology of the retina and how it is affected by changes within or outside the retina
-  \begin{itemize}
-  \item Salerni on brain/retina/gravity
-  \item Zouache on CC flow
-  \item Chivarali 2022 on in series/parallel organization of the capillaries
-  \item Bernabeu 2014 on haemodynamic in the developing retina + Paul's review?
-  \end{itemize}
+\item Baseline haemodynamics by Takahashi
+\item Arciero 2017 for review on microcirculation modelling
+\item Salerni on brain/retina/gravity
+\item Zouache on CC flow
+\item Chivarali 2021 on in series/parallel organization of the capillaries
+\item Bernabeu 2014 on haemodynamic in the developing retina + Paul's review?
+\item Looking into oxygen: Aquah, Causin 2016, Liu 2009
+\item Autoregulation: Arciero 2008 (impaired regulation at low perfusion pressures, e.g., increased IOP; metabolic or carbon dioxide mechanisms are essential to autoregulation, impairement of both lead to a decrease of 95\% in autoregulation capacity), 2013 (supports that arteriole's contraction is regulated by saturation levels in the venules/capillaries by release of ATP from RBC).
+\item Realistic geometries: Liu 2009, Malek 2015, Rehban 2019
+
+\end{itemize}
+
+\subsubsection*{In disease}
+
+\begin{itemize}
 \item Microaneurysm: Bernabeu 2018,  
 \item Study of structure on perfusion capability of the retina (Lamina cribrosa in glaucoma: Changsuwanich, retinal curvature in e.g. myopia: Dziubek)
-\item Looking into oxygen: Aquah, Causin 2016
 \item Coupled with experimental work: Aschinger,
-\item Diabetic retinopathy: Czaja 2022, Bernabeu 2018
+\item Diabetic retinopathy: Czaja 2022, Bernabeu 2018, Rebhan 2019 (wall shear stress in realistic vascular network and stress on tissue; Difference in WSS between diseased and baseline but not in tissue stress)
 \item Assist treatment options: Aquah
 \item Modelling the optic nerve: Band, Spelman, previous version of the section
+\item Fluid-structure interactions: Aletti 2016, 
+\item Glaucoma, retinal vein occlusion: Sala thesis (haemodynamics and structure modelling and their interactions, collapse of CRV from high IOP, time depedent, platform to simulate virtual patient's eyes based on a handful of parameters, mostly pressures; Extended from Guidoboni to account for perfusion and mechanic stress in the lamina cribrosa and the sclera;), Guidoboni 2014 (observed decreased blood flow velocity during IOP elevation is caused by compression of the CRA by the lamina cribrosa, dimensions of sclera and lamina cribrosa impact the sensitivity of blood flow to IOP changes); Harris 2013 review of mathematical models of haemodynamics in glaucoma; Rebhan 2019 (wall shear stress in realistic vascular network and stress on tissue; Difference in WSS between diseased and baseline but not in tissue stress)
 \end{itemize}
 \newpage
 
-\subsection{Anti-VEGF}
+\subsection*{Anti-VEGF}
 
 In proliferative DR and nAMD, loss of sight is linked to detachment of the retina and accumulation of fluids or oedema~\cite{Roberts_2020, Waldstein_2016}.
 Those are consequences of the growth of leaky blood vessels, referred to as neovasculature, in the neuronal retina and, in particular, in the macula.
