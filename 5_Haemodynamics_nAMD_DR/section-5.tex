@@ -24,21 +24,40 @@
 
 \subsection*{Retinal haemodynamics}
 
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.45\textwidth, height=5.3cm]{cropped-RBC-in-capillaries.jpg}
+  \hfill
+  \includegraphics[width=0.45\textwidth, height=5.3cm]{EffectiveViscosity-Secomb.jpeg}
+  \caption{Example of the effect of capillary calibre on the flow of blood. \textbf{Left}: Red blood cells in suspension in blood flowing within tubes of different diameter: \SI{4.5}{\micro\meter} (top), \SI{7}{\micro\meter} (middle) and \SI{15}{\micro\meter} (bottom). One can observe the flow of cells converging into a single file, surrounded by a layer of plasma as the diameter moves from \SI{15}{\micro\meter} to \SI{7}{\micro\meter}. The cell's shape adapt to fit into the tube as the diameter reaches the cell's size (top row). Reproduced with permission from Secomb.~\cite{Secomb_2003} \textbf{Right}: Example of an empirical law for the effective viscosity of blood accounting for the F\r{a}hr\ae us-Lindqvist effect and increased vascular resistance in smaller capillaries from the work of Secomb and Pries~\cite{Secomb_2013}.}
+  \label{fig:effectiveViscosity}
+\end{figure}
+
+Adequate blood flow is essential for the supply of nutrients and removal of cellular wastes required to maintain visual functions.
+The atypical dual circulation of the retina is both complex and fragile.
+It is thought that the inner vessels perfuse the inner \SIrange{60}{80}{\percent} of the retina while the choroid supplies the remaining, more metabolically active, outer layers, around the photoreceptors.~\cite{Birol_2007}
+It is also known that ocular blood flow is affected by, among other things, intraocular pressure, systemic blood pressure, metabolic activity and oxygen saturation of the blood.~\cite{Birol_2007,McCullough_1997,Palkovits_2014,Polska_2007,Pournaras_2008,CERiva_1997,Wang_2014}
+
+Retinal haemodynamic models are concerned with describing blood flow within the inner retinal or choroidal circulations.
+
+
+
 \subsubsection*{In health}
 
 \begin{itemize}
 \item Measurement of blood flow: DoblhoffDier 2014 (Fourrier-domain Doppler OCT)
 \item Measurement of oxygen in vessels: Geirsdottir 2013 (oxymeter: two fundus images with different wavelength, one sensitive to saturation)
 \item Mathematical models of retinal blood flow are useful to understand the physiology of the retina and how it is affected by changes within or outside the retina
-\item Baseline haemodynamics by Takahashi
+\item Baseline retinal haemodynamics by Takahashi
 \item Arciero 2017 for review on microcirculation modelling
-\item Salerni on brain/retina/gravity
+\item Gravity: Salerni, Petersen
+\item Heart rate/haemodynamics of the ONH: Jin 2020 More comprehensive FEM of ONH and influence of heart rate (stiffening of LC with higher HR, reduced pulsatility of blood)
 \item Zouache on CC flow
 \item Chivarali 2021 on in series/parallel organization of the capillaries
 \item Bernabeu 2014 on haemodynamic in the developing retina + Paul's review?
 \item Looking into oxygen: Aquah, Causin 2016, Liu 2009
-\item Autoregulation: Arciero 2008 (impaired regulation at low perfusion pressures, e.g., increased IOP; metabolic or carbon dioxide mechanisms are essential to autoregulation, impairement of both lead to a decrease of 95\% in autoregulation capacity), 2013 (supports that arteriole's contraction is regulated by saturation levels in the venules/capillaries by release of ATP from RBC).
-\item Realistic geometries: Liu 2009, Malek 2015, Rehban 2019
+\item Autoregulation: Arciero 2008 (impaired regulation at low perfusion pressures, e.g., increased IOP; metabolic or carbon dioxide mechanisms are essential to autoregulation, impairement of both lead to a decrease of 95\% in autoregulation capacity), Arciero 2013 (supports that arteriole's contraction is regulated by saturation levels in the venules/capillaries by release of ATP from RBC), Guidoboni 2014a
+\item Realistic vascular geometries: Liu 2009, Malek 2015, Rehban 2019
 
 \end{itemize}
 
@@ -49,10 +68,11 @@
 \item Study of structure on perfusion capability of the retina (Lamina cribrosa in glaucoma: Changsuwanich, retinal curvature in e.g. myopia: Dziubek)
 \item Coupled with experimental work: Aschinger,
 \item Diabetic retinopathy: Czaja 2022, Bernabeu 2018, Rebhan 2019 (wall shear stress in realistic vascular network and stress on tissue; Difference in WSS between diseased and baseline but not in tissue stress)
+\item Photocoagulation: Fawzi 2019 using the electrical circuit analogy showed that panretinal photocoagulation works thanks to an improve in blood flow in the macular capillaries driven by an increase in vascular resistance in the peripheral retinal circulation. The model's results are in accordance with the observations. Gast 2016, very simplified vasculature to test the impact of burn patterns on oxygen, VEGF realease and how ischaemia propagates 
 \item Assist treatment options: Aquah
 \item Modelling the optic nerve: Band, Spelman, previous version of the section
 \item Fluid-structure interactions: Aletti 2016, 
-\item Glaucoma, retinal vein occlusion: Sala thesis (haemodynamics and structure modelling and their interactions, collapse of CRV from high IOP, time depedent, platform to simulate virtual patient's eyes based on a handful of parameters, mostly pressures; Extended from Guidoboni to account for perfusion and mechanic stress in the lamina cribrosa and the sclera;), Guidoboni 2014 (observed decreased blood flow velocity during IOP elevation is caused by compression of the CRA by the lamina cribrosa, dimensions of sclera and lamina cribrosa impact the sensitivity of blood flow to IOP changes); Harris 2013 review of mathematical models of haemodynamics in glaucoma; Rebhan 2019 (wall shear stress in realistic vascular network and stress on tissue; Difference in WSS between diseased and baseline but not in tissue stress)
+\item Glaucoma, retinal vein occlusion: Sala thesis (haemodynamics and structure modelling and their interactions, collapse of CRV from high IOP, time depedent, platform to simulate virtual patient's eyes based on a handful of parameters, mostly pressures; Extended from Guidoboni to account for perfusion and mechanic stress in the lamina cribrosa and the sclera;), Guidoboni 2014 (observed decreased blood flow velocity during IOP elevation is caused by compression of the CRA by the lamina cribrosa, dimensions of sclera and lamina cribrosa impact the sensitivity of blood flow to IOP changes); Harris 2013 review of mathematical models of haemodynamics in glaucoma; Rebhan 2019 (wall shear stress in realistic vascular network and stress on tissue; Difference in WSS between diseased and baseline but not in tissue stress);  
 \end{itemize}
 \newpage
 
