@@ -103,7 +103,8 @@ A more comprehensive review of models of microcirculation can be found in the wo
 \end{itemize}
 
 The current understanding of the perfusion of the retina is still lacking.
-A significant effort has been made in modelling the complex circulatory system that perfuse the retina in order to complete it.
+A significant effort has been made in modelling the complex circulatory systems that perfuse the retina in order to complete it.
+
 
 Takahashi et al. proposed a arterio-venous dichotomously branching network where all vessels within a given generation is identical.~\cite{Takahashi_2009}
 The diameter and length of the branching vessels follows the principle of least energy described by Murray's law.~\cite{Murray_1926}
@@ -117,11 +118,11 @@ The study showed that changes in total retinal blood flow is not linearly relate
 The patterns of vasodilation tested, however, assumed that the capillaries are able to vary their diameter, a capacity which is still unclear.~\cite{Kur_2012}
 Pappelis et al. used clinical information to create patient specific networks based on the method of Takahashi et al.~\cite{Pappelis_2020}
 Their model included a autoregulation component as a function of retinal perfusion pressure (pressure entering the central retinal artery, estimated as a difference betewen systemic blood pressure and intraocular pressure), and predicted the blood flow response to increases in intraocular pressure or drops in retinal perfusion pressure.
-This allows prediction of the autoregulation capacities of retinas of patients treated for hypertension or of eyes suffering from ocular hypertension.
+This allows prediction of the autoregulation capacities of retinae of patients treated for hypertension or of eyes suffering from ocular hypertension.
 It showed that the retina of both healthy and hypertensive patients was closer to the lower limit of autoregulation, suggesting that the autoregulation mechanism may handle increases in retinal perfusion pressure better than decreases.~\cite{Pappelis_2020}
 
 
-Lump parameter model have been used to investigate the relationships between intra- and extra-vascular pressures in the retina.~\cite{Chiaravalli_2021,Fawzi_2019,Guidoboni_2014a,Nelson_2017,Petersen_2022,Prudhomme_2021,Sala_2020,Salerni_2019}
+Lump parameter model have been used to investigate the relationships between intra- and extra-vascular pressures and haemodynamics in the retina and choroid.~\cite{Chiaravalli_2021,Fawzi_2019,Guidoboni_2014a,Nelson_2017,Petersen_2022,Prudhomme_2021,Sala_2020,Salerni_2019}
 In lump parameter models, similar vessels are lumped into compartments, e.g., central retinal artery, arterioles, capillaries, venules, central retinal vein and choroid, that interact with each other.
 In analogy with electrical circuits, haemodynamics in each compartment is characterized by a resistance, the combined effect of vascular resistance of each vessels in the compartment, and a capacitance, the total amount of blood that can be stored in the vessels of a given compartment.
 Autoregulation mechanisms impact the capacitance of a compartment, while pressures change the resistance coefficient.
@@ -130,29 +131,45 @@ Nelson et al. proposed a baseline model simulating increases in ocular pressures
 The simplistic model predicted relatively well the response of IOP to changes in the gravitational environment or tilt of the body.~\cite{Nelson_2017,Petersen_2022}
 A more comprehensive model including interacting brain, body and eye compartments showed that the retinal circulation was relatively spared from hypoperfusion compared to the choroidal circulation in microgravity conditions.~\cite{Salerni_2019}
 
-Staying with the electrical circuit analogy, whether the vascular plexi in the retina, namely, the superficial vascular plexus and the intermediate and deep capillary plexi, is still subject to debate, are connected \textit{in series} or \textit{in parallel} is still unclear.
+
+Others have used finite element modelling, a technique suitable for modelling of mechanistic forces, to understand the blood flow at the root of the retinal vasculature, in the central retinal artery.~\cite{Guidoboni_2014,Jin_2020}
+The central retinal vessels enter the retina along the optic nerve where they are under pressure from the surrounding tissue, the cerebrospinal fluid surrounding the eye, the intraocular pressure and, potentially, the artery and the vein may also be pushed against each other.~\cite{Nickells_2012}
+The lamina cribrosa's purpose is to act as a buffer protecting the vessel where all those pressures confront each other.
+Guidoboni et al. simulated the displacement of the lamina cribrosa and the stress due to different IOP and pressure induced by the cerebrospinal fluid.~\cite{Guidoboni_2014}
+The prediction of this effect on blood flow in the central retinal artery showed good agreement with measurements during intraocullar pressure elevation, suggesting that the decrease in blood flow velocity observed experimentally is caused by the lamina cribrosa compressing the artery.
+This model assumed a constant blood pressure, average of the systolic and diastolic blood pressures.
+Pulsatility of blood may have a significant impact on IOP and, consequently, blood flow in the optic nerve and has been investigated within a more comprehensive model of the ocular structures.~\cite{Jin_2020}
+
+
+Whether the vascular plexi in the retina, namely, the superficial vascular plexus and the intermediate and deep capillary plexi, is still subject to debate, are connected \textit{in series} or \textit{in parallel} is still unclear.
 With the \textit{in parallel} hypothesis, the plexi communicate share arteriolar and venular connections, while in the \textit{in series} case, blood inflow comes solely from the superficial vascular plexus, while venous drainage is done through the deep capillary plexus.
-Those two hypothesis have been investigated by Chiaravalli et al. using a lump parameter to simulate haemodynamics between the central retinal artery to the central retinal vein.~\cite{Chiaravalli_2021}
-The authors modelled both configurations and compared the response of each plexus to IOP elevation and occlusion of the central retinal vein.
+Those two hypothesis have been investigated by Chiaravalli et al. using a lump parameter to simulate haemodynamics between the central retinal artery to the central retinal vein in five vascular compartments.~\cite{Chiaravalli_2021}
+The authors modelled both configurations and compared the responses of each plexi to IOP elevation and occlusion of the central retinal vein.
 The model showed that the \textit{in series} configuration better captured the response observed in clinical studies, and may better describe the actual physiology of the retinal vasculature.
 
-\textit{In silico} models have been developped to understand how the retinal vasculature develops in response to chemical stimuli.
-A review of some of those models can be found in the review by Roberts et al.~\cite{Roberts_2016}
-However, the role haemodynamics plays in the angiogenesis of the retinal vascular beds.
-Bernabeu et al. proposed a model of blood flow in the reconstructed murine vasculature that can be use to simulate the haemodynamic forces that cannot be measured in small capillaries but may affect angiogenesis.~\cite{Bernabeu_2014} 
 
-Simulation of realistic vascular networks provide a link between haemodynamics and clinically relevant indices.
+\textit{In silico} models have been developped to understand how the retinal vasculature develops.
+A review of some of those models can be found in the review by Roberts et al.~\cite{Roberts_2016}
+However, the role haemodynamics plays in the angiogenesis of the vascular beds is still elusive.
+Bernabeu et al. proposed a model of blood flow in a reconstructed murine vasculature that can be used to simulate the haemodynamic forces that cannot be measured in small capillaries but may affect angiogenesis.~\cite{Bernabeu_2014}
+Others looked at how the branching patterns in the early development of the murine retina may affect later development.~\cite{Mirzapour_Shafiyi_2021}
+The results showed that hyper-branching behaviours in the young vascular bed reduces the blood supply, and hence the oxygen, at the growing ends of the vasculature.
+The lack of oxygen on this front may drive up-regulation of vascular growth factors, henceforth promoting vascular growth.
+
+
+The use of realistic vascular networks provides a link between haemodynamics and clinically relevant indices.
 The effect of torutosity of the vasculature has been investigated on short, segmented sections of the retinal veins.~\cite{Malek_2014}
 In this model, the Navier-Stokes equations are used to find flow within the arterioles, while peripheral circulation is accounted for by an impedence condition at the outlets of the segmented tree.
+
+
 
 While the inner retinal vasculature feeds the inner third of the retina, the remaining two thirds are perfused by the choroidal circulation.
 In contact with the retina is the choriocapillaris (CC) layer of the choroid.
 The CC provides oxygen across the Bruch's membrane to the photoreceptors and other neuronal cells of the outer retina through diffusion only.
-Therefore, a high vascularization is necessary to provide enough oxygen across the distance.
+Therefore, a high vascularization is necessary to provide enough oxygen despite the distance.
 Defects in choroidal blood flow are associated with major retinopathies such as nAMD and DR~\cite{Pemp_2008}.
-Despite its importance, little is known about blood flow in the choroid.
-Likewise, little work has been done on modelling the haemodynamic of the choroid.
-
+Despite its importance, little is known about the physiology of the choroid.
+Likewise, little work has been done on modelling of the choroid.
 Zouache et al. attempted to close this gap by modelling the choriocapillaris and its peculiar architecture~\cite{Zouache_2015}.
 By simulating the lobular structure of the CC, they investigated the effects of the geometry of an individual lobule on the blood flow.
 Their work suggested that the distribution of flow separators in the CC and the location of inlet and outlets in individual lobules may explain the localization of edema or neovasculature in diseased eyes.
