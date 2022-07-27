@@ -39,7 +39,7 @@
 Adequate blood flow is essential for the supply of nutrients and removal of cellular wastes required to maintain visual functions.
 The atypical dual circulation of the retina is both complex and fragile.
 It is thought that the inner vessels perfuse the inner \SIrange{60}{80}{\percent} of the retina while the choroid supplies the remaining, more metabolically active, outer layers, around the photoreceptors.~\cite{Birol_2007}
-It is also known that ocular blood flow is affected by, among other things, intraocular pressure, systemic blood pressure, metabolic activity and oxygen saturation of the blood.~\cite{Birol_2007,McCullough_1997,Palkovits_2014,Polska_2007,Pournaras_2008,CERiva_1997,Wang_2014}
+It is also known that ocular blood flow is affected by, among other things, intraocular pressure, systemic blood pressure, metabolic activity and oxygen saturation of the blood.~\cite{Birol_2007,McCullough_1997,Palkovits_2014,Polska_2007,Pournaras_2008,Riva_1997,Wang_2014}
 Many retinal disease have been linked, whether directly or indirectly, with abnormal haemodynamics.~\cite{Hayreh_2004,Medina_2016}
 
 Retinal haemodynamic models are concerned with describing blood flow within the inner retinal or choroidal circulations and often rely on the Hagen-Poiseuille equation to determine flow in vascular segments.
@@ -50,21 +50,28 @@ The Hagen-Poiseuille equation states that blood flow ($Q$) in a vessel of length
   Q = \mathcal R\times\Delta p \mbox{, where } \mathcal{R} = \frac{8\mu L}{\pi r^4},
 \end{equation*}
 where $\mu$ is the apparent viscosity of blood which may account for changes in vascular resistance ($\mathcal R$) in vessels of varying diameter (see \textit{Additional information} and Figure~\ref{fig:effectiveViscosity}).
+The fourth power of the radius appearing in the vascular resistance shows how even small contractions or dilation of a vessel wall can strongly affect blood flow.
+This relation between radius and flow is at the source of the autoregulation ability of blood vessels, which contract in response to a number of different cues.~\cite{Kur_2012}
+The cellular constitution of retinal vessels suggests that blood flow is mainly regulated by arteries and arterioles.~\cite{An_2020,Kur_2012}
+Evidence suggests that the choroid is also able, maybe to a lesser degree, to autoregulate blood.~\cite{Polska_2007,Riva_1997}
+Neurological regulation (regulation by the autonomic nervous system) of choroidal blood flow has been suggested, given the rich innervation of choroidal vessels.~\cite{BeharCohen_2020,Polska_2007}
 
 \textit{In silico} models provide valuable insights into the mechanisms that combine to provide healthy perfusion or, conversely, create conditions for the onset of retinal pathologies.
 The assumptions made in these models can be validated by comparing simulation results and \textit{in vivo} measurements of changes of blood flow or vessel radii.
 Vessel radius in the inner retina can be measured from retinal scans such as fundus photographs, fluorescein angiograms or optical coherence tomography (OCT) angiograms.
 Blood flow can be measured using devices such as Doppler flowmeter or Doppler Fourier-domain OCT, in combination with radius measurements.~\cite{DoblhoffDier_2014,Wang_2009}
 The blood's saturation in oxygen can also be measured \textit{in vivo}.~\cite{Geirsdottir_2013}
-Reliable measurement of blood flow or vessel radii in the choroid is more difficult, though changes in haemodynamics can be observed \textit{in vivo}.~\cite{CERiva_1997,Scherm_2019}
+Reliable measurement of blood flow or vessel radii in the choroid is more difficult, though changes in haemodynamics can be observed \textit{in vivo}.~\cite{Riva_1997,Scherm_2019}
 
 In this section, we review \textit{in silico} models that describe the normal physiology of the retina and models aiming at understanding the ethiology of various diseases which may be linked with haemodynamics in the retina and the underlying choroid.
 A more comprehensive review of models of microcirculation can be found in the work of Arciero et al.~\cite{Arciero_2017}
 
 \begin{tcolorbox}[title=Additional information -- Fluid flow modelling]
   \begin{itemize}
-  \item Viscous fluids are modelled by a set of differential equations relating acceleration, velocity, convection and pressure of a fluid.
-  \item Those equations simplify to the Hagen-Poiseuille equation when assuming that the fluid is Newtonian and the flow incompressible and laminar.
+  \item Viscous fluids such as blood are modelled by a set of differential equations relating acceleration, velocity, convection, density and pressure of a fluid called the Navier-Stokes equations.
+    Solving those equations can be problematic in complex geometries, for example in a large network of vessels.
+  \item Those equations simplify to the Hagen-Poiseuille equation (see main text) when assuming that the fluid is Newtonian and the flow incompressible and laminar.
+    The equation Hagen-Poiseuille equation is relatively simple to solve, even on large vascular networks.
   \item An incompressible flow has a constant density regardless of the pressure and the fluid's properties are the same in all directions, namely, it is an isotropic fluid.
   \item A Newtonian fluid is a fluid which has a constant viscosity for given pressure and temperature, regardless of the amount of shear it is subject to.
   \item A Newtonian fluid flowing within a pipe is called laminar when fluid particules (e.g., red blood cells, blood plasma) move along smooth path with no mixing between each path.
@@ -85,13 +92,13 @@ A more comprehensive review of models of microcirculation can be found in the wo
 % \item Mathematical models of retinal blood flow are useful to understand the physiology of the retina and how it is affected by changes within or outside the retina
 % \item Baseline retinal haemodynamics by Takahashi
 % \item Arciero 2017 for review on microcirculation modelling
-\item Gravity: Salerni, Petersen
+% \item Gravity: Nelson, Salerni, Petersen
 \item Heart rate/haemodynamics of the ONH: Jin 2020 More comprehensive FEM of ONH and influence of heart rate (stiffening of LC with higher HR, reduced pulsatility of blood)
 % \item Zouache on CC flow
 % \item Chivarali 2021 on in series/parallel organization of the capillaries
 % \item Bernabeu 2014 on haemodynamic in the developing retina + Paul's review?
 \item Looking into oxygen: Aquah, Causin 2016, Liu 2009
-\item Autoregulation: Arciero 2008 (impaired regulation at low perfusion pressures, e.g., increased IOP; metabolic or carbon dioxide mechanisms are essential to autoregulation, impairement of both lead to a decrease of 95\% in autoregulation capacity), Arciero 2013 (supports that arteriole's contraction is regulated by saturation levels in the venules/capillaries by release of ATP from RBC), Guidoboni 2014a
+\item Autoregulation: Arciero 2008 (impaired regulation at low perfusion pressures, e.g., increased IOP; metabolic or carbon dioxide mechanisms are essential to autoregulation, impairement of both lead to a decrease of 95\% in autoregulation capacity), Arciero 2013 (supports that arteriole's contraction is regulated by saturation levels in the venules/capillaries by release of ATP from RBC), Guidoboni 2014a, Aschinger 2017 tested several 
 \item Realistic vascular geometries: Liu 2009, Malek 2015, Rehban 2019
 \end{itemize}
 
@@ -101,6 +108,27 @@ A significant effort has been made in modelling the complex circulatory system t
 Takahashi et al. proposed a arterio-venous dichotomously branching network where all vessels within a given generation is identical.~\cite{Takahashi_2009}
 The diameter and length of the branching vessels follows the principle of least energy described by Murray's law.~\cite{Murray_1926}
 This theoretical model was used to describe the distribution of flow and other haemodynamics parameter across the normal retinal vasculature.
+While clinical studies often report changes in the diameter of large retinal vessels can be observed, its relationship with total retinal blood flow (another clinically relevant parameter) is unclear.
+The network by Takahashi et al. has been adapted to further investigate the physioloy of the retinal vessels.~\cite{Aschinger_2017,Pappelis_2020}
+The model has been used to interpret clinical data.
+While clinical studies often report changes in the diameter of large retinal vessels can be observed, its relationship with total retinal blood flow (another clinically relevant parameter) is unclear.
+An extension of the previous model was used to investigated this relationship by testing different patterns of vasodilation across the vascular network.~\cite{Aschinger_2017}
+The study showed that changes in total retinal blood flow is not linearly related with dilation of larger vessels but that, in fact, the diameter of the capillaries has the strongest impact on vascular resistance.
+The patterns of vasodilation tested, however, assumed that the capillaries are able to vary their diameter, a capacity which is still unclear.~\cite{Kur_2012}
+Pappelis et al. used clinical information to create patient specific networks based on the method of Takahashi et al.~\cite{Pappelis_2020}
+Their model included a autoregulation component as a function of retinal perfusion pressure (pressure entering the central retinal artery, estimated as a difference betewen systemic blood pressure and intraocular pressure), and predicted the blood flow response to increases in intraocular pressure or drops in retinal perfusion pressure.
+This allows prediction of the autoregulation capacities of retinas of patients treated for hypertension or of eyes suffering from ocular hypertension.
+It showed that the retina of both healthy and hypertensive patients was closer to the lower limit of autoregulation, suggesting that the autoregulation mechanism may handle increases in retinal perfusion pressure better than decreases.~\cite{Pappelis_2020}
+
+
+Lump parameter model have been used to investigate the relationships between intra- and extra-vascular pressures in the retina.~\cite{Chiaravalli_2021,Fawzi_2019,Guidoboni_2014a,Nelson_2017,Petersen_2022,Prudhomme_2021,Sala_2020,Salerni_2019}
+In lump parameter models, similar vessels are lumped into compartments, e.g., central retinal artery, arterioles, capillaries, venules, central retinal vein and choroid, that interact with each other.
+In analogy with electrical circuits, haemodynamics in each compartment is characterized by a resistance, the combined effect of vascular resistance of each vessels in the compartment, and a capacitance, the total amount of blood that can be stored in the vessels of a given compartment.
+Autoregulation mechanisms impact the capacitance of a compartment, while pressures change the resistance coefficient.
+Some studies have investigated the link between shifts in intracranial and ocular fluids and pressures due to gravity and the loss of sight observed in astronauts.~\cite{Nelson_2017,Petersen_2022,Salerni_2019}
+Nelson et al. proposed a baseline model simulating increases in ocular pressures secondary to such fluid shifts.~\cite{Nelson_2017}
+The simplistic model predicted relatively well the response of IOP to changes in the gravitational environment or tilt of the body.~\cite{Nelson_2017,Petersen_2022}
+A more comprehensive model including interacting brain, body and eye compartments showed that the retinal circulation was relatively spared from hypoperfusion compared to the choroidal circulation in microgravity conditions.~\cite{Salerni_2019}
 
 Staying with the electrical circuit analogy, whether the vascular plexi in the retina, namely, the superficial vascular plexus and the intermediate and deep capillary plexi, is still subject to debate, are connected \textit{in series} or \textit{in parallel} is still unclear.
 With the \textit{in parallel} hypothesis, the plexi communicate share arteriolar and venular connections, while in the \textit{in series} case, blood inflow comes solely from the superficial vascular plexus, while venous drainage is done through the deep capillary plexus.
