@@ -86,21 +86,21 @@ A more comprehensive review of models of microcirculation can be found in the wo
 
 \subsubsection*{In health}
 
-\begin{itemize}
-% \item Measurement of blood flow: DoblhoffDier 2014 (Fourrier-domain Doppler OCT)
-% \item Measurement of oxygen in vessels: Geirsdottir 2013 (oxymeter: two fundus images with different wavelength, one sensitive to saturation)
-% \item Mathematical models of retinal blood flow are useful to understand the physiology of the retina and how it is affected by changes within or outside the retina
-% \item Baseline retinal haemodynamics by Takahashi
-% \item Arciero 2017 for review on microcirculation modelling
-% \item Gravity: Nelson, Salerni, Petersen
-\item Heart rate/haemodynamics of the ONH: Jin 2020 More comprehensive FEM of ONH and influence of heart rate (stiffening of LC with higher HR, reduced pulsatility of blood)
-% \item Zouache on CC flow
-% \item Chivarali 2021 on in series/parallel organization of the capillaries
-% \item Bernabeu 2014 on haemodynamic in the developing retina + Paul's review?
-\item Looking into oxygen: Aquah, Causin 2016, Liu 2009
-\item Autoregulation: Arciero 2008 (impaired regulation at low perfusion pressures, e.g., increased IOP; metabolic or carbon dioxide mechanisms are essential to autoregulation, impairement of both lead to a decrease of 95\% in autoregulation capacity), Arciero 2013 (supports that arteriole's contraction is regulated by saturation levels in the venules/capillaries by release of ATP from RBC), Guidoboni 2014a, Aschinger 2017 tested several 
-\item Realistic vascular geometries: Liu 2009, Malek 2015, Rehban 2019
-\end{itemize}
+% \begin{itemize}
+% % \item Measurement of blood flow: DoblhoffDier 2014 (Fourrier-domain Doppler OCT)
+% % \item Measurement of oxygen in vessels: Geirsdottir 2013 (oxymeter: two fundus images with different wavelength, one sensitive to saturation)
+% % \item Mathematical models of retinal blood flow are useful to understand the physiology of the retina and how it is affected by changes within or outside the retina
+% % \item Baseline retinal haemodynamics by Takahashi
+% % \item Arciero 2017 for review on microcirculation modelling
+% % \item Gravity: Nelson, Salerni, Petersen
+% % \item Heart rate/haemodynamics of the ONH: Jin 2020 More comprehensive FEM of ONH and influence of heart rate (stiffening of LC with higher HR, reduced pulsatility of blood)
+% % \item Zouache on CC flow
+% % \item Chivarali 2021 on in series/parallel organization of the capillaries
+% % \item Bernabeu 2014 on haemodynamic in the developing retina + Paul's review?
+% % \item Looking into oxygen: Aquah, Causin 2016, Liu 2009
+% % \item Autoregulation: Arciero 2008 (impaired regulation at low perfusion pressures, e.g., increased IOP; metabolic or carbon dioxide mechanisms are essential to autoregulation, impairement of both lead to a decrease of 95\% in autoregulation capacity), Arciero 2013 (supports that arteriole's contraction is regulated by saturation levels in the venules/capillaries by release of ATP from RBC), Guidoboni 2014a, Aschinger 2017 tested several 
+% % \item Realistic vascular geometries: Liu 2009, Malek 2015, Rehban 2019
+% \end{itemize}
 
 The current understanding of the perfusion of the retina is still lacking.
 A significant effort has been made in modelling the complex circulatory systems that perfuse the retina in order to complete it.
@@ -131,6 +131,38 @@ Nelson et al. proposed a baseline model simulating increases in ocular pressures
 The simplistic model predicted relatively well the response of IOP to changes in the gravitational environment or tilt of the body.~\cite{Nelson_2017,Petersen_2022}
 A more comprehensive model including interacting brain, body and eye compartments showed that the retinal circulation was relatively spared from hypoperfusion compared to the choroidal circulation in microgravity conditions.~\cite{Salerni_2019}
 
+Several lump parameter models have been developped to better understand the mechanisms behind autoregulation in physiological conditions.~\cite{Arciero_2008,Arciero_2013,Guidoboni_2014a}
+Arciero et al. used a symetric network similar to the one by Takahashi et al. to understand the information pathways leading to blood flow autoregulation in the retina.~\cite{Arciero_2008,Arciero_2013}
+Both models assumed that only arterioles possessed the ability to contract to regulate flow.
+These models were used to investigate the respones of individual or combined autoregulation pathways to changes in perfusion pressure or oxygen consumption rate.
+The earliest model investigated the hypothesis that arterioles can contract in response to the oxygen saturation of blood in the downstream venules.~\cite{Arciero_2008}
+The study showed that such autoregulatory pathway could account for the experimentally observed response of perfusion to changes in consumption rates.
+This mechanisms, along with other known ones, have been modelled together in a subsequent study.~\cite{Arciero_2013}
+The contributions of each pathway to retinal perfusion was assessed.
+The results showed that the arterioles' response to carbon dioxide concentration in the surrounding tissue and oxygen saturation in the venules was essential to retinal autoregulation.~\cite{Arciero_2013}
+Guidoboni et al. looked at the interplay between intraocular pressure, retinal haemodynamics, systemic blood pressure and autoregulation.~\cite{Guidoboni_2014a}
+Instead of the mechanistic description of autoregulation mechanisms proposed in the work by Arciero et al., they used a empirical response function of arterioles to changes in perfusion pressure.
+Another difference with the previous work is the capacity of the venules and central retinal vessels to dilate, passively and to some limited extent, in response to pressure gradients across their walls.
+Different types of physiologies (high, normal or low blood pressure, with or without working retinal autoregulation) were studied across a range of intraocular pressure.
+The model gave the ranges of intraocular pressure that each physiology can handle with limited changes in retinal haemodynamics.
+The dependence of these ranges to systemic blood pressure and autoregulation capacity may explain some descrepencies in experimental studies of the action of intraocular pressure on retinal haemodynamics.~\cite{Guidoboni_2014a} 
+
+The transport and delivery of oxygen to the tissue has been modelled by several groups.~\cite{Aquah_2021,Causin_2015,Liu_2009}
+The earliest one used a short arteriolar tree, taken from a retinal photograph of an healthy young volunteer, and solved the Navier-Stokes equation to obtain haemodynamycs of blood in these vessels.~\cite{Liu_2009}
+The downstream vasculature was represented as a structured tree extending the outlets of the segmented arterioles.
+This model reproduced the distribution of intravascular oxygen observed \textit{in vivo} and could serve as a baseline to analyse oxygen distributin in realistic vascular networks.
+However, reproduction of the retinal vasculature is limited to larger vessels.
+Therefore, the use of artificial vasculature with similar characteristic as the real one may be useful to model the whole extent of the retinal vasculature.
+Causin et al. used the fractal similarity between retinal vessels and diffusion-limited aggregation proccess to generate a three dimensional network of three of the vascular plexi of the retina.~\cite{Causin_2015}
+Oxygen transport throughout the extensive vascular network was modelled as well as the oxygen delivery to the tissue, modelled as a rectangular slab.
+The good aggreement with data validated the use of the artificial networks.
+The effects of haemodynamic parameters on diferent parts of the tissue and the vasculature was analyzed with the model and showed, among other things, the senstivity of perfusion of retinal ganglion cells to blood viscosity and metabolic consumption.~\cite{Causin_2015}
+
+In addition, several other studies have used vessels reproduced from images to analyze the distribution of blood flow and the influence of the morphology.~\cite{Malek_2014,Malek_2015,Rebhan_2019}
+Malek et al. tried to characterize the flow distribution in reproduced arterioles and veins structures and quantify the impact of vessel tortuosity on haemodynamic parameters.~\cite{Malek_2014,Malek_2015}
+The modelling the deformation of vessels caused by the pulse of blood is a computationnally complex task and a simplified model has been developped and applied to a similar reproduction of the retinal vasculature, with a brief analysis of the effect on haemodynamics.~\cite{Aletti_2016}
+Notably, Rebhan et al. have looked at the relationship between retinal haemodynamics and tissue stress using reproductions of the large vessels of healthy and diseased eyes, an aspect previously overlooked that may have importance in, e.g., glaucoma and diabetes.~\cite{Rebhan_2019}
+
 
 Others have used finite element modelling, a technique suitable for modelling of mechanistic forces, to understand the blood flow at the root of the retinal vasculature, in the central retinal artery.~\cite{Guidoboni_2014,Jin_2020}
 The central retinal vessels enter the retina along the optic nerve where they are under pressure from the surrounding tissue, the cerebrospinal fluid surrounding the eye, the intraocular pressure and, potentially, the artery and the vein may also be pushed against each other.~\cite{Nickells_2012}
@@ -141,7 +173,7 @@ This model assumed a constant blood pressure, average of the systolic and diasto
 Pulsatility of blood may have a significant impact on IOP and, consequently, blood flow in the optic nerve and has been investigated within a more comprehensive model of the ocular structures.~\cite{Jin_2020}
 
 
-Whether the vascular plexi in the retina, namely, the superficial vascular plexus and the intermediate and deep capillary plexi, is still subject to debate, are connected \textit{in series} or \textit{in parallel} is still unclear.
+Whether the vascular plexi in the retina, namely, the superficial vascular plexus and the intermediate and deep capillary plexi, are connected \textit{in series} or \textit{in parallel} is still unclear.
 With the \textit{in parallel} hypothesis, the plexi communicate share arteriolar and venular connections, while in the \textit{in series} case, blood inflow comes solely from the superficial vascular plexus, while venous drainage is done through the deep capillary plexus.
 Those two hypothesis have been investigated by Chiaravalli et al. using a lump parameter to simulate haemodynamics between the central retinal artery to the central retinal vein in five vascular compartments.~\cite{Chiaravalli_2021}
 The authors modelled both configurations and compared the responses of each plexi to IOP elevation and occlusion of the central retinal vein.
@@ -175,20 +207,55 @@ By simulating the lobular structure of the CC, they investigated the effects of 
 Their work suggested that the distribution of flow separators in the CC and the location of inlet and outlets in individual lobules may explain the localization of edema or neovasculature in diseased eyes.
 
 
+
+
+
+
+
 \subsubsection*{In disease}
 
+Many retinal pathologies have or may have a link with irregular haemodynamics.
+
+The model by Rebhan et al. previously discussed compared haemodynamics in vascular networks segmented from healthy an eye and eyes affected by glaucoma or diabetes.~\cite{Rebhan_2019}
+The embedding of the vessel in the tissue revealed an increase in wall shear stress in the diseased eyes compared to the healthy one.
+However, it was noted by the author that the absence of the downstream vasculature is likely to affect the quality of predictions.
+Along the same lines, higher vascular tortuosity, a common sign of ageing and disease, has been shown computationally to increase the pressure drop across the vasculature.~\cite{Malek_2014}
+
+Numerous models have been developped to explain alterations of blood flow observed in eyes subject to glaucoma or retinal vein occlusion.
+Elevated intraocular pressure, a hallmark of glaucoma, is expected to affect the retinal circulation, causing loss of sight.
+Modelling of the interactions between the ocular structure surrounding the central retinal vessels has shown the role of a stiffened lamina cribrosa resulting from such conditions.~\cite{Guidoboni_2014}
+In addition, the model showed that the geometry of the sclera and the lamina cribrosa affect the sensitivity of blood flow to elevation of intraocular pressure.
+This framework was extented in Sala's thesis to create the Ocular Mathematical Virtual Simulator, a simulation environment for the interactions of haemodynamics and biomechanics in the eye.~\cite{Sala_2018,Sala_2020}
+The environment allowed to simulate haemodynamics of individual patients characterised by a handful of parameters, yielding significantly different results for each combination of parameters.
+Results showed that high intraocular pressure can cause collapse of the central retinal vein and major differences in the displacement of the lamina cribrosa.
+Interestingly, it showed that the perfusion of the lamina cribrosa is also negatively affected by ocular hypertension, a potentially significant mechanism in the understanding of glaucoma.~\cite{Sala_2020}
+For a review of the use mathematical models in glaucoma research, we refer the reader to the review by Harris et al.~\cite{Harris_2013}
+
+Microaneurysms are an early manifestation of diabetic retinopathy where the walls of capillaries form outpouchings disrupting blood flow and which are succeptible to rupture.
+We found four studies investigating haemodynamics in reconstructed microaneurysms using \textit{in silico} models.~\cite{Bernabeu_2018,Czaja_2022,Li_2020,Li_2022}
+One looked at the shape of microaneurysms and how it influences haemodynamics, and in particular shear rates, in an attempt to determine predictors of the likelihood of leakage of clotting.~\cite{Bernabeu_2018}
+Similarly, Czaja et al. investigated wall shear stress in microaneurysms in the event of stiffened red blood cells, another symptom of diabetes.~\cite{Czaja_2022}
+A notable difference with the previous model, however, is the use of cell resolved blood flow simulations, where individual cell are modelled and transported by blood flow.
+This allowed to investigate separately the flow of red blood cells and platelets cells and showed the differences in penetration through the microaneurysm between the two cell types.
+The stiffened red blood cells were found to induce higher wall shear stress, both in the aneurysm sac and in the vessel entering and leaving it.
+In a couple of sudies, Li et al. have also simulated the flow of red blood cells and platelets in microaneurysms with a focus on the platelet flow through the microaneurysm, as they may be linked with the formation of blood clots.~\cite{Li_2020,Li_2022}
+
+
 \begin{itemize}
-\item Microaneurysm: Bernabeu 2018,  
+% \item Microaneurysm: Bernabeu 2018, Li 2020, Li 2022, Czaja 2022 
 \item Study of structure on perfusion capability of the retina (Lamina cribrosa in glaucoma: Changsuwanich, retinal curvature in e.g. myopia: Dziubek)
 \item Coupled with experimental work: Aschinger,
 \item Diabetic retinopathy: Czaja 2022, Bernabeu 2018, Rebhan 2019 (wall shear stress in realistic vascular network and stress on tissue; Difference in WSS between diseased and baseline but not in tissue stress)
 \item Photocoagulation: Fawzi 2019 using the electrical circuit analogy showed that panretinal photocoagulation works thanks to an improve in blood flow in the macular capillaries driven by an increase in vascular resistance in the peripheral retinal circulation. The model's results are in accordance with the observations. Gast 2016, very simplified vasculature to test the impact of burn patterns on oxygen, VEGF realease and how ischaemia propagates; Flower et al (simplistic, theoretical, shows that targeting the veins of the CNV rather than the CNV itself may be as efficient)
-\item Assist treatment options: Aquah
 \item Modelling the optic nerve: Band, Spelman, previous version of the section
-\item Fluid-structure interactions: Aletti 2016, 
-\item Glaucoma, retinal vein occlusion: Sala thesis (haemodynamics and structure modelling and their interactions, collapse of CRV from high IOP, time depedent, platform to simulate virtual patient's eyes based on a handful of parameters, mostly pressures; Extended from Guidoboni to account for perfusion and mechanic stress in the lamina cribrosa and the sclera;), Guidoboni 2014 (observed decreased blood flow velocity during IOP elevation is caused by compression of the CRA by the lamina cribrosa, dimensions of sclera and lamina cribrosa impact the sensitivity of blood flow to IOP changes); Harris 2013 review of mathematical models of haemodynamics in glaucoma; Rebhan 2019 (wall shear stress in realistic vascular network and stress on tissue; Difference in WSS between diseased and baseline but not in tissue stress);  
+% \item Glaucoma, retinal vein occlusion: Sala thesis (haemodynamics and structure modelling and their interactions, collapse of CRV from high IOP, time depedent, platform to simulate virtual patient's eyes based on a handful of parameters, mostly pressures; Extended from Guidoboni to account for perfusion and mechanic stress in the lamina cribrosa and the sclera;), Guidoboni 2014 (observed decreased blood flow velocity during IOP elevation is caused by compression of the CRA by the lamina cribrosa, dimensions of sclera and lamina cribrosa impact the sensitivity of blood flow to IOP changes); Harris 2013 review of mathematical models of haemodynamics in glaucoma; Rebhan 2019 (wall shear stress in realistic vascular network and stress on tissue; Difference in WSS between diseased and baseline but not in tissue stress);  
 \end{itemize}
-\newpage
+
+
+
+
+
+
 
 \subsection*{Anti-VEGF}
 
