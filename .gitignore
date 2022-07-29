@@ -277,3 +277,7 @@ TSWLatexianTemp*
 
 # JabRef temp file
 *.tmp
+
+# Temp files
+*~
+*.tmp
