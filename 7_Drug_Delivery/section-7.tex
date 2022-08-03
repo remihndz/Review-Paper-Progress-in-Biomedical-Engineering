@@ -28,9 +28,29 @@
 \textit{In silico} models of the pharmacokinetics and pharmacodynamics of anti-VEGF molecules, mainly administered inside the vitreous, have been discussed in Section 5.
 Here, we focus more specifically on models aimed at understanding and optimizing the surgical procedure of injecting drugs in the vitreous humor with a needle and how the outcome may be affected by the vitreous humour's properties.
 
+The effects of injection parameters such as needle shape, angle of insertion, speed of injection may affect the delivery of drug to the retina and are hard to assess \textit{in vivo}.
+Several models have been developped to identify those effects using finite element and realistic geometries of the eye.
+Some studies assumed the initial dose to be a sphere with drug concentration equal to the dose.\cite{Friedrich_1997,Friedrich_1997a}
+In those studies, the initial location of the dose showed to affect the clearance of the drug from the vitreous by almost four-fold for the configurations tested.\cite{Friedrich_1997}
+However, flow in the vitreous was neglected.
+Therefore, drug transport was solely due to diffusion and thus strongly dependent on the dose.\cite{Friedrich_1997}
+Needle type, injection speed and penetration angle of the needle were accounted for to describe the initial concentration profile in another finite element model of the human eye.\cite{Jooybar_2014}
+In this model, drug concentration not diffused, but also was transported by flows in the vitreous.
+Furthermore, injection parameters affected the shape of the initial distribution of drug, though the needle was not explicitly modelled.
+The model showed significant effects on the exposure of the macula to the drug of those parameters.
+Slower injections and larger needle gauge were shown to increase by an order of magnitude the concentration peak at the macula compared to a model assuming a spherical initial distribution of the dose.
+Unsurprisingly, angle of penetration affects strongly the concentration peak, by up to \SI{80}{\percent} at the macula.\cite{Jooybar_2014}
+Overall, this model showed the importance of considering advective transport of intravitreally injected drugs in the vitreous. 
 
-
-
+With age, the vitreous humour undergoes changes causing its liquefaction.
+Furthermore, in disease, it may be replaced by a substitute gel or oil in order to lower pathological traction at the interface with the retina.
+Alterations of the properties of the vitreous humour, or its substitutes, has been investigated computationally with similar finite element models, where drug transport is modelled by a advection-diffusion equation.\cite{Kathawate_2008,Modareszadeh_2012}
+Point sources for the injection of the dose are used in those studies.
+The earliest model investigated the possibility of toxic levels of drugs in the retina.\cite{Kathawate_2008}
+The model showed that the exposure of the retina increases strongly in configurations with low diffusivity of the drug and low viscosity of the vitreous substitute, due to convection overtaking diffusion.\cite{Kathawate_2008}
+Shifts to majoritarily convective transport of drug has been showned to happen due to saccadic movements typical of vitractomized eyes.\cite{Modareszadeh_2012}
+The finite element model showed that higher movement amplitude fasten the spread of the drug within substitutes of vitreous humour.
+While homogeneization of drug concentration was reported to happen in a time scale of days, this may reduce to the order of minutes in vitrectomized eyes.\cite{Modareszadeh_2012}
 
 \subsection*{Implants/port-delivery}
 
