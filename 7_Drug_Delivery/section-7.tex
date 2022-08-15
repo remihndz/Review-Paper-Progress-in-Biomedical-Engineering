@@ -1,0 +1,147 @@
+\documentclass[12pt,a4paper]{journal}
+\usepackage{geometry}
+
+\usepackage{times}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{siunitx}
+\sisetup{range-phrase=--, range-units=single}
+
+\graphicspath{{img/}}
+\usepackage[numbers, super, sort&compress]{natbib}
+
+
+\usepackage{tcolorbox}
+
+\begin{document}
+
+\section*{Drug delivery to the retina}
+
+In this section we review models aimed at optimising or developing drug delivery techniques for the treatment of retinal diseases.
+Ocular drug delivery, including delivery to the retina, has recently been reviewed elsewhere from a computational fluid dynamics point of view.~\cite{Bhandari_2021}
+Thus, this section will focus on models that were not covered in said review.
+
+\subsection*{Intravitreal injections}
+
+\textit{In silico} models of the pharmacokinetics and pharmacodynamics of anti-VEGF molecules, mainly administered inside the vitreous, have been discussed in Section 5.
+Here, we focus more specifically on models aimed at understanding and optimising the surgical procedure of injecting drugs in the vitreous humor with a needle and how the outcome may be affected by the eye's characteristics.
+
+The effects of injection parameters such as needle shape, angle of insertion, speed of injection may affect the delivery of drug to the retina and are hard to assess \textit{in vivo}.
+Several models have been developed to identify those effects using finite element and realistic geometries of the eye.
+Some studies assumed the initial dose to be a sphere with drug concentration equal to the dose.\cite{Friedrich_1997,Friedrich_1997a}
+In those studies, the initial location of the dose showed to affect the clearance of the drug from the vitreous by almost four-fold for the configurations tested.\cite{Friedrich_1997}
+However, flow in the vitreous was neglected.
+Therefore, drug transport was solely due to diffusion and thus strongly dependent on the dose.\cite{Friedrich_1997}
+Needle type, injection speed and penetration angle of the needle were accounted for to describe the initial concentration profile in another finite element model of the human eye.\cite{Jooybar_2014}
+In this model, drug concentration not diffused, but also was transported by flows in the vitreous.
+Furthermore, injection parameters affected the shape of the initial distribution of drug, though the needle was not explicitly modelled.
+The model showed significant effects on the exposure of the macula to the drug of those parameters.
+Slower injections and larger needle gauge were shown to increase by an order of magnitude the concentration peak at the macula compared to a model assuming a spherical initial distribution of the dose.
+Unsurprisingly, angle of penetration affects strongly the concentration peak, by up to \SI{80}{\percent} at the macula.\cite{Jooybar_2014}
+Overall, this model showed the importance of considering advective transport of intravitreally injected drugs in the vitreous. 
+Injection parameters may also augment the risks of complications due to the procedure.
+By modelling the eye, the needle and their mechanical interactions, including deformation of the cornea, it was found that an angle of \SI{45}{\degree} between the needle and the x-axis of the modelled eye.\cite{Karimi_2018}
+To draw this conclusions, the authors assumed that post injection complications were correlated with the maximal principal stress, namely the normal stress on a plane subject to no shear stress.  
+The increased stress caused by insertion angles closer to the vertical or horizontal axis seem to correlate with experiments which reported more injuries for those angles.\cite{Karimi_2018}
+
+With age, the vitreous humour undergoes changes causing its liquefaction.
+Furthermore, in disease, it may be replaced by a substitute gel or oil in order to lower pathological traction at the interface with the retina.
+Alterations of the properties of the vitreous humour, or its substitutes, has been investigated computationally with similar finite element models, where drug transport is modelled by a advection-diffusion equation.\cite{Kathawate_2008,Modareszadeh_2012}
+Point sources for the injection of the dose are used in those studies.
+The earliest model investigated the possibility of toxic levels of drugs in the retina.\cite{Kathawate_2008}
+The model showed that the exposure of the retina increases strongly in configurations with low diffusivity of the drug and low viscosity of the vitreous substitute, due to convection overtaking diffusion.\cite{Kathawate_2008}
+Shifts to predominantly convective transport of drug has been showed to happen due to saccadic movements typical of vitrectomised eyes.\cite{Modareszadeh_2012}
+The finite element model showed that higher movement amplitude fasten the spread of the drug within substitutes of vitreous humour.
+While homogenisation of drug concentration was reported to happen in a time scale of days, this may reduce to the order of minutes in vitrectomised eyes.\cite{Modareszadeh_2012}
+Furthermore, it was showed that the diffusion coefficient of the drug had limited impact on its spread in the vitreous after these initial few minutes.\cite{Modareszadeh_2012}
+More recently, saccadic movements effects on intravitreally injected drugs have been simulated in a vitreous liquefied with age.\cite{Ferroni_2020}
+This model predicted that, in the presence of saccades, the drug concentration homogenised throughout the vitreous in less than a minute when it takes about a day otherwise.
+Interestingly, it has been shown computationally that in locally liquefied vitreous (e.g., a substitute for the vitreous inserted surgically), fluid flow converges towards the liquefied region, as it offers less resistance.\cite{Khoobyar_2022}
+This result is of interest in understanding the kinetic of intravitreally injected drugs, especially larger one such as anti-VEGF which are more subject to convection.
+
+\subsection*{Implants/port-delivery}
+
+A number of models, including previously discussed ones, have been used to compare the efficacy of drug delivery to the vitreous by an injection or by a controlled release from a system implanted in the eye, typically in the vitreous or on the outer surface of the sclera.\cite{Jooybar_2014,Kathawate_2008,Kavousanakis_2014,Park_2005}
+Overall, these comparisons highlighted the capacity of controlled release systems to prolong the drug availability in ocular tissue.
+However, those models were not concerned with the mechanisms of drug delivery from those implants but rather assumed empirical release rates.
+
+Understanding of the degradation process of vitreal implants is essential to control drug release.
+The effects of altered vitreous on this process has been modelled.\cite{Ferreira_2020}
+Degradation process of the implant and drug transport in the vitreous and retina were coupled in this model.
+Drug distribution profiles were simulated for two different vitreous humour substitutes, namely a silicone oil and a saline solution.
+The authors concluded that silicone oil substitutes could delay the degradation of the implant and provide higher mean concentration in the retina.
+On the other hand, the saline solution substitute showed similar or lower concentrations compared to non-vitrectomised eyes.\cite{Ferreira_2020}
+In the model by Li et al., the drug molecules are trapped within the inner mesh structure of a hydrogel, represented as a sphere.\cite{Li_2022}
+Unlike the previous chemical degradation of the implant, degeneration of the hydrogel corresponds to loosening of the mesh over time, described as an empirical exponential law.
+Both the initial location and properties of the hydrogel were varied.
+Perhaps unsurprisingly, while the location did not affect the depletion of drugs from the hydrogel, a position closer to the target site, e.g., the macula, caused higher and earlier peaks in concentration.
+However, higher peaks implied quicker clearance from the macula and therefore concentrations reach similar levels as other implantation sites within two weeks.\cite{Li_2022}
+Hence, the location of the hydrogel has to be chosen wisely as to not induce toxicity while maintaining therapeutic levels of drug within the retina.
+In contrast, the hydrogel properties tested did not show a significant effect on macular concentrations, though initially tighter meshes cause a delay in the release of drug.
+Recently, a pharmacokinetics model specific to anti-VEGF molecule in the vitreous and aqueous humour, released from degrading spheres, has been simulated and validated against experimental data.\cite{Heljak_2022}
+Note that, unlike some of the pharmacokinetics model of anti-VEGF described in the previous section, those models did not ignore convective transport in the vitreous or the other ocular tissues.
+Rather, those layers are considered porous mediums through which transport is driven by diffusion and a pressure gradient between the intraocular pressure in the anterior part of the eye and the lower pressure at the sclera.~\cite{Ferreira_2018,Ferreira_2020,Heljak_2022,Khoobyar_2021,Li_2022}
+Noteworthy is the work of Khoobyar et al. to determine the depletion of drug from the an implant.~\cite{Khoobyar_2022}
+Through rigorous mathematical analysis a simplified drug transport model, they derived an analytical formulation for the estimated half-life of an implant in the vitreous, which depends on the ratio of convective mass transfer to diffusivity, namely the mass-transfer Biot number.
+However, this estimate is valid only when diffusive transport dominates over convective transport.
+
+The same equations can be used to describe the transport of molecules from the sclera to the vitreous, a scenario corresponding to implants inserted on the outer surface of the sclera.
+The case of a drug diffusing through such implant to enter the sclera, afterwards reaching the choroid and retina, was modelled \textit{in silico} recently.~\cite{Abootorabi_2021}
+The clearance through choroidal and retinal circulation was accounted for and simulations showed very good agreement with data.
+The model revealed the influence of the implants porosity on the controlled release of drug and suggests parameter could be tailored to individual needs.~\cite{Abootorabi_2021}
+Kotha and Murtom\"aki also modelled drug release from a sclera implant, with the difference that choroidal blood flow was modelled explicitly.~\cite{Kotha_2014}
+The influences of diffusion coefficient in the sclera as well as the permeation coefficients regulating exchanges between each layer of tissue were quantified and demonstrated complex relationships between the parameters and the efficacy of the implant.
+Of particular relevance to scleral implants is the retinal barriers to drug.
+The role of these barriers, namely the RPE-Bruch's membrane complex, choroidal and retinal circulation and the inner limiting membrane, has been investigated \textit{in silico}.
+Active transport by the RPE, along with clearance from the inner retinal blood vessels, were included in a model by Causin et al.~\cite{Causin_2016}
+The permeability of the blood vessels walls was shown to have little influence on clearance, though it is suggested by the authors that this could be a consequence of the simplifying assumptions made concerning mass transport between the retina and its vasculature.
+In contrast, active transport by the RPE was found to have a significant impact on drug concentration in the retina and vitreous.
+Other models came to the same conclusion, despite this specific transport mechanism being modelled differently.~\cite{Balachandran_2008,Kotha_2014}
+Despite those evidences, active transport across the RPE has generally be neglected in pharmacokinetics models of intravitreal injections and controlled-release devices.
+
+
+\subsection*{Subretinal, periocular and systemic administration}
+
+While accumulating evidence suggests otherwise, the retina and the eye in general are though to be isolated from systemically injected drugs, in account of the numerous biological barriers separating the two.
+Therefore, systemic, or intravenous, administration of drugs for treatment of retinal pathologies remain uncommon.
+Accordingly, few modelling works have been published on the matter.
+However, understanding of the pharmacokinetics of intravenously injected drugs remains of interest since harmful effects on the retina have been reported.\cite{Fu_2017}
+
+In fact, significant ocular exposure, determined by a non-compartmental model, to intravenously injected antibodies has been reported.\cite{Shivva_2021}
+The possibility to deduct vitreous concentrations after intravenous injection has been demonstrated by a compartmental model.\cite{Vellonen_2015}
+However, the transfer rate from systemic circulation to the eye compartment was taken from a previous model and therefore represents the rate of clearance from the eye compartment into the systemic circulation, which may differ from the clearance rate in the opposite direction.
+The same model was applied to the analysis of experimental data of the permeability of the outer blood-retinal barrier found asymmetric exchange rates between the choroid and the vitreous.\cite{Ramsay_2019}
+Additionally, the analysis suggests that the RPE may not be the main route of clearance from the vitreous for drugs entering the retina via the systemic circulation.\cite{Ramsay_2019}
+
+In contrast, injections into the subretinal space, have gained traction, in particular for the delivery of cell or gene therapy.
+Subretinal injections provide direct access to the targeted cells, namely the photoreceptor and RPE cells.
+In both cases, the blood-retinal barrier plays an important role in the total exposure of the tissue to the therapeutics.
+Yet, the mechanisms of exchange between systemic circulation and the retina remain elusive and few \textit{in silico} models of subretinal or systemic administration of ocular drugs have been developed.
+A computational fluid dynamics model for the transport of molecules across the RPE was developed and calibrated with an \textit{in vitro} experimental setup.~\cite{Davies_2020}
+Despite active transport not being considered in the model, this work provides a validated framework to build upon to incorporate such dynamics and to determine key parameters of the RPE.
+
+Injection of anti-VEGF under the sclera, as a safer and less invasive alternative to intravitreal injections, is another promising technique.
+The method would also benefit from understanding of the ocular barriers.
+A single dimensional, time-dependent, diffusion model was developed to simulate the transport of a protein across those layers in the mouse eye after periocular injection.~\cite{Gabhann_2007}
+The diffusivity of each layer was estimated based on their fraction of extracellular, while permeability of the barriers and clearance rates were fit to experimental data.
+The model showed it only takes 75 minutes for most of the dose to be enter the eye and 95 minutes for it to be cleared, with over \SI{99}{\percent} of the clearance happening through the choroidal and episcleral circulations.
+Compared to simulated intravitreal injections, periocular injections showed a two-fold higher peak concentration in the retina.
+However, the peak persists longer with intravitreal injections.
+Somewhat similar work but modelling injections of anti-VEGF molecules in the space between the choroid and the sclera showed that clearance rate from the episclera was negligible for large molecules.~\cite{Zhang_2018}
+However, it may still play a role for smaller ones such as the fluorescent protein simulated in the previous model.~\cite{Gabhann_2007}
+
+Of potential interest to the reader are two models of topical delivery and spray systems.~\cite{Mori_2017,Nweze_2020}
+Modelling work of these techniques remains scarce but the growing interest for, e.g., cell and gene therapy may motivate modellers in the coming years.
+
+% \bibliographystyle{abbrvnat}
+% \bibliography{section-7}
+
+\end{document}
