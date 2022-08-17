@@ -7,6 +7,8 @@
 \usepackage{graphicx}
 \usepackage{authblk}
 
+\usepackage[super, number]{natbib}
+
 \graphicspath{{./img/}}
 
 \usepackage{times}
@@ -32,7 +34,7 @@ A more comprehensive overview can be found in the work of Roberts et al.\cite{Ro
 
 \subsubsection*{Mechanistic vs phenomenological models}
 \textit{A priori} understanding of the system can be used to inform model design, in which case the model is qualified as mechanistic.
-If appropriate assumption are made, the predictions of a mechanistic model will match observations.
+If appropriate assumptions are made, the predictions of a mechanistic model will match observations.
 Else, the \textit{a priori} assumptions may need to be reviewed and the model changed accordingly until satisfying agreement is found.
 In contrast, phenomenological models simulate parts or the entirety of the system by arbitrary function based on observation of the data.
 For instance, an exponential decay is often assumed for time course of drug in the body.
@@ -109,5 +111,8 @@ Indeed, solving nonlinear equations most often requires to solve a series of sub
 
 When complex nonlinearities are combined with multiple scales, the time required to solve a set of equations increases dramatically.
 For those reasons, computation time remains a barrier to the use of \textit{in silico} models for real-time simulations in the clinic.
+
+\bibliographystyle{abbrvnat}
+\bibliography{../bibliography}
 
 \end{document}
