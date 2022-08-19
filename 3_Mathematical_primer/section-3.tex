@@ -7,7 +7,19 @@
 \usepackage{graphicx}
 \usepackage{authblk}
 
-\usepackage[super, number]{natbib}
+\usepackage{indentfirst}
+
+
+
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage{siunitx}
+\sisetup{range-phrase=--, range-units=single}
+
+\graphicspath{{img/}}
+\usepackage[numbers, super]{natbib}
+
 
 \graphicspath{{./img/}}
 
@@ -36,46 +48,45 @@ A more comprehensive overview can be found in the work of Roberts et al.\cite{Ro
 \textit{A priori} understanding of the system can be used to inform model design, in which case the model is qualified as mechanistic.
 If appropriate assumptions are made, the predictions of a mechanistic model will match observations.
 Else, the \textit{a priori} assumptions may need to be reviewed and the model changed accordingly until satisfying agreement is found.
-In contrast, phenomenological models simulate parts or the entirety of the system by arbitrary function based on observation of the data.
-For instance, an exponential decay is often assumed for time course of drug in the body.
+In contrast, phenomenological models simulate parts or the entirety of the system by arbitrary functions based on observation of the data.
+For instance, an exponential decay is often assumed for the time course of drug in the body.
 Phenomenological models are often used to simplify an overly complex or unknown mechanism acting on the system to be modelled.
 It should be noted that simplifications are inherent to model development and, therefore, no model is fully mechanistic.
 
 All models involve a number of parameters.
 Some of those parameters may be known, either from direct measurements or theoretical formulae.
-However, other may be unknown because they cannot be measured or are model-specific and may not represent a measurable, physical quantity.
+However, others may be unknown because they cannot be measured or are model-specific and may not represent a measurable, physical quantity.
 In such cases, \textit{in silico} models can provide estimates of the physical quantity by fitting parameters to data, when available.
 Otherwise, analysis of the model predictions may still provide useful insights on the system's behaviour.
-Indeed, in either cases, tools such sensitivity analysis and bifurcation analysis can provide insights on the system's behaviour for different parameter regimes.
-Known parameters for a simulation may be included as strength of one of the mechanisms, e.g., diffusion speed of a chemical, or incorporated in the model as initial or boundary conditions.
+Indeed, in either cases, tools such as sensitivity analysis and bifurcation analysis can provide insights on the system's behaviour for different parameter regimes.
 
 \subsubsection*{Initial and boundary conditions}
-While initial boundary conditions are the state of the system at time $t=0$, boundary conditions define the behaviour of the system at the boundaries of a spatial domain.
-Classical boundary conditions may set the value of the simulated function itself and is referred to as a Dirichlet boundary condition, of its normal derivative along the boundary, in which case it is called a Neumann boundary condition, or a linear combination of the previous two types, to form a Robin boundary condition.
-Up to few exceptions, initial and boundary conditions are necessary for differential equations to be well-posed and solvable.
+While initial conditions are the state of the system at time $t=0$, boundary conditions define the behaviour of the system at the boundaries of a spatial domain.
+Classical boundary conditions may set the value of the simulated function itself and is referred to as a Dirichlet boundary condition. The normal derivative along the boundary being set is called a Neumann boundary condition. A linear combination of the previous two types forms a Robin boundary condition.
+Up to a few exceptions, initial and boundary conditions are necessary for differential equations to be well-posed and solvable.
 
 \subsubsection*{Deterministic and stochastic models}
 
 When random events are left out of a model, two simulations will yield the same results.
 This kind of model is referred to as deterministic.
 In opposition, stochastic models include a probabilistic component, e.g., the random movement of cells, which yields different solutions for each simulation.
-Stochastic models are often used for discrete models.
+Stochastic models are often used for discrete models e.g. agent-based models.
 Discrete models simulate the behaviour of individual entities, such as cells, based on a set of arbitrary rules.
 While discrete models can incorporate more details, continuum models allow for rigorous mathematical analysis.
-Further limitation of discrete models include the drastic increase in computation times as the number of objects simulated increase.
+A further limitation of discrete models includes the drastic increase in computation times as the number of objects simulated increase.
 
 \subsubsection*{Differential equations}
 
 Many models describe the spatial and temporal behaviour of a quantity within a biological system using differential equations.
 Differential equations relate one or more unknown functions with their derivatives.
-If the equation involves derivatives with respect to a single independent variable, it is referred to as an ordinary differential equation.
-Otherwise, if more than one type of derivative appears in the equation, it is referred to as a partial differential equation.
+If the equation involves derivatives with respect to a single independent variable, it is referred to as an ordinary differential equation (ODE).
+Otherwise, if more than one type of derivative appears in the equation, it is referred to as a partial differential equation (PDE).
 Differential equations are mathematically tractable and can be solved analytically, when an algebraic expression of the unknown function is found, or numerically.
 
-Partial differential equations often arise when the spatial distribution of the quantity of interest is needed.
+PDEs often arise when the spatial distribution of the quantity of interest is needed.
 However, the spatial aspect is not always relevant to the research question being investigated.
-In such cases, an ordinary differential equation relating a function and its time derivative can be used.
-Ordinary differential equations can also be used to model a system along of a single spatial dimension at resting, or steady, state.
+In such cases, an ODE relating a function and its time derivative can be used.
+ODEs can also be used to model a system along a single spatial dimension at steady state.
 
 Assuming a steady state is a common simplifying assumption which can help reduce the complexity and increase the interpretability of the system by ridding the model of the time component.
 This reduction follows from assuming that the system, when not perturbed, does not change over time, hence the time derivative of the functions describing it are null.
@@ -87,10 +98,10 @@ Likewise, lumped parameter models simplify systems with certain spatially distri
 In such models, the spatial aspect is reduced to a smaller number of entities to which the smaller objects are assigned, similarly to how capillaries are grouped into capillary plexi.
 To each entity is attached a number of parameters which encompass the various properties of the spatially distributed system.
 In the capillary blood flow example, these properties could include vascular resistance, oxygen extraction or storage capacity within each capillary of the network.
-Both compartmental models and lumped parameters models describe the system with a set of ordinary differential equations for each of the compartments or entities.
+Both compartmental models and lumped parameters models describe the system with a set of ODEs for each of the compartments or entities.
 
-Systems of ordinary differential equations are typically simpler to solve, both analytically and numerically, and to mathematically analyse compared to partial differential equations.
-Challenges in the analysis of partial differential equations arise from the possibly complex geometry of biological systems.
+Systems of ODEs are typically simpler to solve, both analytically and numerically, and to mathematically analyse compared to PDEs.
+Challenges in the analysis of PDEs arise from the possibly complex geometry of biological systems.
 Approximating the geometry with simpler shapes such as spheres and rectangles, may allow derivation of analytical solutions or, at least, greatly reduce the time needed to numerically solve the equations.
 
 Numerically, differential equations are solved by discretising (that is, reducing the continuous variable to a finite number of points) the space and time variables into a mesh, at the corner of which the unknown's value is found by solving a matrix equation.
