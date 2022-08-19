@@ -93,6 +93,7 @@ Reliable measurement of blood flow or vessel radii in the choroid is more diffic
 The current understanding of the perfusion of the retina is still lacking.
 A significant effort has been made in modelling the complex circulatory systems that perfuse the retina in order to complete it.
 
+\subsubsection*{Haemodynamics in artificial retinal vasculature}
 
 Takahashi et al. proposed an arterio-venous dichotomously branching and symmetric network where all vessels within a given generation are identical.~\cite{Takahashi_2009}
 The diameter and length of the branching vessels follows the principle of least energy described by Murray's law.~\cite{Murray_1926}
@@ -107,6 +108,7 @@ The model included a autoregulation component as a function of retinal perfusion
 This allowed prediction of the autoregulation capacities of retinas in patients treated for hypertension or in eyes subject to ocular hypertension.
 It showed that the retinas of both healthy and hypertensive patients was closer to the lower limit of autoregulation, suggesting that the retina may be more sensitive to decreases rather than increases in perfusion.~\cite{Pappelis_2020}
 
+\subsubsection*{Effects of extravascular pressure on haemodynamics} %NOTE: this could be one section with the next one (Autoregulation pathways)
 
 Lumped parameters models have been used to investigate the relationships between intra- and extra-vascular pressures and haemodynamics in the retina and choroid.~\cite{Chiaravalli_2021,Fawzi_2019,Guidoboni_2014a,Nelson_2017,Petersen_2022,Prudhomme_2021,Sala_2020,Salerni_2019}
 In those models, similar vessels are sorted into compartments, e.g., central retinal artery, arterioles, capillaries, venules, central retinal vein and choroid.
@@ -119,6 +121,9 @@ Nelson et al. proposed a baseline model simulating increases in ocular pressures
 The simplistic model predicted relatively well the response of intraocular pressure to changes in the gravitational environment or tilt of the body.~\cite{Nelson_2017,Petersen_2022}
 A more comprehensive model including interacting brain, body and eye compartments showed that the retinal circulation was relatively spared from hypoperfusion compared to the choroidal circulation in microgravity conditions.~\cite{Salerni_2019}
 
+
+\subsubsection*{Autoregulation pathways}
+
 Several lumped parameters models have been developed to better understand the mechanisms behind autoregulation in physiological conditions.~\cite{Arciero_2008,Arciero_2013,Guidoboni_2014a}
 Arciero et al. used a symmetric network similar to the one by Takahashi et al. to understand the information pathways leading to blood flow autoregulation in the retina.~\cite{Arciero_2008,Arciero_2013}
 Both models assumed that only arterioles possessed the ability to contract to regulate flow.
@@ -126,8 +131,8 @@ These models were used to investigate the response of individual or combined aut
 The earliest model investigated the hypothesis that arterioles can contract in response to the oxygen saturation of blood in the downstream venules.~\cite{Arciero_2008}
 The study showed that such autoregulatory pathway could account for the experimentally observed response of perfusion to changes in consumption rates.
 This mechanism, along with other known ones, have been modelled together in a subsequent study.~\cite{Arciero_2013}
-In this study, the contributions of each pathway to retinal perfusion was assessed.
-The results showed that the arterioles' responses to carbon dioxide concentration in the surrounding tissue and oxygen saturation in the venules were essential to retinal autoregulation.~\cite{Arciero_2013}
+In this later study, the contribution of each pathway to retinal perfusion was assessed.
+The results showed that the response of arterioles to carbon dioxide concentration in the surrounding tissue and oxygen saturation in the venules was essential to retinal autoregulation.~\cite{Arciero_2013}
 
 Guidoboni et al. looked at the interplay between intraocular pressure, retinal haemodynamics, systemic blood pressure and autoregulation.~\cite{Guidoboni_2014a}
 Instead of the mechanistic description of autoregulation proposed in the work by Arciero et al., they used an empirical response function of arteriole diameter to changes in perfusion pressure.
@@ -135,6 +140,8 @@ Another difference with the previous work is the assumed capacity of the venules
 The retinal haemodynamics of six types of physiology (high, normal or low blood pressure, with or without working retinal autoregulation) were simulated across a range of intraocular pressure.
 The model predicts the ranges of intraocular pressure within which each physiology can maintain relatively constant blood flow.
 The dependence of these ranges to systemic blood pressure and autoregulation capacity may explain some discrepancies regarding the effects of intraocular pressure on retinal haemodynamics found in experimental studies.~\cite{Guidoboni_2014a} 
+
+\subsubsection*{Oxygen transport and spatial models}
 
 The transport and delivery of oxygen to the tissue has been modelled by several groups.~\cite{Aquah_2021,Causin_2015,Liu_2009}
 The earliest one used a short arteriolar tree, taken from a retinal photograph of a healthy young volunteer, and solved the Navier-Stokes equation to obtain haemodynamics of blood in these vessels.~\cite{Liu_2009}
@@ -154,6 +161,21 @@ Malek et al. tried to characterise the flow distribution in reproduced arteriole
 The deformation of vessels caused by the pulse of blood is a computationally complex task to model and a simplified model has been developed and applied to a similar reproduction of the retinal vasculature, with a brief analysis of its effects on haemodynamics.~\cite{Aletti_2016}
 Notably, Rebhan et al. have looked at the interactions of retinal haemodynamics and tissue stress using reproductions of the large vessels of healthy and diseased eyes, an aspect previously overlooked that may have importance in, e.g., glaucoma and diabetes.~\cite{Rebhan_2019}
 
+The use of realistic vascular networks provides a link between haemodynamics and clinically relevant indices.
+The effect of tortuosity of the vasculature has been investigated on short, segmented sections of the retinal veins.~\cite{Malek_2014}
+In this model, the Navier-Stokes equations are used to find flow within the arterioles, while peripheral circulation is accounted for by an impedance condition at the outlets of the segmented tree.
+
+%%% COULD BE DELETED?
+\textit{In silico} models have also been developed to understand how the retinal vasculature develops.
+A review of some of those models can be found in other reviews.~\cite{Arciero_2019,Roberts_2016}
+However, the role haemodynamics plays in the angiogenesis of the vascular beds is still elusive.
+Bernabeu et al. proposed a model of blood flow in a reconstructed murine vasculature that can be used to simulate the haemodynamics forces that cannot be measured in small capillaries but may affect angiogenesis.~\cite{Bernabeu_2014}
+Others looked at how the branching patterns in the early development of the murine retina may affect later development.~\cite{Mirzapour_Shafiyi_2021}
+The results showed that hyper-branching behaviours in the young vascular bed reduces the blood supply, and hence the oxygen, at the growing ends of the vasculature.
+The lack of oxygen on this front may drive up-regulation of vascular growth factors promoting vascular growth.
+
+
+\subsubsection*{Haemodynamics in the central retinal vessels}
 
 Others have used finite element modelling, a technique suitable for modelling of mechanistic forces, to understand the blood flow in the central retinal vessels.~\cite{Guidoboni_2014,Jin_2020}
 The central retinal vessels enter the retina along the optic nerve where they are under pressure from the surrounding tissue, the cerebrospinal fluid surrounding the eye, the intraocular pressure and, potentially, the artery and the vein may also compress each other.~\cite{Nickells_2012}
@@ -172,22 +194,7 @@ The lumped parameter models developped in this paper simulate haemodynamics betw
 The authors modelled both configurations and compared the responses of each plexi to intraocular pressure elevation and occlusion of the central retinal vein.
 The model showed that the \textit{in series} configuration better captured the response observed in clinical studies, and may better describe the actual physiology of the retinal vasculature.
 
-
-\textit{In silico} models have also been developed to understand how the retinal vasculature develops.
-A review of some of those models can be found in other reviews.~\cite{Arciero_2019,Roberts_2016}
-However, the role haemodynamics plays in the angiogenesis of the vascular beds is still elusive.
-Bernabeu et al. proposed a model of blood flow in a reconstructed murine vasculature that can be used to simulate the haemodynamics forces that cannot be measured in small capillaries but may affect angiogenesis.~\cite{Bernabeu_2014}
-Others looked at how the branching patterns in the early development of the murine retina may affect later development.~\cite{Mirzapour_Shafiyi_2021}
-The results showed that hyper-branching behaviours in the young vascular bed reduces the blood supply, and hence the oxygen, at the growing ends of the vasculature.
-The lack of oxygen on this front may drive up-regulation of vascular growth factors promoting vascular growth.
-
-
-The use of realistic vascular networks provides a link between haemodynamics and clinically relevant indices.
-The effect of tortuosity of the vasculature has been investigated on short, segmented sections of the retinal veins.~\cite{Malek_2014}
-In this model, the Navier-Stokes equations are used to find flow within the arterioles, while peripheral circulation is accounted for by an impedance condition at the outlets of the segmented tree.
-
-
-
+\subsubsection*{Choroidal circulation}
 While the inner retinal vasculature feeds the inner third of the retina, the remaining two thirds are perfused by the choroidal circulation.
 In contact with the retina is the choriocapillaris (CC) layer of the choroid.
 The CC provides oxygen across the Bruch's membrane to the photoreceptors and other neuronal cells of the outer retina through diffusion only.
@@ -208,12 +215,25 @@ Their work suggested that the distribution of flow separators in the CC and the 
 %As mentionned previously, many retinal pathologies have or may have a link with irregular haemodynamics.
 In disease, the haemodynamics of the retinal circulations may change drastically, however, the exact aetiology of vascular retinal diseases is still elusive.
 
+\subsubsection*{Models of pathological geometries}
+
 The model by Rebhan et al. previously discussed compared haemodynamics in vascular networks segmented from a healthy eye and eyes affected by glaucoma or diabetes.~\cite{Rebhan_2019}
 The embedding of the vessel in the tissue revealed an increase in wall shear stress in the diseased eyes compared to the healthy one.
 However, it was noted by the author that the absence of the downstream vasculature is likely to affect the quality of predictions.\cite{Rebhan_2019}
 Along the same lines, higher vascular tortuosity, a common sign of ageing and disease, has been shown computationally to increase the pressure drop across the vasculature.~\cite{Malek_2014}
 However, vessel-tissue interactions were not considered in the model.
 
+Eyes with visual impairments such as myopia progressively affect the shape of the retina and may develop neovasculature.~\cite{Medina_2016}
+This suggests a link between the curvature of the eye and retinal perfusion.
+However, the effects of curvature have been assumed insignificant in most haemodynamics models to date.
+Dziubek et al. modelled this curvature by representing the retina as a thin, curved surface, within which an artificial network of vessels is embedded.~\cite{Dziubek_2015}
+Interestingly, vessels are considered as pores in the tissue and, therefore, blood flow was modelled using Darcy's law, which describes flow through a porous medium.
+Therefore, arteriolar, capillary and venular networks are kept virtually separated but communicate through a `hierarchical' velocity variable, as opposed to the spatial velocity which transports blood throughout the retinal surface.
+The dichotomous tree proposed by Takahashi et al. was used to generate the networks.
+The model confirms clinical suspicions of a change in retinal haemodynamics due to ocular curvature.
+Furthermore it highlighted the non-uniform effects on the retina, with the temporal region being less affected by ocular shape.\cite{Dziubek_2015}
+
+\subsubsection*{Models of glaucoma and vessel occlusion}
 
 Numerous models have been developed to explain alterations of blood flow observed in eyes subject to glaucoma or vessel occlusion.\cite{Chuangsuwanich_2016,Guidoboni_2014,Sala_2018,Sala_2020}
 Elevated intraocular pressure, a hallmark of glaucoma, is expected to affect the retinal circulation, causing loss of sight.
@@ -226,6 +246,7 @@ Interestingly, it showed that the perfusion of the lamina cribrosa is also negat
 Perfusion and haemodynamics within the lamina cribrosa has been modelled separately using a large number of artificial capillary networks statistically representative of different morphologies of the lamina cribrosa.~\cite{Chuangsuwanich_2016}
 For a review of the use mathematical models in glaucoma research, we refer the reader to the review by Harris et al.~\cite{Harris_2013}
 
+\subsubsection*{Models of diabetic retinopathy}
 
 Microaneurysms are an early manifestation of diabetic retinopathy where the walls of capillaries form outpouchings disrupting blood flow and which are susceptible to rupture.
 We found four studies investigating haemodynamics in reconstructed microaneurysms using computational fluid dynamics models.~\cite{Bernabeu_2018,Czaja_2022,Li_2020,Li_2022}
@@ -235,17 +256,6 @@ A notable difference with the previous model, however, is the use of cell resolv
 This allowed to investigate separately the flow of red blood cells and platelets cells and showed the differences in penetration through the microaneurysm between the two cell types.
 The stiffened red blood cells were found to induce higher wall shear stress, both in the aneurysm sac and in the vessels feeding and draining it.
 In two studies, Li et al. have also simulated the flow of red blood cells and platelets in microaneurysms with a focus on the platelet flow through the microaneurysm, as they may be linked with the formation of blood clots.~\cite{Li_2020,Li_2022}
-
-
-Eyes with visual impairments such as myopia progressively affect the shape of the retina and may develop neovasculature.~\cite{Medina_2016}
-This suggests a link between the curvature of the eye and retinal perfusion.
-However, the effects of curvature have been assumed insignificant in most haemodynamics models to date.
-Dziubek et al. modelled this curvature by representing the retina as a thin, curved surface, within which an artificial network of vessels is embedded.~\cite{Dziubek_2015}
-Interestingly, vessels are considered as pores in the tissue and, therefore, blood flow was modelled using Darcy's law, which describes flow through a porous medium.
-Therefore, arteriolar, capillary and venular networks are kept virtually separated but communicate through a `hierarchical' velocity variable, as opposed to the spatial velocity which transports blood throughout the retinal surface.
-The dichotomous tree proposed by Takahashi et al. was used to generate the networks.
-The model confirms clinical suspicions of a change in retinal haemodynamics due to ocular curvature.
-Furthermore it highlighted the non-uniform effects on the retina, with the temporal region being less affected by ocular shape.\cite{Dziubek_2015}
 
 
 Panretinal photocoagulation therapy is a common procedure to treat the ischaemia in retinae with proliferative diabetic retinopathy.
@@ -291,7 +301,7 @@ Therefore, estimates of the retinal kinetics of molecules are often based on eit
 Mechanistic pharmacokinetic and pharmacodynamic models can help overcome the issue of the lack of \textit{in vivo} data in the retina and provide insight into the complex true relationships between drug characteristic and physiological parameters.
 This section is dedicated to computational models of VEGF and its inhibitor, whether individually (PK models, VEGF production models) or interacting together (PD models).
 
-% \subsubsection*{PKPD models of anti-VEGF}
+\subsubsection*{Compartmental PK/PD models}
 
 Often in PK analysis of ocular or systemic fluid, the half-life of a molecule is estimated by fitting exponentially decaying curves to the data in order to compute the total exposure to the drug (area under the concentration-time curve) and maximal concentration~\cite{Bakri_2007, Kaiser_2019, Park_2015, Park_2016, Xu_2013}.
 This assumes that the clearance rate of molecules in the eye is proportional to the concentration of said molecule at all times and ignores potential effects of interactions with the tissue or the presence of multiple clearing pathways (e.g., the aqueous humor outflow and the choroid circulation).
@@ -321,6 +331,8 @@ The results showed quantitative and qualitative agreement with experiments witho
 The previous PKPD models assumed a constant with time and homogeneous production rate of VEGF.
 However, an \textit{in silico} model of an \textit{in vitro} setup on the RPE suggests that spatial arrangement of RPE cells and atrophied tissue play an important role on the production of VEGF that may explain the progression of AMD into its neovascular form~\cite{Baker_2017}.  
 
+\subsubsection*{Finite element PK models}
+
 While insightful on the relationship between ocular availability and molecular characteristics, compartmental models assume that VEGF, anti-VEGF and their bindings are well-mixed within each compartment.
 However, ocular fluid flow can impact the delivery of drug to the retina.
 Flows may be influenced by the structure of the eye and may differ strongly between species.
@@ -342,6 +354,8 @@ Their model suggested that only \SIrange[range-units = single]{5}{24}{\percent} 
 However, this percentage increases with intraocular pressures, which might elevate with age and other systemic variables~\cite{Armaly_1967,Hashemi_2005}.
 Furthermore, diffusion of the injected molecules through the retina, the RPE and the Bruch's membrane is not yet clear and may influence the posterior clearance rates.
 In later work, the group extended the previous model to estimate the diffusion coefficients in those tissues using \textit{in vivo} PK data and found a RPE permeability similar to the one found by Hutton-Smith et al.~\cite{Lamminsalo_2020,HuttonSmith_2017}.
+
+\subsubsection*{Models of treatment outcome}
 
 Other models have simulated the effect of anti-VEGF therapy on clinically relevant features of neovascular AMD, e.g., visual acuity and size of macular oedema~\cite{Edwards_2020, Hoyle_2017, Mulyukov_2018}.
 These models can be compared directly with clinical trials and, potentially, can be used to run \textit{in silico} trials, as discussed in Section~8. %~\ref{sec:InSilicoTrials}.
