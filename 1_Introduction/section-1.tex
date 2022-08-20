@@ -20,27 +20,56 @@ Degradation of visual functions can severely affect the quality of life of patie
 The retina is a complex and fragile tissue playing a major role in visual functions.
 As such, it is perhaps not surprising that many severe visual impairments find their root in the retina.
 
-\begin{itemize}
-\item Imaging techniques, recent development of noninvasive devices
-\item (still) Clinical care rely on observations of symptoms
-\item Standardized therapies showed limitations
-\item Little to no information on the state of the retina and causes of disease in invidual patients (e.g., hypoxia, cellular functions, weakness of the vasculature...)
-\item Increase in use of mathematical/\textit{in silico} models for basic research in the past two decades by providing insights that are hard or impossible to achieve by experimental or observational means
-\item Increasing interest in using \textit{in silico} evidence to inform treatment and clinical trials
-\item The recent increase in the number of literature reviews on mathematical models of the eye and retina (cite them) and the development of platforms for simulating the eye accessible to non-modellers (cite Ocular mathematical virtual simulator) are evidence of that interest.
-\item \textit{In silico} clinical trials can enhance both clinical care and traditional clinical trials, preserving sight in the fast growing number of patients suffering from retinal disorders.
-\item \textit{In silico} trials require close collaboration between experimentalist, modellers and clinicians (see Figure Paul).
-\item \textit{In silico} trials have been successfully used in other medical discipline, in particular cancerology and cardiology.
-\item Ophthalmology can also benefit from computer aided clinical development.
-\item Furthermore, the eye provides researchers with a wealth of images and direct measurements that is perhaps unparalleled in other medical specialties.
-\item Breakdown of the paper:
-  \begin{itemize}
-  \item An overview of current models of the retina in health and in disease, to provide the reader with an understanding of the benefits.
-  \item Additionally, models of common therapies will also be summarized.
-  \item Following the overview of state-of-the-art models, we provide a breakdown of what constitute \textit{in silico} trials and present examples of successful applications of such trials.
-  \item Finally, we conclude by highlighting the gaps that need to be closed before running \textit{in silico} trials for the retina.
-  \end{itemize}
-\end{itemize}
+A number of devices exist to observe the retina and clincially relevant biomarkers, often noninvasively.
+For instance, optical coherence tomography (OCT) and its angiographic extension enable three dimensional, high resolution scans of the retinal structure and vessels in a matter of seconds and noninvasively.
+These devices undoubtedly improve clinical care by providing accurate measurements of biomarkers, such oedema.
+Still, treatment strategies tend to be standardized, following the guidelines of successful clinical trials.
+However, the treatment response may vary between patient, indicate that alternative treatments are needed. [REF HERE]
+The development of new treatments is long and arduous, with only a small fraction of new therapeutics successfully completing clinical trials. [REF HERE]
+Furthermore, imaging and measuring devices provide little to no information on the causes of disease in individual patients, which are likely to operate at a different scale, e.g., hypoxia, defects of cellular and vascular functions. [NOT SURE THIS IS CLEAR]
+
+\textit{In silico} modelling can provide insights on the underlying causes of disease, which are often hard or impossibe to obtain by experimental or observational means.
+The past two decades have seen a rise in the use of \textit{in silico} models for basic research in biology and medicine.
+Furthermore, \textit{in silico} evidence to inform clinical trials is also gaining traction. [REF here?]
+The recent increase in the number of literature reviews on mathematical models of the eye and the retina and the development of platforms for simulating the eye accessible to non-modellers are evidence of that interest. [CITE OCULAR MATHEMATICAL VIRTUAL SIMULATOR AND REVIEWS OF MATHEMATICAL MODELS OF THE EYE AND RETINA]
+
+\textit{In silico} trials can enhance both clinical care and traditional clinical trials, preserving sight for the fast growing number of patients suffering from retinal disorders.
+Running virtual clinical trials requires a close collaboration between experimentalist, modellers and clinicians (see Figure~\ref{fig:ModellingCycle}).
+Other medical discplines such as oncology and cardiology have already benefitted from \textit{in silico} trials. [REFS HERE]
+Ophthalmology can also benefit from computer aided clinical development.
+Indeed, the retina provides researchers with a wealth of images and measurements that is perhaps unparalleled in other medical specialties.
+
+In this paper, we will review the state-of-the-art model of the retina, both in health and disease, and highlight the challenges to developing \textit{in silico} clinical trials for retinal diseases.
+The remainder of this paper is organized as follows.
+In Section 2, we provide a brief introduction to the physiology of the retina, its main features and summarize major retinal pathologies and available treatments.
+In Section 3, we define terms and concepts related to \textit{in silico} modelling.
+Sections 4 and 5 review models of the retinal physiology in health and disease and models of the treatment of major retinal diseases.
+Section 6 is dedicated to models of therapeutic procedures.
+Section 7 defines \textit{in silico} trials and provide the reader with examples of their successful application.
+Finally, in Section 8, we summarize the state of mathematical models of the retina and provide a plan of action to achieve \textit{in silico} clinical trials for retinal pathologies.
+
+
+% \begin{itemize}
+% \item Imaging techniques, recent development of noninvasive devices
+% \item (still) Clinical care rely on observations of symptoms
+% \item Standardized therapies showed limitations
+% \item Little to no information on the state of the retina and causes of disease in invidual patients (e.g., hypoxia, cellular functions, weakness of the vasculature...)
+% \item Increase in use of mathematical/\textit{in silico} models for basic research in the past two decades by providing insights that are hard or impossible to achieve by experimental or observational means
+% \item Increasing interest in using \textit{in silico} evidence to inform treatment and clinical trials
+% \item The recent increase in the number of literature reviews on mathematical models of the eye and retina (cite them) and the development of platforms for simulating the eye accessible to non-modellers (cite Ocular mathematical virtual simulator) are evidence of that interest.
+% \item \textit{In silico} clinical trials can enhance both clinical care and traditional clinical trials, preserving sight in the fast growing number of patients suffering from retinal disorders.
+% \item \textit{In silico} trials require close collaboration between experimentalist, modellers and clinicians (see Figure Paul).
+% \item \textit{In silico} trials have been successfully used in other medical discipline, in particular cancerology and cardiology.
+% \item Ophthalmology can also benefit from computer aided clinical development.
+% \item Furthermore, the eye provides researchers with a wealth of images and direct measurements that is perhaps unparalleled in other medical specialties.
+% \item Breakdown of the paper:
+%   \begin{itemize}
+%   \item An overview of current models of the retina in health and in disease, to provide the reader with an understanding of the benefits.
+%   \item Additionally, models of common therapies will also be summarized.
+%   \item Following the overview of state-of-the-art models, we provide a breakdown of what constitute \textit{in silico} trials and present examples of successful applications of such trials.
+%   \item Finally, we conclude by highlighting the gaps that need to be closed before running \textit{in silico} trials for the retina.
+%   \end{itemize}
+% \end{itemize}
 
 \bibliographystyle{abbrvnat} % {ksfh_nat}
 \bibliography{../bibliography}
