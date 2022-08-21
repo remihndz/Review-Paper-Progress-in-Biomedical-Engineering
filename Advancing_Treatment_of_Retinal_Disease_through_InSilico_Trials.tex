@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper]{article}
+\documentclass{article}
 
 \usepackage[subpreambles=false]{standalone}
 \usepackage{import}
@@ -10,6 +10,17 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{authblk}
+\usepackage{fullpage}
+\usepackage{subfigure}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage{threeparttable}
+\usepackage[figuresright]{rotating}
+
+% \usepackage{mathptmx}
+% \usepackage{mathrsfs}
+% \usepackage{url}
 
 \usepackage[super,numbers]{natbib}
 
@@ -24,15 +35,28 @@
 
 \title{Advancing Treatment of Retinal Disease throuh \textit{in silico} Trials}
 
-\author[1,2]{R\'emi Hernandez}
-\author[3]{Paul A. Roberts}
-\author[1,2]{Wahbi K. El-Bouri}
-\affil[1]{Liverpool Centre for Cardiovascular Science, University of Liverpool and Liverpool Heart \& Chest Hospital Liverpool, UK}
-\affil[2]{Department of Cardiovascular and Metabolic Medicine, University of Liverpool, UK}
-\affil[3]{Centre for Systems Modelling and Quantitative Biomedicine, University of Birmingham, UK}
-\date{}
+% \author[1,2]{R\'emi Hernandez}
+% \author[3]{Paul A. Roberts}
+% \author[1,2]{Wahbi K. El-Bouri}
+% \affil[1]{Liverpool Centre for Cardiovascular Science, University of Liverpool and Liverpool Heart \& Chest Hospital Liverpool, UK}
+% \affil[2]{Department of Cardiovascular and Metabolic Medicine, University of Liverpool, UK}
+% \affil[3]{Centre for Systems Modelling and Quantitative Biomedicine, University of Birmingham, UK}
+% \date{}
 
+
+\author[1,2]{R\'{e}mi Hernandez\footnote{E-mail address: remi.hernandez@liverpool.ac.uk (R\'{e}mi Hernandez)}}                                                                                                     
+\author[3]{Paul A. Roberts\footnote{E-mail address: p.a.roberts@univ.oxon.org (Paul A. Roberts)}}                                                                                                                  
+\author[1,2]{Wahbi K. El-Bouri\footnote{E-mail address: w.el-bouri@liverpool.ac.uk (Wahbi K. El-Bouri)}}                                                                                                           
+\affil[1]{Liverpool Centre for Cardiovascular Science, University of Liverpool and Liverpool Heart \& Chest Hospital Liverpool, UK}                                                                                
+\affil[2]{Department of Cardiovascular and Metabolic Medicine, University of Liverpool, UK}                                                                                                                        
+\affil[3]{Centre for Systems Modelling and Quantitative Biomedicine, University of Birmingham, Institute of Biomedical Research, Birmingham, B15 2TT, UK}                                                          
+%                                                                                                                                                                                                                  
+\renewcommand\Authands{ and }                                                                                                                                                                                      
+%                                                                                                                                                                                                                  
+%                                       
 \begin{document}
+
+\date{\vspace{-5ex}}
 \maketitle
 
 \section*{Introduction}
@@ -90,7 +114,7 @@ In particular, cones are highly concentrated in the centre of the macula, in a p
 The fovea is a critical area of the retina, as this is where visual acuity is highest.
 It is also the area where a number of pathological conditions present.
 
-\begin{figure}[hb]
+\begin{figure}[t!]
   \centering
   \includegraphics[width=0.45\textwidth, height=7cm]{ArchitectureEye} % From Wikipedia retina
   \hfill
@@ -99,7 +123,7 @@ It is also the area where a number of pathological conditions present.
   \label{fig:architecture-eye}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[t!]
   \centering
   \includegraphics[width=0.45\textwidth]{FA}
   \caption{Anatomical features of the healthy retina on a fundus photograph. By Mikael H\"aggstr\"om, used with permission.}
@@ -325,7 +349,7 @@ The process of designing and refining an \textit{in silico} model follows a logi
 In this section, we give a brief overview of different model types that can be used to model the retina and typical challenges emerging when modelling biological systems.
 A more comprehensive overview can be found in the work of Roberts et al.\cite{Roberts_2016}
 
-\begin{figure}[ht!]
+\begin{figure}[t!]
   \centering
   \includegraphics[width=.9\linewidth]{ModellingCycle}
   \caption{Modelling cycle of the design of an \textit{in silico} model. Reused with permission from Roberts et al.\cite{Roberts_2016}}
@@ -433,7 +457,7 @@ In addition, we present models of the pharmacokinetics (PK) and pharmacodynamics
 
 \subsection*{Retinal haemodynamics}
 
-\begin{figure}[t]
+\begin{figure}[t!]
   \centering
   \includegraphics[width=0.45\textwidth, height=5.3cm]{cropped-RBC-in-capillaries.jpg}
   \hfill
@@ -901,7 +925,7 @@ The previous sections have detailed the vast literature that deals with modellin
 
 The paradigm of an ISCT is very similar to that of a real-world clinical trial except the disease, intervention and trial setup is simulated. ISCTs require virtual populations of the disease of interest; a mechanistic model of the disease and treatment using the proposed intervention; and a statistical analysis plan that will analyse the output of the trial~\cite{Alfonso2020}. Figure~\ref{fig:ISCT} depicts a general schematic of how an ISCT might run for nAMD drug testing.
 
-\begin{figure}[h]
+\begin{figure}[t!]
   \centering
   \includegraphics[width=1\textwidth, height=9.3cm]{Fig_sec_8.png}
   \hfill
@@ -945,9 +969,19 @@ Validation, verification, and uncertainty quantification (VVUQ) are necessary to
 
 Verification is usually well established for given models and their numerical implementation~\cite{Curreli2021, Pappalardo2019}. Uncertainty quantification is also an essential step. This includes both aleatoric uncertainty (uncertainty in data used to inform model) and epistemic uncertainty (uncertainty in the knowledge of the physiological system used to build the model), as well as numerical uncertainty when solving approximated mathematical equations computationally. All of these uncertainties must be quantified to ensure a good comparison with real-world data can be made.
 
-\subsection*{Gaps in ISCTs for the retina}
 
-Most of the building blocks for running an ISCT in the retina are already in place. When it comes to nAMD, there are already mechanistic models in place for the disease and intervention~\cite{Vega2021, Hoyle2017}. However, two main gaps still exist that are required to run successful ISCTs in retinal disease: 
+\section*{Discussion}
+
+% \subsection*{Gaps in ISCTs for the retina}
+Throughout this paper, we have reviewed the state-of-the-art models of the retina in both healthy and diseased conditions.
+
+\textit{In silico} models have shed light on the interplay between biological mechanisms, such as autoregulation, necessary to maintain a healthy retina.
+In addition, they have provided us with quantitative understanding of the range of insults that the retina can withstand.
+
+In disease, the models brought insights on the underlying mechanics of common retinal disease, some of which may have been overlooked by traditional \textit{in vivo} and \textit{in vitro} investigation because of the difficulty of direct measurements.
+
+Additionally, we have introduced the concept of \textit{in silico} clinical trials and the main components they require. 
+Most of the building blocks for running an ISCT in the retina are already in place. When it comes to nAMD, there are already mechanistic models in place for the disease and intervention~\cite{Hoyle2017, Vega2021}. However, two main gaps still exist that are required to run successful ISCTs in retinal disease: 
 
 \begin{enumerate}
 \item{Patient data linkage for comprehensive VP generation. For representative and valid VPs, imaging data needs to be linked to primary and secondary health records to give a comprehensive disease population~\cite{ElBouri2021}.}
