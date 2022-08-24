@@ -150,27 +150,20 @@ It is broadly split into two layers: the retinal inner surface is attached to th
 When looking at a cross section of the retina as shown in Figure~\ref{fig:architecture-eye}, several sub-layers can be identified. The innermost (closest to the vitreous) being the nerve fiber layer and the outermost being the retinal pigmented epithelium (RPE).
 Each layer of the retina contains a different type of cell.
 The layers located above the RPE are made of neurons and synapses and is referred to as the neurosensory retina.
-In the centre of the retina is an oval-shaped pigmented area called the macula that can be seen on photographs of the retina (Figure~\ref{fig:Scans}).
+In the centre of the retina is an oval-shaped pigmented area called the macula that can be seen on photographs of the retina (Figure~\ref{fig:architecture-eye}).
 The macula is about \SI{5}{\mm} wide and is responsible for the highly detailed, central vision, owing to its high concentration of photoreceptor cells, namely rods and cones.
 In particular, cones are highly concentrated in the centre of the macula, in a pit approximately \SI{1.5}{\mm} wide named the fovea.
 The fovea is a critical area of the retina, as this is where visual acuity is highest.
 It is also the area where a number of pathological conditions present.
 
-\begin{figure}[t!]
-  \centering
-  \includegraphics[width=0.45\textwidth, height=7cm]{ArchitectureEye} % From Wikipedia retina
-  \hfill
-  \includegraphics[width=0.5\textwidth, height=7cm]{RetinalLayers}
-  \caption{Anatomy of the eye and the retina. \textbf{(Left)} Anatomy of the eye with the retina identified. Image credits: Rhcastilhos and Jmarchn, CC BY-SA 3.0, via Wikimedia Commons. \textbf{(Right)} The retina and its subdivision into layers. From inner retina to outer retina: inner limiting membrane (ILM), nerve fiber layer (NFL), ganglion cell layer (GCL), inner plexiform layer (IPL), inner nuclear layer (INL), outer plexiform layer (OPL), outer nuclear layer (ONL), photoreceptors (PHR), retinal pigmented epithelium (RPE), Bruch's membrane (BrM), choriocapillaris (CC), Sattler's layer (SL), Haler's layer (HL). Modified from the work of Trivi\~no et al., published under CC BY 3.0 license.~\cite{Trivino_2012}}
-  \label{fig:architecture-eye}
-\end{figure}
 
 \begin{figure}[t!]
   \centering
-  \includegraphics[width=0.45\textwidth]{FA}
-  \caption{Anatomical features of the healthy retina on a fundus photograph. By Mikael H\"aggstr\"om, used with permission.}
-  \label{fig:Scans}
+  \includegraphics[width=.95\textwidth]{Figure1}
+  \caption{Anatomy of the eye and the retina. The anatomy of the eye (A). Image credits to: Rhcastilhos and Jmarchn, distributed under CC BY-SA 3.0 license via Wikimedia Commons. Anatomical features of an healthy retina seen on a fundus photograph (B), by Mikael H\"aggstr\"om, used with permission. The retina and its cellular layers (C). From inner retina to outer retina: inner limiting membrane (ILM), nerve fiber layer (NFL), ganglion cell layer (GCL), inner plexiform layer (IPL), inner nuclear layer (INL), outer plexiform layer (OPL), outer nuclear layer (ONL), photoreceptors (PHR), retinal pigmented epithelium (RPE), Bruch's membrane (BrM), choriocapillaris (CC), Sattler's layer (SL), Haler's layer (HL). Modified from the work of Trivi\~no et al., published under CC BY 3.0 license.~\cite{Trivino_2012}}
+  \label{fig:architecture-eye}
 \end{figure}
+
 
 Visual information originates from light hitting the retina.
 The light crosses the retinal thickness to reach the body of the photoreceptors, in the layer just before the RPE (see Figure~\ref{fig:architecture-eye}).
@@ -178,7 +171,7 @@ Activation of photoreceptors by photons starts a cascade of biochemical reaction
 This biochemical signal is picked up by cells in the inner layers of the retina, which transform it into an electrical signal~\cite{Arslan_2018}.
 The electrical signal is then transmitted to the nerve fiber layer, which relays it to the brain via the optic nerve, enabling vision.
 The optic nerve is composed of the axons of the retinal ganglion cells, amounting to between $500,000$ and $1.2$ million, and is surround by connective tissue~\cite{Salazar_2019}.
-The optic nerve enters the retina through the optic disc, seen as a round spot, around \SI{1.8}{\mm} wide, on fundus photographs of the retina (Figure~\ref{fig:Scans}).
+The optic nerve enters the retina through the optic disc, seen as a round spot, around \SI{1.8}{\mm} wide, on fundus photographs of the retina (Figure~\ref{fig:architecture-eye}).
 The optic disc is an important structure of the retina in disease and is closely monitored by clinicians for symptoms of, e.g., glaucoma.
 
 Owing to its pigmentation, the RPE acts as a buffer for any remaining light, protecting the retina from light damage and preventing backreflection of light that may interfere with the visual outcome.
@@ -387,7 +380,7 @@ A more comprehensive overview can be found in the work of Roberts et al~\cite{Ro
 \begin{figure}[t!]
   \centering
   \includegraphics[width=.9\linewidth]{ModellingCycle}
-  \caption{Modelling cycle of the design of an \textit{in silico} model. Reused with permission from Roberts et al~\cite{Roberts_2016}.}
+  \caption{Modelling cycle of the design of an \textit{in silico} model. Reproduced, with permission, from Roberts et al~\cite{Roberts_2016}.}
   \label{fig:ModellingCycle}
 \end{figure}
 
@@ -638,9 +631,9 @@ Note that this model assumed a constant blood pressure, average of the systolic 
 Pulsatility may have a significant impact on intraocular pressure and, consequently, blood flow in the central retinal vessels and has been investigated within a more comprehensive model of the ocular structures~\cite{Jin_2020}.
 
 
-Whether the vascular plexi in the retina, namely, the superficial, intermediate and deep plexi, are connected \textit{in series} or \textit{in parallel} is still unclear.
+Whether the vascular plexi in the retina, namely, the SVP, ICP and DCP, are connected \textit{in series} or \textit{in parallel} is still unclear.
 The \textit{in parallel} configuration suppose that both arterial and venous connections exist between plexi.
-Conversely, in the \textit{in series} configuration, blood inflow comes solely from the superficial plexus, while venous drainage happens only in the deep plexus.
+Conversely, in the \textit{in series} configuration, blood inflow comes solely from the SVP, while venous drainage happens only in the DCP.
 We refer the reader to Figure 1 in the paper by Chiaravalli et al. for a schematic of those two configurations~\cite{Chiaravalli_2021}.
 The lumped parameter models developped in this paper simulate haemodynamics between the CRA to the CRV in five vascular compartments~\cite{Chiaravalli_2021}.
 The authors modelled both configurations and compared the responses of each plexi to intraocular pressure elevation and occlusion of the CRV.
