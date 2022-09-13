@@ -8,7 +8,7 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
-\usepackage{graphicx}
+\usepackage{graphicx, booktabs}
 \usepackage{authblk}
 \usepackage{fullpage}
 \usepackage{subfigure}
@@ -32,7 +32,7 @@
 
 
 
-\title{Advancing Treatment of Retinal Disease throuh \textit{in silico} Trials}
+\title{Advancing Treatment of Retinal Disease through \textit{in silico} Trials}
 
 % \author[1,2]{R\'emi Hernandez}
 % \author[3]{Paul A. Roberts}
@@ -58,42 +58,46 @@
 \date{\vspace{-5ex}}
 \maketitle
 
-\section{Abstract}
+
+\begin{abstract}
 Approx 250 - 300 words is fine here summarising the review
+\end{abstract}
+
+\newpage
+\tableofcontents
+\newpage
 
 \section*{Glossary}\label{sec:Glossary}
 
-\begin{xltabular}{\textwidth}{ll}
+\begin{xltabular}{\paperheight}{ll}
   \caption{List of abbreviations.}\\
-  \hline
+  \toprule  % \hline
   \textbf{Term} & \textbf{Definition}                                       \\
-  \hline
+  \midrule %\hline
   \multicolumn{2}{l}{\textit{\textbf{Mathematical terms}}}                  \\
   1/2/3D        & 1/2/3 spatial   dimensions                                \\
   ISCT          & \textit{In silico} clinical trial                       \\
   ODE           & Ordinary differential   equation                          \\
   PD/PK         & Pharmacodynamics/Pharmacokinetics                         \\
-  PDE           & (Reaction-diffusion)   partial differential equation      \\
+  PDE           & Partial differential equation      \\
   VP            & Virtual population                                        \\
   VVUQ          & Validation,   verification and uncertainty quantification \\
   \multicolumn{2}{l}{\textit{\textbf{Biological terms}}}                    \\
   AMD           & Age-related macular   degeneration                        \\
   BrM           & Bruch’s membrane                                          \\
-  BSG1          & Basigin-1                                                 \\
   CC            & Choriocapillaris                                          \\
   CRA/CRV       & Central retinal   artery/central retinal vein             \\
   DCP           & Deep capillary plexus                                     \\
   DR            & Diabetic retinopathy                                      \\
   DRC           & Deep retinal   capillaries                                \\
   DVC           & Deep vascular complex                                     \\
+  GA            & Geographic atrophy \\
   ICP           & Intermediate   capillary plexus                           \\
   ILM           & Inner limiting   membrane                                 \\
   IS            & Inner segment(s)                                          \\
   IVI           & Intravitreal   injection                                  \\
-  LA            & Light adaptation                                          \\
   LACT          & Lactate                                                   \\
-  MANF          & Mesencephalic   astrocyte-derived neurotrophic factor     \\
-  nnAMD         & Non-neovascular AMD                                       \\
+  nAMD          & Neovascular AMD                                       \\
   OCT           & Optical coherence   tomography                            \\
   OCTA           & Optical coherence tomography angiography                 \\
   ONL           & Outer nuclear layer                                       \\
@@ -106,7 +110,7 @@ Approx 250 - 300 words is fine here summarising the review
   SVC           & Superficial vascular   complex                            \\
   SVP           & Superficial vascular   plexus                             \\
   VEGF          & Vascular endothelial   growth factor        \\
-    \hline
+  \bottomrule %\hline
 \end{xltabular}
 
 \section{Introduction}\label{sec:Introduction}
@@ -129,19 +133,19 @@ The past two decades have seen a rise in the use of such models for basic resear
 Furthermore, the use of digital evidence to inform clinical trials is also gaining traction. 
 The recent increase in the number of literature reviews on mathematical models of the eye and the retina and the development of platforms for simulating the eye accessible to non-modellers are evidence of that interest~\cite{Arciero_2019,Arciero_2017,Bhandari_2021,Harris_2013,Prudhomme_2021,Roberts_2016,Sala_2018}.
 
-\textit{In silico} clinical trials can enhance both clinical care and traditional clinical trials, preserving sight for the fast growing number of patients suffering from retinal disorders.
+\textit{In silico} clinical trials can enhance both clinical care and traditional clinical trials, preserving sight for the fast-growing number of patients suffering from retinal disorders.
 Running \textit{In silico} clinical trials requires a close collaboration between experimentalist, modellers and clinicians (see Figure~\ref{fig:ModellingCycle}).
 Other medical discplines such as oncology and cardiology have already benefitted from \textit{in silico} trials~\cite{Gaffney2022,Ravvaz2017}.
 Ophthalmology can also benefit from computer aided clinical development.
-Indeed, the retina provides researchers with a wealth of images and measurements that is perhaps unparalleled in other medical specialties.
+Indeed, the retina provides researchers with a wealth of images and measurements that is perhaps unparalleled in other medical specialities.
 
-In this paper, we will review the state-of-the-art model of the retina, both in health and disease, and highlight the challenges to developing \textit{in silico} clinical trials for retinal diseases.
+In this paper, we will review state-of-the-art models of the retina, both in health and disease, and highlight the challenges to developing \textit{in silico} clinical trials for retinal diseases.
 The remainder of this paper is organized as follows.
-In Section 2, we provide a brief introduction to the physiology of the retina, its main features and summarize major retinal pathologies and available treatments.
+In Section 2, we provide a brief introduction to the physiology of the retina and summarize major retinal pathologies and available treatments.
 In Section 3, we define terms and concepts related to \textit{in silico} modelling.
 Sections 4 and 5 review models of the retinal physiology in health and disease and models of the treatment of major retinal diseases.
 Section 6 is dedicated to models of therapeutic procedures.
-Section 7 defines \textit{in silico} trials and provide the reader with examples of their successful application.
+Section 7 defines \textit{in silico} trials and provides the reader with examples of their successful application.
 Finally, in Section 8, we summarize the state of mathematical models of the retina and provide a plan of action to achieve \textit{in silico} clinical trials for retinal pathologies.
 
 \section{Retinal physiology and therapeutic approaches}\label{sec:RetinalPhysiology}
@@ -150,30 +154,29 @@ Finally, in Section 8, we summarize the state of mathematical models of the reti
 
 \subsubsection{In health}
 
-\paragraph*{Retinal Layers, cells and the visual cycle.}
+\paragraph*{Retinal layers, cells and the visual cycle.}
 
 The retina is a layer of tissue less than \SI{0.5}{\mm} thick that lines the back of the eye~\cite{Gupta_2015}.
-It is broadly split into two layers: the retinal inner surface is attached to the vitreous body, the clear gel that separates the lens and the retina; while its outer surface is attached to Bruch's membrane (Figure~\ref{fig:architecture-eye}).
-When looking at a cross section of the retina as shown in Figure~\ref{fig:architecture-eye}, several sub-layers can be identified. The innermost (closest to the vitreous) being the nerve fiber layer and the outermost being the retinal pigmented epithelium (RPE).
-Each layer of the retina contains a different type of cell.
+The retinal inner surface is attached to the vitreous body, the clear gel that separates the lens and the retina; while its outer surface is attached to Bruch's membrane (Figure~\ref{fig:architecture-eye}).
+When looking at a cross section of the retina, as shown in Figure~\ref{fig:architecture-eye}, several layers can be identified. The innermost (closest to the vitreous) being the nerve fiber layer and the outermost being the retinal pigmented epithelium (RPE).
 The layers located above the RPE are made of neurons and synapses and are collectively referred to as the neurosensory retina.
 In the centre of the retina is an oval-shaped pigmented area called the macula that can be seen on photographs of the retina (Figure~\ref{fig:architecture-eye}).
-The macula is about \SI{5}{\mm} wide and is responsible for the highly detailed, central vision, owing to its high concentration of photoreceptor cells, namely rods and cones.
+The macula is about \SI{5}{\mm} wide and is responsible for highly detailed, central, vision, owing to its high concentration of photoreceptor cells, namely rods and cones.
 In particular, cones are highly concentrated in the centre of the macula, in a pit approximately \SI{1.5}{\mm} wide named the fovea.
 The fovea is a critical area of the retina, as this is where visual acuity is highest.
-It is also the area where a number of pathological conditions present.
+The macula is also an area where a number of pathological conditions present.
 
 
 \begin{figure}[t!]
   \centering
   \includegraphics[width=.95\textwidth]{Figure1}
-  \caption{Anatomy of the eye and the retina. The anatomy of the eye (A). Image credits to: Rhcastilhos and Jmarchn, distributed under CC BY-SA 3.0 license via Wikimedia Commons. Anatomical features of an healthy retina seen on a fundus photograph (B), by Mikael H\"aggstr\"om, used with permission. The retina and its cellular layers (C). From inner retina to outer retina: inner limiting membrane (ILM), nerve fiber layer (NFL), ganglion cell layer (GCL), inner plexiform layer (IPL), inner nuclear layer (INL), outer plexiform layer (OPL), outer nuclear layer (ONL), photoreceptors (PHR), retinal pigmented epithelium (RPE), Bruch's membrane (BrM), choriocapillaris (CC), Sattler's layer (SL), Haler's layer (HL). Modified from the work of Trivi\~no et al., published under CC BY 3.0 license.~\cite{Trivino_2012}}
+  \caption{Anatomy of the eye and the retina. The anatomy of the eye (A). Image credits to: Rhcastilhos and Jmarchn, distributed under CC BY-SA 3.0 license via Wikimedia Commons. Anatomical features of an healthy retina seen on a fundus photograph (B), by Mikael H\"aggstr\"om, used with permission. The retinal and choroidal layers and membranes (C). From inner retina to outer choroid: inner limiting membrane (ILM), nerve fiber layer (NFL), ganglion cell layer (GCL), inner plexiform layer (IPL), inner nuclear layer (INL), outer plexiform layer (OPL), outer nuclear layer (ONL), photoreceptors (PHR), retinal pigmented epithelium (RPE), Bruch's membrane (BrM), choriocapillaris (CC), Sattler's layer (SL), Haler's layer (HL). Modified from the work of Trivi\~no et al., published under CC BY 3.0 license.~\cite{Trivino_2012}}
   \label{fig:architecture-eye}
 \end{figure}
 
 
 Visual information originates from light hitting the retina.
-The light crosses the retinal thickness to reach the body of the photoreceptors, in the layer just before the RPE (see Figure~\ref{fig:architecture-eye}).
+The light crosses the inner retina to reach the photoreceptors, in the layer lying inwards from the RPE (see Figure~\ref{fig:architecture-eye}).
 Activation of photoreceptors by photons starts a cascade of biochemical reactions that transforms light into a biochemical signal~\cite{Hurley_2009}.
 This biochemical signal is picked up by cells in the inner layers of the retina, which transform it into an electrical signal~\cite{Arslan_2018}.
 The electrical signal is then transmitted to the nerve fiber layer, which relays it to the brain via the optic nerve, enabling vision.
@@ -182,43 +185,42 @@ The optic nerve enters the retina through the optic disc, seen as a round spot, 
 The optic disc is an important structure of the retina in disease and is closely monitored by clinicians for symptoms of, e.g., glaucoma.
 
 Owing to its pigmentation, the RPE acts as a buffer for any remaining light, protecting the retina from light damage and preventing backreflection of light that may interfere with the visual outcome.
-The RPE is formed of a single layer of epithelial cells, whose primary function is to support photoreceptors.
+The RPE is formed of a single layer of epithelial cells, whose primary function is to support the photoreceptors and the choroid.
 To fulfill this purpose, the RPE acts as the blood-retinal barrier, regulating the transport of ions, fluid, proteins and other molecules~\cite{Boulton_2001}.
 
-The photoreceptors are attached to the RPE cells' plasma membrane.
-Through this close interaction, the RPE collects by-products of the photoreceptors, a washout essential to maintain a healthy neurosensory retina.
+The photoreceptors abut to the RPE.
+Through this close interaction, the RPE exchanges metabolites with the photoreceptors.
 The RPE also transports nutrients such as retinoids to the photreceptor cells where they are essential for the production of the light-sensitive rhodospin protein~\cite{Boulton_2001}.
-By-products are released into the systemic circulation via the choroid, one of the two circulations of the retina~\cite{Boulton_2001}.
+By-products of the photoreceptors activity are released into the systemic circulation via the choroid, one of the two circulations of the retina~\cite{Boulton_2001}.
 The cells of the RPE also play a major role in the immune response in the retina and in maintaining the choroidal vasculature through secretion of various vascular growth factors~\cite{Boulton_2001,Detrick_2020}.
 
-\paragraph*{Blood Supply to the Retina}
+\paragraph*{Blood supply to the retina}
 
-Visual functions require high metabolic activity from the retinal cells, making the retinal tissue very oxygen demanding.
+Visual function requires high metabolic activity from the retinal cells, making the retinal tissue very oxygen demanding.
 In fact, the rates of oxygen consumption per unit volume of tissue are comparable for the brain and the retina~\cite{Medrano_1995}.
-To sustain the demand in oxygen, the retina is equipped with a dense network of capillaries, that branches out of the central retinal artery (CRA) and finishes at the central retinal vein (CRV).
+To sustain the demand in oxygen, the retina is equipped with a dense network of capillaries, that branch out of the central retinal artery (CRA) and terminate at the central retinal vein (CRV).
 The CRA is a branch of the ophthalmic artery and the CRV drains into the superior ophthalmic vein.
 Both the CRA and CRV enter and exit the retina along the optic nerve.
-The CRA's branches spread across four plexi within the inner half of the retinal depth, namely, the superficial vascular plexus (SVP) and the intermediate (ICP), deep (DCP) and the radial peripapillary capillary plexus (RPCP).
+The CRA's branches spread across four plexi within the inner retina, namely, the superficial vascular plexus (SVP) and the intermediate (ICP), deep (DCP) and radial peripapillary capillary plexus (RPCP).
 The terms superficial vascular complex and deep vascular complex are sometimes used to designate the RPCP-SVP complex and the ICP-DCP complex, respectively.
 The inner retinal circulation provides oxygen for the inner \SIrange{60}{80}{\percent} of the tissue.
-The perfusion of the remaining outer \SIrange{20}{40}{\percent} is covered by the choroid.
+The perfusion of the remaining outer \SIrange{20}{40}{\percent} is covered by the choroid\cite{Birol_2007}.
 
-The choroid is a vascular tissue of the eye that lies behind the RPE, from which it is separated by Bruch's membrane.
+The choroid is a vascular tissue of the eye that lies outward from the RPE, from which it is separated by Bruch's membrane.
 Bruch's membrane is a thin (\SIrange{2}{4}{\micro\meter}), permeable barrier that provides structural support to the RPE and regulates gas and mass exchanges with the choroid~\cite{Curcio_2013}.
 The choroid is structured in three vascular layers.
 From the outermost to the innermost: Haller's layer, Sattler's layer and the choriocapillaris (CC).
-The diameter of the vessels in each layer decreases as it approaches the retina, with the CC only composed of capillaries.
+The diameter of the vessels in each layer decreases as it approaches the retina, with the CC composed only of capillaries.
 The vascular input to the choroid is provided by the short posterior ciliary arteries (between 6 and 12), which are branches of the ophthalmic artery~\cite{Kiel_2010}.
 The large vessels of the two outer layers of the choroid run parallel to the retinal axis.
 Some arterioles from Sattler's layer branch at an almost \SI{90}{\degree} angle to perfuse the CC~\cite{Nickla_2010}.
 Each of these arterioles form an hexagonal-shaped domain, fed by a single arteriole and drained by a varying number of venules back into Sattler's layer~\cite{Zouache_2016}.
-The capillaries of the CC have wide lumen (the cavity delimited by the vessel's walls), between \SIrange{7}{40}{\micro\meter} in the CC versus \SIrange{5}{10}{\micro\meter} in the retina, and are arranged into a single plane, with many connections between adjacent capillaries, also known as anastomoses~\cite{Bill_1983, ChanLing_2011,Fryczkowski_1994}.
-Furthermore, the capillary walls have openings (or fenestrations), increasing their permeability~\cite{Nickla_2010}.
-The fenestrations on the capillary walls are more numerous on the side facing the retina and are at least wide enough to let molecules with a diffusional radius of \SI{3.7}{\micro\meter} pass into the blood~\cite{Nickla_2010, Bill_1983}.
-This particular architecture, combined with a high blood flow, allows the CC to provide enough oxygen through diffusion across Bruch's membrane and the RPE, and to clear waste from the retina through the systemic circulation.
+The capillaries of the CC have wide lumen (the cavity delimited by the vessel's walls), between \SIrange{7}{40}{\micro\meter} in the CC versus \SIrange{5}{10}{\micro\meter} for the retinal capillaries, and are arranged into a single plane, with many connections between adjacent capillaries, known as anastomoses~\cite{Bill_1983, ChanLing_2011,Fryczkowski_1994}.
+Furthermore, the capillary walls have openings (fenestrations), increasing their permeability~\cite{Nickla_2010}.
+The fenestrations on the capillary walls are more numerous on the side facing the retina and are sufficiently wide to let molecules with a diffusional radius of \SI{3.7}{\micro\meter} pass into the blood~\cite{Nickla_2010, Bill_1983}.
+This particular architecture, combined with a high blood flow, allows the CC to provide sufficient nutrients through diffusion across Bruch's membrane and the RPE, and to clear waste from the retina through the systemic circulation.
 
-The blood supply from the choroid to the outer retina is indirect.
-Therefore, the choroid has high blood flow and a high oxygen content~\cite{Bill_1983}.
+The choroid has high blood flow and a high oxygen content~\cite{Bill_1983}.
 The high concentration of oxygen in the choroidal circulation creates a strong gradient for its diffusion between the CC and the outer retina.
 The high blood flow rates may also help regulating the temperature of the macula, by keeping it at the same temperature as the rest of the body~\cite{Bill_1983, Parver_1991}.
 
@@ -227,57 +229,57 @@ The distribution of photoreceptors in the retina is heterogeneous, with a higher
 For this reason, the centre of the fovea is an avascular zone around \SI{500}{\micro\meter} wide, often referred to as the foveal avascular zone.
 
 The interactions between layers of the retina, e.g., the RPE and photoreceptors, is essential for visual function.
-Disruption of the delicate structure of the retina leads to degeneration of sight.
+Disruption of the delicate structure of the retina leads to loss of sight.
 
 \subsubsection{In disease}
 
 While the retina is a key element for visual function, its relative fragility makes it susceptible to a number of conditions, some of which may lead to blindness.
-Loss of visual acuity can be caused by failures at any level of the phototransduction cascade.\\
 
-\paragraph*{Non-neovascular age-related macular degeneration.}
-The non-neovascular, or dry, form of age-related macular degeneration (nnAMD) is a common condition in individuals over fifty years of age.
-It is characterised by the presence of accumulated cellular debris under (drusen) and above (reticular pseudo-drusen) the RPE~\cite{Bottos_2012}.
-The drusen and pseudo-drusen appear when accumulated stress from age and other environmental factors such as cigarette smoking and diet cause the dysfunction of the RPE's clearance functions.
-In the end-stage of dry AMD, RPE cells degenerate and form geographic atrophy in the macula~\cite{Jager_2008}.
-Geographic atrophy is the name given to patches of atrophied RPE cells that can be seen on fundus photographs.
-Ultimately, sight loss is due to the atrophy of the photoreceptors deprived from the support of underlying RPE cells, but a gradual distortion of images is also present from the early stages~\cite{Newsom_2008,Zacks_2022}.\\
+% \paragraph*{Non-neovascular age-related macular degeneration.}
+% The non-neovascular, or non-neovascular, form of age-related macular degeneration (non-nAMD) is a common condition in individuals over fifty years of age.
+% It is characterised by the presence of accumulated cellular debris under (drusen) and above (reticular pseudo-drusen) the RPE~\cite{Bottos_2012}.
+% The drusen and pseudo-drusen appear when accumulated stress from age and other environmental factors such as cigarette smoking and diet cause the dysfunction of the RPE's clearance functions.
+% In the end-stage of non-nAMD, RPE cells degenerate and form geographic atrophy in the macula~\cite{Jager_2008}.
+% Geographic atrophy is the name given to patches of atrophied RPE cells that can be seen on fundus photographs.
+% Ultimately, sight loss is due to the atrophy of the photoreceptors deprived from the support of underlying RPE cells, but a gradual distortion of images is also present from the early stages~\cite{Newsom_2008,Zacks_2022}.\\
 
-\paragraph*{Retinitis pigmentosa.}
-Similarly, individuals with retinitis pigmentosa (RP) progressively lose sight from degeneration of the photoreceptors.
-Disease-related mutations are typically expressed by rods, leading to their degeneration in early stages of RP.
-For a reason still unclear, cone cell degeneration follows from the absence of rods, despite cones not expressing the mutations responsible for rod death.
-Multiple hypothesis have been suggested for this phenomenon.
-One of them is the oxygen toxicity hypothesis.
-As the choroid lacks the capacity to regulate blood flow accordingly to metabolic needs of the retina, some suggested that the absence of rods leads to high oxygen tension in the photoreceptor layers, an hyperoxia detrimental to cones survival~\cite{Roberts_et_al_2018a,Stone_et_al_1999}.
-Another hypothesis speculates that the cones' survival is dependent on a trophic factor provided by rods.
-Therefore, the later degeneration of cones could be explained by the absence of such factors~\cite{Roberts_2022a}.\\
+% \paragraph*{Retinitis pigmentosa.}
+% Similarly, individuals with retinitis pigmentosa (RP) progressively lose sight from degeneration of the photoreceptors.
+% Disease-related mutations are typically expressed by rods, leading to their degeneration in early stages of RP.
+% For a reason still unclear, cone cell degeneration follows from the absence of rods, despite cones not expressing the mutations responsible for rod death.
+% Multiple hypothesis have been suggested for this phenomenon.
+% One of them is the oxygen toxicity hypothesis.
+% As the choroid lacks the capacity to regulate blood flow accordingly to metabolic needs of the retina, some suggested that the absence of rods leads to high oxygen tension in the photoreceptor layers, an hyperoxia detrimental to cones survival~\cite{Roberts_et_al_2018a,Stone_et_al_1999}.
+% Another hypothesis speculates that the cones' survival is dependent on a trophic factor provided by rods.
+% Therefore, the later degeneration of cones could be explained by the absence of such factors~\cite{Roberts_2022a}.\\
 
 \paragraph*{Diabetic retinopathy.}
 One of the consequences of diabetes is the degeneration of the microvessels, such as capillaries, in the retina.
-Such degeneration includes an increase in vascular permeability, a loss of the pericytes coating capillary walls and a thickening of the endothelial basement membrane upon which endothelial cells are attached~\cite{Medina_2016}.
+Such degeneration includes an increase in vascular permeability, a loss of the pericytes coating capillary walls and a thickening of the endothelial basement membrane to which endothelial cells are attached~\cite{Medina_2016}.
 Additionally, a rarefaction of capillaries can be observed around the foveal avascular zone.
 Such microvascular degeneration may cause microvascular occlusions, haemorrhages and oedemas as well as macular ischaemia~\cite{Medina_2016}.
-The subsequent release of vascular endothelial growth factor (VEGF) may progress the diabetic retinopathy (DR) to its proliferative stage.
+The subsequent release of vascular endothelial growth factor (VEGF) may drive diabetic retinopathy (DR) to its proliferative stage.
 In proliferative DR, elevated VEGF levels cause the growth of abnormal capillary membranes in a process known as neovascularization.
-The neovascular membranes cause further haemorrhages and oedemas and scarring of the tissue.
-Scarring and the toxicity of blood damage the photoreceptors, sometimes permanently, resulting in dramatic loss of sight~\cite{Friedlander_2007,Gupta_2015}.
+The neovascular membranes cause further haemorrhages, oedemas and scarring of the tissue.
+Scarring and blood toxicity damage the photoreceptors, sometimes permanently, resulting in dramatic loss of sight~\cite{Friedlander_2007,Gupta_2015}.
 Moreover, the neovasculature may pierce through the inner limiting membrane (ILM) and haemorrhage in the vitreous or preretinal space, the potential space between the ILM and the vitreous, disturbing vision.\\
 
 \paragraph*{Neovascular age-related macular degeneration}
-The neovascular form of AMD is characterised by an appearance of macular neovasculature and a much more dramatic loss of sight compared to its non-neovascular form.
-As most cases of neovascular AMD (nAMD) happen in eyes affected by nnAMD, it may be referred to as a late stage of AMD.
-The current understanding of the pathogenesis of nAMD is that, in addition to other age-related changes in the retina, the progressive buildup of materials in Bruch's membrane characteristic of dry AMD induces hypoxic conditions in the outer retina~\cite{Jager_2008,Newsom_2008}.
-The subsequent upregulation of VEGF by RPE cells stimulate angiogenesis in the CC~\cite{Jager_2008}.
+The neovascular form of AMD (nAMD) is characterised by an appearance of macular neovasculature and a much more rapid loss of sight compared to its non-neovascular form. 
+% The current understanding of the pathogenesis of nAMD is that, in addition to other age-related changes in the retina, the progressive buildup of materials in Bruch's membrane characteristic of non-nAMD induces hypoxic conditions in the outer retina~\cite{Jager_2008,Newsom_2008}.
+The aberrant neovasculature is believed to be the result of an upregulation of VEGF by RPE cells which stimulates angiogenesis in the CC~\cite{Jager_2008}.
+However, the pathogenesis of nAMD remains unclear.
+Dysfunctions of the retinal circulations may explain the increased VEGF concentrations, though other mechanisms have been suggested\cite{Ambati_and_Fowler_2012,Pemp_2008,Liu_1995}.
 The resulting neovasculature may pierce through Bruch's membrane, growing below the RPE, through the RPE, or in between the RPE and the photoreceptors in the subretinal space.
-The neovasculature may also emerge from the inner retinal circulation.
-Regardless of the location, neovascular membranes are associated with oedema, haemorrhage, scarring and RPE or retinal detachment (when the retina separates from the RPE), all of which cause the quick loss of sight observed in nAMD~\cite{Gupta_2015,Jager_2008}.\\
+The neovasculature may also emerge from the inner retinal circulation and spread towards the outer retina.
+Regardless of the location, neovascular membranes are associated with oedema, haemorrhage, scarring and RPE or retinal detachment (when the neurosensory retina separates from the RPE), all of which cause the quick loss of sight observed in nAMD~\cite{Gupta_2015,Jager_2008}.\\
 
 \paragraph*{Retinal tears and breaks}
-Tears may occur in the retina for various reasons, including trauma and surgery.
-Posterior vitreous detachment is another reason for the apparition of tears and breaks (tears through the whole thickness of the neurosensory retina).
+Tears and breaks (tears through the whole thickness of the neurosensory retina) may occur in the retina for various reasons, including trauma and surgery.
+Posterior vitreous detachment is another reason for the appearance of tears and breaks.
 With age, the vitreous humor undergoes progressive liquefaction.
 In addition, there is gradual loss of adhesion between the ILM and the posterior vitreous cortex to which it is attached~\cite{Bottos_2012,Medina_2016}.
-The combination of those two factors facilitates the accumulation of vitreous fluid in the preretinal space, tearing apart the ILM and the vitreous.
+The combination of these two factors facilitates the accumulation of vitreous fluid in the preretinal space, tearing apart the ILM and the vitreous.
 However, in areas of strong adhesion of the ILM, the mechanical forces induced by the fluids can cause retinal tears or breaks and macular holes~\cite{Shechtman_2009}.
 Macular holes cause blurry vision while retinal tears provide a path to the subretinal space which may fill with fluids, causing retinal detachment~\cite{Medina_2016}.
 Additionally, the traction caused by the fluid in the preretinal space can cause retinal detachment.\\
@@ -290,7 +292,6 @@ Mechanical pressures such as ocular hypertension can cause the collapse of veins
 Stiffening of the CRA is suspected to also compress the CRV~\cite{Medina_2016}.
 Occlusion of arteries causes non-perfusion areas in the retina, stopping visual functions in the affected areas.
 Irreversible damage to the retina starts appearing after \SI{100}{\min} of non-perfusion~\cite{Hayreh_2004}.
-Some patients with retinal vein occlusion may develop retinal ischaemia, although the reasons for this are unclear~\cite{Khayat_2018}.
 Other symptoms include retinal oedema and, in some cases, neovascularization in various locations, including the optic disc and the retina~\cite{Medina_2016}.
 \\
 
@@ -298,7 +299,7 @@ Other symptoms include retinal oedema and, in some cases, neovascularization in 
 Glaucoma is a group of optic neuropathies affecting the optic nerve and the ganglion cell layer of the retina (see Figure~\ref{fig:architecture-eye}).
 Ophthalmologists observe a thinning of the ganglion cell layer and degeneration of the tissue of the optic nerve.
 Those symptoms are due to degeneration of the ganglion cell bodies (in the ganglion cell layer) and axons (forming the optic nerve)~\cite{Quigley_2011}.
-it is thought that a combination of ocular hypertension and changes in cerebrospinal fluid pressure and retinal blood pressure create a pressure gradient around the optic nerve, increasing mechanical stresses on the tissue~\cite{Band_2009,Nickells_2012}.
+It is thought that a combination of ocular hypertension and changes in cerebrospinal fluid pressure and retinal blood pressure create a pressure gradient around the optic nerve, increasing mechanical stresses on the tissue~\cite{Band_2009,Nickells_2012}.
 Vision loss in glaucoma is due to the loss of connectivity between the retina and the brain and cannot be recovered~\cite{Quigley_2011}.
 
 
@@ -319,7 +320,7 @@ The gas is naturally removed from the vitreous.
 In more complicated cases of retinal detachment, e.g., in the presence of vitreous haemorrhage, vitrectomy might be preferred to pneumatic retinopexi.
 Vitrectomy consists of replacing the vitreous humour with either a silicone oil substitute or a gas bubble, favouring reattachment in a similar fashion to pneumatic retinopexi~\cite{Dervenis_2022}.
 Surgeries for retinal detachment may also be complemented with ILM peeling, cryotherapy or laser photocoagulation.
-Because the ILM contributes to retinal rigidity and in vitreal traction of the retina, its removal may be useful to facilitate closure of retinal holes and lower the rate of reopening after surgery~\cite{Chatziralli_2018}.
+Because the ILM contributes to retinal rigidity and vitreal traction of the retina, its removal may be useful to facilitate closure of retinal holes and lower the rate of reopening after surgery~\cite{Chatziralli_2018}.
 Cryotherapy and photocoagulation can be performed to scar the tissue around retinal tears, effectively sealing them to prevent spread that may lead to retinal detachment.
 Cryotherapy and photocoagulation can be used alone or after pneumatic retinopexi or vitrectomy~\cite{Sodhi_2008}.
 
@@ -346,7 +347,7 @@ These drugs, mostly injected in the vitreous humor, bind to VEGF molecules that 
 Anti-VEGF treatment has proven effective to suppress disease progression, reducing retinal oedema and restoring vision~\cite{Andreoli_2007,Heier_2006,Kim_2021}.
 Steroids, either oral or intravitreal, can also be prescribed to reduce the production of pro-inflammatory cytokines such as VEGF in order to increase the RPE functions in patients with RP presenting macula oedema~\cite{Strong_2016}.
 
-Deterioration of visual functions due to ageing (cellular senescence), whether normal or hastened by disease, has been addressed by a range of therapeutics called senotherapeutics.
+Deterioration of visual functions due to ageing (cellular senescence), hastened by disease, has been addressed by a range of therapeutics called senotherapeutics.
 Their use is being investigated as a means to maintain vision in disease such as non-neovascular age-related macular degeneration which lack therapeutic targets~\cite{Lee_2021}.
 
 
@@ -354,12 +355,13 @@ Their use is being investigated as a means to maintain vision in disease such as
 
 Alternative intervention types are possible, however, their use remain rare as they are investigated for efficiency and safety.
 Retinal prosthesis have started being approved for use in late stages of certain retinal diseases such as RP~\cite{Luo_2016}.
-The artificial retina replaces the degenerated photoreceptors by a video camera~\cite{Luo_2016,Stingl_2017}.
+The artificial retina replaces or supports the degenerated photoreceptors, often via an external camera~\cite{Luo_2016,Stingl_2017}.
 The pixelated image is then transferred to the inner retina's neurons, relatively spared by RP, using microelectrodes.
 The transfer of the electrical signal to the brain is then achieved normally through the optic nerve~\cite{Luo_2016,Stingl_2017}.
 
 Because matured RPE and photoreceptor cells are unable to divide and proliferate, stem cell therapy is a promising therapeutic approach in eyes with photoreceptor or RPE atrophy such as AMD~\cite{Berta_2011,Stern_2015}.
-Stem cells are naturally found in the body and have yet to form into a specific cell type hence have the ability to form into many different cell types.
+Stem cells are found naturally in the body and have yet to form into a specific cell type.
+As such, they have the ability to form into many different cell types.
 Therefore, stem cells injected into the retina are able to replace degenerated RPE or photoreceptor cells and halt loss of vision or even improve vision~\cite{ONeill_2020}.
 
 Gene therapy is an intervention that aims to slow the progress of inherited retinal diseases such as RP.
@@ -823,22 +825,22 @@ However, the spatial model showed better performance at predicting treatment out
 
 
 
-\section{Retinal oxygenation, retinitis pigmentosa \& non-neovascular AMD}\label{Sec_Ox_RP_nnAMD}
+\section{Retinal oxygenation, retinitis pigmentosa \& non-neovascular AMD}\label{Sec_Ox_RP_non-nAMD}
 %
 %
 \subsection{Retinal oxygenation}\label{Sec_Oxygen}
 %
-The retina is one of the most oxygen hungry tissues in the body \citep[per gram of tissue][]{Anderson_1968,Anderson_and_Saltzman_1964,Yu_and_Cringle_2001,W-Wirawan_and_Linsenmeier_2003}. As described in Section~\ref{sec:RetinalPhysiology}, it has a substantial vasculature to meet this need; nonetheless, supply and demand are finely balanced. It is therefore important to understand how this balance is maintained, and the ways in which it may be dysregulated in diseases such as RP and nnAMD (see Sections \ref{Sec_RP} and \ref{Sec_nnAMD}).
+The retina is one of the most oxygen hungry tissues in the body \citep[per gram of tissue][]{Anderson_1968,Anderson_and_Saltzman_1964,Yu_and_Cringle_2001,W-Wirawan_and_Linsenmeier_2003}. As described in Section~\ref{sec:RetinalPhysiology}, it has a substantial vasculature to meet this need; nonetheless, supply and demand are finely balanced. It is therefore important to understand how this balance is maintained, and the ways in which it may be dysregulated in diseases such as RP and non-nAMD (see Sections \ref{Sec_RP} and \ref{Sec_non-nAMD}).
 
 Two key techniques are frequently employed to measure retinal oxygenation. First, oxygen-sensitive microelectrodes can be used to measure the partial pressure of oxygen (PO$_2$), creating a spatially detailed profile through the depth of the retinal tissue \citep{Linsenmeier_and_Zhang_2017}. Since this technique is invasive, it can only be employed in animal models. Second, oximetry can be used to measure the oxygen saturation of haemoglobin in the retinal vasculature \citep{Linsenmeier_and_Zhang_2017}. As a non-invasive technique, this can be employed in both animals and humans.
 
-Mathematical modelling of retinal oxygenation has great value. It enables us to get more information out of experimental data (e.g.\ calculating the rate of oxygen consumption of different retinal layers), to predict oxygen profiles in cases where these cannot be measured (e.g.\ in humans) and to determine how variations in retinal physiology or biochemistry may affect oxygen supply (e.g.\ in RP and nnAMD).
+Mathematical modelling of retinal oxygenation has great value. It enables us to get more information out of experimental data (e.g.\ calculating the rate of oxygen consumption of different retinal layers), to predict oxygen profiles in cases where these cannot be measured (e.g.\ in humans) and to determine how variations in retinal physiology or biochemistry may affect oxygen supply (e.g.\ in RP and non-nAMD).
 
 A range of mathematical models have been developed to explore various aspects of retinal oxygenation. The most common approach is to model the 1D oxygen profile through the retinal depth using spatial ODE models, accounting for variations in oxygen supply and demand between layers \citep[utilising anywhere between 1 and 8 model layers][]{Braun_et_al_1995,Cringle_and_Yu_2002,Dollery_et_al_1969,Haugh_et_al_1990,Linsenmeier_1986,Stefansson_1988}. These models have the advantage of being analytically tractable and can easily be fitted to microelectrode data. They can also be extended to incorporate other biomolecules such as neuroglobin, which has been suggested to play a role in enhancing oxygenation by transporting and storing oxygen \citep{Fago_et_al_2004_b,Roberts_et_al_2016a}.
 
 A similarly simple approach is to model each layer as a separate 0D compartment, predicting the evolving oxygen concentration in each compartment using time-dependent ODEs \citep[see][who also model nitric oxide concentrations]{German_et_al_2021}.
 
-More complex models also exist, extending into higher spatial dimensions (2D/3D) and/or incorporating more explicit representations of retinal vasculature, and blood flow mechanics and regulation \citep[see Figure \ref{Fig_Fry2020},][see also Section \ref{Sec_nnAMD} for models relevant to nnAMD]{Aquah_et_al_2021,Arciero_et_al_2021,Causin_2015,Friedland_1978,Fry_et_al_2018,Fry_et_al_2020,Linsenmeier_and_Zhang_2017,McDougall_et_al_2012,Watson_et_al_2012}. These models are more computationally expensive than those described above; however, they have the advantage of more faithfully representing retinal physiology, and have the potential, in time, to be used in personalised medicine.
+More complex models also exist, extending into higher spatial dimensions (2D/3D) and/or incorporating more explicit representations of retinal vasculature, and blood flow mechanics and regulation \citep[see Figure \ref{Fig_Fry2020},][see also Section \ref{Sec_non-nAMD} for models relevant to non-nAMD]{Aquah_et_al_2021,Arciero_et_al_2021,Causin_2015,Friedland_1978,Fry_et_al_2018,Fry_et_al_2020,Linsenmeier_and_Zhang_2017,McDougall_et_al_2012,Watson_et_al_2012}. These models are more computationally expensive than those described above; however, they have the advantage of more faithfully representing retinal physiology, and have the potential, in time, to be used in personalised medicine.
 %
 \begin{figure}
 \begin{center}
@@ -870,11 +872,11 @@ Camacho et al. have constructed a range of well-mixed and compartmental ODE mode
 
 Lastly, Burns et al. have formulated a 1D hybrid model for the toxic substance hypothesis, containing both continuous-deterministic and discrete-stochastic elements \citep{Burns_et_al_2002}. This model is effective in capturing the initial patchy loss of photoreceptors observed in RP, and is also capable of replicating the exponential decline in photoreceptor numbers measured in RP mouse models \citep{Clarke_et_al_2000}.
 %
-\subsection{Non-neovascular AMD}\label{Sec_nnAMD}
+\subsection{Non-neovascular AMD}\label{Sec_non-nAMD}
 %
-The retinal disease age-related macular degeneration (AMD) can be divided into three stages: early, intermediate and late \citep{Ferris_et_al_2013}. The early and intermediate stages are distinguished by the development of pigmentary abnormalities and the size of cholesterol-rich deposits known as drusen (singular, druse) which form between the RPE and Bruch’s membrane (BrM – hard and soft drusen), and between the RPE and photoreceptors (reticular pseudodrusen/subretinal drusenoid deposits), while the late stage may be characterised as dry or wet \citep{Coleman_et_al_2008,Ferris_et_al_2013,Jager_2008,Wu_et_al_2022}. Non-neovascular AMD (nnAMD), considered in this section, consists of the early and intermediate stages, together with the dry form of the late stage \citep[][see \textcolor{red}{Section~\ref{sec:RetinalHaemodynamicsNAMDDR}} on neovascular AMD]{Ferris_et_al_2013}. In the dry late stage, the central retina and choroid degenerate in a process known as geographic atrophy \citep[GA,][]{Coleman_et_al_2008,Jager_2008,Ly_et_al_2016}.
+The retinal disease age-related macular degeneration (AMD) can be divided into three stages: early, intermediate and late \citep{Ferris_et_al_2013}. The early and intermediate stages are distinguished by the development of pigmentary abnormalities and the size of cholesterol-rich deposits known as drusen (singular, druse) which form between the RPE and Bruch’s membrane (BrM – hard and soft drusen), and between the RPE and photoreceptors (reticular pseudodrusen/subretinal drusenoid deposits), while the late stage may be characterised as dry or wet \citep{Coleman_et_al_2008,Ferris_et_al_2013,Jager_2008,Wu_et_al_2022}. Non-neovascular AMD (non-nAMD), considered in this section, consists of the early and intermediate stages, together with the dry form of the late stage \citep[][see \textcolor{red}{Section~\ref{sec:RetinalHaemodynamicsNAMDDR}} on neovascular AMD]{Ferris_et_al_2013}. In the dry late stage, the central retina and choroid degenerate in a process known as geographic atrophy \citep[GA,][]{Coleman_et_al_2008,Jager_2008,Ly_et_al_2016}.
 
-A number of mechanisms have been suggested to drive nnAMD including oxidative stress, drusen accumulation, cholesterol accumulation and lipofuscin accumulation \citep{Ambati_and_Fowler_2012,Handa_et_al_2019}. Mathematical models have been developed to consider each of these mechanisms and this area has great potential for future modelling studies \citep{Handa_et_al_2019,Luthert_et_al_2018}.
+A number of mechanisms have been suggested to drive non-nAMD including oxidative stress, drusen accumulation, cholesterol accumulation and lipofuscin accumulation \citep{Ambati_and_Fowler_2012,Handa_et_al_2019}. Mathematical models have been developed to consider each of these mechanisms and this area has great potential for future modelling studies \citep{Handa_et_al_2019,Luthert_et_al_2018}.
 
 \citet{Mazzitello_et_al_2009} and \citet{Family_et_al_2010} constructed a simple stochastic model for the accumulation of lipofuscin, a chemical which builds up within RPE cells and may eventually prove toxic to them \citep{Sparrow_and_Boulton_2005}. They capture the aggregation of  lipofuscin granules, though they do not link this to RPE cell death.
 
