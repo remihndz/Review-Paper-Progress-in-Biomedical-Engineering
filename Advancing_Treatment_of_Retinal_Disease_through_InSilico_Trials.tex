@@ -378,7 +378,9 @@ Viruses are designed to safely deliver the healthy genes to cells, which will ei
 
 \section{Mathematical modelling}\label{sec:MathematicalPrimer}
 
-Broadly speaking, a mathematical or \textit{in silico} model describes a biological system by a number of independent and dependent variables and a set of equations or rules relating them that govern the state of the system.
+Broadly speaking, a mathematical or \textit{in silico} model describes the state of a biological system using a set of dependent variables and the system of equations or rules which governs them.
+\textit{In silico} simulations consist in solving the equations to find the dependent variables as functions of the independent variables.
+Typical independent variables are time and space, but other choices are possible (see the model of retinal curvature in Section~\ref{sec:RetinalHaemodynamicsNAMDDR}).
 When designing an \textit{in silico} model, one has to make choices among the variety of model types available.
 This choice is informed by the system to be modelled, the question to be answered and the resources available (e.g., data or computational resources).
 Because biological systems are so complex, the mechanisms modelled need to be kept to a minimum in order for the simulations to be tractable and interpretable.
@@ -393,84 +395,100 @@ A more comprehensive overview can be found in the work of Roberts et al~\cite{Ro
   \label{fig:ModellingCycle}
 \end{figure}
 
-\subsubsection{Mechanistic vs phenomenological models}
-\textit{A priori} understanding of the system can be used to inform model design, in which case the model is qualified as mechanistic.
-If appropriate assumptions are made, the predictions of a mechanistic model will match observations.
-Else, the \textit{a priori} assumptions may need to be reviewed and the model changed accordingly until satisfying agreement is found.
-In contrast, phenomenological models simulate parts or the entirety of the system by arbitrary functions based on observation of the data.
-For instance, an exponential decay is often assumed for the time course of drug in the body.
-Phenomenological models are often used to simplify an overly complex or unknown mechanism acting on the system to be modelled.
-It should be noted that simplifications are inherent to model development and, therefore, no model is fully mechanistic.
+\subsection{Mechanistic vs phenomenological models}
 
+To model a biological system, a relationship between the variables is hypothesized.
+For all types of model, the hypothesized relationship needs to be validated against data and reviewed accordingly (see Figure~\ref{fig:ModellingCycle}).
+In phenomenological models, this relationship is taken to best describe the data, without reference to the processes underlying the observed phenomenon.
+Curve fitted models, such a linear regressions, are examples of phenomenological models.
+Conversely, mechanistic models the system describing the variables result from assumptions on the biological processes that are thought to be underlying the observed phenomenon.
+Those biological processes can, for the most part, be described using well-established physical laws, such as Fick's laws of diffusion.
+For overly complex or unknown processes, a phenomenological description may be used within a mechanistic model.
+Because simplifications are inherent to modelling, no model is fully mechanistic. % every mechanistic model eventually reduces to a phenomenological model.
+
+\subsection{Model parameters}
 All models involve a number of parameters.
 Some of those parameters may be known, either from direct measurements or theoretical formulae.
-However, others may be unknown because they cannot be measured or are model-specific and may not represent a measurable, physical quantity.
-In such cases, \textit{in silico} models can provide estimates of the physical quantity by fitting parameters to data, when available.
+Because a mechanistic model is physics-based, its parameters have a physical or biological definition whereas the parameters in a phenomenological model may not.
+A direct consequence is that parameters in phenomenologial models may be model specific and therefore cannot be used in a different model.
+
+In cases where parameters are unknown, e.g., because they cannot be measured, \textit{in silico} models can provide estimates of the physical quantity by fitting parameters to data, when available.
 Otherwise, analysis of the model predictions may still provide useful insights on the system's behaviour.
 Indeed, in either cases, tools such as sensitivity analysis and bifurcation analysis can provide insights on the system's behaviour for different parameter regimes.
 
-\subsubsection{Initial and boundary conditions}
+
+\subsection{Initial and boundary conditions}
+
 While initial conditions are the state of the system at time $t=0$, boundary conditions define the behaviour of the system at the boundaries of a spatial domain.
-Classical boundary conditions may set the value of the simulated function itself and is referred to as a Dirichlet boundary condition. The normal derivative along the boundary being set is called a Neumann boundary condition. A linear combination of the previous two types forms a Robin boundary condition.
-Up to a few exceptions, initial and boundary conditions are necessary for differential equations to be well-posed and solvable.
+Classical boundary conditions may set the value of the dependent variables and are referred to as Dirichlet boundary conditions.
+Alternatively, Neumann boundary conditions specify the spatial gradients of dependent variables at a boundary.
+Finally, a condition on the sum of an independent variable's spatial gradient and value forms a Robin boundary condition.
+For a system of differential equations to be well-defined and solvable, boundary conditions need to be specified.
+%The number of conditions necessary depends on the order of the derivatives in the equations.
 
-\subsubsection{Deterministic and stochastic models}
+\subsection{Deterministic and stochastic models, continuum and discrete models}
 
-When random events are left out of a model, two simulations will yield the same results.
+When random events are left out of a model, two simulations will yield the same results, provided the parameters are left unchanged.
 This kind of model is referred to as deterministic.
-In opposition, stochastic models include a probabilistic component, e.g., the random movement of cells, which yields different solutions for each simulation.
-Stochastic models are often used for discrete models e.g. agent-based models.
-Discrete models simulate the behaviour of individual entities, such as cells, based on a set of arbitrary rules.
+By comparison, stochastic models include a probabilistic component, e.g., the random movement of cells, which yields a different solution for each simulation.
+Stochastic descriptions are often used for discrete models e.g. agent-based models.
+Discrete models simulate the behaviour of individual entities, such as cells, based on a set of pre-defined rules.
+In contrast, continuum models assume the quantities of interest (e.g., number of cells) to be continuous variables with an infinite number of values between two points (e.g., cell concentrations).
+% While the variables of a discrete model can be counted, continuous variables are measurable.
 While discrete models can incorporate more details, continuum models allow for rigorous mathematical analysis.
-A further limitation of discrete models includes the drastic increase in computation times as the number of objects simulated increase.
+A further limitation of discrete models includes the drastic increase in computation times as the number of objects simulated increases.
 
-\subsubsection{Differential equations}
+\subsection{Differential equations}
 
 Many models describe the spatial and temporal behaviour of a quantity within a biological system using differential equations.
-Differential equations relate one or more unknown functions with their derivatives.
-If the equation involves derivatives with respect to a single independent variable, it is referred to as an ordinary differential equation (ODE).
-Otherwise, if more than one type of derivative appears in the equation, it is referred to as a partial differential equation (PDE).
-Differential equations are mathematically tractable and can be solved analytically, when an algebraic expression of the unknown function is found, or numerically.
+Differential equations relate one or more unknown dependent variables with their derivatives. 
+Derivatives represent the rate of change of a dependent variable with respect to changes of an independent variable (e.g., the slope of a curve at a given point is the derivative of the depedent variable with respect to the independent variable).
+If the equation involves derivatives of a single independent variable, it is referred to as an ordinary differential equation (ODE).
+Otherwise, if more than one independent variable is involved in the derivatives, it is referred to as a partial differential equation (PDE).
+
+Differential equations are mathematically tractable, namely, analysis tools can be rigorously applied to the analysis of the model.
+Differential equations can be solved analytically, where the solution can be given as an algebraic function, or numerically, where an approximative solution is found for a pre-specified, finite number of values of the independent variables.
 
 PDEs often arise when the spatial distribution of the quantity of interest is needed.
 However, the spatial aspect is not always relevant to the research question being investigated.
 In such cases, an ODE relating a function and its time derivative can be used.
-ODEs can also be used to model a system along a single spatial dimension at steady state.
+ODEs can also be used to model a system along a single spatial dimension at steady state, defined below.
 
 Assuming a steady state is a common simplifying assumption which can help reduce the complexity and increase the interpretability of the system by ridding the model of the time component.
-This reduction follows from assuming that the system, when not perturbed, does not change over time, hence the time derivative of the functions describing it are null.
-Similarly, spatial derivatives can be suppressed by assuming that the quantity is homogeneously distributed within the space.
-This simplification, referred to in certain context as a well-mixed assumption, is often used to derive compartment models.
+This reduction follows from assuming that the system, when not perturbed, does not change over time, hence the time derivative of the functions describing it are zero.
+Similarly, spatial derivatives can be suppressed by assuming that the quantity is homogeneously distributed throughout space, an assumption termed well-mixed.
+A well-mixed assumption may be used in some cases to justify the use of a compartmental model.
 
-Compartmental models describe a system as separated compartments that can interact with each other, e.g., drug concentration in the eye can be described by a vitreal, retinal and choroidal compartment, with mass exchanges between adjacent compartments.
-Likewise, lumped parameter models simplify systems with certain spatially distributed objects, such as blood flow within a network of capillaries.
-In such models, the spatial aspect is reduced to a smaller number of entities to which the smaller objects are assigned, similarly to how capillaries are grouped into capillary plexi.
-To each entity is attached a number of parameters which encompass the various properties of the spatially distributed system.
-In the capillary blood flow example, these properties could include vascular resistance, oxygen extraction or storage capacity within each capillary of the network.
-Both compartmental models and lumped parameters models describe the system with a set of ODEs for each of the compartments or entities.
+Compartmental models describe a system as separated compartments that can interact with each other, e.g., drug concentration in the eye can be described by vitreal, retinal and choroidal compartments, with mass exchange between adjacent compartments.
+Lumped parameter models are a special case of compartment models, where numerous connected systems (e.g., blood vessels) are treated as a single entity, with the contributions of individual objects being lumped into parameters.
+For instance, when modelling blood flow in a network of vessels, one may aggregate arterioles, capillaries and venules in separate compartments.
+The properties of individual vessels are lumped into parameters that emcompass the properties of the compartments (e.g., vascular resistance, oxygen extraction, storage capacity).
+Compartmental models describe the system with a set of ODEs for each of the compartments or entities.
 
-Systems of ODEs are typically simpler to solve, both analytically and numerically, and to mathematically analyse compared to PDEs.
-Challenges in the analysis of PDEs arise from the possibly complex geometry of biological systems.
+Systems of ODEs are typically simpler to solve, both analytically (by hand) and numerically (on a computer), and to mathematically analyse compared to PDEs.
+The possibly complex geometry of biological systems may prove to be a challenge in the analysis of PDEs.
 Approximating the geometry with simpler shapes such as spheres and rectangles, may allow derivation of analytical solutions or, at least, greatly reduce the time needed to numerically solve the equations.
 
-Numerically, differential equations are solved by discretising (that is, reducing the continuous variable to a finite number of points) the space and time variables into a mesh, at the corner of which the unknown's value is found by solving a matrix equation.
-The size of the matrix depends on the refinement of the mesh, with smaller mesh sizes yielding larger matrices.
+Numerically, differential equations are solved by discretising the space and time variables into a mesh (that is, reducing the continuous variable to a finite number of points).
+Solutions are calculated at the nodes of the mesh by solving a matrix equation (system of linear/non-linear algebraic equations).
+The size of the matrix depends on the refinement of the mesh, with denser meshes yielding larger matrices.
 Therefore, mesh size provides some degree of control over the computational complexity of the model, that is the time and memory needed to run a simulation.
 
-Still, systems with multiple or spatial scales, which often arise in biology, can be challenging to solve within reasonable times.
+Still, systems which span multiple spatial or temporal scales, which often arise in biology, can be challenging to solve within reasonable times.
 Indeed, smaller scales enforce smaller mesh sizes in order to account for the refined details of the geometry or of the mechanisms working on different time scales.
 This issue appears, for example, when modelling the delivery of oxygen from retinal capillaries to a slab of tissue.
 While the size of the tissue may be of the order of millimetres, the numerous blood vessels are, in contrast, of the order of micrometres, hence enforcing a mesh size of the order of micrometres.
-In such problems where separate mechanisms interact with each other (e.g., oxygen transport in the capillaries and oxygen diffusion in the tissue), the unknown functions appear in more than one equation.
+
+In problems where separate mechanisms interact with each other (e.g., oxygen transport in the capillaries and oxygen diffusion in the tissue), the value of one dependent variable may depend upon that of other dependent variables.
 The model is then said to be coupled.
-While coupling adds to the difficulty of solving the equations, clever mathematical techniques may help in reducing the complexity.
+While coupling adds to the difficulty of solving the equations, various mathematical techniques may help in reducing the complexity (e.g., homogeneneization methods, multiple-scale analysis).
 However, those tricks are often problem-specific and hard to generalise.
 
 In addition, the often nonlinear behaviour of biological processes can affect the computational cost of running simulations.
-Indeed, solving nonlinear equations most often requires to solve a series of subproblems until the difference between successive iterations becomes small enough.
+Indeed, solving nonlinear equations most often requires solving a series of subproblems until the difference between successive iterations becomes small enough.
 
 When complex nonlinearities are combined with multiple scales, the time required to solve a set of equations increases dramatically.
-For those reasons, computation time remains a barrier to the use of \textit{in silico} models for real-time simulations in the clinic.
+For these reasons, computation time remains a barrier to the use of \textit{in silico} models for real-time simulations in the clinic.
 
 
 
@@ -492,7 +510,7 @@ More comprehensive reviews of models of the microcirculation, angiogenesis and o
 In addition, we present models of the pharmacokinetics (PK) and pharmacodynamics (PD)
 
 
-\subsection{Retinal haemodynamics}
+\subsection{Retinal haemodynamics} \label{subsec:RetinalHaemodynamics}
 
 \begin{figure}[t!]
   \centering
@@ -669,7 +687,7 @@ Their work suggested that the distribution of flow separators in the CC and the 
 %As mentionned previously, many retinal pathologies have or may have a link with irregular haemodynamics.
 In disease, the haemodynamics of the retinal circulations may change drastically, however, the exact aetiology of vascular retinal diseases is still elusive.
 
-\paragraph*{Models of pathological geometries}
+\paragraph*{Models of pathological geometries} 
 
 The model by Rebhan et al. previously discussed compared haemodynamics in vascular networks segmented from a healthy eye and eyes affected by glaucoma or diabetes~\cite{Rebhan_2019}.
 The embedding of the vessel in the tissue revealed an increase in wall shear stress in the diseased eyes compared to the healthy one.
