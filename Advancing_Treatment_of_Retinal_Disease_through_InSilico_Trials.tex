@@ -399,9 +399,9 @@ A more comprehensive overview can be found in the work of Roberts et al~\cite{Ro
 
 To model a biological system, a relationship between the variables is hypothesized.
 For all types of model, the hypothesized relationship needs to be validated against data and reviewed accordingly (see Figure~\ref{fig:ModellingCycle}).
-In phenomenological models, this relationship is taken to best describe the data, without reference to the processes underlying the observed phenomenon.
-Curve fitted models, such a linear regressions, are examples of phenomenological models.
-Conversely, mechanistic models the system describing the variables result from assumptions on the biological processes that are thought to be underlying the observed phenomenon.
+In phenomenological models, a relationship that best describes the data is used, without reference to the processes underlying the observed phenomenon.
+Curve fitting models, such as linear regressions, are examples of phenomenological models.
+Conversely, mechanistic models incorporate into the model the biological processes that are thought to be underlying the observed phenomenon.
 Those biological processes can, for the most part, be described using well-established physical laws, such as Fick's laws of diffusion.
 For overly complex or unknown processes, a phenomenological description may be used within a mechanistic model.
 Because simplifications are inherent to modelling, no model is fully mechanistic. % every mechanistic model eventually reduces to a phenomenological model.
@@ -410,11 +410,11 @@ Because simplifications are inherent to modelling, no model is fully mechanistic
 All models involve a number of parameters.
 Some of those parameters may be known, either from direct measurements or theoretical formulae.
 Because a mechanistic model is physics-based, its parameters have a physical or biological definition whereas the parameters in a phenomenological model may not.
-A direct consequence is that parameters in phenomenologial models may be model specific and therefore cannot be used in a different model.
+A direct consequence of this is that parameters in phenomenologial models may be model specific and therefore cannot be used in a different model.
 
 In cases where parameters are unknown, e.g., because they cannot be measured, \textit{in silico} models can provide estimates of the physical quantity by fitting parameters to data, when available.
 Otherwise, analysis of the model predictions may still provide useful insights on the system's behaviour.
-Indeed, in either cases, tools such as sensitivity analysis and bifurcation analysis can provide insights on the system's behaviour for different parameter regimes.
+Indeed, in either case, tools such as sensitivity analysis and bifurcation analysis can provide insights on the system's behaviour for different parameter regimes.
 
 
 \subsection{Initial and boundary conditions}
@@ -446,15 +446,15 @@ Derivatives represent the rate of change of a dependent variable with respect to
 If the equation involves derivatives of a single independent variable, it is referred to as an ordinary differential equation (ODE).
 Otherwise, if more than one independent variable is involved in the derivatives, it is referred to as a partial differential equation (PDE).
 
-Differential equations are mathematically tractable, namely, analysis tools can be rigorously applied to the analysis of the model.
-Differential equations can be solved analytically, where the solution can be given as an algebraic function, or numerically, where an approximative solution is found for a pre-specified, finite number of values of the independent variables.
+Differential equations are mathematically tractable - namely, analysis tools can be rigorously applied to the analysis of the model.
+Differential equations can be solved analytically, where the solution can be given as an algebraic function, or numerically, where an approximative solution is found for a pre-specified finite number of values of the independent variables.
 
 PDEs often arise when the spatial distribution of the quantity of interest is needed.
 However, the spatial aspect is not always relevant to the research question being investigated.
 In such cases, an ODE relating a function and its time derivative can be used.
 ODEs can also be used to model a system along a single spatial dimension at steady state, defined below.
 
-Assuming a steady state is a common simplifying assumption which can help reduce the complexity and increase the interpretability of the system by ridding the model of the time component.
+Assuming a steady state is a common simplifying assumption that helps reduce the complexity and increase the interpretability of the system by ridding the model of the time component.
 This reduction follows from assuming that the system, when not perturbed, does not change over time, hence the time derivative of the functions describing it are zero.
 Similarly, spatial derivatives can be suppressed by assuming that the quantity is homogeneously distributed throughout space, an assumption termed well-mixed.
 A well-mixed assumption may be used in some cases to justify the use of a compartmental model.
@@ -472,9 +472,9 @@ Approximating the geometry with simpler shapes such as spheres and rectangles, m
 Numerically, differential equations are solved by discretising the space and time variables into a mesh (that is, reducing the continuous variable to a finite number of points).
 Solutions are calculated at the nodes of the mesh by solving a matrix equation (system of linear/non-linear algebraic equations).
 The size of the matrix depends on the refinement of the mesh, with denser meshes yielding larger matrices.
-Therefore, mesh size provides some degree of control over the computational complexity of the model, that is the time and memory needed to run a simulation.
+Therefore, mesh size provides some degree of control over the computational complexity of the model - that is the time and memory needed to run a simulation.
 
-Still, systems which span multiple spatial or temporal scales, which often arise in biology, can be challenging to solve within reasonable times.
+Nonetheless, systems which span multiple spatial or temporal scales, which often arise in biology, can be computationally challenging to solve.
 Indeed, smaller scales enforce smaller mesh sizes in order to account for the refined details of the geometry or of the mechanisms working on different time scales.
 This issue appears, for example, when modelling the delivery of oxygen from retinal capillaries to a slab of tissue.
 While the size of the tissue may be of the order of millimetres, the numerous blood vessels are, in contrast, of the order of micrometres, hence enforcing a mesh size of the order of micrometres.
@@ -489,7 +489,7 @@ Indeed, solving nonlinear equations most often requires solving a series of subp
 
 When complex nonlinearities are combined with multiple scales, the time required to solve a set of equations increases dramatically.
 For these reasons, computation time remains a barrier to the use of \textit{in silico} models for real-time simulations in the clinic.
-
+However, computational power is continuously increasing and it is only a matter of time until complex \textit{in silico} models can be used for real-time decision making.
 
 
 
