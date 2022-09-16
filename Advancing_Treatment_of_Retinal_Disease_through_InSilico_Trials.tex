@@ -524,50 +524,57 @@ Inner retinal haemodynamics in particular have been studied extensively due to t
 Conversely, outer retinal haemodynamics (perfused by the choroidal circulation) are less well understood due to the difficulty in imaging these vessels.
 Below we review models that simulate perfusion and oxygen transport in healthy retinas.
 
+\begin{figure}[t!]
+  \centering
+%  \includegraphics[width=.95\textwidth]{HaemodynamicModels}
+  \caption{Example of representations of retinal vasculature in different haemodynamics model types.}
+  \label{fig:HaemodynamicModels}
+\end{figure}
+
 \paragraph*{Haemodynamics in artificial retinal vasculature}
 
 Takahashi et al. proposed an arterio-venous dichotomously branching and symmetric network in which all vessels within a given generation are identical~\cite{Takahashi_2009}.
-The diameter and length of the branching vessels follows the principle of least energy described by Murray's law~\cite{Murray_1926}.
+The diameter and length of the branching vessels follows the principle of least energy described by Murray's law (see Figure~\ref{fig:HaemodynamicModels})~\cite{Murray_1926}.
 This theoretical model was used to describe the distribution of flow and other haemodynamic parameters across the normal retinal vasculature.
 While clinical studies often report changes in the diameter of large retinal vessels in various conditions, its relationship with total retinal blood flow, a clinically relevant parameter, is unclear.
-The network by Takahashi et al. has been adapted to further investigate the physiology of the retinal vessels, in conjunction with clinical experiments~\cite{Aschinger_2017,Pappelis_2020}.
-One of those studies showed that changes in total retinal blood flow is not linearly related with dilation of larger vessels but that, in fact, the diameter of the capillaries has the strongest impact on vascular resistance.
-The patterns of vasodilation tested, however, assumed that the capillaries are able to vary their diameter when the validity of such assumption is still unclear~\cite{Kur_2012}.
-
-Another study by Pappelis et al. used clinical information to create patient specific networks based on the method of Takahashi et al~\cite{Pappelis_2020}.
-The model included a autoregulation component as a function of retinal perfusion pressure (pressure entering the CRA, estimated as a difference between systemic blood pressure and intraocular pressure), and predicted the blood flow response to increases in intraocular pressure or drops in retinal perfusion pressure.
+Takahashi et al.'s network has been adapted to further investigate the physiology of the retinal vessels, in conjunction with clinical experiments~\cite{Aschinger_2017,Pappelis_2020}.
+One of these studies showed that dilation of larger retinal vessels do not necessarily induce a change in total retinal blood flow~\cite{Aschinger_2017}.
+In fact, simulations of different vasodilation patterns suggested that the diameter of smaller vessels, which elude measurements, was the main determinant of blood flow~\cite{Aschinger_2017}.
+However, the validaty of the modelling assumption that capillaries are able to vary their diameter remains unclear~\cite{Kur_2012}.
+Pappelis et al. used clinical information to create patient specific networks based on Takahashi et al's method~\cite{Pappelis_2020}.
+The model includes an autoregulation component as a function of retinal perfusion pressure (pressure entering the CRA, estimated as the difference between systemic blood pressure and intraocular pressure) and predicted the blood flow response to increases in intraocular pressure or drops in retinal perfusion pressure.
 This allowed prediction of the autoregulation capacities of retinas in patients treated for hypertension or in eyes subject to ocular hypertension.
-It showed that the retinas of both healthy and hypertensive patients was closer to the lower limit of autoregulation, suggesting that the retina may be more sensitive to decreases rather than increases in perfusion~\cite{Pappelis_2020}.
+It showed that the retinas of both healthy and hypertensive patients were closer to the lower limit of autoregulation, suggesting that the retina may be more sensitive to decreases than to increases in perfusion~\cite{Pappelis_2020}.
 
 
 \paragraph*{Effects of extravascular pressure on haemodynamics} %NOTE: this could be one section with the next one (Autoregulation pathways)
 
 Lumped parameter models have been used to investigate the relationships between intra- and extra-vascular pressures and haemodynamics in the retina and choroid~\cite{Chiaravalli_2021,Fawzi_2019,Guidoboni_2014a,Nelson_2017,Petersen_2022,Prudhomme_2021,Sala_2020,Salerni_2019}.
-In those models, similar vessels are sorted into compartments, e.g., CRA, arterioles, capillaries, venules, CRV and choroid.
-The physical processes within compartments and the interactions between them are summarized by few parameters.
-In analogy with electrical circuits, haemodynamics in each compartment is characterised by a resistance, the combined effect of the vascular resistance of a compartment's vessels, and a capacitance, the total amount of blood that can be stored in the same vessels.
+In these models, similar vessels are sorted into compartments, e.g., CRA, arterioles, capillaries, venules, CRV and choroid.
+The physical processes within compartments and the interactions between them are summarized by a small set of parameters.
+By analogy with electrical circuits, the haemodynamics in each compartment are characterised by a resistance (the combined effect of the vascular resistance of a compartment's vessels) and a capacitance (the total amount of blood that can be stored in the same vessels).
 
-Lumped paramteres models have been used to investigate the links between gravity-induced shifts in intracranial fluids, ocular fluids and pressures and the loss of sight observed in astronauts~\cite{Nelson_2017,Petersen_2022,Salerni_2019}.
+Lumped parameter models have been used to investigate the links between gravity-induced shifts in intracranial fluids, ocular fluids and pressures, and the loss of sight observed in astronauts~\cite{Nelson_2017,Petersen_2022,Salerni_2019}.
 Nelson et al. proposed a baseline model simulating increases in ocular pressures secondary to such fluid shifts~\cite{Nelson_2017}.
-The simplistic model predicted relatively well the response of intraocular pressure to changes in the gravitational environment or tilt of the body~\cite{Nelson_2017,Petersen_2022}.
+The simplistic model was quite effective in predicting the response of intraocular pressure to changes in the gravitational environment or tilt of the body~\cite{Nelson_2017,Petersen_2022}.
 A more comprehensive model including interacting brain, body and eye compartments showed that the retinal circulation was relatively spared from hypoperfusion compared to the choroidal circulation in microgravity conditions~\cite{Salerni_2019}.
 
 
 \paragraph*{Autoregulation pathways}
 
-Several lumped parameters models have been developed to better understand the mechanisms behind autoregulation in physiological conditions~\cite{Arciero_2008,Arciero_2013,Guidoboni_2014a}.
-Arciero et al. used a symmetric network similar to the one by Takahashi et al. to understand the information pathways leading to blood flow autoregulation in the retina~\cite{Arciero_2008,Arciero_2013}.
-Both models assumed that only arterioles possessed the ability to contract and dilate to regulate flow.
-These models were used to investigate the response of individual or combined autoregulation pathways to changes in perfusion pressure or oxygen consumption rate of the cells.
-The earliest model investigated the hypothesis that arterioles can contract in response to the oxygen saturation of blood in the downstream venules~\cite{Arciero_2008}.
-The study showed that such autoregulatory pathways could account for the experimentally observed response of perfusion to changes in consumption rates.
-This mechanism, along with other known ones, have been modelled together in a subsequent study~\cite{Arciero_2013}.
-In this later study, the contribution of each pathway to retinal perfusion was assessed.
+Several lumped parameter models have been developed to better understand the mechanisms behind autoregulation in physiological conditions~\cite{Arciero_2008,Arciero_2013,Guidoboni_2014a}.
+Arciero et al. developped two models using symmetric networks similar to Takashi et al.'s to understand the information pathways leading to blood flow autoregulation in the retina~\cite{Arciero_2008,Arciero_2013}.
+Both models assumed that only arterioles possess the ability to contract and dilate to regulate flow.
+These models were used to investigate the response of individual and combined autoregulation pathways to changes in perfusion pressure or oxygen consumption rate of the cells.
+Arciero's first model investigated the hypothesis that arterioles can contract in response to the oxygen saturation of blood in the downstream venules~\cite{Arciero_2008}.
+The study showed that this autoregulatory pathways could account for the experimentally observed response of perfusion to changes in consumption rates.
+This mechanism, along with responses to shear stress on the vessel walls and carbon dioxide concentrations, were modelled together in a subsequent study by Arciero~\cite{Arciero_2013}.
+The study assessed each pathway's contribution to retinal perfusion.
 The results showed that the response of arterioles to carbon dioxide concentration in the surrounding tissue and oxygen saturation in the venules was essential to retinal autoregulation~\cite{Arciero_2013}.
 
-Guidoboni et al. looked at the interplay between intraocular pressure, retinal haemodynamics, systemic blood pressure and autoregulation~\cite{Guidoboni_2014a}.
-Instead of the mechanistic description of autoregulation proposed in the work by Arciero et al., they used an empirical response function of arteriole diameter to changes in perfusion pressure.
-Another difference with the previous work is the assumed capacity of the venules and central retinal vessels to dilate or collapse passively in response to pressure gradients across their walls.
+Guidoboni et al. considered the interplay between intraocular pressure, retinal haemodynamics, systemic blood pressure and autoregulation~\cite{Guidoboni_2014a}.
+Instead of the mechanistic description of autoregulation proposed by Arciero et al., they used an empirical response function of arteriole diameter to changes in perfusion pressure.
+% Another difference with previous work is the assumed capacity of the venules and central retinal vessels to dilate or collapse passively and, to some limited extent, in response to pressure gradients across their walls.
 The retinal haemodynamics of six types of physiology (high, normal or low blood pressure, with or without working retinal autoregulation) were simulated across a range of intraocular pressure.
 The model predicts the ranges of intraocular pressure within which each physiology can maintain relatively constant blood flow.
 The dependence of these ranges to systemic blood pressure and autoregulation capacity may explain some discrepancies regarding the effects of intraocular pressure on retinal haemodynamics found in experimental studies~\cite{Guidoboni_2014a}.
@@ -626,7 +633,7 @@ The authors modelled both configurations and compared the responses of each plex
 The model showed that the \textit{in series} configuration better captured the response observed in clinical studies, and may better describe the actual physiology of the retinal vasculature.
 
 \paragraph*{Choroidal circulation}
-While the inner retinal vasculature feeds the inner third of the retina, the remaining two thirds are perfused by the choroidal circulation.
+While the inner retinal vasculature feeds the inner two thirds of the retina, the remaining third is perfused by the choroidal circulation.
 In contact with the retina is the CC, the innermost layer of the choroid.
 The CC provides oxygen across the Bruch's membrane to the photoreceptors and other neuronal cells of the outer retina through diffusion only.
 Therefore, a high vascularisation is necessary to provide enough oxygen despite the distance.
@@ -660,7 +667,7 @@ However, the effects of curvature have been assumed insignificant in most haemod
 Dziubek et al. modelled this curvature by representing the retina as a thin, curved surface, within which an artificial network of vessels is embedded~\cite{Dziubek_2015}.
 Interestingly, vessels are considered as pores in the tissue and, therefore, blood flow was modelled using Darcy's law, which describes flow through a porous medium.
 Therefore, arteriolar, capillary and venular networks are kept virtually separated but communicate through a `hierarchical' velocity variable, as opposed to the spatial velocity which transports blood throughout the retinal surface.
-The dichotomous tree proposed by Takahashi et al. was used to generate the networks.
+Takahashi et al.'s dichotomous tree was used to generate the networks.
 The model confirms clinical suspicions of a change in retinal haemodynamics due to ocular curvature.
 Furthermore it highlighted the non-uniform effects on the retina, with the temporal region being less affected by ocular shape\cite{Dziubek_2015}.
 
