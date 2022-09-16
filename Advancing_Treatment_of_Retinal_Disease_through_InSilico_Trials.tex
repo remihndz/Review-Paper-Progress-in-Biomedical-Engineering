@@ -464,7 +464,7 @@ Vision loss in glaucoma is due to the loss of connectivity between the retina an
 
 In this section, we review \textit{in silico} models that contribute to our understanding of the normal physiology of the retina and models aiming at deciphering the aetiology of various diseases which may be linked with haemodynamics in the retina and the underlying choroid.
 More comprehensive reviews of models of the microcirculation, angiogenesis and oxygen delivery can be found in the work of Arciero et al~\cite{Arciero_2017, Arciero_2019}.
-In addition, we present models of the pharmacokinetics (PK) and pharmacodynamics (PD)
+In addition, we present models of the pharmacokinetics (PK) and pharmacodynamics (PD) of anti-VEGF therapy.
 
 
 \subsection{Retinal haemodynamics} \label{subsec:RetinalHaemodynamics}
@@ -474,43 +474,43 @@ In addition, we present models of the pharmacokinetics (PK) and pharmacodynamics
   \includegraphics[width=0.45\textwidth, height=5.3cm]{cropped-RBC-in-capillaries.jpg}
   \hfill
   \includegraphics[width=0.45\textwidth, height=5.3cm]{EffectiveViscosity-Secomb.jpeg}
-  \caption{Example of the effect of capillary calibre on the flow of blood. \textbf{Left}: Red blood cells in suspension in blood flowing within tubes of different diameter: \SI{4.5}{\micro\meter} (top), \SI{7}{\micro\meter} (middle) and \SI{15}{\micro\meter} (bottom). One can observe the flow of cells converging into a single file, surrounded by a layer of plasma as the diameter moves from \SI{15}{\micro\meter} to \SI{7}{\micro\meter}. The cell's shape adapt to fit into the tube as the diameter reaches the cell's size (top row). Reproduced with permission from Secomb~\cite{Secomb_2003}. \textbf{Right}: Example of an empirical law for the effective viscosity of blood accounting for the F\r{a}hr\ae us-Lindqvist effect and increased vascular resistance in smaller capillaries from the work of Secomb and Pries~\cite{Secomb_2013}.}
+  \caption{Example of the effect of capillary calibre on the flow of blood. \textbf{Left}: Red blood cells in suspension in blood flowing within tubes of different diameters: \SI{4.5}{\micro\meter} (top), \SI{7}{\micro\meter} (middle) and \SI{15}{\micro\meter} (bottom). One can observe the flow of cells converging into a single file, surrounded by a layer of plasma as the diameter moves from \SI{15}{\micro\meter} to \SI{7}{\micro\meter}. A cell's shape adapts to fit into the tube as the diameter approaches that of the cell (top row). Reproduced, with permission, from Secomb~\cite{Secomb_2003}. \textbf{Right}: Example of an empirical law for the effective viscosity of blood accounting for the F\r{a}hr\ae us-Lindqvist effect, a description of the decrease in blood viscosity with vessel diameter, and increased vascular resistance in smaller capillaries from the work of Secomb and Pries~\cite{Secomb_2013}. Note that the effective viscosity depends on the blood's concentration in red blood cells (hematocrit).}
   \label{fig:effectiveViscosity}
 \end{figure}
 
 Retinal haemodynamics models are concerned with describing blood flow within the inner retinal or choroidal circulations and often rely on the Hagen-Poiseuille equation to determine flow in vascular segments.
-This equation is a simplification of the more comprehensive Navier-Stokes equations made by making a number of assumption (see \textit{Additional information}).
-The Hagen-Poiseuille equation states that blood flow ($Q$) in a vessel of length $L$ and radius $r$ is driven by a pressure drop ($\Delta p$) according to:
+This equation is a simplification of the more comprehensive Navier-Stokes equations and is derived by making a number of assumptions (see \textit{Additional information}).
+The Hagen-Poiseuille equation states that blood flow velocity ($Q$) in a vessel of length $L$ and radius $r$ is driven by a pressure drop ($\Delta p$) according to:
 \begin{equation*}
   \label{eq:Hagen-Poiseuille}
   Q = \mathcal R\times\Delta p \mbox{, where } \mathcal{R} = \frac{8\mu L}{\pi r^4},
 \end{equation*}
 where $\mu$ is the apparent viscosity of blood which may account for changes in vascular resistance ($\mathcal R$) in vessels of varying diameter (see \textit{Additional information} and Figure~\ref{fig:effectiveViscosity}).
-The fourth power of the radius in the formulation of vascular resistance describe the strong effect that even small contractions or dilations of a vessel can have on blood flow.
+The fourth power of the radius in the formulation of vascular resistance describes the strong effect that even small contractions or dilations of a vessel can have on blood flow.
 This relation between radius and flow is at the source of the autoregulation ability of blood vessels, which adapt their radius in response to a number of different cues~\cite{Kur_2012}.
 The cellular constitution of retinal vessels suggests that blood flow is mainly regulated by arteries and arterioles~\cite{An_2020,Kur_2012}.
-Evidence suggests that the choroid is also able, maybe to a lesser degree, to regulate blood~\cite{Polska_2007,Riva_1997}.
+Evidence suggests that the choroid is also able, maybe to a lesser degree, to regulate blood flow~\cite{Polska_2007,Riva_1997}.
 Neurological regulation (regulation by the autonomic nervous system) of choroidal blood flow has been suggested, in view of the rich innervation of choroidal vessels~\cite{BeharCohen_2020,Polska_2007}.
 
 \textit{In silico} models provide valuable insights into the mechanisms that combine to provide healthy perfusion or, conversely, create conditions for the onset of retinal pathologies.
-The assumptions made in these models can be validated by comparing simulation results and \textit{in vivo} measurements of changes of blood flow or vessel radii.
+The assumptions made in these models can be validated by comparing simulation results with \textit{in vivo} measurements of changes in blood flow or vessel radii.
 Vessel radius in the inner retina can be measured from retinal scans such as fundus photographs, fluorescein angiograms or OCT angiograms.
-Blood flow can be measured using devices such as Doppler flowmeter or Doppler Fourier-domain OCT, in combination with radius measurements~\cite{DoblhoffDier_2014,Wang_2009}.
-The blood's saturation in oxygen can also be measured \textit{in vivo}~\cite{Geirsdottir_2013}.
+Blood flow can be measured using devices such as a Doppler flowmeter or Doppler Fourier-domain OCT, in combination with radius measurements~\cite{DoblhoffDier_2014,Wang_2009}.
+The blood oxygen saturation can also be measured \textit{in vivo}~\cite{Geirsdottir_2013}.
 Reliable measurement of blood flow or vessel radii in the choroid is more difficult, though changes in haemodynamics can be observed \textit{in vivo}~\cite{Riva_1997,Scherm_2019}.
 
 \begin{tcolorbox}[title=Additional information -- Fluid flow modelling]
   \begin{itemize}
-  \item Viscous fluids such as blood are modelled by a set of differential equations relating acceleration, velocity, convection, density and pressure of a fluid called the Navier-Stokes equations.
-    Solving those equations can be problematic in complex geometries, for example in a large network of vessels.
+  \item Viscous fluids such as blood are modelled by a set of differential equations --- the Navier-Stokes equations --- relating the acceleration, velocity, convection, density and pressure of a fluid.
+    Solving those equations can be problematic in complex geometries, for example, in a large network of vessels.
   \item Those equations simplify to the Hagen-Poiseuille equation (see main text) when assuming that the fluid is Newtonian and the flow incompressible and laminar.
-    The equation Hagen-Poiseuille equation is relatively simple to solve, even on large vascular networks.
-  \item An incompressible flow has a constant density regardless of the pressure and the fluid's properties are the same in all directions, namely, it is an isotropic fluid.
-  \item A Newtonian fluid is a fluid which has a constant viscosity for given pressure and temperature, regardless of the amount of shear it is subject to.
-  \item A Newtonian fluid flowing within a pipe is called laminar when fluid particles (e.g., red blood cells, blood plasma) move along smooth path with no mixing between each path.
-    This kind of flow is opposed to turbulent flow, which appears when the velocity of the flow goes over a threshold determined by a combination of the fluid's viscosity and density and the pipe's dimensions.
-  \item The propensity of a fluid to flow in either fashion is summarised by the dimensionless Reynolds number.
-  \item Laminar flows show a parabolic velocity profile across the pipe, or vessel, cross section, with peak velocity at the centre and null velocity at the walls.
+    The Hagen-Poiseuille equation is relatively simple to solve, even on large vascular networks.
+  \item An incompressible fluid has a constant density regardless of the pressure, while the fluid isisotropic if its properties are the same in all directions.
+  \item A Newtonian fluid is a one with a constant viscosity for given pressure and temperature, regardless of the amount of shear (the stress arising from the friction of fluid particles) it is subject to.
+  \item A Newtonian fluid flowing within a pipe is called laminar when fluid particles (e.g., red blood cells, blood plasma) move along smooth paths with no mixing between each path.
+    This kind of flow is opposed to turbulent flow, which appears when the velocity of the flow exceeds a threshold determined by a combination of the fluid's viscosity and density and the pipe's dimensions.
+  \item The propensity of a fluid to flow in laminar or turbulent fashion is summarised by the dimensionless (withtout physical units) Reynolds number. This number is the ratio of inertial forces to viscous forces.
+  \item Laminar flows show a parabolic velocity profile across the pipe (or vessel) cross section, with peak velocity at the centre and null velocity at the walls.
   \item As demonstrated by F\r ahraeus and Lindqvist, viscosity decreases with vessel width as red blood cells align into a single file, as illustrated in Figure~\ref{fig:effectiveViscosity}\cite{Faahraeus_1931}.
   \item Empirical viscosity laws are used to account for the so-called F\r ahraeus-Lindqvist effect and the dramatic increase in vascular resistance seen in capillaries smaller than red blood cells, an example of which is shown in Figure~\ref{fig:effectiveViscosity}~\cite{Haynes_1960,Pries_1990,Secomb_2013}.
   \end{itemize}
@@ -519,12 +519,13 @@ Reliable measurement of blood flow or vessel radii in the choroid is more diffic
 
 \subsubsection{In health}
 
-The current understanding of the perfusion of the retina is still lacking.
-A significant effort has been made in modelling the complex circulatory systems that perfuse the retina in order to complete it.
+The current understanding of the perfusion of the retina is incomplete.
+For instance, the exact organization of the retinal capillary plexi and the mechanisms behind retinal and choroidal blood flow autoregulation remain elusive.
+A significant effort has been made in modelling the complex circulatory systems that perfuse the retina in order to address this knowledge gap.
 
 \paragraph*{Haemodynamics in artificial retinal vasculature}
 
-Takahashi et al. proposed an arterio-venous dichotomously branching and symmetric network where all vessels within a given generation are identical~\cite{Takahashi_2009}.
+Takahashi et al. proposed an arterio-venous dichotomously branching and symmetric network in which all vessels within a given generation are identical~\cite{Takahashi_2009}.
 The diameter and length of the branching vessels follows the principle of least energy described by Murray's law~\cite{Murray_1926}.
 This theoretical model was used to describe the distribution of flow and other haemodynamic parameters across the normal retinal vasculature.
 While clinical studies often report changes in the diameter of large retinal vessels in various conditions, its relationship with total retinal blood flow, a clinically relevant parameter, is unclear.
@@ -536,6 +537,7 @@ The other study used clinical information to create patient specific networks ba
 The model included a autoregulation component as a function of retinal perfusion pressure (pressure entering the CRA, estimated as a difference between systemic blood pressure and intraocular pressure), and predicted the blood flow response to increases in intraocular pressure or drops in retinal perfusion pressure.
 This allowed prediction of the autoregulation capacities of retinas in patients treated for hypertension or in eyes subject to ocular hypertension.
 It showed that the retinas of both healthy and hypertensive patients was closer to the lower limit of autoregulation, suggesting that the retina may be more sensitive to decreases rather than increases in perfusion~\cite{Pappelis_2020}.
+
 
 \paragraph*{Effects of extravascular pressure on haemodynamics} %NOTE: this could be one section with the next one (Autoregulation pathways)
 
