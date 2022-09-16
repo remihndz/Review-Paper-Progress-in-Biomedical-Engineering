@@ -497,17 +497,17 @@ However, computational power is continuously increasing and it is only a matter 
 
 \section{Retinal haemodynamics, vascular diseases, neovascular age-related macular degeneration and diabetic retinopathy}\label{sec:RetinalHaemodynamicsNAMDDR}
 
-Adequate blood flow is essential for the supply of nutrients and removal of cellular wastes required to maintain visual functions.
+Adequate blood flow is essential for the supply of nutrients and removal of cellular waste required to maintain visual functions.
 The atypical dual circulation of the retina is both complex and fragile.
-It is thought that the inner vessels perfuse the inner \SIrange{60}{80}{\percent} of the retina while the choroid supplies the remaining, more metabolically active, outer layers, around the photoreceptors~\cite{Birol_2007}.
+It is thought that the inner vessels perfuse the inner \SIrange{60}{80}{\percent} of the retina, while the choroid supplies the remaining more metabolically active outer layers around the photoreceptors~\cite{Birol_2007}.
 It is also known that ocular blood flow is affected by, among other things, intraocular pressure, systemic blood pressure, metabolic activity and oxygen saturation of the blood~\cite{Birol_2007,McCullough_1997,Palkovits_2014,Polska_2007,Pournaras_2008,Riva_1997,Wang_2014}.
-Many retinal disease have been linked, whether directly or indirectly, with abnormal haemodynamics~\cite{Hayreh_2004,Medina_2016}.
-In fact, in certain diseases such as AMD and DR, the blood supply is so disrupted that pathological neovasculature starts invading the retina.
+Many retinal diseases have been linked, whether directly or indirectly, with abnormal haemodynamics~\cite{Hayreh_2004,Medina_2016}.
+In fact, in certain diseases such as nAMD and DR, the blood supply is so disrupted that pathological neovasculature starts invading the retina.
 To prevent or halt such complications, clinicians often resort to anti-VEGF drugs.
 
-In this section, we review \textit{in silico} models that contribute to our understanding of the normal physiology of the retina and models aiming at deciphering the aetiology of various diseases which may be linked with haemodynamics in the retina and the underlying choroid.
+In this section, we review \textit{in silico} models that contribute to our understanding of the normal physiology of the retina as well as models aiming at deciphering the aetiology of various diseases which may be linked with haemodynamics in the retina and the underlying choroid.
 More comprehensive reviews of models of the microcirculation, angiogenesis and oxygen delivery can be found in the work of Arciero et al~\cite{Arciero_2017, Arciero_2019}.
-In addition, we present models of the pharmacokinetics (PK) and pharmacodynamics (PD)
+In addition, we present models of the pharmacokinetics (PK) and pharmacodynamics (PD) of anti-VEGF treatment.
 
 
 \subsection{Retinal haemodynamics} \label{subsec:RetinalHaemodynamics}
@@ -529,7 +529,7 @@ The Hagen-Poiseuille equation states that blood flow ($Q$) in a vessel of length
   Q = \mathcal R\times\Delta p \mbox{, where } \mathcal{R} = \frac{8\mu L}{\pi r^4},
 \end{equation*}
 where $\mu$ is the apparent viscosity of blood which may account for changes in vascular resistance ($\mathcal R$) in vessels of varying diameter (see \textit{Additional information} and Figure~\ref{fig:effectiveViscosity}).
-The fourth power of the radius in the formulation of vascular resistance describe the strong effect that even small contractions or dilations of a vessel can have on blood flow.
+The fourth power of the radius in the formulation of vascular resistance describes the strong effect that even small contractions or dilations of a vessel can have on blood flow.
 This relation between radius and flow is at the source of the autoregulation ability of blood vessels, which adapt their radius in response to a number of different cues~\cite{Kur_2012}.
 The cellular constitution of retinal vessels suggests that blood flow is mainly regulated by arteries and arterioles~\cite{An_2020,Kur_2012}.
 Evidence suggests that the choroid is also able, maybe to a lesser degree, to regulate blood~\cite{Polska_2007,Riva_1997}.
@@ -547,14 +547,14 @@ Reliable measurement of blood flow or vessel radii in the choroid is more diffic
   \item Viscous fluids such as blood are modelled by a set of differential equations relating acceleration, velocity, convection, density and pressure of a fluid called the Navier-Stokes equations.
     Solving those equations can be problematic in complex geometries, for example in a large network of vessels.
   \item Those equations simplify to the Hagen-Poiseuille equation (see main text) when assuming that the fluid is Newtonian and the flow incompressible and laminar.
-    The equation Hagen-Poiseuille equation is relatively simple to solve, even on large vascular networks.
+    The Hagen-Poiseuille equation is relatively simple to solve, even on large vascular networks.
   \item An incompressible flow has a constant density regardless of the pressure and the fluid's properties are the same in all directions, namely, it is an isotropic fluid.
   \item A Newtonian fluid is a fluid which has a constant viscosity for given pressure and temperature, regardless of the amount of shear it is subject to.
   \item A Newtonian fluid flowing within a pipe is called laminar when fluid particles (e.g., red blood cells, blood plasma) move along smooth path with no mixing between each path.
     This kind of flow is opposed to turbulent flow, which appears when the velocity of the flow goes over a threshold determined by a combination of the fluid's viscosity and density and the pipe's dimensions.
   \item The propensity of a fluid to flow in either fashion is summarised by the dimensionless Reynolds number.
   \item Laminar flows show a parabolic velocity profile across the pipe, or vessel, cross section, with peak velocity at the centre and null velocity at the walls.
-  \item As demonstrated by F\r ahraeus and Lindqvist, viscosity decreases with vessel width as red blood cells align into a single file, as illustrated in Figure~\ref{fig:effectiveViscosity}\cite{Faahraeus_1931}.
+  \item As demonstrated by F\r ahraeus and Lindqvist, viscosity decreases with vessel width as red blood cells align into a single file, before increasing sharply as it becomes harder to squeeze red blood cells through smaller vessels (as illustrated in Figure~\ref{fig:effectiveViscosity}\cite{Faahraeus_1931}).
   \item Empirical viscosity laws are used to account for the so-called F\r ahraeus-Lindqvist effect and the dramatic increase in vascular resistance seen in capillaries smaller than red blood cells, an example of which is shown in Figure~\ref{fig:effectiveViscosity}~\cite{Haynes_1960,Pries_1990,Secomb_2013}.
   \end{itemize}
 \end{tcolorbox}
@@ -562,8 +562,10 @@ Reliable measurement of blood flow or vessel radii in the choroid is more diffic
 
 \subsubsection{In health}
 
-The current understanding of the perfusion of the retina is still lacking.
-A significant effort has been made in modelling the complex circulatory systems that perfuse the retina in order to complete it.
+Current uderstanding of perfusion in the retina has advanced significantly in recent decades.
+Inner retinal haemodynamics in particular have been studied extensively due to the relative ease of imaging this vasculature with OCT and fundus photography.
+Conversely, outer retinal haemodynamics (perfused by the choroidal circulation) are less well understood due to the difficulty in imaging these vessels.
+Below we review models that simulate perfusion and oxygen transport in healthy retinas.
 
 \paragraph*{Haemodynamics in artificial retinal vasculature}
 
