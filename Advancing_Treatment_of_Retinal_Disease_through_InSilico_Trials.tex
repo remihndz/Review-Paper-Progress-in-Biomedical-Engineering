@@ -549,7 +549,7 @@ It showed that the retinas of both healthy and hypertensive patients were closer
 
 \paragraph*{Effects of extravascular pressure on haemodynamics} %NOTE: this could be one section with the next one (Autoregulation pathways)
 
-Lumped parameter models have been used to investigate the relationships between intra- and extra-vascular pressures and haemodynamics in the retina and choroid~\cite{Chiaravalli_2021,Fawzi_2019,Guidoboni_2014a,Nelson_2017,Petersen_2022,Prudhomme_2021,Sala_2020,Salerni_2019}.
+Lumped parameter models have been used to investigate the relationships between intravascular and extravascular pressures and haemodynamics in the retina and choroid~\cite{Chiaravalli_2021,Fawzi_2019,Guidoboni_2014a,Nelson_2017,Petersen_2022,Prudhomme_2021,Sala_2020,Salerni_2019}.
 In these models, similar vessels are sorted into compartments, e.g., CRA, arterioles, capillaries, venules, CRV and choroid (see Figure~\ref{fig:NetworkModels}).
 The physical processes within compartments and the interactions between them are summarized by a small set of parameters.
 By analogy with electrical circuits, the haemodynamics in each compartment are characterised by a resistance (the combined effect of the vascular resistance of a compartment's vessels) and a capacitance (the total amount of blood that can be stored in the same vessels).
@@ -587,7 +587,7 @@ The earliest model used a short arteriolar tree, taken from a retinal photograph
 The downstream vasculature was represented as a structured tree extending the outlets of the segmented arterioles.
 This model reproduced the distribution of intravascular oxygen observed \textit{in vivo} and could serve as a baseline to analyse oxygen distribution in realistic vascular networks.
 However, reproduction of the retinal vasculature is limited to larger vessels.
-Therefore, the use of artificial vasculatures with similar topological characteristics as the retinal vasculature may be useful to model the whole extent of the retinal vasculature.
+Therefore, the use of artificial vasculatures (such as the one displayed in Figure~\ref{fig:NetworkModels}) with similar topological characteristics as the retinal vasculature may be useful to model the whole extent of the retinal vasculature.
 
 Causin et al. used the fractal similarity between retinal vessels and diffusion-limited aggregation processes to generate a three dimensional network of three of the vascular plexi of the retina~\cite{Causin_2015}.
 Oxygen transport throughout the extensive vascular network was modelled as well as the oxygen delivery to the tissue (modelled as a rectangular slab).
@@ -742,6 +742,7 @@ Knowledge of the total exposure of the retina and the CC to the drug is importan
 While aqueous and vitreous humors can be sampled \textit{in vivo}, the concentrations of drug in the retina and choroid remain unknown. 
 Therefore, estimates of the retinal kinetics of molecules are often based on either animal experiments or on samples of the aqueous humor, the vitreous humor and systemic plasma.
 Mechanistic PK and PD models can help overcome the issue of the lack of \textit{in vivo} data in the retina and provide insight into the complex relationships between drug characteristic and physiological parameters.
+Those models simulate the concentration-time profiles of a molecule in the eye (see Figure~\ref{fig:AntiVEGF}) and can be validated by comparison with data sampled from the systemic circulation or ocular fluids.
 This section is dedicated to computational models of VEGF and its inhibitor, both individually (PK models, VEGF production models) and combined (PD models).
 
 \paragraph*{Compartmental PK/PD models}
