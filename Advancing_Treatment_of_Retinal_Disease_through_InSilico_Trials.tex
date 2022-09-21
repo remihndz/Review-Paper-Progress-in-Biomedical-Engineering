@@ -42,8 +42,8 @@
 % \date{}
 
 
-\author[1,2]{R\'{e}mi Hernandez\footnote{E-mail address: remi.hernandez@liverpool.ac.uk (R\'{e}mi Hernandez)}}                                                                                                     
-\author[3]{Paul A. Roberts\footnote{E-mail address: p.a.roberts@univ.oxon.org (Paul A. Roberts)}}                                                                                                                  
+\author[1,2]{R\'{e}mi Hernandez\footnote{E-mail address: remi.hernandez@liverpool.ac.uk (R\'{e}mi Hernandez)}}
+\author[3]{Paul A. Roberts\footnote{E-mail address: p.a.roberts@univ.oxon.org (Paul A. Roberts)}}
 \author[1,2]{Wahbi K. El-Bouri\footnote{E-mail address: w.el-bouri@liverpool.ac.uk (Wahbi K. El-Bouri)}}                                                                                                           
 \affil[1]{Liverpool Centre for Cardiovascular Science, University of Liverpool and Liverpool Heart \& Chest Hospital Liverpool, UK}                                                                                
 \affil[2]{Department of Cardiovascular and Metabolic Medicine, University of Liverpool, UK}                                                                                                                        
@@ -470,10 +470,7 @@ In addition, we present models of the pharmacokinetics (PK) and pharmacodynamics
 
 \begin{figure}[t!]
   \centering
-  \includegraphics[width=\textwidth]{EffectiveViscosity}
-  % \includegraphics[width=0.45\textwidth, height=5.3cm]{cropped-RBC-in-capillaries.jpg}
-  % \hfill
-  % \includegraphics[width=0.45\textwidth, height=5.3cm]{EffectiveViscosity-Secomb.jpeg}
+  \includegraphics[width=1\textwidth]{EffectiveViscosity}
   \caption{Example of the effect of capillary calibre on the flow of blood. (\textbf{A}) Red blood cells in suspension in blood flowing within tubes of different diameters: \SI{4.5}{\micro\meter} (top), \SI{7}{\micro\meter} (middle) and \SI{15}{\micro\meter} (bottom). One can observe the flow of cells converging into a single file, surrounded by a layer of plasma as the diameter moves from \SI{15}{\micro\meter} to \SI{7}{\micro\meter}. A cell's shape adapts to fit into the tube as the diameter approaches that of the cell (top row). Reproduced, with permission, from Secomb~\cite{Secomb_2003}. (\textbf{B}) Example of an empirical law for the effective viscosity of blood accounting for the F\r{a}hr\ae us-Lindqvist effect, a description of the decrease in blood viscosity with vessel diameter, and increased vascular resistance in smaller capillaries from the work of Secomb and Pries~\cite{Secomb_2013}. Note that the effective viscosity depends on the blood's concentration in red blood cells (hematocrit).}
   \label{fig:effectiveViscosity}
 \end{figure}
@@ -556,7 +553,7 @@ By analogy with electrical circuits, the haemodynamics in each compartment are c
 
 Lumped parameter models have been used to investigate the links between gravity-induced shifts in intracranial fluids, ocular fluids and pressures, and the loss of sight observed in astronauts~\cite{Nelson_2017,Petersen_2022,Salerni_2019}.
 Nelson et al. proposed a baseline model simulating increases in ocular pressures secondary to such fluid shifts~\cite{Nelson_2017}.
-The simplistic model was quite effective in predicting the response of intraocular pressure to changes in the gravitational environment or tilt of the body~\cite{Nelson_2017,Petersen_2022}.
+The simplistic model predicted relatively well the response of intraocular pressure to changes in the gravitational environment or tilt of the body~\cite{Nelson_2017,Petersen_2022}.
 A more comprehensive model including interacting brain, body and eye compartments showed that the retinal circulation was relatively spared from hypoperfusion compared to the choroidal circulation in microgravity conditions~\cite{Salerni_2019}.
 
 
@@ -594,11 +591,10 @@ Oxygen transport throughout the extensive vascular network was modelled as well 
 The good agreement with data validated the use of the artificial networks.
 The effects of haemodynamic parameters on different parts of the tissue and the vasculature were analysed, demonstrating, among other things, the sensitivity of retinal ganglion cell layer perfusion to blood viscosity and metabolic consumption~\cite{Causin_2015}.
 
-
 Several other studies have used vessels reproduced from images to analyse the distribution of blood flow and the influence of the morphology~\cite{Malek_2014,Malek_2015,Rebhan_2019}.
 Malek et al. tried to characterise the flow distribution in reproduced arterioles and veins to quantify the impact of vessel tortuosity (a measure of how much a vessel differs from a straight line) on haemodynamic parameters~\cite{Malek_2014,Malek_2015}.
 The deformation of vessels caused by the pulse of blood is a computationally complex task to model and a simplified model has been developed and applied to a similar reproduction of the retinal vasculature, with a brief analysis of its effects on haemodynamics~\cite{Aletti_2016}.
-Notably, Rebhan et al. have looked at the interactions of retinal haemodynamics and tissue stress using reproductions of the large vessels of healthy and diseased eyes, an aspect previously overlooked that may have importance in, e.g., glaucoma and diabetes~\cite{Rebhan_2019}.
+Notably, Rebhan et al. have considered the interactions of retinal haemodynamics and tissue stress using reproductions of the large vessels of healthy and diseased eyes, an aspect previously overlooked that may have importance in, e.g., glaucoma and diabetes~\cite{Rebhan_2019}.
 
 The use of realistic vascular networks provides a link between haemodynamics and clinically relevant indices.
 The effect of tortuosity has been investigated on short, segmented sections of the retinal veins~\cite{Malek_2014}.
@@ -694,7 +690,6 @@ This allowed separate investigation of red blood cell and platelet flows, demons
 Stiffened red blood cells were found to induce higher wall shear stress, both in the aneurysm sac and in the vessels feeding and draining it.
 In two studies, Li et al. also simulated the flow of red blood cells and platelets in microaneurysms with a focus on platelet flow through the microaneurysm, as they may be linked with the formation of blood clots~\cite{Li_2020,Li_2022}.
 
-
 Panretinal photocoagulation therapy is a common procedure to treat ischaemia in retinae with proliferative DR.
 While practice has shown the efficiency of the procedure, its mechanisms of action remain unclear.
 It is thought that the procedure acts by reducing the oxygen consumption of the photoreceptors affected by the laser-induced burn~\cite{Fawzi_2019,Gast_2016}.
@@ -705,7 +700,6 @@ The model predictions are consistent with the seemingly increased flow in macula
 The burn patterns used in panretinal photocoagulation are also subject to debate.
 Gast et al. investigated the effects of different patterns on the propagation of ischaemia due to capillary occlusion~\cite{Gast_2016}.
 The model showed how different burn patterns affect the propagation of ischaemia and suggested that targeting the non-ischaemic peripheral retina with appropriate patterns may be effective at containing it.
-
 
 \subsection{Anti-VEGF therapy in nAMD and DR}\label{sec:Anti-VEGF}
 
