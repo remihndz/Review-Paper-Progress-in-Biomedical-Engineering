@@ -321,7 +321,7 @@ Viruses are designed to safely deliver the healthy genes to cells, which will ei
 
 Broadly speaking, a mathematical or \textit{in silico} model describes the state of a biological system using a set of dependent variables and the system of equations or rules which governs them.
 \textit{In silico} simulations consist in solving the equations to find the dependent variables as functions of the independent variables.
-Typical independent variables are time and space, but other choices are possible (see the model of retinal curvature in Section~\ref{sec:RetinalHaemodynamicsNAMDDR}).
+Typical independent variables are time and space, but other choices are possible depending on the model.
 When designing an \textit{in silico} model, one has to make choices among the variety of model types available.
 This choice is informed by the system to be modelled, the question to be answered and the resources available (e.g., data or computational resources).
 Because biological systems are so complex, the mechanisms modelled need to be kept to a minimum in order for the simulations to be tractable and interpretable.
@@ -332,7 +332,7 @@ A more comprehensive overview can be found in the work of Roberts et al~\cite{Ro
 \subsection{Mechanistic vs phenomenological models}
 
 To model a biological system, a relationship between the variables is hypothesised.
-For all types of model, the hypothetical relationship needs to be validated against data and reviewed accordingly (see Figure~\ref{fig:ModellingCycle}).
+For all types of model, the hypothesised relationship needs to be validated against data and reviewed accordingly (see Figure~\ref{fig:ModellingCycle}).
 In phenomenological models, a relationship that best describes the data is used, without reference to the processes underlying the observed phenomenon.
 Curve fitting models, such as linear regressions, are examples of phenomenological models.
 Conversely, mechanistic models incorporate into the model the biological processes that are thought to be underlying the observed phenomenon.
@@ -409,13 +409,12 @@ The size of the matrix depends on the refinement of the mesh, with denser meshes
 Therefore, mesh size provides some degree of control over the computational complexity of the model - that is the time and memory needed to run a simulation.
 
 Nonetheless, systems which span multiple spatial or temporal scales, which often arise in biology, can be computationally challenging to solve.
-Indeed, smaller scales enforce smaller mesh sizes in order to account for the refined details of the geometry or the mechanisms working on different time scales.
+Indeed, smaller scales enforce smaller mesh sizes in order to account for the refined details of the geometry or of the mechanisms working on different time scales.
 This issue appears, for example, when modelling the delivery of oxygen from retinal capillaries to a slab of tissue.
 While the size of the tissue may be of the order of millimetres, the numerous blood vessels are, in contrast, of the order of micrometres, hence enforcing a mesh size of the order of micrometres.
 
 In problems where separate mechanisms interact with each other (e.g., oxygen transport in the capillaries and oxygen diffusion in the tissue), the value of one dependent variable may depend upon that of other dependent variables.
 The model is then said to be coupled.
-
 While coupling and multiple scale in a model add to the difficulty of solving the equations, various mathematical techniques may help in reducing the complexity (e.g., homogeneneisation methods, multiple-scale analysis).
 However, those tricks are often problem-specific and hard to generalise.
 
