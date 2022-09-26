@@ -47,7 +47,7 @@
 \author[1,2]{Wahbi K. El-Bouri\footnote{E-mail address: w.el-bouri@liverpool.ac.uk (Wahbi K. El-Bouri)}}                                                                                                           
 \affil[1]{Liverpool Centre for Cardiovascular Science, University of Liverpool and Liverpool Heart \& Chest Hospital Liverpool, UK}                                                                                
 \affil[2]{Department of Cardiovascular and Metabolic Medicine, University of Liverpool, UK}                                                                                                                        
-\affil[3]{Centre for Systems Modelling and Quantitative Biomedicine, University of Birmingham, Institute of Biomedical Research, Birmingham, B15 2TT, UK}                                                          
+\affil[3]{Centre for Systems Modelling and Quantitative Biomedicine, Institute of Biomedical Research, University of Birmingham, Birmingham, B15 2TT, UK}                                                          
 %                                                                                                                                                                                                                  
 \renewcommand\Authands{ and }                                                                                                                                                                                      
 %                                                                                                                                                                                                                  
@@ -60,21 +60,21 @@
 
 \begin{abstract}
 
-  In a globally aging society, treating retinal diseases to prevent loss of sight is an increasingly important challenge.
-  Thanks to the configuration of the eye, the retina can be relatively easily examined \textit{in situ}.
-  Owing to recent technological development in scanning devices, much progress has been made on understanding the physiology of the retina in health and disease.
+  In a globally aging society, treating retinal diseases to prevent sight loss is an increasingly important challenge.
+  Thanks to the configuration of the eye, the retina can be examined relatively easily \textit{in situ}.
+  Owing to recent technological development in scanning devices, much progress has been made in understanding the physiology of the retina in health and disease.
   However, treatment options remain limited and are often of low efficiency and efficacy.
 
-  In recent years, the concept of \textit{in silico} clinical trials has been adopted by many, smaller, pharmaceutical companies to optimize and accelerate the development of therapeutics.
+  In recent years, the concept of \textit{in silico} clinical trials has been adopted by many, smaller, pharmaceutical companies to optimise and accelerate the development of therapeutics.
   \textit{In silico} clinical trials rely on the use of mathematical models based on the physical and biochemical mechanisms underpinning a biological system.
-  With appropriate simplifications and assumptions, one can generate computer simulations of various treatment regimens, new therapeutic molecules, delivery strategies and so forth, rapidly and at virtually no cost.
+  With appropriate simplifications and assumptions, one can generate computer simulations of various treatment regimens, new therapeutic molecules, delivery strategies and so forth, rapidly and at a fraction of the cost required for the equivalent experiments.
   Such simulations have the potential not only to hasten the development of therapies and strategies but also to optimise the use of existing therapeutics.
 
-  In this paper, we review the state-of-the-art in \textit{in silico} models of the retina and highlight the challenges to developing \textit{in silico} clinical trials.
+  In this paper, we review the state-of-the-art in \textit{in silico} models of the retina for mathematicians, biomedical scientists and clinicians, highlighting the challenges to developing \textit{in silico} clinical trials.
   Throughout this paper, we highlight key findings from \textit{in silico} models about the physiology of the retina in health and disease.
-  We describe the main building blocks of an \textit{in silico} clinical trials and identify challenges to developing \textit{in silico} clinical trials of retinal diseases.
+  We describe the main building blocks of \textit{in silico} clinical trials and identify challenges to developing \textit{in silico} clinical trials of retinal diseases.
 
-  Despite the rich \textit{in vivo} data and numerous \textit{in silico} models available of the retina \textit{in silico} clinical trials of retinal diseases remain out of reach.
+  Despite rich \textit{in vivo} data and numerous retinal \textit{in silico} models, \textit{in silico} clinical trials of retinal diseases remain out of reach.
   It is hoped that this review will encourage collaborations between the modelling and ophthalmological communities in order to close the gaps to developing \textit{in silico} clinical trials. 
      
 \end{abstract}
@@ -116,6 +116,7 @@
   IVI           & Intravitreal   injection                                  \\
   LACT          & Lactate                                                   \\
   nAMD          & Neovascular AMD                                       \\
+  non-nAMD      & Non-neovascular AMD \\
   OCT           & Optical coherence   tomography                            \\
   OCTA           & Optical coherence tomography angiography                 \\
   ONL           & Outer nuclear layer                                       \\
@@ -134,22 +135,22 @@
 \section{Introduction}\label{sec:Introduction}
   
 The highly detailed images our eyes are capable of capturing necessitate the close interplay and coupling of many different cells and structures.
-The retina, at the back of the eye, is a complex and fragile tissue playing a major role in visual functions.
-Small changes in the retina can lead to degradation of visual functions which in turn can severely affect the quality of life of patients.
+The retina, at the back of the eye, is a complex and fragile tissue playing a major role in visual function.
+Small changes in the retina can lead to degradation of visual function which in turn can severely affect patient quality of life.
 As such, it is perhaps not surprising that many severe visual impairments find their root in the retina.
 
 A number of devices exist to observe the retina and clinically relevant biomarkers, often noninvasively.
-For instance, optical coherence tomography (OCT) and its angiographic extension (OCTA) enable noninvasive three dimensional, high resolution scans of the retinal structure and vessels in a matter of seconds.
-These devices undoubtedly improve clinical care by providing accurate measurements of biomarkers, such as oedema, which in turn informs treatment strategies.
+For instance, optical coherence tomography (OCT) and its angiographic extension (OCTA) enable noninvasive three dimensional, high resolution scans of the retinal structure and vessels in a matter of seconds~\cite{Nanegrungsunk_2022,Spaide_2018}.
+These devices undoubtedly improve clinical care by providing accurate measurements of biomarkers, such as oedema, which in turn informs treatment strategies~\cite{Hui_2022}.
 As these devices are noninvasive and high resolution, progression of retinal disease can be monitored with repeat scans.
-Following diagnosis, treatment strategies tend to be standardized, based on successful clinical trials guidelines.
+Following diagnosis, treatment strategies tend to be standardised, based on successful clinical trials guidelines.
 However, treatment response varies between patients, indicating that alternative or tailored treatments may be needed.
 The development of new treatments or dosing strategies is long, arduous and expensive, with only a small fraction of clinical trials succeeding, mostly due to an inability to prove effectiveness~\cite{Fogel_2018}.
 
 \textit{In silico} modelling can offer insights on the underlying causes of disease, which are often hard or impossible to obtain by experimental or observational means.
 The past two decades have seen a rise in the use of such models for basic research in biology and medicine.
 Furthermore, the use of digital evidence to inform clinical trials is also gaining traction. 
-The recent increase in the number of literature reviews on mathematical models of the eye and the retina and the development of platforms for simulating the eye accessible to non-modellers are evidence of that interest in ophthalmology~\cite{Arciero_2019,Arciero_2017,Bhandari_2021,Harris_2013,Prudhomme_2021,Roberts_2016,Sala_2018}.
+The recent increase in the number of literature reviews on mathematical models of the eye and the retina and the development of platforms for simulating the eye accessible to non-modellers demonstrate increased interest in ophthalmology~\cite{Arciero_2019,Arciero_2017,Bhandari_2021,Harris_2013,Prudhomme_2021,Roberts_2016,Sala_2018}.
 
 \textit{In silico} clinical trials can enhance both clinical care and traditional clinical trials, preserving sight for the fast-growing number of patients suffering from retinal disorders.
 Running \textit{in silico} clinical trials requires a close collaboration between experimentalist, modellers and clinicians (see Figures~\ref{fig:ModellingCycle} and~\ref{fig:ISCT}).
@@ -158,13 +159,13 @@ Ophthalmology can also benefit from computer aided clinical development.
 Indeed, the retina provides researchers with a wealth of images and measurements that is perhaps unparalleled in other medical specialities.
 
 In this paper, we will review state-of-the-art models of the retina, both in health and disease, and highlight the challenges to developing \textit{in silico} clinical trials for retinal diseases.
-The remainder of this paper is organized as follows.
-In Section~\ref{sec:RetinalPhysiology}, we provide a brief introduction to the physiology of the retina and summarize available treatments in retinal diseases.
+The remainder of this paper is organised as follows.
+In Section~\ref{sec:RetinalPhysiology}, we provide a brief introduction to the physiology of the retina and summarise available treatments in retinal diseases.
 In Section~\ref{sec:MathematicalPrimer}, we define terms and concepts related to \textit{in silico} modelling.
-Sections~\ref{sec:RetinalHaemodynamicsNAMDDR} and~\ref{Sec_Ox_RP_non-nAMD} review models of the retinal physiology in health and disease and models of the treatment of major retinal diseases.
+Sections~\ref{sec:RetinalHaemodynamicsNAMDDR} and~\ref{Sec_Ox_RP_non-nAMD} review models of the retinal physiology in health and disease, and models of the treatment of major retinal diseases.
 Section~\ref{sec:DrugDelivery} is dedicated to models of therapeutic procedures.
 Section~\ref{sec:InSilicoTrials} defines \textit{in silico} trials and provides the reader with examples of their successful application.
-Finally, in Section~\ref{sec:Conclusion}, we summarize the state of mathematical models of the retina and provide a plan of action to achieve \textit{in silico} clinical trials for retinal pathologies.
+Finally, in Section~\ref{sec:Conclusion}, we summarise the state of mathematical models of the retina and provide a plan of action to achieve \textit{in silico} clinical trials for retinal pathologies.
 
 \section{Retinal physiology and therapeutic approaches}\label{sec:RetinalPhysiology}
 
@@ -176,7 +177,7 @@ Finally, in Section~\ref{sec:Conclusion}, we summarize the state of mathematical
 The retina is a layer of tissue less than \SI{0.5}{\mm} thick that lines the back of the eye~\cite{Gupta_2015}.
 The retinal inner surface is attached to the vitreous body, the clear gel that separates the lens and the retina; while its outer surface is attached to Bruch's membrane (BrM) (Figure~\ref{fig:architecture-eye}).
 When looking at a cross section of the retina, as shown in Figure~\ref{fig:architecture-eye}, several layers can be identified. The innermost (closest to the vitreous) being the nerve fiber layer and the outermost being the retinal pigmented epithelium (RPE).
-The layers located above the RPE are made of neurons and synapses and are collectively referred to as the neurosensory retina.
+The layers located inward from the RPE are made of neurons and synapses and are collectively referred to as the neurosensory retina.
 In the centre of the retina is an oval-shaped pigmented area called the macula that can be seen on photographs of the retina (Figure~\ref{fig:architecture-eye}).
 The macula is about \SI{5}{\mm} wide and is responsible for highly detailed, central, vision, owing to its high concentration of photoreceptor cells, namely rods and cones.
 In particular, cones are highly concentrated in the centre of the macula, in a pit approximately \SI{1.5}{\mm} wide named the fovea.
@@ -187,39 +188,39 @@ The macula is also an area where a number of pathological conditions present.
 \begin{figure}[t!]
   \centering
   \includegraphics[width=\textwidth]{Figure1}
-  \caption{Anatomy of the eye and the retina. The anatomy of the eye (A). Image credits to: Rhcastilhos and Jmarchn, distributed under CC BY-SA 3.0 license via Wikimedia Commons. Anatomical features of an healthy retina seen on a fundus photograph (B), by Mikael H\"aggstr\"om, used with permission. The retinal and choroidal layers and membranes (C). From inner retina to outer choroid: inner limiting membrane (ILM), nerve fiber layer (NFL), ganglion cell layer (GCL), inner plexiform layer (IPL), inner nuclear layer (INL), outer plexiform layer (OPL), outer nuclear layer (ONL), photoreceptors (PHR), retinal pigmented epithelium (RPE), Bruch's membrane (BrM), choriocapillaris (CC), Sattler's layer (SL), Haler's layer (HL). Modified from the work of Trivi\~no et al., published under CC BY 3.0 license.~\cite{Trivino_2012}}
+  \caption{Anatomy of the eye and the retina. The anatomy of the eye (A). Image credits to: Rhcastilhos and Jmarchn, distributed under CC BY-SA 3.0 license via Wikimedia Commons. Anatomical features of a healthy retina seen on a fundus photograph (B), by Mikael H\"aggstr\"om, used with permission. The retinal and choroidal layers and membranes (C). From inner retina to outer choroid: inner limiting membrane (ILM), nerve fiber layer (NFL), ganglion cell layer (GCL), inner plexiform layer (IPL), inner nuclear layer (INL), outer plexiform layer (OPL), outer nuclear layer (ONL), photoreceptors (PHR), retinal pigmented epithelium (RPE), Bruch's membrane (BrM), choriocapillaris (CC), Sattler's layer (SL), Haler's layer (HL). Modified from the work of Trivi\~no et al., published under CC BY 3.0 license.~\cite{Trivino_2012}}
   \label{fig:architecture-eye}
 \end{figure}
 
 
 Visual information originates from light hitting the retina.
-The light crosses the inner retina to reach the photoreceptors, in the layer lying inwards from the RPE (see Figure~\ref{fig:architecture-eye}).
+The light crosses the inner retina to reach the photoreceptors, in the layer lying inward from the RPE (see Figure~\ref{fig:architecture-eye}).
 Activation of photoreceptors by photons starts a cascade of biochemical reactions that transforms light into a biochemical signal~\cite{Hurley_2009}.
 This biochemical signal is picked up by cells in the inner layers of the retina, which transform it into an electrical signal~\cite{Arslan_2018}.
 The electrical signal is then transmitted to the nerve fiber layer, which relays it to the brain via the optic nerve, enabling vision.
 The optic nerve is composed of the axons of the retinal ganglion cells, amounting to between $500,000$ and $1.2$ million, and is surround by connective tissue~\cite{Salazar_2019}.
 The optic nerve enters the retina through the optic disc, seen as a round spot, around \SI{1.8}{\mm} wide, on fundus photographs of the retina (Figure~\ref{fig:architecture-eye}).
-The optic disc is an important structure of the retina in disease and is closely monitored by clinicians for symptoms of, e.g., glaucoma.
+The optic disc is an important structure of the retina in disease and is closely monitored by clinicians for symptoms of, for example, glaucoma.
 
 Owing to its pigmentation, the RPE acts as a buffer for any remaining light, protecting the retina from light damage and preventing backreflection of light that may interfere with the visual outcome.
 The RPE is formed of a single layer of epithelial cells, whose primary function is to support the photoreceptors and the choroid.
-To fulfill this purpose, the RPE acts as the blood-retinal barrier, regulating the transport of ions, fluid, proteins and other molecules~\cite{Boulton_2001}.
+To fulfil this purpose, the RPE acts as the blood-retinal barrier, regulating the transport of ions, fluid, proteins and other molecules~\cite{Boulton_2001}.
 
 The photoreceptors abut to the RPE.
 Through this close interaction, the RPE exchanges metabolites with the photoreceptors.
 The RPE also transports nutrients such as retinoids to the photoreceptor cells where they are essential for the production of the light-sensitive rhodospin protein~\cite{Boulton_2001}.
-By-products of the photoreceptors activity are released into the systemic circulation via the choroid, one of the two circulations of the retina~\cite{Boulton_2001}.
+By-products of photoreceptor activity are released into the systemic circulation via the choroid, one of the two circulations of the retina~\cite{Boulton_2001}.
 The cells of the RPE also play a major role in the immune response in the retina and in maintaining the choroidal vasculature through secretion of various vascular growth factors~\cite{Boulton_2001,Detrick_2020}.
 
-\subsubsection{Blood supply to the retina}
+\subsubsection{Blood supply to the retina}\label{sec:BloodSupplyRetina}
 
 Visual function requires high metabolic activity from the retinal cells, making the retinal tissue very oxygen demanding.
 In fact, the rates of oxygen consumption per unit volume of tissue are comparable for the brain and the retina~\cite{Medrano_1995}.
-To sustain the demand in oxygen, the retina is equipped with a dense network of capillaries, that branch out of the central retinal artery (CRA) and terminate at the central retinal vein (CRV).
-The CRA is a branch of the ophthalmic artery and the CRV drains into the superior ophthalmic vein.
+To sustain the demand in oxygen, the retina is equipped with a dense network of capillaries, that branch out from the central retinal artery (CRA) and terminate at the central retinal vein (CRV).
+The CRA is a branch of the ophthalmic artery and the CRV drains into the superior ophthalmic vein~\cite{Kiel_2011}.
 Both the CRA and CRV enter and exit the retina along the optic nerve (see Figure~\ref{fig:architecture-eye}).
 The CRA's branches spread across four plexi within the inner retina, namely, the superficial vascular plexus (SVP) and the intermediate (ICP), deep (DCP) and radial peripapillary capillary plexus (RPCP).
-The terms superficial vascular complex and deep vascular complex are sometimes used to designate the RPCP-SVP complex and the ICP-DCP complex, respectively.
+The terms superficial vascular complex and deep vascular complex are sometimes used to designate the RPCP-SVP complex and the ICP-DCP complex, respectively~\cite{Campbell_2017}.
 % The inner retinal circulation provides oxygen for the inner \SIrange{60}{80}{\percent} of the tissue.
 % The perfusion of the remaining outer \SIrange{20}{40}{\percent} is covered by the choroid\cite{Birol_2007}.
 
@@ -241,9 +242,9 @@ The choroid has high blood flow and a high oxygen content~\cite{Bill_1983}.
 The high concentration of oxygen in the choroidal circulation creates a strong gradient for its diffusion between the CC and the outer retina.
 The high blood flow rates may also help regulating the temperature of the macula, by keeping it at the same temperature as the rest of the body~\cite{Bill_1983, Parver_1991}.
 
-While appropriate blood supply is necessary to maintain vision, blood vessels can interfere with light and hinder vision.
+While appropriate blood supply is necessary to maintain vision, retinal blood vessels can interfere with light and hinder vision.
 The distribution of photoreceptors in the retina is heterogeneous, with a higher concentration in the parafovea, for rods, and fovea, for cones~\cite{Zouache_2022}.
-For this reason, the centre of the fovea is an avascular zone around \SI{500}{\micro\meter} wide, often referred to as the foveal avascular zone.
+For this reason, the centre of the fovea is an avascular zone around \SI{500}{\micro\meter} wide, often referred to as the foveal avascular zone, from which retinal capillaries are absent.
 
 The interactions between layers of the retina, e.g., the RPE and photoreceptors, is essential for visual function.
 Disruption of the delicate structure of the retina leads to loss of sight.
@@ -277,11 +278,11 @@ Dysregulation of oxygen perfusion to the retina is at the core of diseases such 
 Photocoagulation may be used to address abnormal neovasculature in DR or vessel occlusion~\cite{Evans_2014}.
 The burn induced by the laser to the retinal tissue is aimed to stop further vascular growth by either sealing or ablating the aberrant blood vessels (focal laser photocoagulation) or by ablating in a wider range (panretinal laser treatment).
 In the case of panretinal laser treatment, it is thought that the damage brought to the retinal tissue causes a change in the oxygen supply and demand balance that could lower VEGF expression~\cite{Evans_2014}.
-Photodynamic therapy is a similar approach which uses photochemical mechanisms to induce cell death rather than heat which may be preferred for destroying neovasculature in the more fragile foveal region, for example in eyes with nAMD~\cite{SchmidtErfurth_2000}.
+Photodynamic therapy is a similar approach which uses photochemical mechanisms to induce cell death rather than heat, which may be preferred for destroying neovasculature in the more fragile foveal region, for example in eyes with nAMD~\cite{SchmidtErfurth_2000}.
 
 In eyes with glaucoma, the aim of surgery is to lower intraocular pressure (IOP).
 This can be done by decreasing the pressure in the aqueous chamber with eye drops or surgery~\cite{Quigley_2011}.
-Laser treatment of the trabecular meshwork, an area of tissue around the base of the cornea (Figure~\ref{fig:architecture-eye}), is aimed to improve drainage of the aqueous humour.
+Laser treatment of the trabecular meshwork, an area of tissue around the base of the cornea (Figure~\ref{fig:architecture-eye}), is used to improve drainage of the aqueous humour.
 In some cases, parts of the trabecular meshwork may be removed to allow further drainage in a procedure called trabeculectomy.
 Conversely, IOP can be lowered by decreasing the production of aqueous humour, acting on the inflow rather than the outflow of aqueous humour~\cite{Allbon_2022}.
 % This treatment, referred to as cyclodiode therapy, aims to reduce this inflow by destroying the ciliary body that produces aqueous humour~\cite{Allbon_2022}.
@@ -289,21 +290,21 @@ Conversely, IOP can be lowered by decreasing the production of aqueous humour, a
 \subsubsection{Drug based}
 
 The regulation of IOP can be achieved with drugs.
-In fact most patients with glaucoma begin treatment with eye-drops, used daily to reduce IOP.
+Indeed, most patients with glaucoma begin treatment with eye-drops, used daily to reduce IOP.
 The eye-drops are designed to lower the aqueous humour production, increase drainage of aqueous humour, or both~\cite{Chakrabarti_2022,Quigley_2011}.
 
 Retinal vascular disorders such as nAMD, proliferative DR or retinal vein occlusion, are for the most part treated with anti-VEGF~\cite{Andreoli_2007,Kim_2021}.
-These drugs, mostly injected in the vitreous humour, bind to VEGF molecules that drive the growth of immature and leaky blood vessels.
+These drugs, mostly injected in the vitreous humour, bind to VEGF molecules that promote the growth of immature and leaky blood vessels.
 Anti-VEGF treatment has proven effective to suppress disease progression, reducing retinal oedema and restoring vision~\cite{Andreoli_2007,Heier_2006,Kim_2021}.
-Steroids, either oral or intravitreal, can also be prescribed to reduce the production of pro-inflammatory cytokines such as VEGF in order to increase the RPE functions in patients with RP presenting macular oedema~\cite{Strong_2016}.
+Steroids, either oral or intravitreal, can also be prescribed to reduce the production of pro-inflammatory cytokines such as VEGF in order to increase RPE function in patients with RP presenting macular oedema~\cite{Strong_2016}.
 
-Deterioration of visual functions due to aging (cellular senescence), hastened by disease, has been addressed by a range of therapeutics called senotherapeutics.
-Their use is being investigated as a means to maintain vision in disease such as non-nAMD which lack therapeutic targets~\cite{Lee_2021}.
+Deterioration of visual function due to aging (cellular senescence), hastened by disease, has been addressed by a range of therapeutics called senotherapeutics.
+Their use is being investigated as a means to maintain vision in diseases such as non-nAMD which lack therapeutic targets~\cite{Lee_2021}.
 
 
 \subsubsection{Other}
 
-Alternative intervention types are possible, however, their use remain rare as they are investigated for efficiency and safety.
+Alternative intervention types are possible; however, their use remain rare as they are investigated for efficiency and safety.
 Retinal prosthesis have started being approved for use in late stages of certain retinal diseases such as RP~\cite{Luo_2016}.
 The artificial retina replaces or supports the degenerated photoreceptors, often via an external camera~\cite{Luo_2016,Stingl_2017}.
 The pixelated image is then transferred to the inner retina's neurons, relatively spared by RP, using microelectrodes.
@@ -338,15 +339,15 @@ Viruses are designed to safely deliver the healthy genes to cells, which will ei
 
 Broadly speaking, a mathematical or \textit{in silico} model describes the state of a biological system using a set of dependent variables and the system of equations or rules which governs them.
 \textit{In silico} simulations consist in solving the equations to find the dependent variables as functions of the independent variables.
-Typical independent variables are time and space, but other choices are possible depending on the model.
+Typical independent variables are time and space, while typical dependent variables include chemical concentrations, cell densities and fluid velocity, though other choices are possible depending on the model.
 When designing an \textit{in silico} model, one has to make choices among the variety of model types available.
 This choice is informed by the system to be modelled, the question to be answered and the resources available (e.g., data or computational resources).
 Because biological systems are so complex, the mechanisms modelled need to be kept to a minimum in order for the simulations to be tractable and interpretable.
 The process of designing and refining an \textit{in silico} model follows a logic similar to experimental sciences and is summarised in Figure~\ref{fig:ModellingCycle}.
-In this section, we give a brief overview of different model types that can be used to model the retina and typical challenges emerging when modelling biological systems.
+In this section, we give a brief overview of different model types that can be used to model the retina and typical challenges which emerge when modelling biological systems.
 A more comprehensive overview can be found in the work of Roberts et al~\cite{Roberts_2016}.
 
-\subsection{Mechanistic vs phenomenological models}
+\subsection{Mechanistic vs. phenomenological models}
 
 To model a biological system, a relationship between the variables is hypothesised.
 For all types of model, the hypothesised relationship needs to be validated against data and reviewed accordingly (see Figure~\ref{fig:ModellingCycle}).
@@ -354,7 +355,7 @@ In phenomenological models, a relationship that best describes the data is used,
 Curve fitting models, such as linear regressions, are examples of phenomenological models.
 Conversely, mechanistic models incorporate into the model the biological processes that are thought to be underlying the observed phenomenon.
 Those biological processes can, for the most part, be described using well-established physical laws, such as Fick's laws of diffusion.
-For overly complex or unknown processes, a phenomenological description may be used within a mechanistic model.
+For complex or unknown processes, a phenomenological description may be used within a mechanistic model.
 Because simplifications are inherent to modelling, no model is fully mechanistic. % every mechanistic model eventually reduces to a phenomenological model.
 
 \subsection{Model parameters}
@@ -363,9 +364,9 @@ Some of those parameters may be known, either from direct measurements or theore
 Because a mechanistic model is physics-based, its parameters have a physical or biological definition whereas the parameters in a phenomenological model may not.
 A direct consequence of this is that parameters in phenomenological models may be model specific and therefore cannot be used in a different model.
 
-In cases where parameters are unknown, e.g., because they cannot be measured, \textit{in silico} models can provide estimates of the physical quantity by fitting parameters to data, when available.
-Otherwise, analysis of the model predictions may still provide useful insights on the system's behaviour.
-Indeed, in either case, tools such as sensitivity analysis and bifurcation analysis can provide insights on the system's behaviour for different parameter regimes.
+In cases where parameters are unknown, e.g., because they cannot be measured, \textit{in silico} models can be used to estimate these parameters by fitting the models to data, where available.
+Even when parameter values cannot be determined, analysis of the model predictions may still provide useful insights on the system's behaviour.
+Indeed, in either case, tools such as sensitivity analysis and bifurcation analysis can provide insights into the system's behaviour for different parameter regimes.
 
 
 \subsection{Initial and boundary conditions}
@@ -374,17 +375,17 @@ While initial conditions are the state of the system at time $t=0$, boundary con
 Classical boundary conditions may set the value of the dependent variables and are referred to as Dirichlet boundary conditions.
 Alternatively, Neumann boundary conditions specify the spatial gradients of dependent variables at a boundary.
 Finally, a condition on the sum of an independent variable's spatial gradient and value forms a Robin boundary condition.
-For a system of differential equations to be well-defined and solvable, boundary conditions need to be specified.
+For a system of differential equations to be well-defined and solvable, boundary and/or initial conditions need to be specified.
 %The number of conditions necessary depends on the order of the derivatives in the equations.
 
 \subsection{Deterministic and stochastic models, continuum and discrete models}
 
-When random events are left out of a model, two simulations will yield the same results, provided the parameters are left unchanged.
+When random events are left out of a model, two simulations will yield the same results, provided the parameters, initial and boundary conditions are left unchanged.
 This kind of model is referred to as deterministic.
 By comparison, stochastic models include a probabilistic component, e.g. the random movement of cells, which yields a different solution for each simulation.
 Stochastic descriptions are often used for discrete models, e.g., agent-based models.
 Discrete models simulate the behaviour of individual entities, such as cells, based on a set of pre-defined rules.
-In contrast, continuum models assume the quantities of interest (e.g., number of cells) to be continuous variables with an infinite number of values between two points (e.g., cell concentrations).
+In contrast, continuum models assume the quantities of interest (e.g., number of cells) to be continuous variables, varying smoothly in space and/or time (e.g., cell concentrations).
 % While the variables of a discrete model can be counted, continuous variables are measurable.
 While discrete models can incorporate more details, continuum models allow for rigorous mathematical analysis.
 A further limitation of discrete models includes the drastic increase in computation times as the number of objects simulated increases.
@@ -397,7 +398,7 @@ Derivatives represent the rate of change of a dependent variable with respect to
 If the equation involves derivatives of a single independent variable, it is referred to as an ordinary differential equation (ODE).
 Otherwise, if more than one independent variable is involved in the derivatives, it is referred to as a partial differential equation (PDE).
 
-Differential equations are mathematically tractable - namely, analysis tools can be rigorously applied to the analysis of the model.
+Differential equations are mathematically tractable --- that is, mathematical analysis tools can be rigorously applied to solve a differential equation model or give insight into its behaviour.
 Differential equations can be solved analytically, where the solution can be given as an algebraic function, or numerically, where an approximate solution is found for a pre-specified finite number of values of the independent variables.
 
 PDEs often arise when the spatial distribution of the quantity of interest is needed.
@@ -410,20 +411,20 @@ This reduction follows from assuming that the system, when not perturbed, does n
 Similarly, spatial derivatives can be suppressed by assuming that the quantity is homogeneously distributed throughout space, an assumption termed well-mixed.
 A well-mixed assumption may be used in some cases to justify the use of a compartmental model.
 
-Compartmental models describe a system as separated compartments that can interact with each other, e.g., drug concentration in the eye can be described by vitreal, retinal and choroidal compartments, with mass exchange between adjacent compartments.
+Compartmental models describe a system as separate compartments that can interact with each other, e.g., drug concentration in the eye can be described by vitreal, retinal and choroidal compartments, with mass exchange between adjacent compartments.
 Lumped parameter models are a special case of compartment models, where numerous connected systems (e.g., blood vessels) are treated as a single entity, with the contributions of individual objects being lumped into parameters.
 For instance, when modelling blood flow in a network of vessels, one may aggregate arterioles, capillaries and venules in separate compartments.
-The properties of individual vessels are lumped into parameters that encompass the properties of the compartments (e.g., vascular resistance, oxygen extraction, storage capacity).
+The properties of individual vessels are lumped into parameters that encompass the properties of the compartments (e.g., vascular resistance, oxygen extraction and storage capacity).
 Compartmental models describe the system with a set of ODEs for each of the compartments or entities.
 
 Systems of ODEs are typically simpler to solve, both analytically (by hand) and numerically (on a computer), and to mathematically analyse compared to PDEs.
-The possibly complex geometry of biological systems may prove to be a challenge in the analysis of PDEs.
+The often complex geometry of biological systems may prove to be a challenge in the analysis of PDEs.
 Approximating the geometry with simpler shapes such as spheres and rectangles, may allow derivation of analytical solutions or, at least, greatly reduce the time needed to numerically solve the equations.
 
 Numerically, differential equations are solved by discretising the space and time variables into a mesh (that is, reducing the continuous variables to a finite number of points).
 Solutions are calculated at the nodes of the mesh by solving a matrix equation (system of linear/non-linear algebraic equations).
 The size of the matrix depends on the refinement of the mesh, with denser meshes yielding larger matrices.
-Therefore, mesh size provides some degree of control over the computational complexity of the model - that is the time and memory needed to run a simulation.
+Therefore, mesh size provides some degree of control over the computational complexity of the model --- that is, the time and memory needed to run a simulation.
 
 Nonetheless, systems which span multiple spatial or temporal scales, which often arise in biology, can be computationally challenging to solve.
 Indeed, smaller scales enforce smaller mesh sizes in order to account for the refined details of the geometry or of the mechanisms working on different time scales.
@@ -432,7 +433,7 @@ While the size of the tissue may be of the order of millimetres, the numerous bl
 
 In problems where separate mechanisms interact with each other (e.g., oxygen transport in the capillaries and oxygen diffusion in the tissue), the value of one dependent variable may depend upon that of other dependent variables.
 The model is then said to be coupled.
-While coupling and multiple scale in a model add to the difficulty of solving the equations, various mathematical techniques may help in reducing the complexity (e.g., homogeneneisation methods, multiple-scale analysis).
+While coupling and multiple scales add to the difficulty of solving a set of equations, various mathematical techniques may help in reducing the complexity (e.g., homogenisation methods and multiple-scale analysis).
 However, those tricks are often problem-specific and hard to generalise.
 
 In addition, the often nonlinear behaviour of biological processes can affect the computational cost of running simulations.
@@ -446,30 +447,30 @@ However, computational power is continuously increasing and it is only a matter 
 
 
 
-\section{Retinal haemodynamics, vascular diseases, neovascular age-related macular degeneration and diabetic retinopathy}\label{sec:RetinalHaemodynamicsNAMDDR}
+\section{Retinal haemodynamics, vascular diseases, neovascular AMD and diabetic retinopathy}\label{sec:RetinalHaemodynamicsNAMDDR}
 
-Adequate blood flow is essential for the supply of nutrients and removal of cellular waste required to maintain visual functions.
+Adequate blood flow is essential for the supply of nutrients and removal of cellular waste required to maintain visual function.
 The atypical dual circulation of the retina is both complex and fragile.
-It is thought that the inner vessels perfuse the inner \SIrange{60}{80}{\percent} of the retina, while the choroid supplies the remaining more metabolically active outer layers around the photoreceptors~\cite{Birol_2007}.
-It is also known that ocular blood flow is affected by, among other things, IOP, systemic blood pressure, metabolic activity and oxygen saturation of the blood~\cite{Birol_2007,McCullough_1997,Palkovits_2014,Polska_2007,Pournaras_2008,Riva_1997,Wang_2014}.
+It is thought that the inner vessels perfuse the inner \SIrange{60}{80}{\percent} of the retina, while the choroid supplies the remaining, more metabolically active outer layers around the photoreceptors~\cite{Birol_2007}.
+It is also known that ocular blood flow is affected by, among other things, IOP, systemic blood pressure, metabolic activity and blood oxygen saturation~\cite{Birol_2007,McCullough_1997,Palkovits_2014,Polska_2007,Pournaras_2008,Riva_1997,Wang_2014}.
 Many retinal diseases have been linked, whether directly or indirectly, with abnormal haemodynamics~\cite{Hayreh_2004,Medina_2016}.
-In fact, in certain diseases such as nAMD and DR, the blood supply is so disrupted that pathological neovasculature starts invading the retina.
+Indeed, in certain diseases such as nAMD and DR, the blood supply is so disrupted that pathological neovasculature starts invading the retina.
 
 One of the consequences of diabetes is the degeneration of the microvessels, such as capillaries, in the retina.
-Eyes with DR see an increase in vascular permeability, a loss of the pericytes coating capillary walls, a thickening of the endothelial basement membrane abut to endothelial cells and a rarefaction of capillaries around the foveal avascular zone ~\cite{Medina_2016}.
-These microvascular degenerations may cause microvascular occlusions, haemorrhages and oedema as well as macular ischaemia and consequent neovascular growth~\cite{Medina_2016}.
+Eyes with DR see an increase in vascular permeability, a loss of the pericytes coating capillary walls, a thickening of the endothelial basement membrane adjacent to endothelial cells and a rarefaction of capillaries around the foveal avascular zone ~\cite{Medina_2016}.
+These microvascular degenerations may cause microvascular occlusions, haemorrhages and oedema, as well as macular ischaemia and consequent neovascular growth~\cite{Medina_2016}.
 
 Haemorrhages, oedema, scarring and RPE or retinal detachment are characteristics of nAMD associated with macular neovasculature~\cite{Gupta_2015,Jager_2008}.
 Similarly to DR, neovasculature in nAMD is believed to be a result of an upregulation of VEGF by RPE cells~\cite{Jager_2008}.
 However, the pathogenesis of nAMD remains unclear.
-Dysfunctions of the retinal circulations and subsequent ischaemia could partly explain increased VEGF concentrations, though dysfunction of the RPE and Bruch's membrane have also been suggested as actors in the pathogenesis of nAMD~\cite{Ambati_and_Fowler_2012,Pemp_2008,Liu_1995}.
+Dysfunctions of the retinal circulations and subsequent ischaemia could partly explain increased VEGF concentrations, though dysfunction of the RPE and Bruch's membrane have also been suggested to play a role in the pathogenesis of nAMD~\cite{Ambati_and_Fowler_2012,Pemp_2008,Liu_1995}.
 
 Besides DR, a number of conditions may cause blood vessels in the retina to clog or collapse.
 Accumulation of plaque caused by, for example, cholesterol, or a blood clot (embolus) in blood vessels form an obstruction to blood flow~\cite{Medina_2016}.
 Sickle cell retinopathy causes a stiffening of red blood cells which can also result in occlusion of arterioles or capillaries, but also of the CRA~\cite{Medina_2016}.
 Mechanical pressures such as ocular hypertension can cause the collapse of veins, including the CRV, when the external pressure becomes higher than blood pressure~\cite{Hayreh_2004}.
 Stiffening of the CRA is suspected to also compress the CRV~\cite{Medina_2016}.
-Occlusion of arteries causes non-perfusion areas in the retina, stopping visual functions in the affected areas.
+Occlusion of arteries causes non-perfusion areas in the retina, stopping visual function in the affected areas.
 Irreversible damage to the retina starts appearing after \SI{100}{\min} of non-perfusion~\cite{Hayreh_2004}.
 Other symptoms include retinal oedema and, in some cases, neovascularisation in various locations, including the optic disc and the retina~\cite{Medina_2016}.
 
@@ -479,7 +480,7 @@ Pathological angiogenesis is driven by gradients of VEGF.
 Binding of free VEGF molecules to receptors on the walls of existing blood vessels triggers the proliferation and migration of endothelial cells along those gradients~\cite{Ferrara_2004}.
 To prevent or halt complications due to neovasculature, clinicians often resort to anti-VEGF drugs which bind to free VEGF molecules to prevent their binding to the vasculature.
 
-Glaucoma is thought to be a result of a combination of ocular hypertension and changes in cerebrospinal fluid pressure and retinal blood pressure which creates a pressure gradient around the optic nerve~\cite{Band_2009,Nickells_2012}.
+Glaucoma is thought to be a result of a combination of ocular hypertension, and changes in cerebrospinal fluid pressure and retinal blood pressure, which creates a pressure gradient around the optic nerve~\cite{Band_2009,Nickells_2012}.
 The increased mechanical stress on the tissue induced by these changes causes a degeneration of the ganglion cell bodies (in the GCL, see Figure~\ref{fig:architecture-eye}) and axons (forming the optic nerve).
 Vision loss in glaucoma is due to the loss of connectivity between the retina and the brain and cannot be recovered~\cite{Quigley_2011}.
 
@@ -494,7 +495,7 @@ In addition, we present models of the pharmacokinetics (PK) and pharmacodynamics
 \begin{figure}[t!]
   \centering
   \includegraphics[width=1\textwidth]{EffectiveViscosity}
-  \caption{Example of the effect of capillary calibre on the flow of blood. (\textbf{A}) Red blood cells in suspension in blood flowing within tubes of different diameters: \SI{4.5}{\micro\meter} (top), \SI{7}{\micro\meter} (middle) and \SI{15}{\micro\meter} (bottom). One can observe the flow of cells converging into a single file, surrounded by a layer of plasma as the diameter moves from \SI{15}{\micro\meter} to \SI{7}{\micro\meter}. A cell's shape adapts to fit into the tube as the diameter approaches that of the cell (top row). Reproduced, with permission, from Secomb~\cite{Secomb_2003}. (\textbf{B}) Example of an empirical law for the effective viscosity of blood accounting for the F\r{a}hr\ae us-Lindqvist effect, a description of the decrease in blood viscosity with vessel diameter, and increased vascular resistance in smaller capillaries from the work of Secomb and Pries~\cite{Secomb_2013}. Note that the effective viscosity depends on the blood's concentration in red blood cells (hematocrit).}
+  \caption{Example of the effect of capillary calibre on the flow of blood. (\textbf{A}) Red blood cells in suspension in blood flowing within tubes of different diameters: \SI{4.5}{\micro\meter} (top), \SI{7}{\micro\meter} (middle) and \SI{15}{\micro\meter} (bottom). One can observe the flow of cells converging into a single file, surrounded by a layer of plasma as the diameter moves from \SI{15}{\micro\meter} to \SI{7}{\micro\meter}. A cell's shape adapts to fit into the tube as the diameter approaches that of the cell (top row). Reproduced, with permission, from Secomb~\cite{Secomb_2003}. (\textbf{B}) Example of an empirical law for the effective viscosity of blood accounting for the F\r{a}hr\ae us-Lindqvist effect, a description of the decrease in blood viscosity with vessel diameter, and increased vascular resistance in smaller capillaries from the work of Secomb and Pries~\cite{Secomb_2013}. Note that the effective viscosity depends on the blood's red blood cell concentration (hematocrit).}
   \label{fig:effectiveViscosity}
 \end{figure}
 
@@ -514,7 +515,7 @@ Neurological regulation (regulation by the autonomic nervous system) of choroida
 
 \textit{In silico} models provide valuable insights into the mechanisms that combine to provide healthy perfusion or, conversely, create conditions for the onset of retinal pathologies.
 The assumptions made in these models can be validated by comparing simulation results with \textit{in vivo} measurements of changes in blood flow or vessel radii.
-Vessel radius in the inner retina can be measured from retinal scans such as fundus photographs, fluorescein angiograms or OCT angiograms.
+Vessel radius in the inner retina can be measured from retinal scans such as fundus photographs or OCT~\cite{DoblhoffDier_2014}.
 Blood flow can be measured using devices such as a Doppler flowmeter or Doppler Fourier-domain OCT, in combination with radius measurements~\cite{DoblhoffDier_2014,Wang_2009}.
 The blood oxygen saturation can also be measured \textit{in vivo}~\cite{Geirsdottir_2013}.
 Reliable measurement of blood flow or vessel radii in the choroid is more difficult, though changes in haemodynamics can be observed \textit{in vivo}~\cite{Riva_1997,Scherm_2019}.
@@ -522,13 +523,13 @@ Reliable measurement of blood flow or vessel radii in the choroid is more diffic
 \begin{tcolorbox}[title=Additional information -- Fluid flow modelling]
   \begin{itemize}
   \item Viscous fluids such as blood are modelled by a set of differential equations --- the Navier-Stokes equations --- relating the acceleration, velocity, convection, density and pressure of a fluid.
-    Solving those equations can be problematic in complex geometries, for example, in a large network of vessels.
-  \item Those equations simplify to the Hagen-Poiseuille equation (see main text) when assuming that the fluid is Newtonian and the flow incompressible and laminar.
+    Solving these equations can be problematic in complex geometries, for example, in a large network of vessels.
+  \item The Navier-Stokes equations simplify to the Hagen-Poiseuille equation (see main text) when assuming that the fluid is Newtonian and the flow incompressible and laminar.
     The Hagen-Poiseuille equation is relatively simple to solve, even on large vascular networks.
-  \item An incompressible fluid has a constant density regardless of the pressure, while the fluid isotropic if its properties are the same in all directions.
+  \item An incompressible fluid has a constant density regardless of the pressure, while a fluid isotropic if its properties are the same in all directions.
   \item A Newtonian fluid is one with a constant viscosity for given pressure and temperature, regardless of the amount of shear (the stress arising from the friction of fluid particles) it is subject to.
-  \item A Newtonian fluid flowing within a pipe is called laminar when fluid particles (e.g., red blood cells, blood plasma) move along smooth paths with no mixing between each path.
-    This kind of flow is opposed to turbulent flow, which appears when the velocity of the flow exceeds a threshold determined by a combination of the fluid's viscosity and density and the pipe's dimensions.
+  \item A Newtonian fluid flowing within a pipe is called laminar when fluid particles (e.g., red blood cells in blood plasma) move along smooth paths with no mixing between each path.
+    This kind of flow is opposed to turbulent flow, which appears when the velocity of the flow exceeds a threshold determined by a combination of the fluid's viscosity and density, and the pipe's dimensions.
   \item The propensity of a fluid to flow in laminar or turbulent fashion is summarised by the dimensionless (without physical units) Reynolds number. This number is the ratio of inertial forces to viscous forces.
   \item Laminar flows show a parabolic velocity profile across the pipe (or vessel) cross section, with peak velocity at the centre and null velocity at the walls.
   \item As demonstrated by F\r ahraeus and Lindqvist, viscosity decreases with vessel width as red blood cells align into a single file, as illustrated in Figure~\ref{fig:effectiveViscosity}\cite{Faahraeus_1931}.
@@ -540,14 +541,14 @@ Reliable measurement of blood flow or vessel radii in the choroid is more diffic
 \subsubsection{In health}
 
 Current understanding of perfusion in the retina has advanced significantly in recent decades.
-Inner retinal haemodynamics in particular have been studied extensively due to the relative ease of imaging this vasculature with OCT and fundus photography.
+Inner retinal haemodynamics in particular have been studied extensively due to the relative ease of imaging this vasculature with OCTA and fundus photography.
 Conversely, outer retinal haemodynamics (perfused by the choroidal circulation) are less well understood due to the difficulty in imaging these vessels.
 Below we review models that simulate perfusion and oxygen transport in healthy retinas.
 
 \begin{figure}[t!]
   \centering
   \includegraphics[width=\textwidth]{NetworkModels}
-  \caption{Different representations of the microvasculature in haemodynamics models. (\textbf A) An example of a dichotomous, symmetrical branching network similar to Takahashi et al.'s network~\cite{Takahashi_2009}. The radius of branching vessels follows Murray's law, namely, $r_1^\gamma = r_2^\gamma+r_3^\gamma$ where $r_1$ is the radius of the parent vessel, $r_1,r_2$ are the radii of the branching vessels and $\gamma$ is an exponent translating the fractal aspect of the vasculature. (\textbf{B}) An example of lumped parameter model where characteristics of the arterioles, capillaries and venules are summarized by resistance ($R_i$) and capacitance ($C_i$) parameters which may vary due to the action of external factors (e.g., changes in IOP (IOP)). Blood pressure ($P_i$) is defined at given nodes within and between vascular compartments. (\textbf{C}) An example of an artificial, realistic microvascular network of the macula generated by a constructive constraint optimization algorithm~\cite{Talou_2021}.}
+  \caption{Different representations of the microvasculature in haemodynamics models. (\textbf A) An example of a dichotomous, symmetrical branching network similar to Takahashi et al.'s network~\cite{Takahashi_2009}. The radius of branching vessels follows Murray's law, namely, $r_1^\gamma = r_2^\gamma+r_3^\gamma$ where $r_1$ is the radius of the parent vessel, $r_2$ and $r_3$ are the radii of the branching vessels and $\gamma$ is an exponent translating the fractal aspect of the vasculature. (\textbf{B}) An example of lumped parameter model where characteristics of the arterioles, capillaries and venules are summarised by resistance ($R_i$) and capacitance ($C_i$) parameters which may vary due to the action of external factors (e.g., changes in IOP). Blood pressure ($P_i$) is defined at given nodes within and between vascular compartments. (\textbf{C}) An example of an artificial, realistic microvascular network of the macula generated by a constructive constraint optimisation algorithm~\cite{Talou_2021}.}
   \label{fig:NetworkModels}
 \end{figure}
 
@@ -558,10 +559,10 @@ The diameter of the branching vessels follows the principle of least energy desc
 This theoretical model was used to describe the distribution of flow and other haemodynamic parameters across the normal retinal vasculature.
 While clinical studies often report changes in the diameter of large retinal vessels in various conditions, its relationship with total retinal blood flow, a clinically relevant parameter, is unclear.
 Takahashi et al.'s network has been adapted to further investigate the physiology of the retinal vessels, in conjunction with clinical experiments~\cite{Aschinger_2017,Pappelis_2020}.
-One of these studies showed that dilation of larger retinal vessels do not necessarily induce a change in total retinal blood flow~\cite{Aschinger_2017}.
+One of these studies showed that dilation of larger retinal vessels does not necessarily induce a change in total retinal blood flow~\cite{Aschinger_2017}.
 In fact, simulations of different vasodilation patterns suggested that the diameter of smaller vessels, which elude measurements, was the main determinant of blood flow~\cite{Aschinger_2017}.
 However, the validity of the modelling assumption that capillaries are able to vary their diameter remains unclear~\cite{Kur_2012}.
-Pappelis et al. used clinical information to create patient specific networks based on Takahashi et al.'s method~\cite{Pappelis_2020}.
+Pappelis et al. used clinical information to create patient-specific networks based on Takahashi et al.'s method~\cite{Pappelis_2020}.
 The model includes an autoregulation component as a function of retinal perfusion pressure (pressure entering the CRA, estimated as the difference between systemic blood pressure and IOP) and predicted the blood flow response to increases in IOP or drops in retinal perfusion pressure.
 This allowed prediction of the autoregulation capacities of retinas in patients treated for hypertension or in eyes subject to ocular hypertension.
 It showed that the retinas of both healthy and hypertensive patients were closer to the lower limit of autoregulation, suggesting that the retina may be more sensitive to decreases than to increases in perfusion~\cite{Pappelis_2020}.
@@ -571,21 +572,21 @@ It showed that the retinas of both healthy and hypertensive patients were closer
 
 Lumped parameter models have been used to investigate the relationships between intravascular and extravascular pressures and haemodynamics in the retina and choroid~\cite{Chiaravalli_2021,Fawzi_2019,Guidoboni_2014a,Nelson_2017,Petersen_2022,Prudhomme_2021,Sala_2020,Salerni_2019}.
 In these models, similar vessels are sorted into compartments, e.g., CRA, arterioles, capillaries, venules, CRV and choroid (see Figure~\ref{fig:NetworkModels}).
-The physical processes within compartments and the interactions between them are summarized by a small set of parameters.
+The physical processes within compartments and the interactions between them are summarised by a small set of parameters.
 By analogy with electrical circuits, the haemodynamics in each compartment are characterised by a resistance (the combined effect of the vascular resistance of a compartment's vessels) and a capacitance (the total amount of blood that can be stored in the same vessels).
 
 Lumped parameter models have been used to investigate the links between gravity-induced shifts in intracranial fluids, ocular fluids and pressures, and the loss of sight observed in astronauts~\cite{Nelson_2017,Petersen_2022,Salerni_2019}.
 Nelson et al. proposed a baseline model simulating increases in ocular pressures secondary to such fluid shifts~\cite{Nelson_2017}.
-The simplistic model predicted relatively well the response of IOP to changes in the gravitational environment or tilt of the body~\cite{Nelson_2017,Petersen_2022}.
+The simplistic model provided a relatively good prediction for the response of IOP to changes in the gravitational environment or tilt of the body~\cite{Nelson_2017,Petersen_2022}.
 A more comprehensive model including interacting brain, body and eye compartments showed that the retinal circulation was relatively spared from hypoperfusion compared to the choroidal circulation in microgravity conditions~\cite{Salerni_2019}.
-\textit{In silico} models are particularly useful when scarcity of subjects (e.g., astronauts) and difficulty to reproduce the environment (e.g., long periods in microgravity conditions) hinder experimental research since they necessitate relatively little data.
+\textit{In silico} models are particularly useful when scarcity of subjects (e.g., astronauts) and difficulty in reproducing an environment (e.g., long periods in microgravity conditions) hinder experimental research since they require relatively little data.
 
 \paragraph*{Autoregulation pathways}
 
 Several lumped parameter models have been developed to better understand the mechanisms behind autoregulation in physiological conditions~\cite{Arciero_2008,Arciero_2013,Guidoboni_2014a}.
 Arciero et al. developed two models using symmetric networks similar to Takahashi et al.'s to understand the information pathways leading to blood flow autoregulation in the retina~\cite{Arciero_2008,Arciero_2013}.
 Both models assumed that only arterioles possess the ability to contract and dilate to regulate flow.
-These models were used to investigate the response of individual and combined autoregulation pathways to changes in perfusion pressure or oxygen consumption rate of the cells.
+These models were used to investigate the response of individual and combined autoregulation pathways to changes in perfusion pressure or tissue oxygen consumption rate.
 Arciero's first model investigated the hypothesis that arterioles can contract in response to the oxygen saturation of blood in the downstream venules~\cite{Arciero_2008}.
 The study showed that this autoregulatory pathways could account for the experimentally observed response of perfusion to changes in consumption rates.
 This mechanism, along with responses to shear stress on the vessel walls and carbon dioxide concentrations, were modelled together in a subsequent study by Arciero~\cite{Arciero_2013}.
@@ -595,10 +596,10 @@ The results showed that the response of arterioles to carbon dioxide concentrati
 Guidoboni et al. considered the interplay between IOP, retinal haemodynamics, systemic blood pressure and autoregulation~\cite{Guidoboni_2014a}.
 Instead of the mechanistic description of autoregulation proposed by Arciero et al., they used an empirical response function of arteriole diameter to changes in perfusion pressure.
 % Another difference with previous work is the assumed capacity of the venules and central retinal vessels to dilate or collapse passively and, to some limited extent, in response to pressure gradients across their walls.
-The retinal haemodynamics of six types of physiology (high, normal or low blood pressure, with or without working retinal autoregulation) were simulated across a range of IOP.
-The model predicts the ranges of IOP within which each physiology can maintain relatively constant blood flow.
+The retinal haemodynamics of six types of physiology (high, normal or low blood pressure, with or without working retinal autoregulation) were simulated across a range of IOPs.
+The model predicts the IOP ranges within which each physiology can maintain relatively constant blood flow.
 Experimental studies to elucidate the relationship between IOP and retinal haemodynamics by artificially elevating or lowering IOP reached inconsistent conclusions\cite{Conway_2010,Findl_1997}.
-The dependence of these ranges to systemic blood pressure and autoregulation capacity, in combination with the small sample size in these studies may explain those inconsistencies~\cite{Guidoboni_2014a}.
+The dependence of these ranges on systemic blood pressure and autoregulation capacity, in combination with the small sample size in these studies may explain those inconsistencies~\cite{Guidoboni_2014a}.
 
 \paragraph*{Oxygen transport and spatial models}
 
@@ -609,16 +610,16 @@ This model reproduced the distribution of intravascular oxygen observed \textit{
 However, reproduction of the retinal vasculature is limited to larger vessels.
 Therefore, the use of artificial vasculatures (such as the one displayed in Figure~\ref{fig:NetworkModels}) with similar topological characteristics as the retinal vasculature may be useful to model the whole extent of the retinal vasculature.
 
-Causin et al. used the fractal similarity between retinal vessels and diffusion-limited aggregation processes to generate a three dimensional network of three of the vascular plexi of the retina~\cite{Causin_2015}.
+Causin et al. used the fractal similarity between retinal vessels and diffusion-limited aggregation processes to generate a three dimensional network of three of the retinal vascular plexi~\cite{Causin_2015}.
 Oxygen transport throughout the extensive vascular network was modelled as well as the oxygen delivery to the tissue (modelled as a rectangular slab).
-The good agreement with data validated the use of the artificial networks.
+Good agreement with data validated the use of artificial networks.
 The effects of haemodynamic parameters on different parts of the tissue and the vasculature were analysed, demonstrating, among other things, the sensitivity of retinal ganglion cell layer perfusion to blood viscosity and metabolic consumption~\cite{Causin_2015}.
 
 Several other studies have used vessels reproduced from images to analyse the distribution of blood flow and the influence of the morphology~\cite{Malek_2014,Malek_2015,Rebhan_2019}.
 The use of realistic vascular networks provides a link between haemodynamics and clinically relevant indices.
 The effect of tortuosity has been investigated on short, segmented sections of the retinal veins~\cite{Malek_2014}.
-Malek et al. tried to characterise the flow distribution in reproduced arterioles and veins to quantify the impact of vessel tortuosity (a measure of how much a vessel differs from a straight line) on haemodynamic parameters~\cite{Malek_2014,Malek_2015}.
-The Navier-Stokes equations are used to find flow within the arterioles, while peripheral circulation is accounted for by an impedance condition at the outlets of the segmented tree.
+Malek et al. characterised the flow distribution in reproduced arterioles and veins to quantify the impact of vessel tortuosity (a measure of how much a vessel differs from a straight line) on haemodynamic parameters~\cite{Malek_2014,Malek_2015}.
+The Navier-Stokes equations were used to find flow within the arterioles, while peripheral circulation was accounted for by an impedance condition at the outlets of the segmented tree.
 The deformation of vessels caused by the pulse of blood is a computationally complex task to model and a simplified model has been developed and applied to a similar reproduction of the retinal vasculature, with a brief analysis of its effects on haemodynamics~\cite{Aletti_2016}.
 Notably, Rebhan et al. have considered the interactions of retinal haemodynamics and tissue stress using reproductions of the large vessels of healthy and diseased eyes, an aspect previously overlooked that may have importance in, e.g., glaucoma and diabetes~\cite{Rebhan_2019}.
 
@@ -626,22 +627,21 @@ Notably, Rebhan et al. have considered the interactions of retinal haemodynamics
 \textit{In silico} models have also been developed to understand how the retinal vasculature develops.
 Some of these models have been reviewed previously~\cite{Arciero_2019,Roberts_2016}.
 However, the role of haemodynamics in angiogenesis of the vascular beds is still elusive.
-Bernabeu et al. proposed a model of blood flow in a reconstructed murine vasculature that can be used to simulate the haemodynamics forces that cannot be measured in small capillaries but may affect angiogenesis~\cite{Bernabeu_2014}.
+Bernabeu et al. proposed a model of blood flow in a reconstructed murine vasculature that can be used to simulate the haemodynamic forces that cannot be measured in small capillaries but may affect angiogenesis~\cite{Bernabeu_2014}.
 Others looked at how the branching patterns in the early development of the murine retina may affect later development~\cite{Mirzapour_Shafiyi_2021}.
-The results showed that hyper-branching behaviours in the young vascular bed reduces the blood supply, and hence the oxygen, at the growing ends of the vasculature.
+The results showed that hyper-branching behaviours in the young vascular bed reduces the blood supply, and hence the oxygen supply, at the growing ends of the vasculature.
 The lack of oxygen on this front may drive up-regulation of vascular growth factors promoting vascular growth.
 
 
 \paragraph*{Haemodynamics in the central retinal vessels}
 
 Others have used finite element modelling, a technique suitable for modelling of mechanistic forces, to understand the blood flow in the central retinal vessels~\cite{Guidoboni_2014,Jin_2020}.
-The central retinal vessels enter the retina along the optic nerve where they are under pressure from the surrounding tissue, the cerebrospinal fluid surrounding the eye, the IOP and, potentially, the artery and vein may also compress each other~\cite{Nickells_2012}.
-The lamina cribrosa's purpose is to act as a buffer protecting the vessels where the pressures described above interact.
+The central retinal vessels (artery and vein) enter the retina along the optic nerve where they are under pressure from the surrounding tissue, cerebrospinal fluid and IOP, while the artery and vein may also compress each other~\cite{Nickells_2012}.
+The lamina cribrosa's purpose is to act as a buffer, protecting the vessels where the pressures described above interact.
 Guidoboni et al. simulated the displacement of the lamina cribrosa and the stress due to changes in IOP and pressure induced by the cerebrospinal fluid~\cite{Guidoboni_2014}.
 The simulation of blood flow in the CRA showed good agreement with measurements made during IOP elevation, suggesting that the observed decrease in blood flow velocity is caused by the lamina cribrosa compressing the artery.
 Note that this model assumed a constant blood pressure, averaging the systolic and diastolic blood pressures.
-Pulsatility may have a significant impact on IOP and, consequently, blood flow in the central retinal vessels and has been investigated within a more comprehensive model of the ocular structures~\cite{Jin_2020}.
-
+Pulsatility may have a significant impact on IOP and, consequently, blood flow in the central retinal vessels, and has been investigated within a more comprehensive model of the ocular structures~\cite{Jin_2020}.
 
 Whether the vascular plexi in the retina, namely, the SVP, ICP and DCP, are connected \textit{in series} or \textit{in parallel} is still unclear.
 The \textit{in parallel} configuration supposes that both arterial and venous connections exist between plexi.
@@ -652,7 +652,7 @@ The authors modelled both configurations and compared the responses of each plex
 The model showed that the \textit{in series} configuration better captured the response observed in clinical studies, and may better describe the actual physiology of the retinal vasculature.
 
 \paragraph*{Choroidal circulation}
-While the inner retinal vasculature feeds the inner third of the retina, the remaining two thirds are perfused by the choroidal circulation.
+While the inner retinal vasculature feeds the inner two thirds of the retina, the remaining third is perfused by the choroidal circulation.
 The CC (see Figure~\ref{fig:architecture-eye}) provides oxygen across BrM to the photoreceptors and other neuronal cells of the outer retina through diffusion only.
 Therefore, a high vascularisation is necessary to provide enough oxygen despite the distance.
 Defects in choroidal blood flow are associated with major retinopathies such as nAMD and DR~\cite{Pemp_2008}.
@@ -673,7 +673,7 @@ In disease, the haemodynamics of the retinal circulations may change drastically
 \paragraph*{Models of pathological geometries} 
 
 Rebhan et al. compared haemodynamics in a model of vascular networks segmented from a healthy eye and eyes affected by glaucoma or diabetes~\cite{Rebhan_2019}.
-The embedding of vessels in tissue revealed an increase in wall shear stress in diseased eyes compared with the healthy one.
+The embedding of vessels in tissue revealed an increase in wall shear stress in diseased eyes compared with an healthy eye.
 However, it was noted by Rebhan et al. that the absence of downstream vasculature is likely to affect the quality of predictions~\cite{Rebhan_2019}.
 Along the same lines, higher vascular tortuosity, a common sign of aging and disease, has been shown computationally to increase the pressure drop across the vasculature~\cite{Malek_2014}.
 However, vessel-tissue interactions were not considered in the model.
@@ -699,13 +699,13 @@ This environment allows haemodynamics simulations of individual patients charact
 Results showed that high IOP can cause collapse of the CRV and major differences in the displacement of the lamina cribrosa.
 Interestingly, it showed that the perfusion of the lamina cribrosa is also negatively affected by ocular hypertension, a potentially significant mechanism in the understanding of glaucoma~\cite{Sala_2020}.
 Perfusion and haemodynamics within the lamina cribrosa have been modelled separately using a large number of artificial capillary networks statistically representative of different morphologies of the lamina cribrosa~\cite{Chuangsuwanich_2016}.
-For a review of the use mathematical models in glaucoma research, we refer the reader to the review by Harris et al~\cite{Harris_2013}.
+For a review of the use of mathematical models in glaucoma research, we refer the reader to the review by Harris et al~\cite{Harris_2013}.
 
 \paragraph*{Models of diabetic retinopathy}
 
 Microaneurysms are an early manifestation of DR where the walls of capillaries form outpouchings disrupting blood flow and rendering them susceptible to rupture.
 We found four studies investigating haemodynamics in reconstructed microaneurysms using computational fluid dynamics models~\cite{Bernabeu_2018,Czaja_2022,Li_2020,Li_2022}.
-Bernabeu et al. considered the shape of microaneurysms and how it influences haemodynamics, and in particular shear rates, in an attempt to determine predictors of the likelihood of leaking blood clotting~\cite{Bernabeu_2018}.
+Bernabeu et al. considered the shape of microaneurysms and how this influences haemodynamics, and in particular shear rates, in an attempt to determine predictors of the likelihood of leaking blood clotting~\cite{Bernabeu_2018}.
 Similarly, Czaja et al. investigated wall shear stress in microaneurysms in the event of stiffened red blood cells, another symptom of diabetes~\cite{Czaja_2022}.
 A notable difference with the previous model is the use of cell-resolved blood flow simulations, where individual cells are modelled and transported by blood flow.
 This allowed separate investigation of red blood cell and platelet flows, demonstrating the differences in penetration through the microaneurysm between the two cell types.
@@ -716,14 +716,14 @@ Panretinal photocoagulation therapy is a common procedure to treat ischaemia in 
 While practice has shown the efficiency of the procedure, its mechanisms of action remain unclear.
 It is thought that the procedure acts by reducing the oxygen consumption of the photoreceptors affected by the laser-induced burn~\cite{Fawzi_2019,Gast_2016}.
 However, effects of the therapy on blood flow have been observed~\cite{Fawzi_2019}.
-With a simple lumped parameter model and the assumption that panretinal photocoagulation increases vascular resistance in the periphery of the macula, Fawzi et al. showed how the surgery could increase macular blood flow~\cite{Fawzi_2019}.
-The increased perfusion in the macula would then explain the decrease in VEGF concentrations and the subsequent regression of neovasculature.
+Fawzi et al. used a simple lumped parameter model to show how surgery could increase macular blood flow, under the assumption that panretinal photocoagulation increases vascular resistance in the periphery of the macula~\cite{Fawzi_2019}.
+Increased perfusion in the macula would then explain the decrease in VEGF concentrations and the subsequent regression of neovasculature.
 The model predictions are consistent with the seemingly increased flow in macular capillaries~\cite{Fawzi_2019}.
 The burn patterns used in panretinal photocoagulation are also subject to debate.
 Gast et al. investigated the effects of different patterns on the propagation of ischaemia due to capillary occlusion~\cite{Gast_2016}.
 The model showed how different burn patterns affect the propagation of ischaemia and suggested that targeting the non-ischaemic peripheral retina with appropriate patterns may be effective at containing it.
 
-\subsection{Anti-VEGF therapy in nAMD and DR}\label{sec:Anti-VEGF}
+\subsection{Anti-VEGF therapy in neovascular AMD and diabetic retinopathy}\label{sec:Anti-VEGF}
 
 \begin{figure}[t!]
   \centering
@@ -733,7 +733,7 @@ The model showed how different burn patterns affect the propagation of ischaemia
 \end{figure}
 
 The treatment of neovasculature in proliferative DR and nAMD takes the form of frequent injections of VEGF-inhibiting molecules that bind to the free VEGF present in the retina, ultimately inhibiting the angiogenic process.
-Anti-VEGF drugs are injected directly in the vitreous humour though alternative delivery techniques are being investigated~\cite{Kim_2021}.
+Anti-VEGF drugs are injected directly in the vitreous humour, though alternative delivery techniques are being investigated~\cite{Kim_2021}.
 
 Molecules present in the vitreous are naturally eliminated through the aqueous humour flow, referred to as the anterior clearance route.
 The posterior clearance route refers to clearance through the choroidal circulation.
@@ -759,7 +759,7 @@ This section is dedicated to computational models of VEGF and its inhibitors, bo
 \paragraph*{Compartmental PK/PD models}
 
 Often in PK analysis of ocular or systemic fluid, the half-life of a molecule is estimated by fitting exponentially decaying curves to the data in order to compute the total exposure to the drug (area under the concentration-time curve) and maximal concentration~\cite{Bakri_2007, Kaiser_2019, Park_2015, Park_2016, Xu_2013}.
-This assumes that the clearance rate of molecules in the eye is proportional to their concentration at all times and ignores potential effects of interactions with the tissue or the presence of multiple clearance pathways (e.g., the aqueous humour outflow and the choroid circulation).
+This assumes that the clearance rate of molecules in the eye is proportional to their concentration at all times and ignores potential effects of interactions with the tissue or the presence of multiple clearance pathways (e.g., the aqueous humour outflow and the choroidal circulation).
 Understanding the determinants of the PK of anti-VEGF molecules in the eye is essential to develop more effective molecules and such simple models do not provide this kind of insight.
 
 Mechanical models can be used to determine the \textit{in vivo} value of drug or biological parameters (e.g., binding affinity or permeability coefficients), which may differ from \textit{in vitro} values~\cite{HuttonSmith_2016}.
@@ -788,7 +788,7 @@ However, an \textit{in silico} model of an \textit{in vitro} setup on the RPE su
 
 \paragraph*{Finite element PK models}
 
-While insightful on the relationship between ocular availability and molecular characteristics, compartmental models assume that VEGF, anti-VEGF and their bindings are well-mixed within each compartment.
+While insightful on the relationship between ocular availability and molecular characteristics, compartmental models assume that VEGF, anti-VEGF and their compounds are well-mixed within each compartment.
 However, ocular fluid flow can impact the delivery of drug to the retina.
 Flows may be influenced by the structure of the eye and may differ strongly between species.
 A number of groups have developed finite element models of the eye, adding the contributions of ocular fluids, structure, heat and gravity to the PK analysis~\cite{Lamminsalo_2018, Missel_2012, Zhang_2018}.
@@ -807,8 +807,8 @@ By accurately modelling the eye of different species, including humans, they aim
 Lamminsalo et al. used the geometry of the rabbit eye designed by Missel et al. to investigate the contributions of anterior (through the aqueous humour outflow) and posterior (through the choroidal circulation) routes in the clearance of intravitreally injected macromolecules similar to anti-VEGF molecules~\cite{Lamminsalo_2018}.
 Their model suggested that only \SIrange[range-units = single]{5}{24}{\percent} of the injected drugs are eliminated through the retina, in accordance with previous modelling work~\cite{HuttonSmith_2017}.
 However, this percentage increases with IOP, which might elevate with age and other systemic variables~\cite{Armaly_1967,Baek_2015,Hashemi_2005}.
-Furthermore, the diffusion rates of the injected molecules through the retina, the RPE and BrM are not yet clear and may influence the posterior clearance rates.
-In later work, the group extended the previous model to estimate the diffusion coefficients in those tissues using \textit{in vivo} PK data and found an RPE permeability similar to the one found by Hutton-Smith et al.~\cite{HuttonSmith_2017, Lamminsalo_2020}.
+Furthermore, the diffusion rates of the injected molecules through the retina, RPE and BrM are not yet clear and may influence the posterior clearance rates.
+In later work, the group extended their earlier model to estimate the diffusion coefficients in those tissues using \textit{in vivo} PK data and found an RPE permeability similar to the one found by Hutton-Smith et al.~\cite{HuttonSmith_2017, Lamminsalo_2020}.
 
 \paragraph*{Models of treatment outcome}
 
@@ -817,8 +817,8 @@ These models can be compared directly with clinical trials and, potentially, can
 
 Using a compartmental modelling approach, Hoyle and Aslam showed that their model could reproduce the results from landmark studies of anti-VEGF therapy in nAMD~\cite{Hoyle_2017}.
 
-Mulyukov et al. attempted to model the response to therapy in terms of visual acuity with a mixed effect model~\cite{Mulyukov_2018}.
-The model was calibrated on a large dataset compiled from various clinical trials and captures the average trends of treatment response without using any patient specific information other than visual scores and treatment strategy~\cite{Mulyukov_2018}.
+Mulyukov et al. attempted to model the response to therapy in terms of visual acuity with a mixed effects model~\cite{Mulyukov_2018}.
+The model was calibrated on a large dataset compiled from various clinical trials and captures the average trends of treatment response without using any patient-specific information other than visual scores and treatment strategy~\cite{Mulyukov_2018}.
 
 Building on this, Edwards et al. added the buildup of tolerance to the drugs and its effect on visual outcome, using spatial and non-spatial models~\cite{Edwards_2020}.
 After fitting the model-specific parameters, both models show good agreement with the observations from the clinical studies.
@@ -826,12 +826,12 @@ However, the spatial model showed better performance at predicting the treatment
 
 
 
-\section{Retinal oxygenation, retinitis pigmentosa \& non-neovascular AMD}\label{Sec_Ox_RP_non-nAMD}
+\section{Retinal oxygenation, retinitis pigmentosa and non-neovascular AMD}\label{Sec_Ox_RP_non-nAMD}
 %
 %
 \subsection{Retinal oxygenation}\label{Sec_Oxygen}
 %
-The retina is one of the most oxygen hungry tissues in the body (per gram of tissue)~\cite{Anderson_1968,Anderson_and_Saltzman_1964,Yu_and_Cringle_2001,W-Wirawan_and_Linsenmeier_2003}. As described in Section~\ref{sec:RetinalPhysiology}, it has a substantial vasculature to meet this need; nonetheless, supply and demand are finely balanced. It is therefore important to understand how this balance is maintained, and the ways in which it may be dysregulated in diseases such as RP and non-nAMD (see Sections \ref{Sec_RP} and \ref{Sec_non-nAMD}).
+The retina is one of the most oxygen hungry tissues in the body (per gram of tissue)~\cite{Anderson_1968,Anderson_and_Saltzman_1964,Yu_and_Cringle_2001,W-Wirawan_and_Linsenmeier_2003}. As described in Section~\ref{sec:BloodSupplyRetina}, it has a substantial vasculature to meet this need; nonetheless, supply and demand are finely balanced. It is therefore important to understand how this balance is maintained, and the ways in which it may be dysregulated in diseases such as RP and non-nAMD (see Sections \ref{Sec_RP} and \ref{Sec_non-nAMD}).
 
 Two key techniques are frequently employed to measure retinal oxygenation. First, oxygen-sensitive microelectrodes can be used to measure the partial pressure of oxygen (PO$_2$), creating a spatially detailed profile through the depth of the retinal tissue~\cite{Linsenmeier_and_Zhang_2017}. Since this technique is invasive, it can only be employed in animal models. Second, oximetry can be used to measure the oxygen saturation of haemoglobin in the retinal vasculature~\cite{Linsenmeier_and_Zhang_2017}. As a non-invasive technique, this can be employed in both animals and humans.
 
@@ -839,7 +839,7 @@ Mathematical modelling of retinal oxygenation has great value. It enables us to 
 
 A range of mathematical models have been developed to explore various aspects of retinal oxygenation. The most common approach is to model the 1D oxygen profile through the retinal depth using spatial ODE models, accounting for variations in oxygen supply and demand between layers (utilising anywhere between 1 and 8 model layers~\cite{Braun_et_al_1995,Cringle_and_Yu_2002,Dollery_et_al_1969,Haugh_et_al_1990,Linsenmeier_1986,Stefansson_1988}). These models have the advantage of being analytically tractable and can easily be fitted to microelectrode data. They can also be extended to incorporate other biomolecules such as neuroglobin, which has been suggested to play a role in enhancing oxygenation by transporting and storing oxygen~\cite{Fago_et_al_2004_b,Roberts_et_al_2016a}.
 
-A similarly simple approach is to model each layer as a separate 0D compartment, predicting the evolving oxygen concentration in each compartment using time-dependent ODEs (see~\cite{German_et_al_2021} who also model nitric oxide concentrations).
+A similarly simple approach is to model each layer as a separate 0D compartment, predicting the evolving oxygen concentration in each compartment using time-dependent ODEs (see German et al.~\cite{German_et_al_2021} who also model nitric oxide concentrations).
 
 More complex models also exist, extending into higher spatial dimensions (2D/3D) and/or incorporating more explicit representations of retinal vasculature, and blood flow mechanics and regulation (see Figure~\ref{Fig_Fry2020}, see also Section~\ref{Sec_non-nAMD} for models relevant to non-nAMD)~\cite{Aquah_et_al_2021,Arciero_et_al_2021,Causin_2015,Friedland_1978,Fry_et_al_2018,Fry_et_al_2020,Linsenmeier_and_Zhang_2017,McDougall_et_al_2012,Watson_et_al_2012}.
 These models are more computationally expensive than those described above; however, they have the advantage of more faithfully representing retinal physiology, and have the potential, in time, to be used in personalised medicine.
@@ -859,9 +859,9 @@ Retinitis pigmentosa is a term used to denote a group of inherited retinal disea
 
 Rods degenerate because either they or the underlying RPE express a mutant gene; however, cones do not typically express a mutant RP gene, so the cause of cone death is unclear~\cite{Daiger_et_al_2007,Ferrari_et_al_2011,Hamel_2006,Hamel_2007,Hartong_et_al_2006,Roosing_et_al_2014}. Five complementary mechanisms have been proposed to explain secondary cones loss: 1.\ oxygen toxicity~\cite{Stone_et_al_1999,Travis_et_al_1991,Valter_et_al_1998}, 2.\ trophic factor depletion~\cite{Chalmel_et_al_2007,Leveillard_et_al_2004,Ait-Ali_et_al_2015}, 3.\ metabolic dysregulation~\cite{Punzo_et_al_2009,Punzo_et_al_2012}, 4.\ toxic substance release~\cite{Ripps_2002} and 5.\ microglia activation~\cite{Gupta_et_al_2003}. Thus far, mathematical models have been developed to explore the first four of these mechanisms. These studies demonstrate an important strength of mathematical modelling, namely its utility in isolating mechanisms in ways that would be difficult, if not impossible, experimentally.
 
-Roberts et al. have developed reaction-diffusion PDE models for the oxygen toxicity (1D and 2D~\cite{Roberts_et_al_2017,Roberts_et_al_2018a}) and trophic factor (1D~\cite{Roberts_2022a,Roberts_2022b}) hypotheses.
+Roberts et al. have developed reaction-diffusion PDE models for the oxygen toxicity (1D and 2D)~\cite{Roberts_et_al_2017,Roberts_et_al_2018a} and trophic factor (1D)~\cite{Roberts_2022a,Roberts_2022b} hypotheses.
 These models were the first to formally address the long-unanswered question as to which spatio-temporal patterns of retinal degeneration (and hence visual field loss), characteristically observed in RP patients, these mechanisms are capable of generating.
-It was found that oxygen toxicity may account for a subset of these patterns (see Figure~\ref{Fig_Roberts2018}~\cite{Roberts_et_al_2017,Roberts_et_al_2018a}), while, under the simplest of assumptions, the trophic factor mechanism was unable to account for any of them~\cite{Roberts_2022a}.
+It was found that oxygen toxicity may account for a subset of these patterns (see Figure~\ref{Fig_Roberts2018})~\cite{Roberts_et_al_2017,Roberts_et_al_2018a}, while, under the simplest of assumptions, the trophic factor mechanism was unable to account for any of them~\cite{Roberts_2022a}.
 Relaxing some of these assumptions, in particular, allowing the mutation-induced rod degeneration rate and cone susceptibility to trophic factor depletion to vary spatially, an inverse problem was solved, identifying biologically realistic conditions under which trophic factor depletion could recapitulate known patterns of retinal degeneration~\cite{Roberts_2022b}.
 These models were also used to determine the conditions under which patches of retinal degeneration will expand or remain stable, and to predict the effects of treatment with antioxidants and trophic factors~\cite{Roberts_2022a,Roberts_et_al_2017,Roberts_et_al_2018a}.
 %
@@ -869,7 +869,7 @@ These models were also used to determine the conditions under which patches of r
 \begin{center}
 \includegraphics[scale=0.24]{Roberts_et_al_2018_Fig_5_a}
 \end{center}
-\caption{Exemplar spatio-temporal pattern of rod degeneration in RP, generated by the oxygen toxicity mechanism (the cone degeneration pattern is identical). The model replicates a classic pattern of retinal degeneration in RP, incorporating degeneration expanding inwards from the retinal periphery (ora serrata) and outwards from the parafoveal/perifoveal region. Figure reproduced, with permission, from \citet{Roberts_et_al_2018a}.}
+\caption{Exemplar spatio-temporal pattern of rod degeneration in RP, generated by the oxygen toxicity mechanism (the cone degeneration pattern is identical). The model replicates a classic pattern of retinal degeneration in RP, incorporating degeneration expanding inward from the retinal periphery (ora serrata) and outward from the parafoveal/perifoveal region. Figure reproduced, with permission, from \citet{Roberts_et_al_2018a}.}
 \label{Fig_Roberts2018}
 \end{figure}
 %
@@ -918,7 +918,7 @@ Thus, this section will focus on models that were not covered in said review.
 Here, we focus more specifically on models aimed at understanding and optimising the surgical procedure of injecting drugs in the vitreous humour and how the outcome may be affected by the eye's characteristics.
 
 The effects of injection parameters such as needle shape, angle of insertion and speed of injection may affect the delivery of drug to the retina and are hard to assess \textit{in vivo}.
-Several models have been developed to identify those effects using finite element meshes which realistically capture the geometry of the eye.
+Several models have been developed to identify these effects using finite element meshes which realistically capture the geometry of the eye.
 Some studies assume the initial dose to be spherical with drug concentration equal to the dose~\cite{Friedrich_1997,Friedrich_1997a}.
 In these studies, the initial location of the dose was demonstrated to affect the the time taken to clear the drug from the vitreous by almost four-fold for the configurations tested~\cite{Friedrich_1997}.
 However, flow in the vitreous was neglected.
@@ -928,24 +928,24 @@ Needle type, injection speed and needle penetration angle were accounted for to 
 In this model, the drug was transported by flows in the vitreous as well as by diffusion.
 Furthermore, injection parameters affected the shape of the initial drug distribution, although the needle was not modelled explicitly.
 The model showed significant sensitivity to the injection parameters on the exposure of the macula to the drug.
-Slower injections and larger needle gauge were shown to increase the concentration peak at the macula by an order of magnitude compared to a model assuming a spherical initial distribution of the dose.
+Slower injections and larger needle gauge were shown to increase the concentration peak at the macula by an order of magnitude compared to a model assuming a spherical initial dose distribution.
 Unsurprisingly, penetration angle strongly affects the concentration peak --- by up to \SI{80}{\percent} at the macula~\cite{Jooybar_2014}.
 This model showed the importance of considering advective transport of intravitreally injected drugs. 
 
 Injection parameters may also influence the risks of complications due to the procedure.
-By modelling the eye, the needle and their mechanical interactions, including deformation of the cornea, it was found that an angle of \SI{45}{\degree} between the needle and the optical axis was ideal to minimize complications~\cite{Karimi_2018}.
+By modelling the eye, the needle and their mechanical interactions, including deformation of the cornea, it was found that an angle of \SI{45}{\degree} between the needle and the optical axis was ideal to minimise complications~\cite{Karimi_2018}.
 To draw this conclusion, the authors assumed that post injection complications were correlated with the maximal principal stress, namely the normal stress on a plane subject to no shear stress.  
 The increased stress caused by insertion angles closer to the vertical or horizontal axis seem to correlate with experiments which reported more injuries at those angles~\cite{Karimi_2018}.
 
 The aging vitreous humour undergoes changes causing its liquefaction~\cite{Los_2003}.
 Furthermore, in disease, vitrectomy may be performed to replace the vitreous humour by a substitute gel or oil in order to lower pathological traction at the interface with the retina~\cite{Dervenis_2022}.
-Alterations in the properties of the vitreous humour, or its substitutes, has been investigated computationally with finite element models, where drug transport is modelled by advection-diffusion equations~\cite{Kathawate_2008,Modareszadeh_2012}.
+Alterations in the properties of the vitreous humour, or its substitutes, have been investigated computationally with finite element models, where drug transport is modelled by advection-diffusion equations~\cite{Kathawate_2008,Modareszadeh_2012}.
 Point sources for the injection of the dose are used in these studies.
 The earliest model investigated the possibility of toxic levels of drugs in the retina~\cite{Kathawate_2008}.
 The model showed that the exposure of the retina increases strongly in configurations with low diffusivity of the drug and low viscosity of the vitreous substitute, due to convection overtaking diffusion~\cite{Kathawate_2008}.
-Shifts to predominantly convective transport of drug have been showed to occur due to saccadic movements typical of vitrectomised eyes~\cite{Modareszadeh_2012}.
+Shifts to predominantly convective transport of drug have been shown to occur due to saccadic movements typical of vitrectomised eyes~\cite{Modareszadeh_2012}.
 The finite element model showed that higher movement amplitude hastens the spread of the drug within vitreous humour substitutes.
-While homogenisation of drug concentration was reported to happen on a time scale of days, this may reduce to the order of minutes in vitrectomised eyes~\cite{Modareszadeh_2012}.
+While homogenisation of drug concentration was reported to occur on a time scale of days, this may reduce to the order of minutes in vitrectomised eyes~\cite{Modareszadeh_2012}.
 Furthermore, it was shown that the diffusion coefficient of the drug had limited impact on its spread in the vitreous after the first few minutes~\cite{Modareszadeh_2012}.
 
 More recently, saccadic movement effects on intravitreally injected drugs have been simulated in a vitreous liquefied with age~\cite{Ferroni_2020}.
@@ -975,7 +975,7 @@ In contrast, the hydrogel properties tested did not show a significant effect on
 
 Recently, a PK model specific to anti-VEGF molecules in the vitreous and aqueous humour, released from degrading spheres, has been simulated and validated against experimental data~\cite{Heljak_2022}.
 Note that, unlike some of the PK models of anti-VEGF described in the previous section, these models did not ignore convective transport in the vitreous or the other ocular tissues.
-Rather, these tissues are considered as porous mediums through which transport is driven by diffusion and a pressure gradient between the IOP in the anterior part of the eye and the lower pressure at the sclera~\cite{Ferreira_2020,Ferreira_2018,Heljak_2022,Khoobyar_2021,Li_2022a}.
+Rather, these tissues are considered as porous media through which transport is driven by diffusion and a pressure gradient between the IOP in the anterior part of the eye and the lower pressure at the sclera~\cite{Ferreira_2020,Ferreira_2018,Heljak_2022,Khoobyar_2021,Li_2022a}.
 In their noteworthy study, Khoobyar et al. determine the depletion of drug from an implant~\cite{Khoobyar_2022}.
 Through rigorous mathematical analysis of a simplified drug transport model, they derived an analytical formulation for the estimated half-life of an implant in the vitreous which depends on the ratio of convective mass transfer to diffusivity.
 However, this estimate is valid only when diffusive transport dominates over convective transport.
@@ -985,7 +985,7 @@ However, this estimate is valid only when diffusive transport dominates over con
 The same equations can be used to describe the transport of molecules from the sclera to the vitreous, a scenario corresponding to implants inserted on the outer surface of the sclera.
 The case of a drug diffusing through such an implant to enter the sclera, later reaching the choroid and retina, was modelled \textit{in silico} recently~\cite{Abootorabi_2021}.
 The clearance through choroidal and retinal circulation was accounted for and simulations showed very good agreement with data.
-The model revealed the influence of the implants porosity on the controlled release of drugs and suggested parameters that could be tailored to individual needs~\cite{Abootorabi_2021}.
+The model revealed the influence of implant porosity on the controlled release of drugs and suggested parameters that could be tailored to individual needs~\cite{Abootorabi_2021}.
 Kotha and Murtom\"aki also modelled drug release from a scleral implant, with the difference that choroidal blood flow was modelled explicitly~\cite{Kotha_2014}.
 The influence of diffusion coefficients in the sclera as well as the permeation coefficients regulating exchanges between each layer of tissue were quantified and demonstrated complex relationships between the parameters and the efficacy of the implant.
 
@@ -1001,7 +1001,7 @@ Despite this evidence, active transport across the RPE has generally been neglec
 \subsection{Subretinal, periocular and systemic administration}
 
 While accumulating evidence suggests otherwise, the retina and the eye in general are thought to be isolated from systemically injected drugs, on account of the numerous biological barriers separating the eye and retina from the rest of the body.
-Therefore, systemic, or intravenous, administration of drugs for treatment of retinal pathologies remain uncommon.
+Therefore, systemic or intravenous administration of drugs for treatment of retinal pathologies remain uncommon.
 Accordingly, few modelling works have been published on the matter.
 However, understanding of the PK of intravenously injected drugs remains of interest since harmful effects on the retina have been reported~\cite{Fu_2017}.
 
@@ -1029,7 +1029,7 @@ Similar work modelling injections of anti-VEGF molecules into the space between 
 However, it may still play a role for smaller molecules such as the fluorescent protein simulated in the previous model~\cite{Gabhann_2007}.
 
 Of potential interest to the reader are two models of topical delivery and spray systems~\cite{Mori_2017,Nweze_2020}.
-Modelling work of these techniques remains scarce but the growing interest for, e.g., cell and gene therapy may motivate modellers in the coming years.
+Modelling work of these techniques remains scarce but the growing interest in cell and gene therapy may motivate modellers in the coming years.
 
 
 
@@ -1077,7 +1077,7 @@ Virtual population generation is a nascent and rapidly developing field. In esse
 
 One simple method of generating VPs is to assume a Gaussian distribution for each model parameter that will be patient specific. 
 For each patient, a parameter value will be drawn from these Gaussian distributions to represent that patient~\cite{Gaffney2022, Jenner2021}. 
-The mean and standard deviation of the parameters can be adjusted to match empirically observed data either manually or through optimization~\cite{Alfonso2020}. Often, these patient parameters are not independent of each other – for example, sex and height are correlated. Therefore, more complex sampling strategies that maintains the relationships between patient parameters have been developed.
+The mean and standard deviation of the parameters can be adjusted to match empirically observed data either manually or through optimisation~\cite{Alfonso2020}. Often, these patient parameters are not independent of each other – for example, sex and height are correlated. Therefore, more complex sampling strategies that maintains the relationships between patient parameters have been developed.
 
 Bayesian statistics have been used extensively to generate patient parameter populations for the purpose of ISCTs. Haddad et al. generated VPs using a Bayesian framework for augmenting clinical trials, demonstrating decreased sample size and trial length would be required for the real-world trial when using these VPs~\cite{Haddad2017a}. For warfarin patients, a Bayesian model was used to generate VPs from a pre-defined dataset~\cite{Fusaro2013}. Other methods that have been used to generate VPs include vine copulas to generate virtual stroke populations~\cite{Miller2021}. Pezoulas et al. also used tree-based methods (supervised and unsupervised) to generate VPs for cardiomyopathy drug development~\cite{Pezoulas2020} but found that Gaussian Mixture Models with Variational Bayesian Inference outperformed supervised tree ensembles when comparing the VPs to the data~\cite{Pezoulas2021}.
 
