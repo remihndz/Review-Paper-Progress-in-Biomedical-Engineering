@@ -1047,7 +1047,7 @@ Figure~\ref{fig:ISCT} depicts a general schematic of how an ISCT might run for n
 
 \begin{figure}[t!]
   \centering
-  \includegraphics[width=1\textwidth, height=9.3cm]{Fig_sec_8.png}
+  \includegraphics[width=.8\textwidth, height=17.3cm]{Fig_sec_8.png}
   \hfill
   \caption{Schematic of a generic ISCT with an example of nAMD drug testing. 1) \textit{In silico} model development of disease with validation loop linked to patient data. 2) \textit{In silico} model development of intervention with validation loop linked to \textit{in vitro} and \textit{in vivo} data. 3) Virtual population generation using the disease model parameters. 4) ISCT run on intervention and control arms with appropriate outcomes and analysis.}
   \label{fig:ISCT}
@@ -1062,22 +1062,22 @@ This model will usually simulate a disease, for example nAMD~\cite{Hoyle_2017}.
 The intervention is then also simulated, in this case anti-VEGF therapies. 
 Both the disease model and intervention model must be validated against \textit{in vitro} or \textit{in vivo} data in order to be used in an ISCT (Figure~\ref{fig:ISCT}).
 
-Examples of disease/intervention models that have been developed include coronary stent models for occlusive heart diseases~\cite{Antonini2021, Berti2021}, insulin control algorithms in Type 1 diabetes~\cite{Kovatchev2009}, non-pharmaceutical interventions on respiratory tract interventions~\cite{Arsene2022}, bone morphogenetic treatment in paediatric orphan bone disease~\cite{Carlier2018}, anaemia treatment in haemodialysis patients~\cite{Fuertinger2018}, warfarin in atrial fibrillation patients~\cite{Ravvaz2017}, cancer vaccines on lymph node cancers~\cite{Gaffney2022}, targeted delivery of drugs in patients with covid-induced pneumonia~\cite{Wang2022}, mematine treatment of Alzheimer’s disease~\cite{Swietlik2022}, flow diverters in intracranial aneurysms~\cite{SarramiForoushani2021}, predicting pro-arrhythmic cardiotoxicity in cardiomyocytes~\cite{Passini2017}, and thrombectomy/thrombolysis for acute ischaemic stroke~\cite{Konduri2020}, amongst many more.
+Examples of disease/intervention models that have been developed include coronary stent models for occlusive heart diseases~\cite{Antonini2021, Berti2021}, insulin control algorithms in Type 1 diabetes~\cite{Kovatchev2009}, non-pharmaceutical interventions on respiratory tract interventions~\cite{Arsene2022}, bone morphogenetic treatment in paediatric orphan bone disease~\cite{Carlier2018}, anaemia treatment in haemodialysis patients~\cite{Fuertinger2018}, warfarin in atrial fibrillation patients~\cite{Ravvaz2017}, cancer vaccines on lymph node cancers~\cite{Gaffney2022}, targeted delivery of drugs in patients with COVID-induced pneumonia~\cite{Wang2022}, mematine treatment of Alzheimer’s disease~\cite{Swietlik2022}, flow diverters in intracranial aneurysms~\cite{SarramiForoushani2021}, predicting pro-arrhythmic cardiotoxicity in cardiomyocytes~\cite{Passini2017}, and thrombectomy/thrombolysis for acute ischaemic stroke~\cite{Konduri2020}, amongst many more.
 
 Within this review, we have also demonstrated the vast literature on \textit{in silico} models of retinal disease, ranging from non-nAMD and RP (Section~\ref{Sec_Ox_RP_non-nAMD}), to nAMD and DR (Section~\ref{sec:RetinalHaemodynamicsNAMDDR}), as well as models of intervention through intravitreal injections, implants, and sub-retinal injections (Section~\ref{sec:DrugDelivery}).
-This has laid the groundwork, furnishing models which can be adapted into the ISCT paradigm. Despite the rapidly growing literature on ISCTs in various disease conditions, little or no papers have been published on applying this paradigm to diseases of the retina.
+This has laid the groundwork, furnishing models which can be adapted into the ISCT paradigm. Despite the rapidly growing literature on ISCTs in various disease conditions, few or no papers have been published on applying this paradigm to diseases of the retina.
 
 Once a mechanistic model of disease and intervention has been established and extensively validated, the next step is to generate virtual populations with this disease that can be used in the ISCT.
 
-\subsection{Virtual Populations}
+\subsection{Virtual populations}
 
 To run clinical trials, sub-populations of the target population are required. A crucial first step is therefore to generate virtual populations (VPs) of the disease of interest that will eventually be used in the \textit{in silico} clinical trials. For example, if an intervention for nAMD patients is to be tested \textit{in silico}, a population of nAMD patients is required.
 
 Virtual population generation is a nascent and rapidly developing field. In essence, a virtual patient is one with a specific set of parameters for a given disease model. Virtual populations are therefore sets of patients with parameters that reproduce the statistics of interest of the clinical population of interest~\cite{Allen2016}.
 
-One simple method of generating VPs is to assume a Gaussian distribution for each model parameter that will be patient specific. 
+One simple method of generating VPs is to assume a Gaussian distribution for each model parameter used to represent virtual populations. 
 For each patient, a parameter value will be drawn from these Gaussian distributions to represent that patient~\cite{Gaffney2022, Jenner2021}. 
-The mean and standard deviation of the parameters can be adjusted to match empirically observed data either manually or through optimization~\cite{Alfonso2020}. Often, these patient parameters are not independent of each other – for example, sex and height are correlated. Therefore, more complex sampling strategies that maintains the relationships between patient parameters have been developed.
+The mean and standard deviation of the parameters can be adjusted to match empirically observed data either manually or through optimization~\cite{Alfonso2020}. Often, these patient parameters are not independent of each other – for example, sex and height are correlated. Therefore, more complex sampling strategies that maintain the relationships between patient parameters have been developed.
 
 Bayesian statistics have been used extensively to generate patient parameter populations for the purpose of ISCTs. Haddad et al. generated VPs using a Bayesian framework for augmenting clinical trials, demonstrating decreased sample size and trial length would be required for the real-world trial when using these VPs~\cite{Haddad2017a}. For warfarin patients, a Bayesian model was used to generate VPs from a pre-defined dataset~\cite{Fusaro2013}. Other methods that have been used to generate VPs include vine copulas to generate virtual stroke populations~\cite{Miller2021}. Pezoulas et al. also used tree-based methods (supervised and unsupervised) to generate VPs for cardiomyopathy drug development~\cite{Pezoulas2020} but found that Gaussian Mixture Models with Variational Bayesian Inference outperformed supervised tree ensembles when comparing the VPs to the data~\cite{Pezoulas2021}.
 
@@ -1088,7 +1088,7 @@ However, statistical shape modelling is increasingly being used to generate VPs 
 
 VPs of retinal disease have yet to be extensively used in the literature. With appropriate data, however, VPs can be generated using the techniques documented.
 
-\subsection{Running the ISCT}
+\subsection{Running the \textit{in silico} clinical trial}
 
 Once the mechanistic model and VPs have been developed, the ISCT protocol should be pre-defined – with a statistical plan, pre-defined primary and secondary outcomes, and trial inclusion and exclusion criteria. Current medical studies publish their protocols, with randomised clinical trials following the CONSORT guidelines~\cite{Schulz2010}. Once the study protocol is in place, the ISCT can be run and analysed with the pre-defined methodology.
 
@@ -1099,8 +1099,8 @@ The validity of the mechanistic model and ISCT is an important factor in transla
 Validation, verification, and uncertainty quantification (VVUQ) are necessary to give confidence in the models and ISCTs. Validation of the model depends on the context-of-use of the model and what risk is involved with its use, with higher risk models requiring higher validity~\cite{Pappalardo2019}. Validity of the VPs should also be considered (external validity) – the VPs should be representative of the wider population of interest for that disease i.e. not constrained by overly stringent exclusion criteria. Similarly, the ISCT should have ecological validity, where the results translate to real-life settings in which the trial results will be applied. 
 Recent research has looked at simulating hospital environments stochastically to determine ecological validity of the ISCT~\cite{Fuertinger2018}.
 
-Verification of a model verifies that the numerical implementation is correct and sufficiently accurate for the intended use.
-This is often done by using the code to solve a problem where the solution is known i.e. an analytical solution exists.
+Verification of a model verifies that the numerical (computational) implementation is correct and sufficiently accurate for the intended use.
+This is often done by using the computational code to solve a problem where the solution is known i.e. an analytical solution exists.
 Verification methods are usually well established for given models and their numerical implementation~\cite{Curreli2021, Pappalardo2019}. 
 Uncertainty quantification is also an essential step. 
 This includes both aleatoric uncertainty (uncertainty in the data used to inform a model) and epistemic uncertainty (uncertainty in the knowledge of the physiological system used to build the model), as well as numerical uncertainty when solving approximated mathematical equations computationally. 
@@ -1110,7 +1110,7 @@ All of these uncertainties must be quantified to ensure that a good comparison w
 \section{Discussion}\label{sec:Conclusion}
 
 % \subsection{Gaps in ISCTs for the retina}
-Throughout this paper, we have reviewed the state-of-the-art models of the retina in both healthy and diseased conditions.
+Throughout this paper, we have reviewed state-of-the-art models of the retina in both healthy and diseased conditions.
 \textit{In silico} models have shed light on the interplay between biological mechanisms, such as autoregulation, necessary to maintain a healthy retina.
 In addition, they have provided us with quantitative understanding of the range of insults that the retina can withstand.
 
@@ -1120,7 +1120,7 @@ Additionally, we have introduced the concept of \textit{in silico} clinical tria
 Most of the building blocks for running an ISCT in the retina are already in place. When it comes to nAMD, there are already mechanistic models in place for the disease and intervention~\cite{Hoyle_2017, Vega2021}. However, two main gaps still exist that are required to run successful ISCTs in retinal disease: 
 
 \begin{enumerate}
-\item{Patient data linkage for comprehensive VP generation. For representative and valid VPs, imaging data needs to be linked to primary and secondary health records to give a comprehensive disease populations~\cite{ElBouri2021}.}
+\item{Patient data linkage for comprehensive VP generation. For representative and valid VPs, imaging data needs to be linked to primary and secondary health records to give comprehensive disease populations~\cite{ElBouri2021}.}
 
 \item{Most clinical trials for retinal disease use visual acuity as a primary outcome, yet there is no \textit{in silico} model that reliably links visual acuity to the disease. This is the main stumbling block that needs to be addressed if ISCTs are going to be used extensively in retinal disease.}
 \end{enumerate}
