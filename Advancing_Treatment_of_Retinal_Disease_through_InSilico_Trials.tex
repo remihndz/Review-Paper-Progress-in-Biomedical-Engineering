@@ -60,9 +60,11 @@
 
 \begin{abstract}
 
-  In a globally aging society, treating retinal diseases to prevent sight loss is an increasingly important challenge.
+  % In a globally aging society, treating retinal diseases to prevent sight loss is an increasingly important challenge.
+  Treating retinal diseases to prevent sight loss is an increasingly important challenge.
   Thanks to the configuration of the eye, the retina can be examined relatively easily \textit{in situ}.
-  Owing to recent technological development in scanning devices, much progress has been made in understanding the physiology of the retina in health and disease.
+  % Owing to recent technological development in scanning devices, much progress has been made in understanding the physiology of the retina in health and disease.
+  Owing to recent technological development in scanning devices, much progress has been made in understanding the structure of the retina and characterizing retinal biomarkers.
   However, treatment options remain limited and are often of low efficiency and efficacy.
 
   In recent years, the concept of \textit{in silico} clinical trials has been adopted by many, smaller, pharmaceutical companies to optimise and accelerate the development of therapeutics.
@@ -74,8 +76,9 @@
   Throughout this paper, we highlight key findings from \textit{in silico} models about the physiology of the retina in health and disease.
   We describe the main building blocks of \textit{in silico} clinical trials and identify challenges to developing \textit{in silico} clinical trials of retinal diseases.
 
-  Despite rich \textit{in vivo} data and numerous retinal \textit{in silico} models, \textit{in silico} clinical trials of retinal diseases remain out of reach.
-  It is hoped that this review will encourage collaborations between the modelling and ophthalmological communities in order to close the gaps to developing \textit{in silico} clinical trials. 
+  %% Deleted after 1st round of review.
+  % Despite rich \textit{in vivo} data and numerous retinal \textit{in silico} models, \textit{in silico} clinical trials of retinal diseases remain out of reach.
+  % It is hoped that this review will encourage collaborations between the modelling and ophthalmological communities in order to close the gaps to developing \textit{in silico} clinical trials. 
      
 \end{abstract}
 
@@ -187,7 +190,7 @@ The macula is also an area where a number of pathological conditions present.
 
 \begin{figure}[t!]
   \centering
-  \includegraphics[width=\textwidth]{Figure1}
+  \includegraphics[width=\textwidth]{Slide3}
   \caption{Anatomy of the eye and the retina. The anatomy of the eye (A). This diagram of a human eye image has been obtained by the authors from the Wikimedia website where it was made available by users Rhcastilhos and Jmarchn under a CC BY-SA 3.0 license. Anatomical features of a healthy retina seen on a fundus photograph (B). This fundus photograph has been obtained by the authors from the Wikimedia website, where it is stated to have been released into the public domain. It is included within this article on that basis. The retinal and choroidal layers and membranes (C). From inner retina to outer choroid: inner limiting membrane (ILM), nerve fiber layer (NFL), ganglion cell layer (GCL), inner plexiform layer (IPL), inner nuclear layer (INL), outer plexiform layer (OPL), outer nuclear layer (ONL), photoreceptors (PHR), retinal pigmented epithelium (RPE), Bruch's membrane (BrM), choriocapillaris (CC), Sattler's layer (SL), Haler's layer (HL). Modified from the work of Trivi\~no et al., published under CC BY 3.0 license.~\cite{Trivino_2012}}
   \label{fig:architecture-eye}
 \end{figure}
@@ -198,7 +201,7 @@ The light crosses the inner retina to reach the photoreceptors, in the layer lyi
 Activation of photoreceptors by photons starts a cascade of biochemical reactions that transforms light into a biochemical signal~\cite{Hurley_2009}.
 This biochemical signal is picked up by cells in the inner layers of the retina, which transform it into an electrical signal~\cite{Arslan_2018}.
 The electrical signal is then transmitted to the nerve fiber layer, which relays it to the brain via the optic nerve, enabling vision.
-The optic nerve is composed of the axons of the retinal ganglion cells, amounting to between $500,000$ and $1.2$ million, and is surround by connective tissue~\cite{Salazar_2019}.
+The optic nerve is composed of the axons of the retinal ganglion cells, amounting to between $500,000$ and $1.2$ million, and is surrounded by connective tissue~\cite{Salazar_2019}.
 The optic nerve enters the retina through the optic disc, seen as a round spot, around \SI{1.8}{\mm} wide, on fundus photographs of the retina (Figure~\ref{fig:architecture-eye}).
 The optic disc is an important structure of the retina in disease and is closely monitored by clinicians for symptoms of, for example, glaucoma.
 
@@ -232,11 +235,11 @@ The diameter of the vessels in each layer decreases as it approaches the retina,
 The vascular input to the choroid is provided by the short posterior ciliary arteries (between 6 and 12), which are branches of the ophthalmic artery~\cite{Kiel_2011}.
 The large vessels of the two outer layers of the choroid run parallel to the retinal axis.
 Some arterioles from Sattler's layer branch at an almost \SI{90}{\degree} angle to perfuse the CC~\cite{Nickla_2010}.
-Each of these arterioles form an hexagonal-shaped domain, fed by a single arteriole and drained by a varying number of venules back into Sattler's layer~\cite{Zouache_2016}.
+Each of these arterioles inserts in the interior of a domain delineated by a set of draining venules surrounding it~\cite{Zouache_2016}.
 The capillaries of the CC have wide lumen (the cavity delimited by the vessel's walls), between \SIrange{7}{40}{\micro\meter} in the CC versus \SIrange{5}{10}{\micro\meter} for the retinal capillaries, and are arranged into a single plane, with many connections between adjacent capillaries, known as anastomoses~\cite{Bill_1983, ChanLing_2011,Fryczkowski_1994}.
 Furthermore, the capillary walls have openings (fenestrations), increasing their permeability~\cite{Nickla_2010}.
 The fenestrations on the capillary walls are more numerous on the side facing the retina and are sufficiently wide to let molecules with a diffusional radius of \SI{3.7}{\micro\meter} pass into the blood~\cite{Bill_1983,Nickla_2010}.
-This particular architecture, combined with a high blood flow, allows the CC to provide sufficient nutrients through diffusion across BrM and the RPE, and to clear waste from the retina through the systemic circulation.
+This particular architecture, combined with a high blood flow, allows the CC to provide sufficient nutrients through transport across BrM and the RPE, and to clear waste from the retina through the systemic circulation.
 
 The choroid has high blood flow and a high oxygen content~\cite{Bill_1983}.
 The high concentration of oxygen in the choroidal circulation creates a strong gradient for its diffusion between the CC and the outer retina.
@@ -457,7 +460,7 @@ Many retinal diseases have been linked, whether directly or indirectly, with abn
 Indeed, in certain diseases such as nAMD and DR, the blood supply is so disrupted that pathological neovasculature starts invading the retina.
 
 One of the consequences of diabetes is the degeneration of the microvessels, such as capillaries, in the retina.
-Eyes with DR see an increase in vascular permeability, a loss of the pericytes coating capillary walls, a thickening of the endothelial basement membrane adjacent to endothelial cells and a rarefaction of capillaries around the foveal avascular zone ~\cite{Medina_2016}.
+Eyes with DR see an increase in vascular permeability, a loss of the pericytes coating capillary walls, a thickening of the endothelial basement membrane adjacent to endothelial cells and a rarefaction of capillaries around the foveal avascular zone~\cite{Medina_2016}.
 These microvascular degenerations may cause microvascular occlusions, haemorrhages and oedema, as well as macular ischaemia and consequent neovascular growth~\cite{Medina_2016}.
 
 Haemorrhages, oedema, scarring and RPE or retinal detachment are characteristics of nAMD associated with macular neovasculature~\cite{Gupta_2015,Jager_2008}.
@@ -548,7 +551,7 @@ Below we review models that simulate perfusion and oxygen transport in healthy r
 \begin{figure}[t!]
   \centering
   \includegraphics[width=\textwidth]{NetworkModels}
-  \caption{Different representations of the microvasculature in haemodynamics models. (\textbf A) An example of a dichotomous, symmetrical branching network similar to Takahashi et al.'s network~\cite{Takahashi_2009}. The radius of branching vessels follows Murray's law, namely, $r_1^\gamma = r_2^\gamma+r_3^\gamma$ where $r_1$ is the radius of the parent vessel, $r_2$ and $r_3$ are the radii of the branching vessels and $\gamma$ is an exponent translating the fractal aspect of the vasculature. (\textbf{B}) An example of lumped parameter model where characteristics of the arterioles, capillaries and venules are summarised by resistance ($R_i$) and capacitance ($C_i$) parameters which may vary due to the action of external factors (e.g., changes in IOP). Blood pressure ($P_i$) is defined at given nodes within and between vascular compartments. (\textbf{C}) An example of an artificial, realistic microvascular network of the macula generated by a constructive constraint optimisation algorithm~\cite{Talou_2021}.}
+  \caption{Different representations of the microvasculature in haemodynamics models. (\textbf A) An example of a dichotomous, symmetrical branching network similar to Takahashi et al.'s network~\cite{Takahashi_2009}. The radius of branching vessels follows Murray's law, namely, $r_1^\gamma = r_2^\gamma+r_3^\gamma$ where $r_1$ is the radius of the parent vessel, $r_2$ and $r_3$ are the radii of the branching vessels and $\gamma$ is an exponent translating the fractal aspect of the vasculature and the symmetry of its branching pattern. Morphological studies have found $\gamma$ to range between $2.6$ and $3$~\cite{Ma_2021, Takahashi_2009}. (\textbf{B}) An example of lumped parameter model where characteristics of the arterioles, capillaries and venules are summarised by resistance ($R_i$) and capacitance ($C_i$) parameters which may vary due to the action of external factors (e.g., changes in IOP). Blood pressure ($P_i$) is defined at given nodes within and between vascular compartments. (\textbf{C}) An example of an artificial, realistic microvascular network of the macula generated by a constructive constraint optimisation algorithm~\cite{Talou_2021}.}
   \label{fig:NetworkModels}
 \end{figure}
 
@@ -831,7 +834,7 @@ However, the spatial model showed better performance at predicting the treatment
 %
 \subsection{Retinal oxygenation}\label{Sec_Oxygen}
 %
-The retina is one of the most oxygen hungry tissues in the body (per gram of tissue)~\cite{Anderson_1968,Anderson_and_Saltzman_1964,Yu_and_Cringle_2001,W-Wirawan_and_Linsenmeier_2003}. As described in Section~\ref{sec:BloodSupplyRetina}, it has a substantial vasculature to meet this need; nonetheless, supply and demand are finely balanced. It is therefore important to understand how this balance is maintained, and the ways in which it may be dysregulated in diseases such as RP and non-nAMD (see Sections \ref{Sec_RP} and \ref{Sec_non-nAMD}).
+The retina is one of the most oxygen hungry tissues in the body (per gram of tissue)~\cite{Anderson_1968,Anderson_and_Saltzman_1964,Yu_and_Cringle_2001,W-Wirawan_and_Linsenmeier_2003}. As described in Section~\ref{sec:BloodSupplyRetina}, it has a substantial vasculature to meet this need; nonetheless, supply and demand are finely balanced. It is therefore important to understand how this balance is maintained, and the ways in which it may be dysregulated in diseases such as RP and non-nAMD (see Sections~\ref{Sec_RP} and~\ref{Sec_non-nAMD}).
 
 Two key techniques are frequently employed to measure retinal oxygenation. First, oxygen-sensitive microelectrodes can be used to measure the partial pressure of oxygen (PO$_2$), creating a spatially detailed profile through the depth of the retinal tissue~\cite{Linsenmeier_and_Zhang_2017}. Since this technique is invasive, it can only be employed in animal models. Second, oximetry can be used to measure the oxygen saturation of haemoglobin in the retinal vasculature~\cite{Linsenmeier_and_Zhang_2017}. As a non-invasive technique, this can be employed in both animals and humans.
 
@@ -888,7 +891,7 @@ A number of mechanisms have been suggested to drive non-nAMD including oxidative
 
 \citet{Zekavat_et_al_2017} and \citet{Scheepers_et_al_2020} have developed compartmental ODE models for drusen and cholesterol accumulation. The models capture features such as the build-up of drusen and their macrophage-mediated elimination, and determine regions of parameter space in which a healthy homeostasis may be maintained.
 
-\citet{Linsenmeier_and_Zhang_2017} and \citet{McHugh_et_al_2019} have developed 2D and 3D PDE models (respectively) to predict the effects of soft and hard drusen upon retinal oxygen distribution (see Figure \ref{Fig_LinZhang2017}). It was found that it is the size of a druse, rather than the diffusivity of oxygen within a druse, which has the greatest effect on photoreceptor oxygenation, and that wide (soft) druse are more likely to cause photoreceptor hypoxia (oxygen starvation) than tall (hard) druse. Further, \citet{Vercellin_et_al_2021} have constructed a 2D PDE model predicting the effects of reduced blood flow on central retinal oxygenation, identifying the most vulnerable regions.
+\citet{Linsenmeier_and_Zhang_2017} and \citet{McHugh_et_al_2019} have developed 2D and 3D PDE models (respectively) to predict the effects of soft and hard drusen upon retinal oxygen distribution (see Figure~\ref{Fig_LinZhang2017}). It was found that it is the size of a druse, rather than the diffusivity of oxygen within a druse, which has the greatest effect on photoreceptor oxygenation, and that wide (soft) druse are more likely to cause photoreceptor hypoxia (oxygen starvation) than tall (hard) druse. Further, \citet{Vercellin_et_al_2021} have constructed a 2D PDE model predicting the effects of reduced blood flow on central retinal oxygenation, identifying the most vulnerable regions.
 %
 \begin{figure}
 \begin{center}
@@ -1129,7 +1132,7 @@ Most of the building blocks for running an ISCT in the retina are already in pla
 Whilst the future is incredibly promising for ISCTs, it is unlikely they will ever replace clinical trials. However, they can help refine and accelerate trials by eliminating pre-clinical testing, targeting an intervention to specific sub-populations or improving an intervention through repeated \textit{in silico} trial testing.
 
 
-\section*{Aknowledgment}
+\section*{Acknowledgment}
 
 Certain images in this publication have been obtained by the author(s) from the Wikipedia/Wikimedia website, where they were made available under a Creative Commons licence or stated to be in the public domain.
 Please see individual figure captions in this publication for details.
