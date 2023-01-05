@@ -148,15 +148,17 @@ These devices undoubtedly improve clinical care by providing accurate measuremen
 As these devices are noninvasive and high resolution, progression of retinal disease can be monitored with repeat scans.
 Following diagnosis, treatment strategies tend to be standardised, based on successful clinical trials guidelines.
 However, treatment response varies between patients, indicating that alternative or tailored treatments may be needed.
-The development of new treatments or dosing strategies is long, arduous and expensive, with only a small fraction of clinical trials succeeding, mostly due to an inability to prove effectiveness~\cite{Fogel_2018}.
+The development of new treatments or dosing strategies is long, arduous and expensive, with only a small fraction (\SIrange{5}{20}{\percent} depending on the field~\cite{Mullard_2016, Wong_2018}) of clinical trials succeeding, mostly due to an inability to prove effectiveness~\cite{Fogel_2018}.
 
 \textit{In silico} modelling can offer insights on the underlying causes of disease, which are often hard or impossible to obtain by experimental or observational means.
 The past two decades have seen a rise in the use of such models for basic research in biology and medicine.
 Furthermore, the use of digital evidence to inform clinical trials is also gaining traction. 
 The recent increase in the number of literature reviews on mathematical models of the eye and the retina and the development of platforms for simulating the eye accessible to non-modellers demonstrate increased interest in ophthalmology~\cite{Arciero_2019,Arciero_2017,Bhandari_2021,Harris_2013,Prudhomme_2021,Roberts_2016,Sala_2018}.
 
-\textit{In silico} clinical trials can enhance both clinical care and traditional clinical trials, preserving sight for the fast-growing number of patients suffering from retinal disorders.
-Running \textit{in silico} clinical trials requires a close collaboration between experimentalist, modellers and clinicians (see Figures~\ref{fig:ModellingCycle} and~\ref{fig:ISCT}).
+\textit{In silico} clinical trials (ISCTs) can enhance both clinical care and traditional clinical trials, preserving sight for the fast-growing number of patients suffering from retinal disorders.
+In short, ISCTs are computer simulations of clinical trials that can be used as digital evidence in the development of medical products, devices and interventions.
+A more comprehensive overview of ISCTs is given in Section~\ref{sec:InSilicoTrials}.
+Running ISCTs requires a close collaboration between experimentalist, modellers and clinicians (see Figures~\ref{fig:ModellingCycle} and~\ref{fig:ISCT}).
 Other medical disciplines such as oncology and cardiology have already benefited from \textit{in silico} trials~\cite{Gaffney2022,Ravvaz2017}.
 Ophthalmology can also benefit from computer aided clinical development.
 Indeed, the retina provides researchers with a wealth of images and measurements that is perhaps unparalleled in other medical specialities.
@@ -181,12 +183,11 @@ The retina is a layer of tissue less than \SI{0.5}{\mm} thick that lines the bac
 The retinal inner surface is attached to the vitreous body, the clear gel that separates the lens and the retina; while its outer surface is attached to Bruch's membrane (BrM) (Figure~\ref{fig:architecture-eye}).
 When looking at a cross section of the retina, as shown in Figure~\ref{fig:architecture-eye}, several layers can be identified. The innermost (closest to the vitreous) being the nerve fiber layer and the outermost being the retinal pigmented epithelium (RPE).
 The layers located inward from the RPE are made of neurons and synapses and are collectively referred to as the neurosensory retina.
-In the centre of the retina is an oval-shaped pigmented area called the macula that can be seen on photographs of the retina (Figure~\ref{fig:architecture-eye}).
+In the centre of the retina is an circular pigmented area called the macula that can be seen on photographs of the retina (Figure~\ref{fig:architecture-eye}).
 The macula is about \SI{5}{\mm} wide and is responsible for highly detailed, central, vision, owing to its high concentration of photoreceptor cells, namely rods and cones.
 In particular, cones are highly concentrated in the centre of the macula, in a pit approximately \SI{1.5}{\mm} wide named the fovea.
 The macula is a critical area of the retina, as this is where visual acuity is highest.
-The macula is also an area where a number of pathological conditions present.
-
+As such, pathologies are most damaging to visual acuity when affecting the macula.
 
 \begin{figure}[t!]
   \centering
@@ -200,9 +201,9 @@ Visual information originates from light hitting the retina.
 The light crosses the inner retina to reach the photoreceptors, in the layer lying inward from the RPE (see Figure~\ref{fig:architecture-eye}).
 Activation of photoreceptors by photons starts a cascade of biochemical reactions that transforms light into a biochemical signal~\cite{Hurley_2009}.
 This biochemical signal is picked up by cells in the inner layers of the retina, which transform it into an electrical signal~\cite{Arslan_2018}.
-The electrical signal is then transmitted to the nerve fiber layer, which relays it to the brain via the optic nerve, enabling vision.
+The electrical signal is then transmitted to the nerve fiber layer, which relays it to the brain via the optic nerve for further processing.
 The optic nerve is composed of the axons of the retinal ganglion cells, amounting to between $500,000$ and $1.2$ million, and is surrounded by connective tissue~\cite{Salazar_2019}.
-The optic nerve enters the retina through the optic disc, seen as a round spot, around \SI{1.8}{\mm} wide, on fundus photographs of the retina (Figure~\ref{fig:architecture-eye}).
+The optic nerve enters the retina through the optic disc, seen as a round spot, around \SI{1.8}{\mm} in diameter, on fundus photographs of the retina (Figure~\ref{fig:architecture-eye}).
 The optic disc is an important structure of the retina in disease and is closely monitored by clinicians for symptoms of, for example, glaucoma.
 
 Owing to its pigmentation, the RPE acts as a buffer for any remaining light, protecting the retina from light damage and preventing backreflection of light that may interfere with the visual outcome.
@@ -245,9 +246,9 @@ The choroid has high blood flow and a high oxygen content~\cite{Bill_1983}.
 The high concentration of oxygen in the choroidal circulation creates a strong gradient for its diffusion between the CC and the outer retina.
 The high blood flow rates may also help regulating the temperature of the macula, by keeping it at the same temperature as the rest of the body~\cite{Bill_1983, Parver_1991}.
 
-While appropriate blood supply is necessary to maintain vision, retinal blood vessels can interfere with light and hinder vision.
 The distribution of photoreceptors in the retina is heterogeneous, with a higher concentration in the parafovea, for rods, and fovea, for cones~\cite{Zouache_2022}.
-For this reason, the centre of the fovea is an avascular zone around \SI{500}{\micro\meter} wide, often referred to as the foveal avascular zone, from which retinal capillaries are absent.
+While appropriate blood supply is necessary to maintain vision, retinal blood vessels can interfere with light and hinder vision.
+For this reason, the centre of the fovea is an avascular zone around \SI{500}{\micro\meter} wide, often referred to as the foveal avascular zone.%, from which retinal vessels are absent.
 
 The interactions between layers of the retina, e.g., the RPE and photoreceptors, is essential for visual function.
 Disruption of the delicate structure of the retina leads to loss of sight.
@@ -255,7 +256,7 @@ Disruption of the delicate structure of the retina leads to loss of sight.
 While the retina is a key element for visual function, its relative fragility makes it susceptible to a number of conditions, some of which may lead to blindness.
 For example, diseases such as diabetic retinopathy (DR), neovascular age-related macular degeneration (nAMD) and retinal vessel occlusion lead to overexpression of vascular endothelial growth factor (VEGF), promoting the growth of harmful neovasculature within and around the retina~\cite{Medina_2016}.
 These vascular pathologies, along with glaucoma, are described briefly in the foreword to Section~\ref{sec:RetinalHaemodynamicsNAMDDR}.
-Dysregulation of oxygen perfusion to the retina is at the core of diseases such as retinitis pigmentosa (RP) and non-nAMD, which are described in Section~\ref{Sec_Ox_RP_non-nAMD}.
+Dysregulation of oxygen perfusion to the retina may explain the loss of visual acuity in diseases such as retinitis pigmentosa (RP) and non-nAMD, which are described in Section~\ref{Sec_Ox_RP_non-nAMD}.
 
 \subsection{Therapeutic strategies}
 
@@ -744,7 +745,9 @@ In addition, the ILM and RPE, bounding the inner and outer retina respectively, 
 Therefore, the presence of the drug in the retina and choroid is limited to a fraction of the injected dose. 
 
 Despite its general efficacy, current treatment strategies are sub-optimal for some patients in terms of dosage and intervals between injections.
-Eyes showing little to no improvement in their condition are referred to as non-responsive and present a real challenge for clinicians.
+Indeed, in both DR and nAMD, the real-world visual outcome of anti-VEGF therapy has been showed numerous time to be inferior to those reported by controlled clinical trials~\cite{Ciulla_2018, Ciulla_2020, Ozturk_2017}.
+%Eyes showing little to no improvement in their condition are referred to as non-responsive.
+
 
 Furthermore, VEGF induced angiogenesis is a natural response to inflammation and hypoxia, in the eye and the rest of the body. 
 Therefore, repeated injections pose a number of problems.
@@ -1039,7 +1042,7 @@ Modelling work of these techniques remains scarce but the growing interest in ce
 \section{\textit{In silico} clinical trials in the retina}\label{sec:InSilicoTrials}
 
 The previous sections have detailed the vast literature that deals with modelling retinal haemodynamics, oxygenation, disease and the impact of drugs in both healthy and diseased retinas. 
-However, there is currently very little research on formalising these models within the framework of \textit{in silico} clinical trials (ISCTs). 
+However, there is currently very little research on formalising these models within the framework of \textit{in silico} clinical trials. 
 ISCTs are simulations of clinical trials to test medical devices or drugs with the aim of eventually being used as digital evidence to reduce, refine and replace animal and human participants in preclinical and clinical experiments~\cite{Viceconti2021a}. 
 At each stage of clinical trials (preclinical, Phase I, II, III), ISCTs can be used: for early proofs-of-concept in the drug development phase; to simulate greater numbers of patients in each phase, hence representing greater biological variability in the trial; to augment trials such that fewer real-world patients are required; to run numerous trials that can optimise an intervention that would not be possible in reality; as well as to investigate rare events that might not occur in a real-world trial~\cite{Pappalardo2019, Viceconti_2016, Viceconti2017}. 
 Another crucial aspect of an ISCT is the ability for a patient to act as their own control simulation-wise, introducing a new potentially more impactful/patient-specific way of running clinical trials.
