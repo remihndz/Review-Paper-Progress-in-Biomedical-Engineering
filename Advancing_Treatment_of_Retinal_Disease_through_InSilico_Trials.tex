@@ -793,13 +793,13 @@ In this work, the linear regression found a weaker dependence of $t_{1/2}$ on vi
 While this study incorporated additional data and an additional species, the main difference lied in the computation of the molecules characteristics, namely their hydrodynamic radius, which was found experimentally rather than derived theoretically.
 Similarly to the dissociation constant, the diffusion times of anti-VEGF in the vitreous is expected to be sensitive to temperature and the viscosity of the vitreous humour, though the sensitivity is hard to quantify.
 
-Interestingly, kinetic parameters can be determined with PK analysis with a lesser degree uncertainty.
+Interestingly, kinetic parameters may be determined with PK analysis with a lesser degree uncertainty.
 This is evidenced by the model developped by Bussing et al. who proposed to extend a compartmental model of the whole rabbit body, connected through blood flow and lymphatic circulation, with an eye compartment subject to IVI of anti-VEGF~\cite{Bussing_2020}.
 The comprehensive model comprises over a hundred compartments, with all exchange rates and reaction rates found in the literature.
 The results showed quantitative and qualitative agreement in terms of area under the curve with experiments without necessitating fitting some of the parameters to data points.
 
-The above PK/PD models assume a constant in time and homogeneous production rate of VEGF, ignoring any spatial effect or degeneration of the VEGF-expressing cells such as the RPE cells.
-However, an \textit{in silico} model of an \textit{in vitro} setup of the RPE suggests that spatial arrangement of RPE cells and atrophied tissue play an important role in the production of VEGF, a role that may explain the progression of AMD into its neovascular form~\cite{Baker_2017}.
+% The above PK/PD models assume a constant in time and homogeneous production rate of VEGF, ignoring any spatial effect or degeneration of the VEGF-expressing cells such as the RPE cells.
+% However, an \textit{in silico} model of an \textit{in vitro} setup of the RPE suggests that spatial arrangement of RPE cells and atrophied tissue play an important role in the production of VEGF~\cite{Baker_2017}.
 
 \paragraph*{Finite element PK models}
 
@@ -812,7 +812,16 @@ Some of these models are reviewed here and a comprehensive review of those model
 
 Zhang et al. used a simplified three-dimensional representation of the vitreous and the retina to investigate the distribution of molecules injected in the vitreous or under the choroid~\cite{Zhang_2018}.
 Their results support the well-mixed hypothesis of intravitreally injected molecules by showing the small effect the initial mixing has on the concentration-time profile.
-Furthermore, the model showed that suprachoroidal (between the sclera and choroid, see Figure~\ref{fig:architecture-eye}) injections were not suited for delivery of large molecules (such as anti-VEGF).
+Furthermore, the model showed that suprachoroidal (between the sclera and choroid, see Figure~\ref{fig:architecture-eye}) injections were not suited for delivery of large molecules (such as anti-VEGF) due to the typically high clearance rate of the choroid (four times higher than vitreal clearance rates) and the lack of permeability of the RPE.
+Note that heavier molecules proved less sensitive to choroidal outflow rates and may therefore be suited for suprachoroidal injections.
+However, ocular anti-VEGF molecule are typically designed too small and are washed away quickly by the choroidal circulation.
+In addition, exposure of the retina is strongly impacted by the permeability of the RPE, both for suprachoroidal and intravitreal injections.
+It was pointed out by Zhang et al. that RPE permeability is likely to be affected in neovascular diseases.
+A reduced RPE permeability could make suprachoroidal injections more effective than their intravitreal counterpart.
+However, quantifying the permeability of the RPE is difficult due to its assymetry (inward and outward permeability differ) and possible active transport mechanisms~\cite{Pitkaenen_2005}.
+Similarly, it is difficult to find a physiological range for other molecule specific parameters such as diffusion in the various tissues modelled.
+For this reason, a plausible range for scleral permeability was derived from a least-square fit to a single study's data and used to estimate diffusion coefficients in other layer based on an empirical formula.
+In addition to the use of the empirical formula for diffusion coefficients, only qualitative comparisons of model predictions and data was reported, therefore lacking in validation.
 
 Missel et al. created physiologically accurate three-dimensional geometries of the rabbit, monkey and human eyes to investigate the effect of inter-species structural differences on drug clearance~\cite{Missel_2012}.  
 They demonstrated the importance of the canal of Petit in the clearance of substances from the aqueous humour, particularly for molecules with slow diffusivity. 
