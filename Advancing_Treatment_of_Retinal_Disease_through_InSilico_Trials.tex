@@ -29,7 +29,8 @@
 
 \graphicspath{{img/}}
 
-
+\usepackage[left, pagewise]{lineno}
+\pagewiselinenumbers
 
 \title{Advancing Treatment of Retinal Disease through \textit{in silico} Trials}
 
@@ -160,7 +161,7 @@ In short, ISCTs are computer simulations of clinical trials that can be used as 
 A more comprehensive overview of ISCTs is given in Section~\ref{sec:InSilicoTrials}.
 Running ISCTs requires a close collaboration between experimentalist, modellers and clinicians (see Figures~\ref{fig:ModellingCycle} and~\ref{fig:ISCT}).
 Other medical disciplines such as oncology and cardiology have already benefited from \textit{in silico} trials~\cite{Gaffney2022,Ravvaz2017}.
-Ophthalmology can also benefit from computer aided clinical development.
+Ophthalmology can also benefit from such trials which require large amounts of data.
 Indeed, the retina provides researchers with a wealth of images and measurements that is perhaps unparalleled in other medical specialities.
 
 In this paper, we will review state-of-the-art models of the retina, both in health and disease, and highlight the challenges to developing \textit{in silico} clinical trials for retinal diseases.
@@ -181,10 +182,17 @@ Finally, in Section~\ref{sec:Conclusion}, we summarise the state of mathematical
 
 The retina is a layer of tissue less than \SI{0.5}{\mm} thick that lines the back of the eye~\cite{Gupta_2015}.
 The retinal inner surface is attached to the vitreous body, the clear gel that separates the lens and the retina; while its outer surface is attached to Bruch's membrane (BrM) (Figure~\ref{fig:architecture-eye}).
-When looking at a cross section of the retina, as shown in Figure~\ref{fig:architecture-eye}, several layers can be identified. The innermost (closest to the vitreous) being the nerve fiber layer and the outermost being the retinal pigmented epithelium (RPE).
+When looking at a cross section of the retina, as shown in Figure~\ref{fig:architecture-eye}, several layers can be identified.
+The innermost (closest to the vitreous) being the nerve fiber layer and the outermost being the retinal pigmented epithelium (RPE).
 The layers located inward from the RPE are made of neurons and synapses and are collectively referred to as the neurosensory retina.
-In the centre of the retina is an circular pigmented area called the macula that can be seen on photographs of the retina (Figure~\ref{fig:architecture-eye}).
-The macula is about \SI{5}{\mm} wide and is responsible for highly detailed, central, vision, owing to its high concentration of photoreceptor cells, namely rods and cones.
+In the neurosensory retina, different types of cells can be found, each with specific functions,
+including photoreceptors, namely rods and cones capturing incoming photons;
+retinal ganglion cells, a group of neurons which axons transmit visual information to the brain;
+amacrine cells, a group of intermediate neurons spreading mostly horizontally;
+bipolar cells, vertically oriented neurons that link directly photoreceptors and ganglion cells;
+and horizontal cells which are horizontally oriented neurons regulating the output of multiple photoreceptor cells~\cite{Mahabadi_2022}.
+In the centre of the retina is a oval-shaped pigmented area called the macula that can be seen on photographs of the retina (Figure~\ref{fig:architecture-eye}).
+The macula is about \SI{5}{\mm} wide at its widest and is responsible for highly detailed, central, vision, owing to its high concentration of photoreceptor cells, namely rods and cones.
 In particular, cones are highly concentrated in the centre of the macula, in a pit approximately \SI{1.5}{\mm} wide named the fovea.
 The macula is a critical area of the retina, as this is where visual acuity is highest.
 As such, pathologies are most damaging to visual acuity when affecting the macula.
@@ -192,7 +200,8 @@ As such, pathologies are most damaging to visual acuity when affecting the macul
 \begin{figure}[t!]
   \centering
   \includegraphics[width=\textwidth]{Figure1}
-  \caption{Anatomy of the eye and the retina. The anatomy of the eye (A). This diagram of a human eye image has been obtained by the authors from the Wikimedia website where it was made available by users Rhcastilhos and Jmarchn under a CC BY-SA 3.0 license. Anatomical features of a healthy retina seen on a fundus photograph (B). This fundus photograph has been obtained by the authors from the Wikimedia website, where it is stated to have been released into the public domain. It is included within this article on that basis. The retinal and choroidal layers and membranes (C). From inner retina to outer choroid: inner limiting membrane (ILM), nerve fiber layer (NFL), ganglion cell layer (GCL), inner plexiform layer (IPL), inner nuclear layer (INL), outer plexiform layer (OPL), outer nuclear layer (ONL), photoreceptors (PHR), retinal pigmented epithelium (RPE), Bruch's membrane (BrM), choriocapillaris (CC), Sattler's layer (SL), Haler's layer (HL). Modified from the work of Trivi\~no et al., published under CC BY 3.0 license.~\cite{Trivino_2012}}
+  \caption{Anatomy of the eye and the retina. \textbf{(A)} The anatomy of the eye. The figure was partly generated using Servier Medical Art, provided by Servier, licensed under a Creative Commons Attribution 3.0 unported license. \textbf{(B)} Anatomical features of the retina seen on a fundus photograph. This fundus photograph was taken from the publicly available DRIVE database~\cite{Staal_2004}. \textbf{(C)} The retinal and choroidal layers and membranes. From inner retina to outer choroid: inner limiting membrane (ILM), nerve fiber layer (NFL), ganglion cell layer (GCL), inner plexiform layer (IPL), inner nuclear layer (INL), outer plexiform layer (OPL), outer nuclear layer (ONL), photoreceptors (PHR), retinal pigmented epithelium (RPE), Bruch's membrane (BrM), choriocapillaris (CC), Sattler's layer (SL), Haler's layer (HL). Modified from the work of Trivi\~no et al., published under CC BY 3.0 license.~\cite{Trivino_2012}}
+    % \caption{Anatomy of the eye and the retina. The anatomy of the eye (A). This diagram of a human eye image has been obtained by the authors from the Wikimedia website where it was made available by users Rhcastilhos and Jmarchn under a CC BY-SA 3.0 license. Anatomical features of a healthy retina seen on a fundus photograph (B). This fundus photograph has been obtained by the authors from the Wikimedia website, where it is stated to have been released into the public domain. It is included within this article on that basis. The retinal and choroidal layers and membranes (C). From inner retina to outer choroid: inner limiting membrane (ILM), nerve fiber layer (NFL), ganglion cell layer (GCL), inner plexiform layer (IPL), inner nuclear layer (INL), outer plexiform layer (OPL), outer nuclear layer (ONL), photoreceptors (PHR), retinal pigmented epithelium (RPE), Bruch's membrane (BrM), choriocapillaris (CC), Sattler's layer (SL), Haler's layer (HL). Modified from the work of Trivi\~no et al., published under CC BY 3.0 license.~\cite{Trivino_2012}}
   \label{fig:architecture-eye}
 \end{figure}
 
@@ -200,7 +209,7 @@ As such, pathologies are most damaging to visual acuity when affecting the macul
 Visual information originates from light hitting the retina.
 The light crosses the inner retina to reach the photoreceptors, in the layer lying inward from the RPE (see Figure~\ref{fig:architecture-eye}).
 Activation of photoreceptors by photons starts a cascade of biochemical reactions that transforms light into electrochemical signals~\cite{Casper_2019, Hurley_2009}.
-Reversing direction, the now electrochemical information travels from the photoreceptors accross a number of retinal neurons to reach the ganglion cells~\cite{Casper_2019}.
+Reversing direction, the now electrochemical information travels from the photoreceptors through horizontal and bipolar cells to reach the ganglion cells~\cite{Casper_2019, Mahabadi_2022}.
 The axons of the retinal ganglion cells travel in the nerve fiber layer and converge towards the optic disc and bundle together, forming the optic nerve which transmits the signal to the brain for further processing by the visual cortex~\cite{Casper_2019}.
 The optic nerve is composed of the axons of the retinal ganglion cells, amounting to between $500,000$ and $1.2$ million, and is surrounded by connective tissue~\cite{Salazar_2019}.
 The optic nerve enters the retina through the optic disc, seen as a round spot, around \SI{1.8}{\mm} in diameter, on fundus photographs of the retina (Figure~\ref{fig:architecture-eye}).
@@ -521,12 +530,13 @@ Neurological regulation (regulation by the autonomic nervous system) of choroida
 The assumptions made in these models can be validated by comparing simulation results with \textit{in vivo} measurements of changes in blood flow or vessel radii.
 Vessel radius in the inner retina can be measured from retinal scans such as fundus photographs or OCT~\cite{DoblhoffDier_2014}.
 Blood flow can be measured using devices such as a Doppler flowmeter or Doppler Fourier-domain OCT, in combination with radius measurements~\cite{DoblhoffDier_2014,Wang_2009}.
-The blood oxygen saturation can also be measured \textit{in vivo}~\cite{Geirsdottir_2013}.
+Despite advances in imaging technologies, the visualisation of retinal vessels remain mostly limited to large to intermediate-sized vessels.
+The blood oxygen saturation can also be measured \textit{in vivo}~\cite{Geirsdottir_2013}; however, retinal oxymeters remain experimental and are not broadly available.
 Reliable measurement of blood flow or vessel radii in the choroid is more difficult, though changes in haemodynamics can be observed \textit{in vivo}~\cite{Riva_1997,Scherm_2019}.
 
 \begin{tcolorbox}[title=Additional information -- Fluid flow modelling]
   \begin{itemize}
-  \item Viscous fluids such as blood are modelled by a set of differential equations --- the Navier-Stokes equations --- relating the acceleration, velocity, convection, density and pressure of a fluid.
+  \item The flow of viscous fluids, such as blood, are modelled by a set of differential equations --- the Navier-Stokes equations --- relating the acceleration, velocity, convection, density and pressure of a fluid.
     Solving these equations can be problematic in complex geometries, for example, in a large network of vessels.
   \item The Navier-Stokes equations simplify to the Hagen-Poiseuille equation (see main text) when assuming that the fluid is Newtonian and the flow incompressible and laminar.
     The Hagen-Poiseuille equation is relatively simple to solve, even on large vascular networks.
@@ -746,8 +756,6 @@ Therefore, the presence of the drug in the retina and choroid is limited to a fr
 
 Despite its general efficacy, current treatment strategies are sub-optimal for some patients in terms of dosage and intervals between injections.
 Indeed, in both DR and nAMD, the real-world visual outcome of anti-VEGF therapy has been showed numerous time to be inferior to those reported by controlled clinical trials~\cite{Ciulla_2018, Ciulla_2020, Ozturk_2017}.
-%Eyes showing little to no improvement in their condition are referred to as non-responsive.
-
 
 Furthermore, VEGF induced angiogenesis is a natural response to inflammation and hypoxia, in the eye and the rest of the body. 
 Therefore, repeated injections pose a number of problems.
@@ -769,28 +777,29 @@ This assumes that the clearance rate of molecules in the eye is proportional to 
 Understanding the determinants of the PK of anti-VEGF molecules in the eye is essential to develop more effective molecules and such simple models do not provide this kind of insight.
 
 Mechanical models can be used to determine the \textit{in vivo} value of drug or biological parameters (e.g., binding affinity or permeability coefficients), which may differ from \textit{in vitro} values~\cite{HuttonSmith_2016}.
-Analytical relationships between a molecule's characteristics and its ocular half-life can be derived from those models and can help in the design of longer lasting therapeutics.
+Analytical relationships between a molecule's characteristics and its ocular half-life can be derived from those models and can assist the design of longer lasting therapeutics.
 
-In a series of papers, Hutton-Smith et al. used two (vitreous and aqueous humours) and three (including the retina) compartment models to estimate the true, \textit{in vivo} parameters of IVI of anti-VEGF~\cite{HuttonSmith_2016,HuttonSmith_2017,HuttonSmith_2018}.
-Using data on rabbit eyes, they demonstrated that the half-life, $t_{1/2}$, of those molecules in the eye is proportional to the cubic root of their hydrodynamic radius, $R_h$, namely,
-\begin{equation}
-  \label{eq:t12_Hutton-Smith}
-  t_{1/2} = \alpha\sqrt[3]{R_h},
-\end{equation}
-where $\alpha$ is the proportionality coefficient, which agrees with reported experimental values~\cite{HuttonSmith_2016}.
-This work also highlighted the difference between \textit{in vitro} and \textit{in vivo} binding rates of anti-VEGF to VEGF, which could differ by multiple orders of magnitude compared to values used in previous similar PK models~\cite{Saunders_2015}.
+In a series of papers, Hutton-Smith et al. used two (vitreous and aqueous humours) and three (including the retina) compartment models to estimate the true, \textit{in vivo} parameters of ocular anti-VEGF molecules~\cite{HuttonSmith_2016,HuttonSmith_2017,HuttonSmith_2018}.
+They theoretically derived values of ocular half-life ($t_{1/2}$) based on the diffusion time of a molecule within the vitreous, namely, the time required for a molecule to reach the boundary of a spherical vitreous chamber.
+The theoretical formulas yielded that $t_{1/2}$ was approximately four times the vitreous diffusion time for all species considered, namely human, rabbit, rat and monkey.
+The relationship was confirmed by a linear regression on $t_{1/2}$ reported in experimental and clinical studies with the same species.
+In addition they developped a PK/PD model of IVI.
+Using this model to analyse the previous data, they attempted to determine the true, \textit{in vivo} value of the dissociation constant between VEGF and its inhibitor.
+The dissociation constant is difficult to estimate experimentally but is an important determinant of the duration of VEGF suppression\cite{HuttonSmith_2016} and, as such, is essential to developping a mechanistic model of intervention.
+Analysis of the data of one drug with the proposed PK/PD model found it to range from \SIrange[range-phrase={ {to} }]{18}{27}{\nano\textsc{M}}, a value orders of magnitude higher from the value found \textit{in vitro}.
+This result highlights the difficulty of finding appropriate ranges for \textit{in silico} models' parameters.
+Similarly, this difficulty is also evidenced by the work of Caruso et al.~\cite{Caruso_2020} who reproduced Hutton-Smith et al.'s PK/PD analysis using additional, in-house data.
+In this work, the linear regression found a weaker dependence of $t_{1/2}$ on vitreous diffusion time ($2.8$ against $4.4$ in Hutton-Smith et al.'s work).
+While this study incorporated additional data and an additional species, the main difference lied in the computation of the molecules characteristics, namely their hydrodynamic radius, which was found experimentally rather than derived theoretically.
+Similarly to the dissociation constant, the diffusion times of anti-VEGF in the vitreous is expected to be sensitive to temperature and the viscosity of the vitreous humour, though the sensitivity is hard to quantify.
 
-Using the two-compartment PK model by Hutton-Smith et al., with values of the hydrodynamic radius, ocular half-life and vitreous radius collected for this meta-analysis, Caruso et al. found a coefficient $\alpha=2.1$ in Equation~\ref{eq:t12_Hutton-Smith}~\cite{Caruso_2020}.
-This result differs from the theoretical value derived by Hutton-Smith et al., reported at $\alpha=4.4$, based on $t_{1/2}$ computed in previous PK analyses~\cite{HuttonSmith_2016}.
-The discrepancy may be explained by the consideration of choroidal clearance in the more recent work, a mechanism which was ignored in the earlier models, suggesting that posterior clearance should be included in PK models of IVI.
+Interestingly, kinetic parameters can be determined with PK analysis with a lesser degree uncertainty.
+This is evidenced by the model developped by Bussing et al. who proposed to extend a compartmental model of the whole rabbit body, connected through blood flow and lymphatic circulation, with an eye compartment subject to IVI of anti-VEGF~\cite{Bussing_2020}.
+The comprehensive model comprises over a hundred compartments, with all exchange rates and reaction rates found in the literature.
+The results showed quantitative and qualitative agreement in terms of area under the curve with experiments without necessitating fitting some of the parameters to data points.
 
-
-Bussing et al. proposed to extend a compartmental model of the whole rabbit body, connected through blood flow and lymphatic circulation, with an eye compartment subject to IVI of anti-VEGF~\cite{Bussing_2020}.
-The comprehensive model comprises over a hundred compartments, with all exchange rates and reaction rates determined using values reported in the literature.
-The results showed quantitative and qualitative agreement with experiments without necessitating determination of unknown parameters. 
-
-The above PK/PD models assume a constant in time and homogeneous production rate of VEGF.
-However, an \textit{in silico} model of an \textit{in vitro} setup on the RPE suggests that spatial arrangement of RPE cells and atrophied tissue play an important role in the production of VEGF that may explain the progression of AMD into its neovascular form~\cite{Baker_2017}.  
+The above PK/PD models assume a constant in time and homogeneous production rate of VEGF, ignoring any spatial effect or degeneration of the VEGF-expressing cells such as the RPE cells.
+However, an \textit{in silico} model of an \textit{in vitro} setup of the RPE suggests that spatial arrangement of RPE cells and atrophied tissue play an important role in the production of VEGF, a role that may explain the progression of AMD into its neovascular form~\cite{Baker_2017}.
 
 \paragraph*{Finite element PK models}
 
