@@ -19,7 +19,7 @@
 \usepackage{mathrsfs}
 %\usepackage{url}
 
-\usepackage[super,numbers]{natbib}
+\usepackage[super,numbers, sort&compress]{natbib}
 \bibliographystyle{abbrvnat}
 \usepackage{xltabular}
 \usepackage{tcolorbox}
@@ -807,7 +807,8 @@ While insightful on the relationship between ocular availability and molecular c
 However, ocular fluid flow can impact the delivery of drug to the retina.
 Flows may be influenced by the structure of the eye and may differ strongly between species.
 A number of groups have developed finite element models of the eye, adding the contributions of ocular fluids, structure, heat and gravity to the PK analysis~\cite{Lamminsalo_2018, Missel_2012, Zhang_2018}.
-Such models can help make better use of experiments on animal eyes by providing a framework to translate data from one species to another.
+Such models can help make better use of experiments on animal eyes by providing a framework to translate data from one species to another or investigate spatial effects in pharmacokinetics, an aspect typically overlooked in most PK analyses~\cite{Bakri_2007, Caruso_2020, HuttonSmith_2016,HuttonSmith_2017,HuttonSmith_2018, Kaiser_2019, Park_2015, Park_2016, Xu_2013}.
+
 Some of these models are reviewed here and a comprehensive review of those models and associated findings can be found in the review by Missel and Sarangapani~\cite{Missel_2019}.
 
 Zhang et al. used a simplified three-dimensional representation of the vitreous and the retina to investigate the distribution of molecules injected in the vitreous or under the choroid~\cite{Zhang_2018}.
@@ -820,19 +821,22 @@ It was pointed out by Zhang et al. that RPE permeability is likely to be affecte
 A reduced RPE permeability could make suprachoroidal injections more effective than their intravitreal counterpart.
 However, quantifying the permeability of the RPE is difficult due to its assymetry (inward and outward permeability differ) and possible active transport mechanisms~\cite{Pitkaenen_2005}.
 Similarly, it is difficult to find a physiological range for other molecule specific parameters such as diffusion in the various tissues modelled.
-For this reason, a plausible range for scleral permeability was derived from a least-square fit to a single study's data and used to estimate diffusion coefficients in other layer based on an empirical formula.
+For this reason, a plausible range for scleral permeability was found with a least-square fit to a single study's data and used to estimate diffusion coefficients in other layer based on an empirical formula.
 In addition to the use of the empirical formula for diffusion coefficients, only qualitative comparisons of model predictions and data was reported, therefore lacking in validation.
 
 Missel et al. created physiologically accurate three-dimensional geometries of the rabbit, monkey and human eyes to investigate the effect of inter-species structural differences on drug clearance~\cite{Missel_2012}.  
 They demonstrated the importance of the canal of Petit in the clearance of substances from the aqueous humour, particularly for molecules with slow diffusivity. 
-Furthermore, they showed that an increase in IOP, within a normal range of \SIrange[range-units = single]{10}{20}{\mmHg}~\cite{Baek_2015}, significantly decreases the passage rate of the larger molecules from the vitreous to the aqueous.
-By accurately modelling the eye of different species, including humans, they aim to offer a framework to translate experimental data from one species to another~\cite{Missel_2012}.
-
-Lamminsalo et al. used the geometry of the rabbit eye designed by Missel et al. to investigate the contributions of anterior (through the aqueous humour outflow) and posterior (through the choroidal circulation) routes in the clearance of intravitreally injected macromolecules similar to anti-VEGF molecules~\cite{Lamminsalo_2018}.
-Their model suggested that only \SIrange[range-units = single]{5}{24}{\percent} of the injected drugs are eliminated through the retina, in accordance with previous modelling work~\cite{HuttonSmith_2017}.
-However, this percentage increases with IOP, which might elevate with age and other systemic variables~\cite{Armaly_1967,Baek_2015,Hashemi_2005}.
-Furthermore, the diffusion rates of the injected molecules through the retina, RPE and BrM are not yet clear and may influence the posterior clearance rates.
+Furthermore, they showed that an increase in IOP, within a normal range of \SIrange[range-units = single, range-phrase={ {to} }]{10}{20}{\mmHg}~\cite{Baek_2015}, significantly decreases the passage rate of the larger molecules from the vitreous to the aqueous.
+Here too plausible diffusion coefficients were extrapolated from the diffusivity of the drugs in the vitreous and aqueous humours.
+Another limitation is the absence of transport from the vitreous into the retina in most simulations.
+% By accurately modelling the eye of different species, including humans, they aim to offer a framework to translate experimental data from one species to another~\cite{Missel_2012}.
+% Such framework would be valuable to take advantage of the numerous animal pre-clinical studies.
+Indeed, as demonstrated by other models, for molecules of this size, an esitmated \SIrange{10}{20}{\percent} of the injected drug exits the eye through the retina~\cite{HuttonSmith_2018,Lamminsalo_2017}.
+Lamminsalo et al. used the same geometry of the eye to quantify the contributions of anterior (through the aqueous humour outflow) and posterior (through the choroidal circulation) routes in the clearance of intravitreally injected molecules of similar weight to anti-VEGF molecules~\cite{Lamminsalo_2018}.
+Moreover, this percentage increases with IOP, which might elevate with age and other systemic variables~\cite{Armaly_1967,Baek_2015,Hashemi_2005}, due to the increased fluid flow in the posterior vitreous (i.e., at the surface of the retina).
+However, the transport rates of the injected molecules through the retina, RPE and BrM are not yet clear and may influence the posterior clearance rates.
 In later work, the group extended their earlier model to estimate the diffusion coefficients in those tissues using \textit{in vivo} PK data and found an RPE permeability similar to the one found by Hutton-Smith et al.~\cite{HuttonSmith_2017, Lamminsalo_2020}.
+The parameter estimation in both those studies, however, relies on a single study in rabbit eyes and additional data from other sources is required for more robust estimation and model validation.
 
 \paragraph*{Models of treatment outcome}
 
