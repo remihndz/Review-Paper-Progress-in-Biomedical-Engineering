@@ -776,7 +776,7 @@ Often in PK analysis of ocular or systemic fluid, the half-life of a molecule is
 This assumes that the clearance rate of molecules in the eye is proportional to their concentration at all times and ignores potential effects of interactions with the tissue or the presence of multiple clearance pathways (e.g., the aqueous humour outflow and the choroidal circulation).
 Understanding the determinants of the PK of anti-VEGF molecules in the eye is essential to develop more effective molecules and such simple models do not provide this kind of insight.
 
-Mechanical models can be used to determine the \textit{in vivo} value of drug or biological parameters (e.g., binding affinity or permeability coefficients), which may differ from \textit{in vitro} values~\cite{HuttonSmith_2016}.
+Mechanical models have been used to determine the \textit{in vivo} value of drug or physiological parameters (e.g., binding affinity or permeability coefficients), which may differ from \textit{in vitro} values~\cite{Bussing_2020,Caruso_2020,HuttonSmith_2016,HuttonSmith_2017,HuttonSmith_2018}.
 Analytical relationships between a molecule's characteristics and its ocular half-life can be derived from those models and can assist the design of longer lasting therapeutics.
 
 In a series of papers, Hutton-Smith et al. used two (vitreous and aqueous humours) and three (including the retina) compartment models to estimate the true, \textit{in vivo} parameters of ocular anti-VEGF molecules~\cite{HuttonSmith_2016,HuttonSmith_2017,HuttonSmith_2018}.
@@ -791,12 +791,12 @@ This result highlights the difficulty of finding appropriate ranges for \textit{
 Similarly, this difficulty is also evidenced by the work of Caruso et al.~\cite{Caruso_2020} who reproduced Hutton-Smith et al.'s PK/PD analysis using additional, in-house data.
 In this work, the linear regression found a weaker dependence of $t_{1/2}$ on vitreous diffusion time ($2.8$ against $4.4$ in Hutton-Smith et al.'s work).
 While this study incorporated additional data and an additional species, the main difference lied in the computation of the molecules characteristics, namely their hydrodynamic radius, which was found experimentally rather than derived theoretically.
-Similarly to the dissociation constant, the diffusion times of anti-VEGF in the vitreous is expected to be sensitive to temperature and the viscosity of the vitreous humour, though the sensitivity is hard to quantify.
+Similarly to the dissociation constant, the diffusion times of anti-VEGF in the vitreous is expected to be sensitive to temperature and the viscosity of the vitreous humour, though this sensitivity is hard to quantify.
 
-Interestingly, kinetic parameters may be determined with PK analysis with a lesser degree uncertainty.
-This is evidenced by the model developped by Bussing et al. who proposed to extend a compartmental model of the whole rabbit body, connected through blood flow and lymphatic circulation, with an eye compartment subject to IVI of anti-VEGF~\cite{Bussing_2020}.
-The comprehensive model comprises over a hundred compartments, with all exchange rates and reaction rates found in the literature.
-The results showed quantitative and qualitative agreement in terms of area under the curve with experiments without necessitating fitting some of the parameters to data points.
+% Interestingly, kinetic parameters may be determined by PK analyses with a lesser degree of uncertainty.
+% This is evidenced by the model developped by Bussing and Shah who proposed to extend a compartmental model of the whole rabbit body, connected through blood flow and lymphatic circulation, with an eye compartment subject to IVI of anti-VEGF~\cite{Bussing_2020}.
+% The comprehensive model comprises over a hundred compartments, with all exchange rates and reaction rates found in the literature.
+% The results showed quantitative and qualitative agreement in terms of area under the curve with experiments without necessitating fitting some of the parameters to data points.
 
 % The above PK/PD models assume a constant in time and homogeneous production rate of VEGF, ignoring any spatial effect or degeneration of the VEGF-expressing cells such as the RPE cells.
 % However, an \textit{in silico} model of an \textit{in vitro} setup of the RPE suggests that spatial arrangement of RPE cells and atrophied tissue play an important role in the production of VEGF~\cite{Baker_2017}.
@@ -844,13 +844,20 @@ Other models have simulated the effect of anti-VEGF therapy on clinically releva
 These models can be compared directly with clinical trials and, potentially, can be used to run \textit{in silico} trials, as discussed in Section~\ref{sec:InSilicoTrials}.
 
 Using a compartmental modelling approach, Hoyle and Aslam showed that their model could reproduce the results from landmark studies of anti-VEGF therapy in nAMD~\cite{Hoyle_2017}.
+This model provides, to the best of our knowledge, the first attempt at \textit{in silico} clinical trials for nAMD treatment. 
 
 Mulyukov et al. attempted to model the response to therapy in terms of visual acuity with a mixed effects model~\cite{Mulyukov_2018}.
 The model was calibrated on a large dataset compiled from various clinical trials and captures the average trends of treatment response without using any patient-specific information other than visual scores and treatment strategy~\cite{Mulyukov_2018}.
-
+The addition of statistical variations in the model framework allows inclusion of random event in population wide simulations of anti-VEGF and the possibility to directly integrate future clinical observations into the model to increase robustness of the predictions.
 Building on this, Edwards et al. added the buildup of tolerance to the drugs and its effect on visual outcome, using spatial and non-spatial models~\cite{Edwards_2020}.
-After fitting the model-specific parameters, both models show good agreement with the observations from the clinical studies.
-However, the spatial model showed better performance at predicting the treatment outcome of a patient non-responsive to treatment.
+Using model parameters fitted to visual acuity readings for each patients in the clinical study, they were able to find a model-specific determinant of treatment response.
+This determinant of treatment response was described as: ``the fraction of acuity the patient would expect to retain in the absence of any treatment''~\cite{Edwards_2020} and was found to be smaller than $1$ in non-responsive patients, suggesting a stronger disease activity in those patients.
+However, this parameter is found by fitting curves to data from clinical studies with specific treatment schedule and may therefore not generalize well to real-world data.
+The spatial model was not found to significantly increase the accuracy of predictions in terms of visual acuity, however, it highlights that drug concentrations in the retina are overestimated in non-spatial model that do not account for the spread of substances throughout the retina. 
+
+\paragraph*{Summary and prospects for \textit{in silico} clinical trials}
+In addition, clearance through the retina was ignored in both Caruso et al.'s work~\cite{Caruso_2020} and the earlier model by Hutton-Smith et al.~\cite{HuttonSmith_2016}.
+The retina was incorporated in later work by the lattest to determine population specific transport and productions rates~\cite{HuttonSmith_2017, HuttonSmith_2018}, taking a step towards understanding the variability in treatment response observed in practice.
 
 
 
