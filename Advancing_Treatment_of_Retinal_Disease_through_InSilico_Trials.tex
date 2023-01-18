@@ -831,7 +831,7 @@ Here too plausible diffusion coefficients were extrapolated from the diffusivity
 Another limitation is the absence of transport from the vitreous into the retina in most simulations.
 % By accurately modelling the eye of different species, including humans, they aim to offer a framework to translate experimental data from one species to another~\cite{Missel_2012}.
 % Such framework would be valuable to take advantage of the numerous animal pre-clinical studies.
-Indeed, as demonstrated by other models, for molecules of this size, an esitmated \SIrange{10}{20}{\percent} of the injected drug exits the eye through the retina~\cite{HuttonSmith_2018,Lamminsalo_2017}.
+Indeed, as demonstrated by other models, for molecules of this size, an esitmated \SIrange{10}{20}{\percent} of the injected drug exits the eye through the retina~\cite{HuttonSmith_2018,Lamminsalo_2018}.
 Lamminsalo et al. used the same geometry of the eye to quantify the contributions of anterior (through the aqueous humour outflow) and posterior (through the choroidal circulation) routes in the clearance of intravitreally injected molecules of similar weight to anti-VEGF molecules~\cite{Lamminsalo_2018}.
 Moreover, this percentage increases with IOP, which might elevate with age and other systemic variables~\cite{Armaly_1967,Baek_2015,Hashemi_2005}, due to the increased fluid flow in the posterior vitreous (i.e., at the surface of the retina).
 However, the transport rates of the injected molecules through the retina, RPE and BrM are not yet clear and may influence the posterior clearance rates.
@@ -851,15 +851,43 @@ The model was calibrated on a large dataset compiled from various clinical trial
 The addition of statistical variations in the model framework allows inclusion of random event in population wide simulations of anti-VEGF and the possibility to directly integrate future clinical observations into the model to increase robustness of the predictions.
 Building on this, Edwards et al. added the buildup of tolerance to the drugs and its effect on visual outcome, using spatial and non-spatial models~\cite{Edwards_2020}.
 Using model parameters fitted to visual acuity readings for each patients in the clinical study, they were able to find a model-specific determinant of treatment response.
-This determinant of treatment response was described as: ``the fraction of acuity the patient would expect to retain in the absence of any treatment''~\cite{Edwards_2020} and was found to be smaller than $1$ in non-responsive patients, suggesting a stronger disease activity in those patients.
+This determinant of treatment response was described as: ``the fraction of acuity the patient would expect to retain in the absence of any treatment''~\cite{Edwards_2020} and was found to be smaller than $1$ in for almost all non-responsive individuals, suggesting a stronger disease activity in those patients.
 However, this parameter is found by fitting curves to data from clinical studies with specific treatment schedule and may therefore not generalize well to real-world data.
 The spatial model was not found to significantly increase the accuracy of predictions in terms of visual acuity, however, it highlights that drug concentrations in the retina are overestimated in non-spatial model that do not account for the spread of substances throughout the retina. 
 
-\paragraph*{Summary and prospects for \textit{in silico} clinical trials}
-In addition, clearance through the retina was ignored in both Caruso et al.'s work~\cite{Caruso_2020} and the earlier model by Hutton-Smith et al.~\cite{HuttonSmith_2016}.
-The retina was incorporated in later work by the lattest to determine population specific transport and productions rates~\cite{HuttonSmith_2017, HuttonSmith_2018}, taking a step towards understanding the variability in treatment response observed in practice.
+\subsubsection{Summary, future directions and prospects for \textit{in silico} clinical trials} \label{sec:SummaryAntiVEGF}
+Overall, \textit{in silico} modelling of anti-VEGF therapy is a well established area.
+Models have been designed to predict \textit{in vivo} values of anti-VEGF drugs or tissue parameters, such as diffusivity, permeability and dissociation rates.
+Three dimensional models have been used to quantify spatial effects, such as pressure gradients, on the PK of ocular anti-VEGF, which are typically overlooked in classical PK/PD analyses.
+In addition, few groups have attempted at linking drug concentrations with clinically relevant biomarkers such as visual acuity or macular oedema sizes.
 
+While the above mentionned models provide valuable insights into the pharmacokinetics of VEGF and its inhibitor, a number of issues need to be addressed.
+First, knowledge of physiological ranges for keys parameters and understanding of their relation to disease and therapy is essential for robust, explainable ISCTs.
+The estimations provided by \textit{in silico} models rely on measured concentrations in biological samples, mostly from ocular or systemic fluids or, more rarely, the retina.
+However, measurements of ocular concentrations are invasive and, therefore, are done majoritarily on animal eyes which may have very different properties compared to human's.
+The framework proposed by Missel~\cite{Missel_2012} for translating experiments across species would be a valuable tool to make use of the wealth of animal data; however, additional validation by \textit{in vivo} or \textit{in vitro} experiments is required.
+Moreover, clearance through the retina was ignored in both Caruso et al.'s work~\cite{Caruso_2020} and the earlier model by Hutton-Smith et al.~\cite{HuttonSmith_2016}.
+This omission may have affected the quality of fit in those studies, overestimating the clearance rates through the vitreous humor.
+The retina was incorporated in later work to determine the distribution of transport and productions rates in a population of nAMD patients~\cite{HuttonSmith_2017, HuttonSmith_2018}, an essential step towards a model of disease (see Section~\ref{sec:InSilicoTrials_ModelOfDiseaseAndIntervention}).
+Determination of physiological parameters would require better understanding of the physiology of retinal tissue, in particular transport (active and passive) across the RPE.
 
+A working model of disease, both for nAMD and DR is still lacking.
+Both neovascular diseases have been reduced to a non-mechanistic model of VEGF production, usually assuming a constant production rate.
+Edwards et al.~\cite{Edwards_2020} proposed the most advanced model of nAMD to date.
+Still, all models of treatment outcome are almost purely phenomenological models and, as such, would be unsuited for ISCTs.
+It remains unclear what drives the neovascular growth seen in DR and nAMD, though oxygen deficiency and inflammation have been pointed out as potential explanations, and this requires to be clarified.
+
+The pharmacodynamics of anti-VEGF molecules needs to be modelled further to improve the generalization of current models to new drugs.
+While most of the models account for the properties of drugs, their \textit{in vivo} values may vary strongly from the value measured \textit{in vitro}.
+This is examplified by Hutton-Smith et al.'s estimation of the \textit{in vivo} dissociation constant of ranibizumab~\cite{HuttonSmith_2016} that lies orders of magnitude above the \textit{in vitro} value.
+
+Lastly, three dimensional models have shown that pressure and temperature gradients in the front of the eye may be determinants of the exposure of the retina to intravitreally injected drugs~\cite{Missel_2012,Zhang_2018,Lamminsalo_2018,Edwards_2020}.
+Whether these aspects need to be included in a model of intervention (see Section~\ref{sec:InSilicoTrials_ModelOfDiseaseAndIntervention}) has to be clarified, taking into account that a spatial components increases tremendously the complexity of a model, compared to a compartmental approach.
+
+Finally, ISCTs of anti-VEGF therapy may be achievable in the next few years, provided that a mechanistic model of disease is developped for nAMD and DR.
+However, developping such models requires a better understanding of the pathophysiology of those disease and therefore close collaboration with retinal physiologists.
+That collaboration would also help clear the uncertainty on certain key parameters.
+A modelling framework is in place to estimate population parameters for ISCTs.
 
 \section{Retinal oxygenation, retinitis pigmentosa and non-neovascular AMD}\label{Sec_Ox_RP_non-nAMD}
 %
@@ -1088,7 +1116,7 @@ Figure~\ref{fig:ISCT} depicts a general schematic of how an ISCT might run for n
   \label{fig:ISCT}
 \end{figure}
 
-\subsection{Mechanistic models of disease and intervention}
+\subsection{Mechanistic models of disease and intervention}\label{sec:InSilicoTrials_ModelOfDiseaseAndIntervention}
 
 The central aspect of any ISCT is the mechanistic model that predicts the outcome of an intervention (or lack thereof). 
 This is equivalent to the administration of the intervention in a real-world clinical trial. 
