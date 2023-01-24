@@ -686,17 +686,19 @@ Rebhan et al. compared haemodynamics in a model of vascular networks segmented f
 The embedding of vessels in tissue revealed an increase in wall shear stress in diseased eyes compared with an healthy eye.
 However, it was noted by Rebhan et al. that the absence of downstream vasculature is likely to affect the quality of predictions~\cite{Rebhan_2019}.
 Along the same lines, higher vascular tortuosity, a common sign of aging and disease, has been shown computationally to increase the pressure drop across the vasculature~\cite{Malek_2014}.
-However, vessel-tissue interactions were not considered in the model.
+However, in this work, inflow boundary conditions for the venules were linearly interpolated from vessel diameter, which is dependent on vessel segmentation and introduces unquantified uncertainty in the results.
+In both models, analysis is limited to few vascular networks comprising few large vessels.
+Furthermore, simulating mechanical stresses requires knowledge of the mechanical properties of the vessel and retinal tissue.
+\textit{In vivo} values of these parameters are not currently available and therefore the model's predictions are relative to the assumed parameter values~\cite{Rebhan_2019}.
 
 Eyes with visual impairments such as myopia see a progressive change of the shape of the retina and may develop neovasculature~\cite{Medina_2016}.
 This suggests a link between the curvature of the eye and retinal perfusion.
 However, the effects of curvature have been assumed insignificant in most haemodynamics models to date.
 Dziubek et al. modelled this curvature by representing the retina as a thin, curved surface, within which an artificial network of vessels is embedded~\cite{Dziubek_2015}.
 The tissue is considered a porous medium --- with the embedded vessels acting as pores --- with pressure in the tissue described by Darcy's law.
-% Arteriolar, capillary and venular networks are kept virtually separated but communicate through a `hierarchical' velocity variable, as opposed to the spatial velocity which describes movement throughout the retinal surface.
-The dichotomous tree proposed by Takahashi et al. was used to generate the vascular networks.
 The model confirms clinical suspicions of a change in retinal haemodynamics due to ocular curvature.
 Furthermore it highlighted the non-uniform effects on the retina, with the temporal region being less affected by ocular shape\cite{Dziubek_2015}.
+However, in the absence of data, tissue properties were assumed and, though the predicted pressure and velocity fields are within physiological ranges, model validation is strongly limited.
 
 \paragraph*{Models of glaucoma and vessel occlusion}
 
