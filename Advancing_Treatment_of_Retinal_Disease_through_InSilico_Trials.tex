@@ -674,6 +674,9 @@ Malek et al. characterised the flow distribution in reproduced arterioles and ve
 The Navier-Stokes equations were used to find flow within the arterioles, while peripheral circulation was accounted for by an impedance condition at the outlets of the segmented tree.
 The deformation of vessels caused by the pulse of blood is a computationally complex mechanism to model and a simplified model has been developed and applied to a similar reproduction of the retinal vasculature, with a brief analysis of its effects on haemodynamics~\cite{Aletti_2016}.
 Notably, Rebhan et al. have considered the interactions of retinal haemodynamics and tissue stress using reproductions of the large vessels of healthy and diseased eyes, an aspect previously overlooked that may have importance in, e.g., glaucoma and diabetes~\cite{Rebhan_2019}.
+Because of the difficulty to recreate extensive vascular networks from images, synthetic vasculature generated algorithmically may be used as complement or substitute (see Figure~\ref{fig:NetworkModels}C)~\cite{Causin_2015,Chuangsuwanich_2016,Fry_et_al_2018,Walpole_2017}.
+There validation, however, is challenging given the lack of data on the distribution of vessels and haemodynamic parameters.
+These models are most useful for simulating tissue oxygenation and are therefore reviewed in Section~\ref{Sec_Ox_RP_non-nAMD}.
 
 \subsubsection{In disease} \label{sec:InDisease}
 
@@ -698,7 +701,7 @@ Dziubek et al. modelled this curvature by representing the retina as a thin, cur
 The tissue is considered a porous medium --- with the embedded vessels acting as pores --- with pressure in the tissue described by Darcy's law.
 The model confirms clinical suspicions of a change in retinal haemodynamics due to ocular curvature.
 Furthermore it highlighted the non-uniform effects on the retina, with the temporal region being less affected by ocular shape\cite{Dziubek_2015}.
-However, in the absence of data, tissue properties were assumed and, though the predicted pressure and velocity fields are within physiological ranges, model validation is strongly limited.
+However, in the absence of data, tissue properties were assumed and, though the predicted pressure and velocity fields are within physiological ranges, model validation is limited.
 
 \paragraph*{Models of glaucoma and vessel occlusion}
 
@@ -706,10 +709,10 @@ Numerous models have been developed to explain alterations of blood flow observe
 Elevated IOP, a hallmark of glaucoma, is expected to affect the retinal circulation, causing loss of sight.
 Modelling of the interactions between the ocular structure surrounding the central retinal vessels has shown the role of a stiffened lamina cribrosa resulting from such conditions~\cite{Guidoboni_2014}.
 In addition, the model by Guidoboni et al. showed that the geometry of the sclera and the lamina cribrosa affect the sensitivity of blood flow to elevation of IOP.
-This framework was extended in Sala's thesis to create the `Ocular Mathematical Virtual Simulator', a simulation environment for the interactions of haemodynamics and biomechanics in the eye~\cite{Sala_2018,Sala_2020}.
-This environment allows haemodynamics simulations of individual patients characterised by a handful of parameters, yielding significantly different results for each combination of parameters.
-Results showed that high IOP can cause collapse of the CRV and major differences in the displacement of the lamina cribrosa.
-Interestingly, it showed that the perfusion of the lamina cribrosa is also negatively affected by ocular hypertension, a potentially significant mechanism in the understanding of glaucoma~\cite{Sala_2020}.
+This framework was extended by Sala et al.'s to create the `Ocular Mathematical Virtual Simulator', a simulation environment for the interactions of haemodynamics and biomechanics in the eye~\cite{Sala_2018,Sala_2018a,Sala_2020}.
+This environment allows haemodynamics simulations of individual patients characterised by a handful of clinical parameters such as IOP, systolic/diastolic blood pressures and intracranial pressure~\cite{Sala_2020}.
+These parameters can be sampled from probability distributions generated from large population wide studies to form virtual populations.
+Interestingly, the model showed that the perfusion of the lamina cribrosa is also negatively affected by ocular hypertension, a potentially significant mechanism in the understanding of glaucoma~\cite{Sala_2020}.
 Perfusion and haemodynamics within the lamina cribrosa have been modelled separately using a large number of artificial capillary networks statistically representative of different morphologies of the lamina cribrosa~\cite{Chuangsuwanich_2016}.
 For a review of the use of mathematical models in glaucoma research, we refer the reader to the review by Harris et al~\cite{Harris_2013}.
 
@@ -721,16 +724,19 @@ Bernabeu et al. considered the shape of microaneurysms and how this influences h
 Similarly, Czaja et al. investigated wall shear stress in microaneurysms in the event of stiffened red blood cells, another symptom of diabetes~\cite{Czaja_2022}.
 A notable difference with the previous model is the use of cell-resolved blood flow simulations, where individual cells are modelled and transported by blood flow.
 This allowed separate investigation of red blood cell and platelet flows, demonstrating the differences in penetration through the microaneurysm between the two cell types.
-Stiffened red blood cells were found to induce higher wall shear stress, both in the aneurysm sac and in the vessels feeding and draining it.
+Stiffened red blood cells were found to induce higher wall shear stress, particularly at the bottlenecks formed at the inlet and outlet of a microaneurysm.
 In two studies, Li et al. also simulated the flow of red blood cells and platelets in microaneurysms with a focus on platelet flow through the microaneurysm, as they may be linked with the formation of blood clots~\cite{Li_2020,Li_2022}.
+These models recreate the geometry of the microaneurysms from medical images.
+Because segmentation of such a fine structure is highly challenging and time consuming, reproducing those works on a large sample of virtual geometries is difficult.
+However, mechanical properties of blood constituents have been studied experimentally and therefore parameters are mostly known, to the exception of blood flow velocity the vessels surrounding the microaneurysms and the exact hematocrit.
 
 Panretinal photocoagulation therapy is a common procedure to treat ischaemia in retinas with proliferative DR.
 While practice has shown the efficiency of the procedure, its mechanisms of action remain unclear.
 It is thought that the procedure acts by reducing the oxygen consumption of the photoreceptors affected by the laser-induced burn~\cite{Fawzi_2019,Gast_2016}.
 However, effects of the therapy on blood flow have been observed~\cite{Fawzi_2019}.
 Fawzi et al. used a simple compartmental model to show how surgery could increase macular blood flow, under the assumption that panretinal photocoagulation increases vascular resistance in the periphery of the macula~\cite{Fawzi_2019}.
-Increased perfusion in the macula would then explain the decrease in VEGF concentrations and the subsequent regression of neovasculature.
-The model predictions are consistent with the seemingly increased flow in macular capillaries~\cite{Fawzi_2019}.
+The model differentiate macular and peripheral compartments, with the vascular resistance of the latest assumed to be increasing after surgery.
+The model predictions are consistent with the seemingly increased flow in macular capillaries, which would then explain the decrease in VEGF concentrations and the subsequent regression of neovasculature~\cite{Fawzi_2019}.
 The burn patterns used in panretinal photocoagulation are also subject to debate.
 Gast et al. investigated the effects of different patterns on the propagation of ischaemia due to capillary occlusion~\cite{Gast_2016}.
 The model showed how different burn patterns affect the propagation of ischaemia and suggested that targeting the non-ischaemic peripheral retina with appropriate patterns may be effective at containing it.
@@ -745,6 +751,8 @@ This needs to be resolved as numerous studies have found microvascular metrics o
 Most of those studies use machine learning methods, therefore lacking a mechanistic understanding of those correlations.
 Additional, specific experimental work would be valuable to develop mechanistics \textit{in silico} models of the retinal circulation, both in health and disease.
 The virtual populations by Prud'homme et al.~\cite{Prudhomme_2021} are directly translatable to other models, however, uncertainty quantification would need to be performed again.
+
+Uncertainty quantification and sensitiviy analysis were performed later for the framework~\cite{Prudhomme_2021}, which showed noticeable differences in the haemodynamic response of the retina of the virtual populations tested (namely, normo-, hypo- and hypertensive populations).
 
 
 \subsection{Anti-VEGF therapy in neovascular AMD and diabetic retinopathy}\label{sec:Anti-VEGF}
