@@ -742,18 +742,29 @@ Gast et al. investigated the effects of different patterns on the propagation of
 The model showed how different burn patterns affect the propagation of ischaemia and suggested that targeting the non-ischaemic peripheral retina with appropriate patterns may be effective at containing it.
 
 \subsubsection{Summary, future directions and prospects for \textit{in silico} clinical trials}
-Experimental studies to elucidate the relationship between IOP and retinal haemodynamics by artificially elevating or lowering IOP reached inconsistent conclusions\cite{Conway_2010,Findl_1997}.
-The dependence of these ranges on systemic blood pressure and autoregulation capacity, in combination with the small sample size in these studies may explain those inconsistencies~\cite{Guidoboni_2014a}.
-As evidence of dysfunction of the retinal microcirculation accrues for various retinal conditions, it becomes clear that viscous effects must be accounted for in the capillaries in order to obtain meaningful haemodynamics simulation~\cite{Ganesan_2010}.
+Numerous models of retinal haemodynamics have been developped.
+Most of these models use simplified representation of the vasculature, such as compartmental~\cite{Chiaravalli_2021,Guidoboni_2014a,Fawzi_2019,Nelson_2017,Petersen_2022} or structured branching networks~\cite{Arciero_2008,Arciero_2013, Takahashi_2009,Pappelis_2020}, which allows to separate the response of arterioles, capillaries and venules in various scenarios. 
+As evidence of dysfunction of the retinal microcirculation accrues for various retinal conditions, it becomes increasingly important to understand the distribution of haemodynamics parameters along the retinal vasculature.
 However, the current understanding of the physiology of the retinal circulation is still lacking.
-For instance, most experimental data, and therefore modelling work, is focused solely on the superficial (and larger) vessels while the DVC and the choroid are ignored, probably due to the difficulty to isolate those layers.
+Experimental studies to elucidate the relationship between IOP and retinal haemodynamics by artificially elevating or lowering IOP reached inconsistent conclusions\cite{Conway_2010,Findl_1997}.
+The dependence of the results on systemic blood pressure and autoregulation capacity, as shown by \textit{in silico} models~\cite{Arciero_2008,Arciero_2013,Guidoboni_2014a}, in combination with the small sample size in these studies may explain those inconsistencies.
+Validation of haemodynamics models is limited by the availability of clinical data and, by extension, dependent on technological limitations.
+For instance experimental data, and therefore modelling work, is focused almost solely on the superficial (and larger) vessels while the DVC and the choroid are often disregarded, probably due to the difficulty to isolate those layers.
 This needs to be resolved as numerous studies have found microvascular metrics of the DVC and CC to be predictive biomarkers of disease (retinal and systemic) or treatment response~\cite{Kashani_2017}.
 Most of those studies use machine learning methods, therefore lacking a mechanistic understanding of those correlations.
 Additional, specific experimental work would be valuable to develop mechanistics \textit{in silico} models of the retinal circulation, both in health and disease.
-The virtual populations by Prud'homme et al.~\cite{Prudhomme_2021} are directly translatable to other models, however, uncertainty quantification would need to be performed again.
+In the meantime, many of the models reviewed here were calibrated of validated against haemodynamics data of the central retinal vessels.
 
-Uncertainty quantification and sensitiviy analysis were performed later for the framework~\cite{Prudhomme_2021}, which showed noticeable differences in the haemodynamic response of the retina of the virtual populations tested (namely, normo-, hypo- and hypertensive populations).
+Despite these limitation, virtual populations based on few clinical parameters are within reach.
+This is evidenced by the model framework developed by Sala et al.~\cite{Sala_2018,Sala_2020}.
+Indeed, uncertainty quantification and sensitiviy analysis were performed for the framework~\cite{Prudhomme_2021} and showed noticeable differences in the haemodynamic response of the retina of the virtual populations tested (namely, normo-, hypo- and hypertensive populations).
+However, when modelling certain diseases or interventions, incorporating additional details may be required, e.g., details of the capillary haemodynamics (see Figure~\ref{fig:effectiveViscosity}) and physiology~\cite{Causin_2015,Gast_2016} or retinal morphology~\cite{Dziubek_2015,Rebhan_2019}.
 
+Overall, while additional work, both \textit{in silico} and \textit{in vivo}, is required to characterise the choroidal and deep retinal circulations, the large amount of work on retinal haemodynamics form a solid base to developing \textit{in silico} clinical trials.
+However, intervention models remain scarce~\cite{Gast_2016,Fawzi_2019} and are not designed for \textit{in silico} clinical trials as they lack data to be validated against and parameters that can characterize a population.
+Similarly, specific disease models have yet to be developed.
+Developing this area is dependent on the understanding of retinal vascular diseases.
+Indeed, the actual contribution of vascular defects in diseases such as DR or nAMD remains unclear and needs to be elucidated in future work.
 
 \subsection{Anti-VEGF therapy in neovascular AMD and diabetic retinopathy}\label{sec:Anti-VEGF}
 
