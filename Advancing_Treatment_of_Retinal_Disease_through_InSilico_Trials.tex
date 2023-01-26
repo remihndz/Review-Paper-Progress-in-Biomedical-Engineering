@@ -265,7 +265,7 @@ Disruption of the delicate structure of the retina leads to loss of sight.
 While the retina is a key element for visual function, its relative fragility makes it susceptible to a number of conditions, some of which may lead to blindness.
 For example, diseases such as diabetic retinopathy (DR), neovascular age-related macular degeneration (nAMD) and retinal vessel occlusion lead to overexpression of vascular endothelial growth factor (VEGF), promoting the growth of harmful neovasculature within and around the retina~\cite{Medina_2016}.
 These vascular pathologies, along with glaucoma, are described briefly in the foreword to Section~\ref{sec:RetinalHaemodynamicsNAMDDR}.
-Dysregulation of oxygen perfusion to the retina may explain the loss of visual acuity in diseases such as retinitis pigmentosa (RP) and non-nAMD, which are described in Section~\ref{Sec_Ox_RP_non-nAMD}.
+As another example of retinal fragility, excess oxygen or oxygen deprivation have been hypothesised to help drive retinal degeneration in the diseases retinitis pigmentosa (RP) and non-nAMD respectively, as described in Section~\ref{Sec_Ox_RP_non-nAMD}.
 
 \subsection{Therapeutic strategies}
 
@@ -658,7 +658,7 @@ Their work suggested that the distribution of flow separators in the CC and the 
 
 \paragraph*{Oxygen transport and spatial models}
 
-The transport of oxygen in retinal vessels has been modelled by several groups~\cite{Causin_2015,Fry_et_al_2018,Liu_2009}, though most of them are inteded to study tissue oxygenation and are therefore reviewed in more details in Section~\ref{Sec_Ox_RP_non-nAMD}.
+The transport of oxygen in retinal vessels has been modelled by several groups~\cite{Causin_2015,Fry_et_al_2018,Liu_2009}, though most of them are intended to study tissue oxygenation and are therefore reviewed in more details in Section~\ref{Sec_Ox_RP_non-nAMD}.
 The earliest model used a short arteriolar tree, taken from a retinal photograph of a healthy young volunteer, and solved the Navier-Stokes equations to obtain the haemodynamics in these vessels~\cite{Liu_2009}.
 The downstream vasculature was represented as a branching tree similar to Takahashi et al.'s~\cite{Takahashi_2009} extending the outlets of the segmented arterioles.
 This model reproduced the distribution of intravascular oxygen observed \textit{in vivo} and could serve as a baseline to analyse oxygen distribution in realistic vascular networks.
@@ -913,9 +913,11 @@ A modelling framework is in place to estimate population parameters for ISCTs.
 \section{Retinal oxygenation, retinitis pigmentosa and non-neovascular AMD}\label{Sec_Ox_RP_non-nAMD}
 %
 %
+Retinal tissue oxygenation is one of the most highly modelled aspects of the retina and has important consequences for retinal diseases such as retinitis pigmentosa and non-neovascular AMD, in which oxygen excess or starvation have been hypothesised to drive degeneration.
+
 \subsection{Retinal oxygenation}\label{Sec_Oxygen}
 %
-The retina is one of the most oxygen hungry tissues in the body (per gram of tissue)~\cite{Anderson_1968,Anderson_and_Saltzman_1964,Yu_and_Cringle_2001,W-Wirawan_and_Linsenmeier_2003}. As described in Section~\ref{sec:BloodSupplyRetina}, it has a substantial vasculature to meet this need; nonetheless, supply and demand are finely balanced. It is therefore important to understand how this balance is maintained, and the ways in which it may be dysregulated in diseases such as RP and non-nAMD (see Sections~\ref{Sec_RP} and~\ref{Sec_non-nAMD}).
+The retina has one of the highest rates of oxygen consumption per unit of tissue mass in the body~\cite{Anderson_1968,Anderson_and_Saltzman_1964,Yu_and_Cringle_2001,W-Wirawan_and_Linsenmeier_2003}. As described in Section~\ref{sec:BloodSupplyRetina}, it has a substantial vasculature to meet this need; nonetheless, supply and demand are finely balanced. It is therefore important to understand how this balance is maintained, and the ways in which it may be dysregulated in diseases such as RP and non-nAMD (see Sections~\ref{Sec_RP} and~\ref{Sec_non-nAMD}).
 
 Two key techniques are frequently employed to measure retinal oxygenation. First, oxygen-sensitive microelectrodes can be used to measure the partial pressure of oxygen (PO$_2$), creating a spatially detailed profile through the depth of the retinal tissue~\cite{Linsenmeier_and_Zhang_2017}. Since this technique is invasive, it can only be employed in animal models. Second, oximetry can be used to measure the oxygen saturation of haemoglobin in the retinal vasculature~\cite{Linsenmeier_and_Zhang_2017}. As a non-invasive technique, this can be employed in both animals and humans.
 
@@ -965,13 +967,11 @@ Lastly, Burns et al. have formulated a 1D hybrid model for the toxic substance h
 \subsection{Non-neovascular AMD}\label{Sec_non-nAMD}
 %
 The retinal disease AMD can be divided into three stages: early, intermediate and late~\cite{Ferris_et_al_2013}. The early and intermediate stages are distinguished by the development of pigmentary abnormalities and the size of cholesterol-rich deposits known as drusen (singular, druse) which form between the RPE and BrM (hard and soft drusen), and between the RPE and photoreceptors (reticular pseudodrusen/subretinal drusenoid deposits), while the late stage may be characterised as dry or wet~\cite{Coleman_et_al_2008,Ferris_et_al_2013,Jager_2008,Wu_et_al_2022}. Non-neovascular AMD (non-nAMD), considered in this section, consists of the early and intermediate stages, together with the dry form of the late stage (see Section~\ref{sec:RetinalHaemodynamicsNAMDDR} on nAMD)~\cite{Ferris_et_al_2013}. In the dry late stage, the central retina and choroid degenerate in a process known as geographic atrophy (GA)~\cite{Coleman_et_al_2008,Jager_2008,Ly_et_al_2016}.
-
-A number of mechanisms have been suggested to drive non-nAMD including oxidative stress, drusen accumulation, cholesterol accumulation and lipofuscin accumulation~\cite{Ambati_and_Fowler_2012,Handa_et_al_2019}. Mathematical models have been developed to consider each of these mechanisms and this area has great potential for future modelling studies~\cite{Handa_et_al_2019,Luthert_et_al_2018}.
+A number of mechanisms have been suggested to drive non-nAMD including oxidative stress, drusen accumulation, cholesterol accumulation and lipofuscin accumulation~\cite{Ambati_and_Fowler_2012,Handa_et_al_2019}.
+Mathematical models have been developed to consider each of these mechanisms and this area has great potential for future modelling studies~\cite{Handa_et_al_2019,Luthert_et_al_2018}.
 
 \citet{Mazzitello_et_al_2009} and \citet{Family_et_al_2010} constructed a simple stochastic model for the accumulation of lipofuscin, a chemical which builds up within RPE cells and may eventually prove toxic to them~\cite{Sparrow_and_Boulton_2005}. They capture the aggregation of  lipofuscin granules, though they do not link this to RPE cell death.
-
 \citet{Zekavat_et_al_2017} and \citet{Scheepers_et_al_2020} have developed compartmental ODE models for drusen and cholesterol accumulation. The models capture features such as the build-up of drusen and their macrophage-mediated elimination, and determine regions of parameter space in which a healthy homeostasis may be maintained.
-
 \citet{Linsenmeier_and_Zhang_2017} and \citet{McHugh_et_al_2019} have developed 2D and 3D PDE models (respectively) to predict the effects of soft and hard drusen upon retinal oxygen distribution (see Figure~\ref{Fig_LinZhang2017}). It was found that it is the size of a druse, rather than the diffusivity of oxygen within a druse, which has the greatest effect on photoreceptor oxygenation, and that wide (soft) druse are more likely to cause photoreceptor hypoxia (oxygen starvation) than tall (hard) druse. Further, \citet{Vercellin_et_al_2021} have constructed a 2D PDE model predicting the effects of reduced blood flow on central retinal oxygenation, identifying the most vulnerable regions.
 %
 \begin{figure}
