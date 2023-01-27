@@ -341,7 +341,6 @@ Viruses are designed to safely deliver the healthy genes to cells, which will ei
 
 \section{Mathematical modelling}\label{sec:MathematicalPrimer}
 
-
 \begin{figure}[t!]
   \centering
   \includegraphics[width=1\linewidth]{ModellingCycle}
@@ -349,16 +348,29 @@ Viruses are designed to safely deliver the healthy genes to cells, which will ei
   \label{fig:ModellingCycle}
 \end{figure}
 
+Broadly speaking, a mathematical or \textit{in silico} model describes the state of a biological system using a set of variables and the system of equations or rules which governs them.
+These equations translate in mathematical terms the modeller's understanding of the system.
+They form a theoretical framework which can be exploited with calculus and algebra to provide insights into the system and its underlying mechanisms.
+However, this framework also constitue a weakness of \textit{in silico} models when the understanding of the system is wrong or incomplete.
+In constrast, machine learning models can give accurate predictions of a system's output without requiring \textit{a priori} understanding.
+However, they may suffer from other kinds of bias~\cite{Parikh_2019} and have limited value in furthering knowledge into the system's underlying mechanisms.
 
-Broadly speaking, a mathematical or \textit{in silico} model describes the state of a biological system using a set of dependent variables and the system of equations or rules which governs them.
-\textit{In silico} simulations consist in solving the equations to find the dependent variables as functions of the independent variables.
-Typical independent variables are time and space, while typical dependent variables include chemical concentrations, cell densities and fluid velocity, though other choices are possible depending on the model.
 When designing an \textit{in silico} model, one has to make choices among the variety of model types available.
 This choice is informed by the system to be modelled, the question to be answered and the resources available (e.g., data or computational resources).
 Because biological systems are so complex, the mechanisms modelled need to be kept to a minimum in order for the simulations to be tractable and interpretable.
 The process of designing and refining an \textit{in silico} model follows a logic similar to experimental sciences and is summarised in Figure~\ref{fig:ModellingCycle}.
-In this section, we give a brief overview of different model types that can be used to model the retina and typical challenges which emerge when modelling biological systems.
-A more comprehensive overview can be found in the work of Roberts et al~\cite{Roberts_2016}.
+% In this section, we give a brief overview of different model types that can be used to model the retina and typical challenges which emerge when modelling biological systems.
+In this section, we give a brief overview of mathematical modelling concepts and typical challenges which emerge when modelling biological systems. 
+A more comprehensive review can be found in the work of Roberts et al~\cite{Roberts_2016}.
+
+\subsection{Variables}
+
+An \textit{in silico} model predicts a cause-and-effect relationship.
+In mathematical terms, the causes are referred to as independent variables because their value is independent of the other variables in the system.
+For instance, space, time and parameters are independent variables.
+This is opposed to dependent variables which represent the effects of changing the value of independent variables.
+Dependent variables are the outcome a researcher is interested in measuring, such as drug concentrations or fluid velocity.
+Dependent variables should be chosen wisely as to be comparable with available data.  
 
 \subsection{Mechanistic vs. phenomenological models}
 
@@ -369,96 +381,30 @@ Curve fitting models, such as linear regressions, are examples of phenomenologic
 Conversely, mechanistic models incorporate into the model the biological processes that are thought to be underlying the observed phenomenon.
 Those biological processes can, for the most part, be described using well-established physical laws, such as Fick's laws of diffusion.
 For complex or unknown processes, a phenomenological description may be used within a mechanistic model.
-Because simplifications are inherent to modelling, no model is fully mechanistic. % every mechanistic model eventually reduces to a phenomenological model.
+Because simplifications are inherent to modelling, no model is fully mechanistic.
+
+Biological mechanisms that can be described by a mechanistic model include diffusion (e.g., oxygen diffusing in retinal tissue, see Section~\ref{Sec_Ox_RP_non-nAMD}), advection (i.e., transport by a fluid's motion; see models of oxygen transport in the blood stream in Section~\ref{subsec:RetinalHaemodynamics}) and permeation (e.g., the transport of drugs across the RPE in PK models in Section~\ref{sec:Anti-VEGF}).  
+In contrast, theoretical frameworks for mechanisms such as oxygen consumption by cells or the F\r{a}hr\ae us-Lindqvist effect (see Figure~\ref{fig:effectiveViscosity}) are still missing.
+Therefore, phenomenological models may be employed.
+These are developped by examination of experimental data.
 
 \subsection{Model parameters}
-All models involve a number of parameters.
-Some of those parameters may be known, either from direct measurements or theoretical formulae.
+
+All models involve a number of parameters which determines.
+By altering their values, one can simulate variations of a system with the same model.
+This is analogous to experiments yielding different results for each participants.
+Some of those parameters may be known, either from direct measurements (e.g., IOP in most haemodynamics models in Section~\ref{sec:RetinalHaemodynamicsNAMDDR}) or theoretical formulae (e.g., vitreal diffusion times in the PK model of intravitreal injectios in Section~\ref{sec:Anti-VEGF}).
 Because a mechanistic model is physics-based, its parameters have a physical or biological definition whereas the parameters in a phenomenological model may not.
 A direct consequence of this is that parameters in phenomenological models may be model specific and therefore cannot be used in a different model.
 
 In cases where parameters are unknown, e.g., because they cannot be measured, \textit{in silico} models can be used to estimate these parameters by fitting the models to data, where available.
 Even when parameter values cannot be determined, analysis of the model predictions may still provide useful insights on the system's behaviour.
 Indeed, in either case, tools such as sensitivity analysis and bifurcation analysis can provide insights into the system's behaviour for different parameter regimes.
+For instance, the model of transclera drug delivery~\cite{Causin_2016} in Section~\ref{sec:Implants} uses sensitivity analysis to understand the relationship between drug concentration and retinal barriers whose permeability are unknown.
 
-
-\subsection{Initial and boundary conditions}
-
-While initial conditions are the state of the system at time $t=0$, boundary conditions define the behaviour of the system at the boundaries of a spatial domain.
-Classical boundary conditions may set the value of the dependent variables and are referred to as Dirichlet boundary conditions.
-Alternatively, Neumann boundary conditions specify the spatial gradients of dependent variables at a boundary.
-Finally, a condition on the sum of an independent variable's spatial gradient and value forms a Robin boundary condition.
-For a system of differential equations to be well-defined and solvable, boundary and/or initial conditions need to be specified.
-%The number of conditions necessary depends on the order of the derivatives in the equations.
-
-\subsection{Deterministic and stochastic models, continuum and discrete models}
-
-When random events are left out of a model, two simulations will yield the same results, provided the parameters, initial and boundary conditions are left unchanged.
-This kind of model is referred to as deterministic.
-By comparison, stochastic models include a probabilistic component, e.g. the random movement of cells, which yields a different solution for each simulation.
-Stochastic descriptions are often used for discrete models, e.g., agent-based models.
-Discrete models simulate the behaviour of individual entities, such as cells, based on a set of pre-defined rules.
-In contrast, continuum models assume the quantities of interest (e.g., number of cells) to be continuous variables, varying smoothly in space and/or time (e.g., cell concentrations).
-% While the variables of a discrete model can be counted, continuous variables are measurable.
-While discrete models can incorporate more details, continuum models allow for rigorous mathematical analysis.
-A further limitation of discrete models includes the drastic increase in computation times as the number of objects simulated increases.
-
-\subsection{Differential equations}
-
-Many models describe the spatial and temporal behaviour of a quantity within a biological system using differential equations.
-Differential equations relate one or more unknown dependent variables with their derivatives. 
-Derivatives represent the rate of change of a dependent variable with respect to changes of an independent variable (e.g., the slope of a curve at a given point is the derivative of the dependent variable with respect to the independent variable).
-If the equation involves derivatives of a single independent variable, it is referred to as an ordinary differential equation (ODE).
-Otherwise, if more than one independent variable is involved in the derivatives, it is referred to as a partial differential equation (PDE).
-
-Differential equations are mathematically tractable --- that is, mathematical analysis tools can be rigorously applied to solve a differential equation model or give insight into its behaviour.
-Differential equations can be solved analytically, where the solution can be given as an algebraic function, or numerically, where an approximate solution is found for a pre-specified finite number of values of the independent variables.
-
-PDEs often arise when the spatial distribution of the quantity of interest is needed.
-However, the spatial aspect is not always relevant to the research question being investigated.
-In such cases, an ODE relating a function and its time derivative can be used.
-ODEs can also be used to model a system along a single spatial dimension at steady state, defined below.
-
-Assuming a steady state is a common simplifying assumption that helps reduce the complexity and increase the interpretability of the system by ridding the model of the time component.
-This reduction follows from assuming that the system, when not perturbed, does not change over time, hence the time derivative of the functions describing it are zero.
-Similarly, spatial derivatives can be suppressed by assuming that the quantity is homogeneously distributed throughout space, an assumption termed well-mixed.
-A well-mixed assumption may be used in some cases to justify the use of a compartmental model.
-
-Compartmental models describe a system as separate compartments that can interact with each other, e.g., drug concentration in the eye can be described by vitreal, retinal and choroidal compartments, with mass exchange between adjacent compartments.
-Lumped parameter models are a special case of compartment models, where numerous connected systems (e.g., blood vessels) are treated as a single entity, with the contributions of individual objects being lumped into parameters.
-For instance, when modelling blood flow in a network of vessels, one may aggregate arterioles, capillaries and venules in separate compartments.
-The properties of individual vessels are lumped into parameters that encompass the properties of the compartments (e.g., vascular resistance, oxygen extraction and storage capacity).
-Compartmental models describe the system with a set of ODEs for each of the compartments or entities.
-
-Systems of ODEs are typically simpler to solve, both analytically (by hand) and numerically (on a computer), and to mathematically analyse compared to PDEs.
-The often complex geometry of biological systems may prove to be a challenge in the analysis of PDEs.
-Approximating the geometry with simpler shapes such as spheres and rectangles, may allow derivation of analytical solutions or, at least, greatly reduce the time needed to numerically solve the equations.
-
-Numerically, differential equations are solved by discretising the space and time variables into a mesh (that is, reducing the continuous variables to a finite number of points).
-Solutions are calculated at the nodes of the mesh by solving a matrix equation (system of linear/non-linear algebraic equations).
-The size of the matrix depends on the refinement of the mesh, with denser meshes yielding larger matrices.
-Therefore, mesh size provides some degree of control over the computational complexity of the model --- that is, the time and memory needed to run a simulation.
-
-Nonetheless, systems which span multiple spatial or temporal scales, which often arise in biology, can be computationally challenging to solve.
-Indeed, smaller scales enforce smaller mesh sizes in order to account for the refined details of the geometry or of the mechanisms working on different time scales.
-This issue appears, for example, when modelling the delivery of oxygen from retinal capillaries to a slab of tissue.
-While the size of the tissue may be of the order of millimetres, the numerous blood vessels are, in contrast, of the order of micrometres, hence enforcing a mesh size of the order of micrometres.
-
-In problems where separate mechanisms interact with each other (e.g., oxygen transport in the capillaries and oxygen diffusion in the tissue), the value of one dependent variable may depend upon that of other dependent variables.
-The model is then said to be coupled.
-While coupling and multiple scales add to the difficulty of solving a set of equations, various mathematical techniques may help in reducing the complexity (e.g., homogenisation methods and multiple-scale analysis).
-However, those tricks are often problem-specific and hard to generalise.
-
-In addition, the often nonlinear behaviour of biological processes can affect the computational cost of running simulations.
-Indeed, solving nonlinear equations most often requires solving a series of subproblems until the difference between successive iterations becomes small enough.
-
-When complex nonlinearities are combined with multiple scales, the time required to solve a set of equations increases dramatically.
-For these reasons, computation time remains a barrier to the use of \textit{in silico} models for real-time simulations in the clinic.
-However, computational power is continuously increasing and it is only a matter of time until complex \textit{in silico} models can be used for real-time decision making.
-
-
-
-
+Knowing the physiological ranges for a model's parameters provides direct insights into the range of outcomes possible for the model.
+For this reason, ISCTs require both knowledge of these ranges and of their distribution within the populations of interest (see the `Ocular Mathematical Virtual Simulator' in Section~\ref{sec:InDisease}).
+The task can become tedious when the number of parameters becomes very large, for instance in the model of haemodynamics in microgravity in Section~\ref{sec:InHealth}.
 
 \section{Retinal haemodynamics, vascular diseases, neovascular AMD and diabetic retinopathy}\label{sec:RetinalHaemodynamicsNAMDDR}
 
@@ -513,13 +459,13 @@ In addition, we present models of the pharmacokinetics (PK) and pharmacodynamics
 \end{figure}
 
 Retinal haemodynamics models are concerned with describing blood flow within the inner retinal or choroidal circulations and often rely on the Hagen-Poiseuille equation to determine flow in vascular segments.
-This equation is a simplification of the more comprehensive Navier-Stokes equations and is derived by making a number of assumptions (see \textit{Additional information}).
+This equation is a simplification of the more comprehensive Navier-Stokes equations and is derived by making a number of assumptions.
 The Hagen-Poiseuille equation states that blood flow velocity ($Q$) in a vessel of length $l$ and radius $r$ is driven by a pressure drop ($\Delta p$) according to:
 \begin{equation*}
   \label{eq:Hagen-Poiseuille}
   Q = \mathit R\times\Delta p \mbox{, where } \mathit{R} = \frac{8\mu l}{\pi r^4},
 \end{equation*}
-where $\mu$ is the apparent viscosity of blood which may account for changes in vascular resistance ($\mathit R$) in vessels of varying diameter (see \textit{Additional information} and Figure~\ref{fig:effectiveViscosity}).
+where $\mu$ is the apparent viscosity of blood which may account for changes in vascular resistance ($\mathit R$) in vessels of varying diameter (see Figure~\ref{fig:effectiveViscosity}).
 The fourth power of the radius in the formulation of vascular resistance describes the strong effect that even small contractions or dilations of a vessel can have on blood flow.
 This relation between radius and flow is at the source of the autoregulation ability of blood vessels, which adapt their radius in response to a number of different cues~\cite{Kur_2012}.
 The cellular constitution of retinal vessels suggests that blood flow is mainly regulated by arteries and arterioles~\cite{An_2020,Kur_2012}.
@@ -534,25 +480,7 @@ Despite advances in imaging technologies, the visualisation of retinal vessels r
 The blood oxygen saturation can also be measured \textit{in vivo}~\cite{Geirsdottir_2013}; however, retinal oxymeters remain experimental and are not broadly available.
 Reliable measurement of blood flow or vessel radii in the choroid is more difficult, though changes in haemodynamics can be observed \textit{in vivo}~\cite{Riva_1997,Scherm_2019}.
 
-% \begin{tcolorbox}[title=Additional information -- Fluid flow modelling]
-%   \begin{itemize}
-%   \item The flow of viscous fluids, such as blood, are modelled by a set of differential equations --- the Navier-Stokes equations --- relating the acceleration, velocity, convection, density and pressure of a fluid.
-%     Solving these equations can be problematic in complex geometries, for example, in a large network of vessels.
-%   \item The Navier-Stokes equations simplify to the Hagen-Poiseuille equation (see main text) when assuming that the fluid is Newtonian and the flow incompressible and laminar.
-%     The Hagen-Poiseuille equation is relatively simple to solve, even on large vascular networks.
-%   \item An incompressible fluid has a constant density regardless of the pressure, while a fluid isotropic if its properties are the same in all directions.
-%   \item A Newtonian fluid is one with a constant viscosity for given pressure and temperature, regardless of the amount of shear (the stress arising from the friction of fluid particles) it is subject to.
-%   \item A Newtonian fluid flowing within a pipe is called laminar when fluid particles (e.g., red blood cells in blood plasma) move along smooth paths with no mixing between each path.
-%     This kind of flow is opposed to turbulent flow, which appears when the velocity of the flow exceeds a threshold determined by a combination of the fluid's viscosity and density, and the pipe's dimensions.
-%   \item The propensity of a fluid to flow in laminar or turbulent fashion is summarised by the dimensionless (without physical units) Reynolds number. This number is the ratio of inertial forces to viscous forces.
-%   %\item Laminar flows show a parabolic velocity profile across the pipe (or vessel) cross section, with peak velocity at the centre and null velocity at the walls.
-%   \item As demonstrated by F\r ahraeus and Lindqvist, viscosity decreases with vessel width as red blood cells align into a single file, as illustrated in Figure~\ref{fig:effectiveViscosity}\cite{Faahraeus_1931}.
-%   \item Empirical viscosity laws are used to account for the so-called F\r ahraeus-Lindqvist effect and the dramatic increase in vascular resistance seen in capillaries smaller than red blood cells, an example of which is shown in Figure~\ref{fig:effectiveViscosity}~\cite{Haynes_1960,Pries_1990,Secomb_2013}.
-%   \end{itemize}
-% \end{tcolorbox}
-
-
-\subsubsection{In health}
+\subsubsection{In health} \label{sec:InHealth}
 
 Current understanding of perfusion in the retina has advanced significantly in recent decades.
 Inner retinal haemodynamics in particular have been studied extensively due to the relative ease of imaging this vasculature with OCTA and fundus photography.
@@ -622,8 +550,6 @@ The interplay between systemic blood pressure, IOP and compression of the CRA by
 In the context of a sensitivity analysis, they created three virtual populations (normotensive, hypertensive and hypotensive) which differ by their blood pressure waveform.
 The parameters forming each virtual patients were sampled from probability distributions for blood pressure (systemic, diastolic and mean arterial pressure), intraocular pressure and lamina cribrosa induced pressure.
 Except for the latter, data for these parameters are easily obtainable from the literature or standard clinical examinations.
-
-% \paragraph*{Haemodynamics in the central retinal vessels}
 
 Others have used finite element modelling, a technique suitable for modelling of mechanistic forces, to understand the blood flow in the central retinal vessels~\cite{Guidoboni_2014,Jin_2020}.
 Guidoboni et al. simulated the displacement of the lamina cribrosa and the stress due to changes in IOP and pressure induced by the cerebrospinal fluid~\cite{Guidoboni_2014}.
@@ -780,7 +706,7 @@ Anti-VEGF drugs are injected directly in the vitreous humour, though alternative
 
 Molecules present in the vitreous are naturally eliminated through the aqueous humour flow, referred to as the anterior clearance route.
 The posterior clearance route refers to clearance through the choroidal circulation.
-In addition, the ILM and RPE, bounding the inner and outer retina respectively, act as barriers to the molecules~\cite{Park_2015}.
+In addition, the inner limiting membrane (ILM) and RPE, bounding the inner and outer retina respectively, act as barriers to the molecules~\cite{Park_2015}.
 Therefore, the presence of the drug in the retina and choroid is limited to a fraction of the injected dose. 
 
 Despite its general efficacy, current treatment strategies are sub-optimal for some patients in terms of dosage and intervals between injections.
@@ -799,7 +725,7 @@ Mechanistic PK and PD models can help overcome the issue of the lack of \textit{
 Those models simulate the concentration-time profiles of a molecule in the eye (see Figure~\ref{fig:AntiVEGF}) and can be validated by comparison with data sampled from the systemic circulation or ocular fluids.
 This section is dedicated to computational models of VEGF and its inhibitors, both individually (PK models, VEGF production models) and combined (PD models).
 
-\paragraph*{Compartmental PK/PD models}
+\subsubsection{Compartmental PK/PD models}
 
 Often in PK analysis of ocular or systemic fluid, the half-life of a molecule is estimated by fitting exponentially decaying curves to the data in order to compute the total exposure to the drug (area under the concentration-time curve) and maximal concentration~\cite{Bakri_2007, Kaiser_2019, Park_2015, Park_2016, Xu_2013}.
 This assumes that the clearance rate of molecules in the eye is proportional to their concentration at all times and ignores potential effects of interactions with the tissue or the presence of multiple clearance pathways (e.g., the aqueous humour outflow and the choroidal circulation).
@@ -822,7 +748,7 @@ In this work, the linear regression found a weaker dependence of $t_{1/2}$ on vi
 While this study incorporated additional data and an additional species, the main difference lied in the computation of the molecules characteristics, namely their hydrodynamic radius, which was found experimentally rather than derived theoretically.
 Similarly to the dissociation constant, the diffusion times of anti-VEGF in the vitreous is expected to be sensitive to temperature and the viscosity of the vitreous humour, though this sensitivity is hard to quantify.
 
-\paragraph*{Finite element PK models}
+\subsubsection{Finite element PK models}
 
 While insightful on the relationship between ocular availability and molecular characteristics, compartmental models assume that VEGF, anti-VEGF and their compounds are well-mixed within each compartment.
 However, ocular fluid flow can impact the delivery of drug to the retina.
@@ -859,7 +785,7 @@ However, the transport rates of the injected molecules through the retina, RPE a
 In later work, the group extended their earlier model to estimate the diffusion coefficients in those tissues using \textit{in vivo} PK data and found an RPE permeability similar to the one found by Hutton-Smith et al.~\cite{HuttonSmith_2017, Lamminsalo_2020}.
 The parameter estimation in both those studies, however, relies on a single study in rabbit eyes and additional data from other sources is required for more robust estimation and model validation.
 
-\paragraph*{Models of treatment outcome}
+\subsubsection{Models of treatment outcome}
 
 Other models have simulated the effect of anti-VEGF therapy on clinically relevant features of nAMD, e.g., visual acuity and size of macular oedema~\cite{Edwards_2020, Hoyle_2017, Mulyukov_2018}.
 These models can be compared directly with clinical trials and, potentially, can be used to run \textit{in silico} trials, as discussed in Section~\ref{sec:InSilicoTrials}.
@@ -1036,7 +962,7 @@ This model predicted that, in the presence of saccades, the drug concentration h
 Interestingly, it has been shown computationally that in locally liquefied vitreous (e.g., a substitute for the vitreous inserted surgically), fluid flow converges towards the liquefied region as it offers less resistance~\cite{Khoobyar_2022}.
 This result is of interest in understanding the kinetics of intravitreally injected drugs, especially larger ones such as anti-VEGF which are more subject to convection.
 
-\subsection{Implants/port-delivery}
+\subsection{Implants/port-delivery} \label{sec:Implants}
 
 A number of models, including those discussed above, have been used to compare the efficacy of drug delivery to the vitreous by an injection or by a controlled release from a system implanted in the eye, typically in the vitreous or on the outer surface of the sclera~\cite{Jooybar_2014,Kathawate_2008,Kavousanakis_2014,Park_2005}.
 Overall, these comparisons highlight the capacity of controlled release systems to prolong the drug availability in ocular tissue.
