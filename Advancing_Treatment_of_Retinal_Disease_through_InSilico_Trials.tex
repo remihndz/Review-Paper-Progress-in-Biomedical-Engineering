@@ -1042,27 +1042,30 @@ Overall, \textit{in silico} models of intervention for drug delivery to the reti
 A certain number of parameters pertaining to biological barriers and clearance rates need to be quantified.
 This may necessitate \textit{in vitro} experiments, as direct, \textit{in vivo}, measurements are nearly impossible in the retina, choroid or sclera.
 
+
 \section{\textit{In silico} clinical trials in the retina}\label{sec:InSilicoTrials}
 
 The previous sections have detailed the vast literature that deals with modelling retinal haemodynamics, oxygenation, disease and the impact of drugs in both healthy and diseased retinas. 
-However, there is currently very little research on formalising these models within the framework of \textit{in silico} clinical trials. 
+However, there is currently very little research on formalising these models within the framework of \textit{in silico} clinical trials (ISCTs). 
 ISCTs are simulations of clinical trials to test medical devices or drugs with the aim of eventually being used as digital evidence to reduce, refine and replace animal and human participants in preclinical and clinical experiments~\cite{Viceconti2021a}. 
 At each stage of clinical trials (preclinical, Phase I, II, III), ISCTs can be used: for early proofs-of-concept in the drug development phase; to simulate greater numbers of patients in each phase, hence representing greater biological variability in the trial; to augment trials such that fewer real-world patients are required; to run numerous trials that can optimise an intervention that would not be possible in reality; as well as to investigate rare events that might not occur in a real-world trial~\cite{Pappalardo2019, Viceconti_2016, Viceconti2017}. 
 Another crucial aspect of an ISCT is the ability for a patient to act as their own control simulation-wise, introducing a new potentially more impactful/patient-specific way of running clinical trials.
 
 The paradigm of an ISCT is very similar to that of a real-world clinical trial except the disease, intervention and trial setup are simulated. 
 ISCTs require virtual populations of the disease of interest, a mechanistic model of the disease and treatment using the proposed intervention, and a statistical analysis plan that will analyse the output of the trial~\cite{Alfonso2020}. 
-Figure~\ref{fig:ISCT} depicts a general schematic of how an ISCT might run for nAMD drug testing.
+Figure~\ref{fig:ISCT} depicts a general schematic of how an ISCT might run for nAMD drug testing. 
+This section will detail the building blocks of ISCTs as well as validation requirements and current positions of regulators such as the FDA. 
+It will end with a case-study of an ISCT applied to nAMD interventions.
 
-\begin{figure}[t!]
+\begin{figure}[h]
   \centering
-  \includegraphics[width=.8\textwidth, height=17.3cm]{Fig_sec_8.png}
+  \includegraphics[width=1\textwidth, height=10.3cm]{Fig_sec_8.png}
   \hfill
-  \caption{Schematic of a generic ISCT with an example of nAMD drug testing. 1) \textit{In silico} model development of disease with validation loop linked to patient data. 2) \textit{In silico} model development of intervention with validation loop linked to \textit{in vitro} and \textit{in vivo} data. 3) Virtual population generation using the disease model parameters. 4) ISCT run on intervention and control arms with appropriate outcomes and analysis.}
+  \caption{Schematic of a generic ISCT with an example of nAMD drug testing. 1) \textit{In silico} model development of disease with validation loop linked to patient data. 2) \textit{In silic} model development of intervention with validation loop linked to \textit{in vitro} and \textit{in vivo}. 3) Virtual population generation using the disease model parameters. 4) ISCT run on intervention and control arms with appropriate outcomes and analysis.}
   \label{fig:ISCT}
 \end{figure}
 
-\subsection{Mechanistic models of disease and intervention}\label{sec:InSilicoTrials_ModelOfDiseaseAndIntervention}
+\subsection*{Mechanistic models of disease and intervention} \label{sec:InSilicoTrials_ModelOfDiseaseAndIntervention}
 
 The central aspect of any ISCT is the mechanistic model that predicts the outcome of an intervention (or lack thereof). 
 This is equivalent to the administration of the intervention in a real-world clinical trial. 
@@ -1071,51 +1074,252 @@ This model will usually simulate a disease, for example nAMD~\cite{Hoyle_2017}.
 The intervention is then also simulated, in this case anti-VEGF therapies. 
 Both the disease model and intervention model must be validated against \textit{in vitro} or \textit{in vivo} data in order to be used in an ISCT (Figure~\ref{fig:ISCT}).
 
-Examples of disease/intervention models that have been developed include coronary stent models for occlusive heart diseases~\cite{Antonini2021, Berti2021}, insulin control algorithms in Type 1 diabetes~\cite{Kovatchev2009}, non-pharmaceutical interventions on respiratory tract interventions~\cite{Arsene2022}, bone morphogenetic treatment in paediatric orphan bone disease~\cite{Carlier2018}, anaemia treatment in haemodialysis patients~\cite{Fuertinger2018}, warfarin in atrial fibrillation patients~\cite{Ravvaz2017}, cancer vaccines on lymph node cancers~\cite{Gaffney2022}, targeted delivery of drugs in patients with COVID-induced pneumonia~\cite{Wang2022}, mematine treatment of Alzheimer’s disease~\cite{Swietlik2022}, flow diverters in intracranial aneurysms~\cite{SarramiForoushani2021}, predicting pro-arrhythmic cardiotoxicity in cardiomyocytes~\cite{Passini2017}, and thrombectomy/thrombolysis for acute ischaemic stroke~\cite{Konduri2020}, amongst many more.
+Numerous disease/intervention models have been developed across different organs. 
+Coronary stent models have been developed for occlusive heart diseases using finite element analysis to simulate the stent within a vessel environment~\cite{Antonini2021, Berti2021}.
+In vitro validation of the finite element model was used to confirm predicted behaviour. 
+There is currently a large drive towards ISCTs of implantable medical devices due to the ability to validate predictions in vitro and the commercial benefit of speeding up stent trials where iterations in shape or geometry often require new clinical trials. 
 
-Within this review, we have also demonstrated the vast literature on \textit{in silico} models of retinal disease, ranging from non-nAMD and RP (Section~\ref{Sec_Ox_RP_non-nAMD}), to nAMD and DR (Section~\ref{sec:RetinalHaemodynamicsNAMDDR}), as well as models of intervention through intravitreal injections, implants, and sub-retinal injections (Section~\ref{sec:DrugDelivery}).
-This has laid the groundwork, furnishing models which can be adapted into the ISCT paradigm. Despite the rapidly growing literature on ISCTs in various disease conditions, few or no papers have been published on applying this paradigm to diseases of the retina.
+Example of other medical device ISCTs include coil placement in intracranial aneurysms~\cite{SarramiForoushani2021} and ISCTs 
+of thrombectomy/thrombolysis (the mechanical removal of the clot with a stent or the dissolution of the clot with drugs) in 
+ischaemic stroke patients~\cite{Konduri2020}. The intracranial aneurysm trial used a coupled model of thrombus formation with 
+a fluid dynamics model to determine the efficacy of the coil in diverting flow and not generating thrombi. 
+The flow and clot models were validated against in vitro phantoms and the results of the ISCT were compared to three 
+real-world clinical trials. Crucially, this trial was able to make predictions on what different outcomes may occur if the 
+population was primarily hypertensive or normotensive using individuals as their own control, leveraging a major strength of 
+ISCTs. The ischaemic stroke clinical trials expanded to consider more than just the localised area of intervention, 
+considering whole brain oxygen and perfusion models~\cite{Jozsa2021,Padmos2021}. Intervention models, such as thrombectomy, 
+were developed and validated against in vitro models~\cite{Luraghi2021}. However, the more general dynamics of cell death and 
+perfusion in the brain have proven harder to validate, in particular the primary outcome of lesion size~\cite{Miller2021}. 
+Despite the difficulties involved in taking a more holistic overview of the entire brain, there are benefits in that new 
+hypotheses can be tested which are unable to be done in vivo. For example, clot fragmentation post-thrombectomy was found to 
+play a minor role in the potential lack of perfusion~\cite{ElBouri2021a,Xue2021} yet age had an impact on robustness to occlusion~\cite{Graff2021}.
 
-Once a mechanistic model of disease and intervention has been established and extensively validated, the next step is to generate virtual populations with this disease that can be used in the ISCT.
+Drug-based ISCTs often revolve around testing differing dosing strategies either through having complex multi-arm ISCTs 
+as is the case when studying optimal warfarin dosing~\cite{Ravvaz2017}, or through developing optimal control algorithms and 
+testing those algorithms in an ISCT as with insulin control models~\cite{Kovatchev2009}. Models have also been developed to look at 
+treating rare bone conditions in children using agent-based models~\cite{Carlier2018} and simulating the response of haemodialysis 
+patients to treatment for anaemia with ODEs~\cite{Fuertinger2018}, as well as predicting the cardiotoxicity of drugs~\cite{Passini2017}. 
+These models require an understanding of the kinetics of drug metabolism and interactions which can be determined in vitro and 
+in animal models. For drugs that are well studied, like warfarin, there is plenty of data available to develop these models. 
+For newer more complex drugs, developing these models may be more difficult without pharmaceutical collaboration. 
+There are more ISCTs that are not covered here that have been developed for orthopaedic bone implants~\cite{Favre2021}, 
+interventions in respiratory tract infections~\cite{Arsene2022}, and delivering drugs in patients with COVID-induced 
+pneumonia~\cite{Wang2022} amongst many more.
 
-\subsection{Virtual populations}
+The methods used to simulate the disease and intervention range quite widely as demonstrated. 
+Crucially, all models must undergo validation at this stage with experimental data – validation loops 1 and 2 in Figure~\ref{fig:ISCT}. 
+The extent of validation is very much dependant on the context-of-use of the model with low consequence, 
+low influence use-cases requiring far less stringent validation than high consequence, high influence applications (see Section 7.4).
 
-To run clinical trials, sub-populations of the target population are required. A crucial first step is therefore to generate virtual populations (VPs) of the disease of interest that will eventually be used in the \textit{in silico} clinical trials. For example, if an intervention for nAMD patients is to be tested \textit{in silico}, a population of nAMD patients is required.
+Within retinal model, it is this aspect of ISCTs (disease and/or intervention simulation) that is most developed and is 
+detailed throughout this review. The next aspect of ISCTs is the generation of virtual populations.
 
-Virtual population generation is a nascent and rapidly developing field. In essence, a virtual patient is one with a specific set of parameters for a given disease model. Virtual populations are therefore sets of patients with parameters that reproduce the statistics of interest of the clinical population of interest~\cite{Allen2016}.
+\subsection*{Virtual Populations}
 
-One simple method of generating VPs is to assume a Gaussian distribution for each model parameter used to represent virtual populations. 
+Virtual population generation is a nascent and rapidly developing field. 
+To run clinical trials, sub-populations of the target population are required. 
+A crucial first step is therefore to generate virtual populations (VPs) of the disease of interest that will eventually 
+be used in the in silico clinical trials. 
+For example, if an intervention for nAMD patients is to be tested in silico, a population of nAMD patients is required. 
+VPs are effectively a group of digital twins, in silico individuals with unique parameters and demographics that define them. 
+Virtual populations are therefore sets of patients with parameters that reproduce the statistics of interest of the clinical 
+population of interest~\cite{Allen2016}.
+
+Broadly speaking there are two layers to virtual population generation – the patient demographics such as age, sex, 
+comorbidities, and the patient parameters that define an individual for the purpose of the disease and/or intervention model. 
+For example, with the ischaemic stroke trials, virtual populations from patient demographics were generated~\cite{Miller2021}. 
+These were not explicitly used in the in silico simulation of stroke and intervention, where patient parameters such as 
+vessel geometry or personalised clotting susceptibility could be altered. As such, there are two layers to VPs – the 
+patient demographics, and the model parameters. Using either one or both depends on the purpose of the model.
+
+One simple method of generating VPs – demographic and model parameters – is to assume a Gaussian distribution for each model 
+parameter used to represent virtual populations. 
 For each patient, a parameter value will be drawn from these Gaussian distributions to represent that patient~\cite{Gaffney2022, Jenner2021}. 
-The mean and standard deviation of the parameters can be adjusted to match empirically observed data either manually or through optimisation~\cite{Alfonso2020}. Often, these patient parameters are not independent of each other – for example, sex and height are correlated.
-Therefore, more complex sampling strategies that maintain the relationships between patient parameters have been developed.
+The mean and standard deviation of the parameters can be adjusted to match empirically observed data either manually 
+or through optimisation~\cite{Alfonso2020}. Often, these patient parameters are not independent of each other – for example, sex and 
+height are correlated. Therefore, more complex sampling strategies that maintain the relationships between patient parameters 
+have been developed.
 
-Bayesian statistics have been used extensively to generate patient parameter populations for the purpose of ISCTs. Haddad et al. generated VPs using a Bayesian framework for augmenting clinical trials, demonstrating decreased sample size and trial length would be required for the real-world trial when using these VPs~\cite{Haddad2017a}. For warfarin patients, a Bayesian model was used to generate VPs from a pre-defined dataset~\cite{Fusaro2013}. Other methods that have been used to generate VPs include vine copulas to generate virtual stroke populations~\cite{Miller2021}. Pezoulas et al. also used tree-based methods (supervised and unsupervised) to generate VPs for cardiomyopathy drug development~\cite{Pezoulas2020} but found that Gaussian Mixture Models with Variational Bayesian Inference outperformed supervised tree ensembles when comparing the VPs to the data~\cite{Pezoulas2021}.
+Bayesian statistics have been used extensively to generate patient parameter populations for the purpose of ISCTs. 
+Haddad et al. generated VPs using a Bayesian framework for augmenting clinical trials, demonstrating decreased sample size 
+and trial length would be required for the real-world trial when using these VPs~\cite{Haddad2017a}. Models discussed in the previous section 
+had various methods to generate virtual patient demographics. 
+The ischaemic stroke trials used vine copulas to generate virtual stroke population demographics~\cite{Miller2021}. 
+Vine copulas include constraints in high-dimensional dependence models, such that when sampling from the 
+multivariate distribution the constraints between the variables are kept intact. For the warfarin trial, 
+Bayesian Network Models were trained to learn and constraint the patient parameters with Monte Carlo simulation 
+being used to sample to generate the VP~\cite{Fusaro2013}. Pezoulas et al. also used tree-based methods 
+(supervised and unsupervised) to generate VPs for cardiomyopathy drug development~\cite{Pezoulas2020} but found that Gaussian Mixture Models 
+with Variational Bayesian Inference outperformed supervised tree ensembles when comparing the VPs to the data~\cite{Pezoulas2021}.
 
-As a virtual patient is effectively a set of parameters for the mechanistic model that represent a given individual, this can also be extended to 3-dimensional models of arteries or other physiological organs – where now the parameters might represent curvature of vessels, degree of stenosis or material properties of the artery. 
-This introduces an added difficulty of modifying the computational mesh for each virtual patient.
-Because of this, most ISCTs involving patient meshes generate the mesh from patient-specific image data and simulate variability through variation in, for example, orthopaedic implant positioning~\cite{AlDirini2019}, plaque growth over time on the arteries~\cite{Pleouras2021}, and blood pressure and thrombus formation parameters applied on the mesh~\cite{SarramiForoushani2021}. 
-However, statistical shape modelling is increasingly being used to generate VPs of the meshes themselves~\cite{Rodero_2021}
+As a virtual patient is effectively a set of parameters for the mechanistic model or for the patient demographics that 
+represent a given individual, this can also be extended to 3-dimensional models of arteries or other physiological organs – 
+where now the parameters might represent curvature of vessels, degree of stenosis or material properties of the artery. 
+This introduces an added difficulty of modifying the computational mesh for each virtual patient. 
+Because of this, most ISCTs involving patient meshes generate the mesh from patient-specific image data and simulate 
+variability through variation in, for example, orthopaedic implant positioning~\cite{AlDirini2019}, plaque growth over time on the arteries~\cite{Pleouras2021}, 
+and blood pressure and thrombus formation parameters applied on the mesh~\cite{SarramiForoushani2021}. Note that the intracranial flow diverter trial 
+used unmodified patient-specific images to generate the vessel meshes and as such cannot be considered a sampled virtual 
+population.
 
-VPs of retinal disease have yet to be extensively used in the literature. With appropriate data, however, VPs can be generated using the techniques documented.
+However, statistical shape modelling is increasingly being used to generate VPs of the meshes themselves~\cite{Rodero_2021}. 
+This method can morph geometrical objects within predefined constraints, allowing for a population of shapes to 
+be determined from a baseline set of data. Statistical shape modelling has been applied to simulate virtual populations of 
+atria in the human heart~\cite{Nagel2021}, as well as hips, mandibles, and aortic aneurysms~\cite{LaMattina2023,Pascoletti2022,Veldhuizen2022}.
 
-\subsection{Running the \textit{in silico} clinical trial}
+VPs of retinal disease have yet to be extensively used in the literature due to the nascent fields of ISCTs and 
+computational retinal modelling. The only attempt at generating VPs the authors found were that of Hoyle \& Aslam~\cite{Hoyle_2017} 
+that generated 1000 patients with differing central retinal thicknesses for an nAMD trial. With appropriate data, however, 
+VPs can be generated using the techniques documented. As can be seen later in our case study (Section 7.6), 
+the technology and capability of the models is present.
 
-Once the mechanistic model and VPs have been developed, the ISCT protocol should be pre-defined – with a statistical plan, pre-defined primary and secondary outcomes, and trial inclusion and exclusion criteria. Current medical studies publish their protocols, with randomised clinical trials following the CONSORT guidelines~\cite{Schulz2010}. Once the study protocol is in place, the ISCT can be run and analysed with the pre-defined methodology.
+\subsection*{Running the ISCT at different trial phases}
 
-Unlike real-world trials, the benefit of running an ISCT is the ability to run any permutation of trial you like, without consideration for cost or ethics. This allows for deeper investigation of the intervention in various sub-populations, helping to optimise the application of the intervention.
+Once the mechanistic model and VPs have been developed, the ISCT protocol should be pre-defined – 
+with a statistical plan, pre-defined primary and secondary outcomes, and trial inclusion and exclusion criteria. 
+Current medical studies publish their protocols, with randomised clinical trials following the 
+CONSORT guidelines~\cite{Schulz2010}. 
+Once the study protocol is in place, the ISCT can be run and analysed with the pre-defined methodology.
 
-The validity of the mechanistic model and ISCT is an important factor in translating this paradigm to bedside use. Guidelines have been published by the American Society of Mechanical Engineers, `Verification \& Validation 40 Assessing Credibility of Computational Modelling through Verification and Validation: Application to Medical Devices'. These guidelines use a risk-informed credibility assessment, where the risk of the model defines how close the validation needs to be to real-world observations~\cite{ASME2018}.
+While technically running an ISCT can be done at any point, in practice this very much depends on where most benefit 
+can appear in the pipeline. There are multiple phases in a clinical trial prior to regulatory approval – 
+pre-clinical to phase 3 (with phase 4 trials looking at post-approval long term benefits and side effects). 
 
-Validation, verification, and uncertainty quantification (VVUQ) are necessary to give confidence in the models and ISCTs. Validation of the model depends on the context-of-use of the model and what risk is involved with its use, with higher risk models requiring higher validity~\cite{Pappalardo2019}. Validity of the VPs should also be considered (external validity) – the VPs should be representative of the wider population of interest for that disease i.e. not constrained by overly stringent exclusion criteria. Similarly, the ISCT should have ecological validity, where the results translate to real-life settings in which the trial results will be applied. 
-Recent research has looked at simulating hospital environments stochastically to determine ecological validity of the ISCT~\cite{Fuertinger2018}.
+Preclinical targets identified in testing are often invalidated at phase 2 or 3 clinical trials, 
+at which point a huge among of time and effort has already been expended. 
+ISCTs can be used to elucidate the mechanism of action and run more complex testing before the latter stage 
+trials to improve the chances of success~\cite{Pappalardo2019}. Preclinical trials will regularly require animal testing of 
+the drug or device in question. It is at this stage where most ISCTs have been developed to date. 
+An example of an FDA approved preclinical trial is that of closed-loop control of type 1 diabetes~\cite{Kovatchev2009}. 
+Whereas previously, new insulin control algorithms would have to be validated on dog models, 
+the FDA approved this in silico preclinical trial after extensive validation~\cite{Pappalardo2019}. Other ISCTs, 
+whilst not yet approved, have shown promise in preclinical testing. Notably, Passini et al. demonstrated 
+improved accuracy over animal models when predicting clinical pro-arrhythmic cardiotoxicity for multiple drugs~\cite{Passini2017}. 
+ISCTs have also been used to test different adjuvants for vaccines~\cite{Pappalardo2016}, as well as replacing, reducing, and 
+refining mouse models of osteoporosis~\cite{Lu2017}. It is this stage of trial that can be simplest to validate or 
+invalidate due to the availability of in vitro and in vivo animal testing.
 
-Verification of a model verifies that the numerical (computational) implementation is correct and sufficiently accurate for the intended use.
-This is often done by using the computational code to solve a problem where the solution is known i.e. an analytical solution exists.
-Verification methods are usually well established for given models and their numerical implementation~\cite{Curreli2021, Pappalardo2019}. 
-Uncertainty quantification is also an essential step. 
-This includes both aleatoric uncertainty (uncertainty in the data used to inform a model) and epistemic uncertainty (uncertainty in the knowledge of the physiological system used to build the model), as well as numerical uncertainty when solving approximated mathematical equations computationally. 
-All of these uncertainties must be quantified to ensure that a good comparison with real-world data can be made.
+Phase 1 trials assess safety and dosing effectiveness and often recruit fewer than 100 people. 
+These trials can be augmented with an ISCT that can simulate numerous dosing procedures to optimise the 
+best one as well as increase numbers and bolster the power of such a trial. Biological variability can be added 
+into these small trials by simulating different demographics and edge cases that may not generally appear in such small trials. 
+No ISCTs appear to have specifically simulated phase 1 trials although the principles of application will be the same for 
+phase 2 and 3 trials.
 
+Phase 2 trials involve a slightly larger group (100-300) where effectiveness, safety, and side effects of the drug or 
+device are considered. Like in phase 1, we can use ISCTs to reduce the number of patients recruited into a trial, 
+the duration of a trial, and the number of trials required. This is especially beneficial in rare disease trials where 
+sufficient power to demonstrate effect will be lacking due to the low recruitment rates. An example of a phase 2 ISCT that 
+obtained regulatory approval is that of an MRI safe pacemaker~\cite{Faris2017}. There is a risk that the leads in the pacemaker could 
+act as antenna causing overheating and cardiac ablation whilst within the MRI scanner. However, this would have been a 
+rare event requiring a very large clinical trial to prove safety. Instead, ISCTs were approved by the FDA to demonstrate 
+that the pacemaker was safe to use within an MRI in conjunction with a smaller confirmatory trial. 
+Another model that has simulated phase 2 ISCTs is that of Kiagias et al.~\cite{Kiagias2021} which looked at testing novel 
+therapeutic vaccine approaches for TB using in silico models as a prior to an in vivo trial. This type of augmented 
+trial shows promise for reducing patient recruitment and increasing the power of clinical trials~\cite{Haddad2017a}.
+
+Phase 3 trials are the large multi-centre randomised control trials which are the final step before market approval. 
+These trials can be very expensive to run and time-consuming. ISCTs can be used here to augment these trials. 
+Whilst there are no regulatory approved ISCTs at this phase, the examples given earlier can be extrapolated straightforwardly 
+to this phase. Examples of ISCTs that have attempted to model phase 3 trials include an ISCT comparing two drugs for 
+attention-deficit/hyperactivity-disorder~\cite{GutierrezCasares2021} and a multi-arm trial of warfarin dosage~\cite{Ravvaz2017}. 
+Others have attempted to augment phase 3 trials only through the control arm, avoiding the complexity of simulating 
+disease and intervention yet still improving the power of trials~\cite{Fisher2019,Walsh2020}.
+
+Unlike real-world trials, the benefit of running an ISCT is the ability to run any permutation of trial you like, 
+without consideration for cost or ethics. This allows for deeper investigation of the intervention in various subpopulations, 
+helping to optimise the application of the intervention. While an ISCT won't be able to fully replace a clinical trial, 
+it can augment the clinical trial, increasing the power and speeding up time-to-market. 
+There is a particular benefit concerning rare events, be they rare diseases or rare side-effects. 
+Further reading for the contexts-of-use of ISCTs can be found in the review by Viceconti et al.~\cite{Viceconti2021a}.
+
+\subsection*{Validation of an ISCT}
+
+Validation, verification, and uncertainty quantification (VVUQ) are necessary to give confidence in the models and ISCTs. 
+Validation of the model depends on the context-of-use of the model and what risk is involved with its use, with higher 
+risk models requiring higher validity~\cite{Pappalardo2019}. Validity of the VPs should also be considered (external validity) – 
+the VPs should be representative of the wider population of interest for that disease i.e. not constrained by overly 
+stringent exclusion criteria. Similarly, the ISCT should have ecological validity, where the results translate to real-life 
+settings in which the trial results will be applied. Recent research has looked at simulating hospital environments 
+stochastically to determine ecological validity of the ISCT~\cite{Fuertinger2018}.
+
+Verification of a model verifies that the numerical (computational) and mathematical implementation is correct 
+and sufficiently accurate for the intended use. This is often done numerically by using the computational code 
+to solve a problem where the solution is known i.e. an analytical solution exists, or through comparison with 
+other known model solutions. Verification of the mathematical model can also be done through systematic model 
+reduction and parameter asymptotics. Verification methods are usually well established for given models and their 
+numerical implementation~\cite{Curreli2021,Pappalardo2019}. Uncertainty quantification is also an essential step. This includes both aleatoric 
+uncertainty (uncertainty in the data used to inform a model) and epistemic uncertainty 
+(uncertainty in the knowledge of the physiological system used to build the model), as well as numerical 
+uncertainty when solving approximated mathematical equations computationally. All of these uncertainties 
+must be quantified to ensure that a good comparison with real-world data can be made.
+
+There are two main aspects of validation for an ISCT: validation of the disease and intervention model 
+(loops 1 and 2 in Fig 9) and validation of the outcomes of the ISCT itself. 
+The validity of the mechanistic model and ISCT is an important factor in translating the ISCT paradigm to use in development. 
+Guidelines have been published by the American Society of Mechanical Engineers, 
+'Verification \& Validation 40 Assessing Credibility of Computational Modeling through Verification and Validation: 
+Application to Medical Devices. These guidelines use a risk-informed credibility assessment, where the influence and 
+consequence of the model determine the extent of VVUQ required~\cite{ASME2018} (Figure~\ref{fig:CoU}).
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1\textwidth, height=2.7cm]{CoUfig.png}
+  \hfill
+  \caption{Process Diagram of the Risk-Informed Credibility Assessment Framework. Reprinted from ASME V\&V 40-2018 by permission of the American Society of Mechanical Engineers. All rights reserved~\cite{ASME2018}}
+  \label{fig:CoU}
+\end{figure}
+
+Previous reviews have detailed the process of VVUQ in the credibility assessment of closed-loop control devices 
+for critical medicine~\cite{Parvinian2019}. Frameworks have also been published on how VVUQ should 
+be implemented in ISCTs~\cite{Bodner2022,Haddad2017a}. 
+In brief, a question of interest must be defined. What question will the computation model seek to answer? 
+This must be followed by defining the context-of-use – how will the model be used? To what purpose? 
+A risk analysis is then conducted to ascertain the consequences of the model decision along with its 
+influence, with model risk being defined as low, medium or high (Figure~\ref{fig:riskmatrix}). Higher risk models will require more stringent VVUQ. 
+Once risk is determined, credibility goals must be established. The credibility of the model must be proportionate 
+to the model risk. A plan is then drawn up to achieve these credibility goals which includes verification of the 
+numerical code and mathematics, validation of the computational results, uncertainty quantification, and 
+applicability of the model within its context-of-use (it may have more than one). 
+A review on the application of VVUQ using the Verification and Validation 40 standards can be found in Viceconti et al.~\cite{Viceconti2021}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1\textwidth, height=11.3cm]{riskmatrix2.png}
+  \hfill
+  \caption{Risk matrix demonstrating the impact of influence and consequence of the model on risk}
+  \label{fig:riskmatrix}
+\end{figure}
+ 
+\subsection*{Regulation of ISCTs}
+ISCTs are a relatively recent concept and as a result there is little official guidelines for establishing and running 
+an ISCT for regulatory approval. It is useful here to make a distinction between drug and medical device ISCTs briefly. 
+Whereas drug simulations have been frequently used by pharmaceuticals in the past with Food and Drug Administration 
+(FDA) and European Medicines Agency (EMA) guidance existing for these submissions, these guidelines are not fully 
+applicable to the emerging mechanistic in silico models and the ISCT paradigm~\cite{EMA2018,FDA2018}. A recent white paper was 
+published identifying the gaps in guidance and regulation for in silico drug development~\cite{Musuamba2021} with recommendations 
+for standardisation based around the ASME Verification and Validation 40 guidelines~\cite{ASME2018}.
+
+Regulation for medical devices is sparser although draft guidance has recently been published by the FDA on 
+assessing the credibility of the models in medical device submissions~\cite{FDA2021}. ISO standard ISO/DTS 9491-1 is also 
+currently under development to provide requirements for predictive computational models in personalised medicine 
+research. Despite the paucity of guidance for ISCT model development, regulatory bodies have been receptive to the 
+idea of replacing clinical trials in part with simulation. In particular, the FDA has been amenable to assessing 
+computational model use to augment or replace arms of clinical trials. A mock submission was made to the FDA 
+assessing the use of augmenting clinical trials with simulations of virtual patients in assessing fatigue fracture 
+of cardiac leads\cite{Haddad2017a,Haddad2014}. Two main themes were highlighted from this mock submission to the FDA: early 2-way 
+communication is required between the team submitting and the FDA to highlight any concerns early on and; model 
+credibility (as discussed in Section 7.4) should be integral to the development work. Examples where approval for 
+devices based on simulations has been granted include approval of the safety of a pacemaker~\cite{Faris2017} and in insulin 
+control-loop algorithms replacing preclinical animal trials~\cite{Kovatchev2009}.
+
+Recent papers have introduced potential regulatory pathways for the acceptance of computational modelling and simulation 
+for medical devices both in Europe~\cite{Pappalardo2022a} and the USA~\cite{Morrison2018}. Whilst unified regulation doesn't exist yet for the 
+acceptance of computational modelling and simulation in clinical trials, it appears that regulatory bodies are 
+beginning to accept and draft regulation for this ISCT paradigm. For example, the FDA has the Medical Device Development 
+Tool that can be used for the evaluation of novel technologies for regulatory submission~\cite{MDDT2018}. It looks increasingly 
+likely that such regulation will be developed around the context-of-use of the model and the ASME Validation and 
+Verification 40 guidelines, providing an early indication as to how to setup future ISCTs.
 
 \section{Discussion}\label{sec:Conclusion}
 
