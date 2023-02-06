@@ -20,7 +20,8 @@
 
 \usepackage[super,numbers, sort&compress]{natbib}
 \bibliographystyle{abbrvnat}
-\usepackage{xltabular}
+\usepackage{caption}
+\captionsetup[table]{skip=10pt}
 
 \usepackage{siunitx}
 \sisetup{range-phrase=--, range-units=single}
@@ -83,8 +84,10 @@
 
 \section*{Glossary}\label{sec:Glossary}
 
-\begin{xltabular}{\paperheight}{ll}
-  \caption{List of abbreviations.}\\
+\begin{table}
+  \centering
+  \caption{List of abbreviations.\\}
+\begin{tabular}{ll}
   \toprule  % \hline
   \textbf{Term} & \textbf{Definition}                                       \\
   \midrule %\hline
@@ -128,7 +131,8 @@
   SVP           & Superficial vascular   plexus                             \\
   VEGF          & Vascular endothelial   growth factor        \\
   \bottomrule %\hline
-\end{xltabular}
+\end{tabular}
+\end{table}
 
 \section{Introduction}\label{sec:Introduction}
   
